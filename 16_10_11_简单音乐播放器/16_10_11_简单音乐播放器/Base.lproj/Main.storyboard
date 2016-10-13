@@ -30,35 +30,35 @@
                                 <frame key="frameInset" minX="16" minY="347" width="343" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" tag="1" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-bj-Bu9">
-                                <frame key="frameInset" minX="23" minY="552" width="79" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="previous" backgroundImage="player_btn_pre_normal.png">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="preOrNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FEf-bl-UaB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mew-RR-eSv">
-                                <frame key="frameInset" minX="156" minY="552" width="64" height="64"/>
+                                <frame key="frameInset" minX="155" minY="547" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="play" backgroundImage="player_btn_play_normal.png">
+                                <state key="normal" title="play" image="player_btn_play_normal.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="player_btn_pause_normal.png"/>
+                                <state key="selected" image="player_btn_pause_normal.png"/>
                                 <connections>
                                     <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ke5-s6-cu4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjB-tM-qMj">
-                                <frame key="frameInset" minX="280" minY="552" width="79" height="64"/>
+                                <frame key="frameInset" minX="276" minY="547" width="99" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="next" backgroundImage="player_btn_next_normal.png">
+                                <state key="normal" title="next" image="player_btn_next_normal.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="preOrNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9v0-rT-2xW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRz-bj-Bu9">
+                                <frame key="frameInset" minX="26" minY="547" width="69" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="previous" image="player_btn_pre_normal.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="preOrNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FEf-bl-UaB"/>
                                 </connections>
                             </button>
                         </subviews>
