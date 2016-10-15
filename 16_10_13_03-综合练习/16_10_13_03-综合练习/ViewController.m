@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Item.h"
+#import "itemView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *cartView;
@@ -85,35 +86,40 @@
 
     /**********2.向cartView中添加子项目****************/
 
-    UIView *itemView = [[UIView alloc] initWithFrame:CGRectMake(x, y, itemWidth, itemHeigh)];
-
-    itemView.backgroundColor = [UIColor grayColor];
-
-    [self.cartView addSubview:itemView];
-
-    //创建itemView中的UIImageView跟UILabel
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, itemWidth, itemWidth)];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, itemWidth, itemWidth, itemHeigh - itemWidth)];
-
-    //设置它们的背景颜色
-    iconView.backgroundColor = [UIColor blueColor];
-    titleLabel.backgroundColor = [UIColor yellowColor];
-    //设置标题居中显示
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-
-    //将其添加到单个的itemView当中
-    [itemView addSubview:iconView];
-    [itemView addSubview:titleLabel];
-
-    /**********3.加载数据****************/
-    //此处如果换成_data的写法, 则无法加载数据, 必须写成self.data,才能加载数据,
-    //因为第24行重写了data的get方法, 只有写self.data才能加载重写的方法, 才能加载
-    //数据, 而_data仅仅只是访问其成员变量, 而且是没有任何数据的成员变量, 所以才会出现null
-    Item *item = self.data[itemIndex];
-    iconView.image = [UIImage imageNamed:item.icon];
-    titleLabel.text = item.title;
 
 
+//
+//    UIView *itemVIew = [[UIView alloc] initWithFrame:CGRectMake(x, y, itemWidth, itemHeigh)];
+//
+//    itemVIew.backgroundColor = [UIColor grayColor];
+//
+//    [self.cartView addSubview:itemVIew];
+//
+//    //创建itemVIew中的UIImageView跟UILabel
+//    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, itemWidth, itemWidth)];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, itemWidth, itemWidth, itemHeigh - itemWidth)];
+//
+//    //设置它们的背景颜色
+//    iconView.backgroundColor = [UIColor blueColor];
+//    titleLabel.backgroundColor = [UIColor yellowColor];
+//    //设置标题居中显示
+//    titleLabel.textAlignment = NSTextAlignmentCenter;
+//
+//    //将其添加到单个的itemVIew当中
+//    [itemVIew addSubview:iconView];
+//    [itemVIew addSubview:titleLabel];
+//
+//    /**********3.加载数据****************/
+//    //此处如果换成_data的写法, 则无法加载数据, 必须写成self.data,才能加载数据,
+//    //因为第24行重写了data的get方法, 只有写self.data才能加载重写的方法, 才能加载
+//    //数据, 而_data仅仅只是访问其成员变量, 而且是没有任何数据的成员变量, 所以才会出现null
+//    Item *item = self.data[itemIndex];
+//    iconView.image = [UIImage imageNamed:item.icon];
+//    titleLabel.text = item.title;
+
+    itemVIew *item = [itemVIew itemWithItems:self.data[itemIndex]];
+    item.frame = CGRectMake(x, y, itemWidth, itemHeigh);
+    [self.cartView addSubview:item];
 
 
     /**********4.更改按钮的状态****************/
