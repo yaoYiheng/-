@@ -14,6 +14,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *cartView;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UILabel *showHUB;
 @property (weak, nonatomic) IBOutlet UIButton *removeButton;
 /** 数据数组*/
 @property (nonatomic, strong) NSArray *data;
@@ -72,7 +73,7 @@
  */
 - (IBAction)addItem:(UIButton *)sender {
 
-    /**********1.定义一些常量****************/
+        /**********1.定义一些常量****************/
     int col = 3;
     NSInteger itemIndex = self.cartView.subviews.count;
     CGFloat itemWidth = 100;
@@ -85,7 +86,7 @@
     CGFloat x = (hGap + itemWidth) * (itemIndex % col);
     CGFloat y = (vGap + itemHeigh) * (itemIndex / col);
 
-    /**********2.向cartView中添加子项目****************/
+        /**********2.向cartView中添加子项目****************/
 
     ItemView *itemView = [ItemView itemView];
     itemView.frame = CGRectMake(x, y, itemWidth, itemHeigh);
@@ -94,10 +95,15 @@
     [self.cartView addSubview:itemView];
     
 
-    /**********3.更改按钮的状态****************/
+        /**********3.更改按钮的状态****************/
     sender.enabled = (itemIndex != 5);
     _removeButton.enabled = YES;
-    
+
+        /**********4.更改showHUB的显示状态************/
+    if (itemIndex == 5) {
+
+        [self showWithInfo:@"购物车已满, 赶紧结账"];
+    }
 }
 
 /**
@@ -111,8 +117,36 @@
     UIView *lastView = [self.cartView.subviews lastObject];
     [lastView removeFromSuperview];
 
+
+    /**********4.更改showHUB的显示状态************/
+    if (self.cartView.subviews.count == 0) {
+
+        [self showWithInfo:@"购物车已空, 赶紧买买买"];
+
+
+    }
     _addButton.enabled = YES;
     sender.enabled = (self.cartView.subviews.count != 0);
+}
+
+/**
+ 添加渐变动画
+
+ @param info 传入不同状态下需要显示的字符串.
+ */
+-(void)showWithInfo:(NSString *)info
+{   //动画持续1s, 设置透明度为0, 并显示相应的字符串
+    [UIView animateWithDuration:1.0 animations:^{
+        self.showHUB.alpha = 1.0;
+        self.showHUB.text = info;
+    } completion:^(BOOL finished)
+     {
+         //动画结束后, 需要执行以下代码, 持续0.5s, 延迟1s执行, 将显示栏的透明度变为0.
+        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.showHUB.alpha = 0;
+        } completion:nil];
+    }];
+
 }
 
 @end
