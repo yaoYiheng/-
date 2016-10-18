@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "UIImage+YHExtention.h"
 
 @interface ViewController ()
+/** 按钮*/
+@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
 
 @end
 
@@ -17,15 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(40, 40, 100, 100);
-    [button1 setImage:[UIImage imageNamed:@"player_btn_pause_highlight@2x"] forState:UIControlStateNormal];
+    //创建image对象
+    UIImage *image = [UIImage resezableImageWithImageNage:@"chat_send_nor"];
+    //拿到image对象宽高
+//    CGFloat imageWidth = image.size.width;
+//    CGFloat imageHeight = image.size.height;
 
-    [button1 setBackgroundImage:[UIImage imageNamed:@"buttongreen.png"] forState:UIControlStateNormal];
+    //方式一
+//    UIImage *resezableImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(imageHeight * 0.5, imageWidth * 0.5, imageHeight * 0.5 -1, imageWidth * 0.5 - 1)];
 
-    [button1 setImage:[UIImage imageNamed:@"m1.png"] forState:UIControlStateHighlighted];
 
-    [self.view addSubview:button1];
+    //方式二
+//    UIImage *resezableImage = [image stretchableImageWithLeftCapWidth:imageWidth * 0.5 topCapHeight:imageHeight * 0.5];
+    [self.button setBackgroundImage:image forState:UIControlStateNormal];
+
+//    [self.button2 setBackgroundImage:resezableImage forState:UIControlStateNormal];
+
 }
 
 
