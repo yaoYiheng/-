@@ -35,11 +35,24 @@
     self.scorllView.contentSize = CGSizeMake(6*scrollViewWidth, 0);
 
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+
     
+}
+#pragma mark 定时器相关代码
+//开始定时器
+-(void)startAuto{
+   self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+}
+//停止定时器
+-(void)stopAuto{
+    [self.timer invalidate];
 }
 -(void)nextPage{
     NSInteger nextPage = self.pageControl.currentPage + 1;
+
+    if (nextPage == 6) {
+        nextPage = 0;
+    }
     [self.scorllView setContentOffset:CGPointMake(nextPage * _scorllView.frame.size.width, 0) animated:YES];
 
 
@@ -50,6 +63,15 @@
     self.pageControl.currentPage = page;
 }
 
+/**
+ 当用户开始拖拽时, 便停止自动播放功能.
+ */
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self stopAuto];
+}
 
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self startAuto];
+}
 
 @end
