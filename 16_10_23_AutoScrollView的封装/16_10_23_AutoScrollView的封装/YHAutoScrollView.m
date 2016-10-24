@@ -28,10 +28,15 @@
 -(void)setImageNames:(NSArray *)imageNames{
     _imageNames = imageNames;
 
+    //0.移除之前添加的
+    //让subviews这个数组中的每一个对象都执行removeFromSuperview
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     //1.根据传入的图片名创建ImageView并添加到scrollView中
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGFloat scrollViewHeight = self.scrollView.frame.size.height;
+
     NSInteger count = imageNames.count;
+    
     for (int i = 0; i <count; i++) {
         NSString *imageName = imageNames[i];
         UIImage *image = [UIImage imageNamed:imageName];
