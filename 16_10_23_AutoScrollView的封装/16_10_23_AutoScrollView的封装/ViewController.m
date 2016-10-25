@@ -19,9 +19,9 @@
 
     YHAutoScrollView *autoScrollView = [YHAutoScrollView autoScrollView];
     autoScrollView.imageNames = @[@"1", @"2", @"3", @"4"];
-//    autoScrollView.frame = CGRectMake(0, 0, 300, 300);
+    autoScrollView.frame = CGRectMake(20, 30, 300, 200);
 
-    autoScrollView.center = self.view.center;
+//    autoScrollView.center = self.view.center;
     [self.view addSubview:autoScrollView];
 
 }
