@@ -18,10 +18,10 @@
     [super viewDidLoad];
 
     YHAutoScrollView *autoScrollView = [YHAutoScrollView autoScrollView];
+    autoScrollView.center = self.view.center;
     autoScrollView.imageNames = @[@"1", @"2", @"3", @"4"];
-    autoScrollView.frame = CGRectMake(20, 30, 300, 200);
+    autoScrollView.frame = CGRectMake(20, 300, 150, 100);
 
-//    autoScrollView.center = self.view.center;
     [self.view addSubview:autoScrollView];
 
 }
