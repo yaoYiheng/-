@@ -10,6 +10,7 @@
 #import "YHCar.h"
 
 @implementation YHGroupOfCars
+//通过传入的字典, 将字典转化为模型.
 +(instancetype)groupOfCarsWithDictionary:(NSDictionary *)dict{
     YHGroupOfCars *group = [[YHGroupOfCars alloc] init];
     group.header = dict[@"header"];

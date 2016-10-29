@@ -30,6 +30,7 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"cars.plist" ofType:nil];
         NSArray *carsArray = [NSArray arrayWithContentsOfFile:path];
 
+        //将数组文件转化为模型, 并添加到dataArray中
         NSMutableArray *tmp = [NSMutableArray array];
         for (NSDictionary *carGroup in carsArray) {
             YHGroupOfCars *cars = [YHGroupOfCars groupOfCarsWithDictionary:carGroup];
@@ -42,9 +43,22 @@
     return _dataArray;
     
 }
+
+/**
+ 告诉控制器一共有多少组数据
+
+ @return 模型数组中有多少元素即返回多少组需要显示的内容
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataArray.count;
 }
+
+/**
+ 告诉控制器每一组元素中需要显示多少行数据
+
+
+ @return 拿到对应组的模型, 返回模型中cars成员变量(数组)的个数.
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     YHGroupOfCars *cars = _dataArray[section];
     return cars.cars.count;
@@ -83,5 +97,12 @@
 #pragma mark 设置每行的宽度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
+}
+
+
+#pragma mark 监听cell的点击
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSLog(@"第%ld组第%ld行被点击了", (long)indexPath.section, (long)indexPath.row);
 }
 @end

@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+/**
+ 根据plist文件, 将数据封装到模型中
+ 分别对应的是两个NSString 对象与一个 NSArray对象.
+ */
 @interface YHGroupOfCars : NSObject
 /** 头部标题*/
 @property (nonatomic, strong) NSString *header;
