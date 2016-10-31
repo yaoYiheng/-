@@ -54,6 +54,10 @@
         make.height.mas_equalTo(100);
     }];
 
+    //删除之前所有约束, 并添加新约束
+//    [redView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        do something
+//    }];
 }
 
 /**
