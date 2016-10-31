@@ -10,13 +10,19 @@
 
 @implementation YHCar
 
+- (instancetype)initWithDictionary:(NSDictionary *)dict{
+    if (self = [super init]) {
+
+        self.carIcon = dict[@"icon"];
+        self.carName = dict[@"name"];
+    }
+    return self;
+}
+
 
 + (instancetype)carWithDictionary:(NSDictionary *)dict{
-    YHCar *car = [[YHCar alloc] init];
 
-    car.carIcon = dict[@"icon"];
-    car.carName = dict[@"name"];
-    return car;
+    return [[self alloc] initWithDictionary:dict];
 }
 
 @end

@@ -14,5 +14,5 @@
 /** 车图标*/
 @property (nonatomic, strong) NSString *carIcon;
 + (instancetype)carWithDictionary:(NSDictionary *)dict;
-
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 @end
