@@ -23,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //设置索引条的文字颜色
+    self.tableView.sectionIndexColor = [UIColor redColor];
+
+    //设置索引条的背景颜色
+    self.tableView.sectionIndexBackgroundColor = [UIColor yellowColor];
 
 }
 #pragma mark 懒加载数据源数组
@@ -90,5 +95,20 @@
     return carGroup.title;
 }
 
+/**
+ 返回索引条字符串数组.
+ 该方法会返回一个字符串数组, 作为索引条.
+ */
+- (NSArray <NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
 
+    NSMutableArray *titleArray = [NSMutableArray array];
+    for (YHCarGroups *carGroup in self.allData) {
+        [titleArray addObject:carGroup.title];
+    }
+    return titleArray;
+
+
+    return [self.allData valueForKeyPath:@"title"];
+
+}
 @end
