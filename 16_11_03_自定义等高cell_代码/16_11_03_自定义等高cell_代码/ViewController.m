@@ -14,6 +14,7 @@
 
 /** 数据*/
 @property (nonatomic, strong) NSArray *dataArray;
+
 @end
 
 @implementation ViewController
