@@ -7,6 +7,7 @@
 //
 
 #import "YHTableViewCell.h"
+#import "YHTgCell.h"
 @interface YHTableViewCell()
 /** 图片*/
 @property (nonatomic, weak) UIImageView *iconImageView;
@@ -29,7 +30,7 @@
 
         //初始化子控件, 并将子控件们都添加到 self.contentView 中
         UIImageView *iconImageView = [[UIImageView alloc] init];
-        iconImageView.backgroundColor = [UIColor redColor];
+
         [self.contentView addSubview:iconImageView];
         //不要忘记这一步
         self.iconImageView = iconImageView;
@@ -39,10 +40,14 @@
         self.titleLabel = titleLabel;
 
         UILabel *priceLabel = [[UILabel alloc] init];
+        priceLabel.textColor = [UIColor orangeColor];
         [self.contentView addSubview:priceLabel];
         self.priceLabel = priceLabel;
 
         UILabel *buyCountLabel = [[UILabel alloc] init];
+        buyCountLabel.textAlignment = NSTextAlignmentRight;
+        buyCountLabel.font = [UIFont systemFontOfSize:14];
+        buyCountLabel.textColor = [UIColor lightGrayColor];
         [self.contentView addSubview:buyCountLabel];
         self.buyCountLabel = buyCountLabel;
     }
@@ -85,7 +90,15 @@
     self.buyCountLabel.frame = CGRectMake(buyX, buyY, buyW, buyH);
 
 }
+//重写set方法, 在这里设置数据.
+- (void)setTgCell:(YHTgCell *)tgCell{
+    _tgCell = tgCell;
 
+    self.iconImageView.image = [UIImage imageNamed:tgCell.icon];
+    self.titleLabel.text = tgCell.title;
+    self.priceLabel.text = [NSString stringWithFormat:@"¥%@", tgCell.price];
+    self.buyCountLabel.text = [NSString stringWithFormat:@"%@人已购买", tgCell.buyCount];
+}
 
 
 

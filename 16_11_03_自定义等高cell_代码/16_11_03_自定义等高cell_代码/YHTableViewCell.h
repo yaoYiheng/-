@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class YHTgCell;
 @interface YHTableViewCell : UITableViewCell
+/** <#comments#>*/
+@property (nonatomic, strong) YHTgCell *tgCell;
 
 @end

@@ -14,6 +14,8 @@
 		A588B5851DCB2E290076C0D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A588B5841DCB2E290076C0D0 /* Assets.xcassets */; };
 		A588B5881DCB2E2A0076C0D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A588B5861DCB2E2A0076C0D0 /* LaunchScreen.storyboard */; };
 		A588B5911DCB2F960076C0D0 /* YHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A588B5901DCB2F960076C0D0 /* YHTableViewCell.m */; };
+		A588B5931DCB38650076C0D0 /* tgs.plist in Resources */ = {isa = PBXBuildFile; fileRef = A588B5921DCB38650076C0D0 /* tgs.plist */; };
+		A588B5961DCB388B0076C0D0 /* YHTgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A588B5951DCB388B0076C0D0 /* YHTgCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		A588B5891DCB2E2A0076C0D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A588B58F1DCB2F960076C0D0 /* YHTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTableViewCell.h; sourceTree = "<group>"; };
 		A588B5901DCB2F960076C0D0 /* YHTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTableViewCell.m; sourceTree = "<group>"; };
+		A588B5921DCB38650076C0D0 /* tgs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tgs.plist; sourceTree = "<group>"; };
+		A588B5941DCB388B0076C0D0 /* YHTgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTgCell.h; sourceTree = "<group>"; };
+		A588B5951DCB388B0076C0D0 /* YHTgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTgCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			children = (
 				A588B5771DCB2E290076C0D0 /* 16_11_03_自定义等高cell_代码 */,
 				A588B5761DCB2E290076C0D0 /* Products */,
+				A588B5921DCB38650076C0D0 /* tgs.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +73,8 @@
 				A588B57F1DCB2E290076C0D0 /* ViewController.m */,
 				A588B58F1DCB2F960076C0D0 /* YHTableViewCell.h */,
 				A588B5901DCB2F960076C0D0 /* YHTableViewCell.m */,
+				A588B5941DCB388B0076C0D0 /* YHTgCell.h */,
+				A588B5951DCB388B0076C0D0 /* YHTgCell.m */,
 				A588B5811DCB2E290076C0D0 /* Main.storyboard */,
 				A588B5841DCB2E290076C0D0 /* Assets.xcassets */,
 				A588B5861DCB2E2A0076C0D0 /* LaunchScreen.storyboard */,
@@ -144,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A588B5881DCB2E2A0076C0D0 /* LaunchScreen.storyboard in Resources */,
+				A588B5931DCB38650076C0D0 /* tgs.plist in Resources */,
 				A588B5851DCB2E290076C0D0 /* Assets.xcassets in Resources */,
 				A588B5831DCB2E290076C0D0 /* Main.storyboard in Resources */,
 			);
@@ -158,6 +167,7 @@
 			files = (
 				A588B5911DCB2F960076C0D0 /* YHTableViewCell.m in Sources */,
 				A588B5801DCB2E290076C0D0 /* ViewController.m in Sources */,
+				A588B5961DCB388B0076C0D0 /* YHTgCell.m in Sources */,
 				A588B57D1DCB2E290076C0D0 /* AppDelegate.m in Sources */,
 				A588B57A1DCB2E290076C0D0 /* main.m in Sources */,
 			);
