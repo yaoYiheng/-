@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "YHTgCell.h"
 #import "YHTableViewCell.h"
-
+#import "MJExtension.h"
 @interface ViewController ()
 
 /** 数据数组*/
@@ -24,7 +24,10 @@ NSString *ID = @"id";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YHTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+
     self.tableView.rowHeight = 80;
 }
 
@@ -51,13 +54,29 @@ NSString *ID = @"id";
     if (!_dataArray) {
 
         NSArray *dataInBundle = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tgs.plist" ofType:nil]];
+//
+//        NSMutableArray *temp = [NSMutableArray array];
+//        for (NSDictionary *tgInDict in dataInBundle) {
+//            YHTgCell *tgCell = [[YHTgCell alloc] initWithDictionary:tgInDict];
+//            [temp addObject:tgCell];
+//        }
+//        _dataArray = temp;
 
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSDictionary *tgInDict in dataInBundle) {
-            YHTgCell *tgCell = [[YHTgCell alloc] initWithDictionary:tgInDict];
-            [temp addObject:tgCell];
-        }
-        _dataArray = temp;
+        //传入字典数组, 可能是从网络上获取的, 可以调用以下方法.
+        //通过字典数组来创建一个模型数组
+
+        _dataArray = [YHTgCell mj_objectArrayWithKeyValuesArray:dataInBundle];
+
+
+        //调用该方法传入 plist文件路径 返回一个装有 调用该方法的模型 的数组.
+
+        _dataArray = [YHTgCell mj_objectArrayWithFile:[[NSBundle mainBundle] pathForResource:@"tgs.plist" ofType:nil]];
+
+        //调用该方法 传入 plist文件 返回一个装有 调用该方法的模型 的数组.
+
+        _dataArray = [YHTgCell mj_objectArrayWithFilename:@"tgs.plist"];
+
+
     }
     return _dataArray;
 }

@@ -9,21 +9,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="YHTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="339" height="98"/>
+            <rect key="frame" x="0.0" y="0.0" width="339" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="339" height="98"/>
+                <frame key="frameInset" width="339" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NFy-wM-e05">
                         <constraints>
-                            <constraint firstAttribute="width" constant="95" id="2Z0-qv-grZ"/>
-                            <constraint firstAttribute="height" constant="80" id="frq-tJ-4US"/>
+                            <constraint firstAttribute="width" constant="80" id="08Q-yP-Ft9"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-R0-zH5">
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="6oZ-0f-PjT"/>
+                            <constraint firstAttribute="height" constant="20" id="Fwd-xC-c9i"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -41,19 +40,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qzU-by-4Bx" firstAttribute="trailing" secondItem="bgt-R0-zH5" secondAttribute="trailing" id="0fZ-iQ-FDL"/>
-                    <constraint firstItem="NFy-wM-e05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8bc-NU-2xK"/>
-                    <constraint firstItem="bgt-R0-zH5" firstAttribute="leading" secondItem="NFy-wM-e05" secondAttribute="trailing" constant="10" id="9yW-xi-Zbv"/>
-                    <constraint firstItem="NFy-wM-e05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Ps6-F7-JJh"/>
-                    <constraint firstAttribute="trailing" secondItem="bgt-R0-zH5" secondAttribute="trailing" constant="10" id="Uwc-7C-V2v"/>
-                    <constraint firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" constant="10" id="V5n-VM-NQx"/>
-                    <constraint firstItem="NFy-wM-e05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cx3-Yr-rh0"/>
-                    <constraint firstItem="bgt-R0-zH5" firstAttribute="top" secondItem="NFy-wM-e05" secondAttribute="top" id="kAC-84-zPl"/>
-                    <constraint firstItem="qzU-by-4Bx" firstAttribute="bottom" secondItem="sqR-J5-tY9" secondAttribute="bottom" id="lTq-lp-VR6"/>
-                    <constraint firstItem="sqR-J5-tY9" firstAttribute="leading" secondItem="bgt-R0-zH5" secondAttribute="leading" id="nVk-cF-djp"/>
-                    <constraint firstItem="sqR-J5-tY9" firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" id="nYU-vJ-eCO"/>
-                    <constraint firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" constant="10" id="oR7-c3-lCF"/>
-                    <constraint firstItem="NFy-wM-e05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="x0X-Oi-xEf"/>
+                    <constraint firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" constant="10" id="CmS-Su-ixm"/>
+                    <constraint firstItem="qzU-by-4Bx" firstAttribute="trailing" secondItem="bgt-R0-zH5" secondAttribute="trailing" id="EJL-cw-Yr4"/>
+                    <constraint firstItem="sqR-J5-tY9" firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" id="I2D-Od-XQz"/>
+                    <constraint firstItem="bgt-R0-zH5" firstAttribute="leading" secondItem="NFy-wM-e05" secondAttribute="trailing" constant="10" id="JZe-2j-Wpq"/>
+                    <constraint firstAttribute="trailing" secondItem="bgt-R0-zH5" secondAttribute="trailing" constant="10" id="SfT-4l-iZh"/>
+                    <constraint firstItem="sqR-J5-tY9" firstAttribute="leading" secondItem="bgt-R0-zH5" secondAttribute="leading" id="WCU-GE-33Y"/>
+                    <constraint firstItem="NFy-wM-e05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kSE-ux-GIc"/>
+                    <constraint firstItem="NFy-wM-e05" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qHv-15-6me"/>
+                    <constraint firstItem="bgt-R0-zH5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="scT-gS-Mag"/>
+                    <constraint firstItem="qzU-by-4Bx" firstAttribute="bottom" secondItem="NFy-wM-e05" secondAttribute="bottom" id="t11-uY-gkE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -62,7 +58,7 @@
                 <outlet property="priceLabel" destination="sqR-J5-tY9" id="cr0-8L-7mv"/>
                 <outlet property="titleLabel" destination="bgt-R0-zH5" id="drT-WX-0vp"/>
             </connections>
-            <point key="canvasLocation" x="45" y="47"/>
+            <point key="canvasLocation" x="88.5" y="-61"/>
         </tableViewCell>
     </objects>
 </document>
