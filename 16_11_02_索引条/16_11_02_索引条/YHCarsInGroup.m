@@ -10,16 +10,16 @@
 
 @implementation YHCarsInGroup
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict{
-
-    if (self = [super init]) {
-        self.carName = dict[@"name"];
-        self.icon = dict[@"icon"];
-    }
-    return self;
-}
-+ (instancetype)carInGroupWithDictionary:(NSDictionary *)dict{
-    return [[self alloc] initWithDictionary:dict];
-}
+//- (instancetype)initWithDictionary:(NSDictionary *)dict{
+//
+//    if (self = [super init]) {
+//        self.carName = dict[@"name"];
+//        self.icon = dict[@"icon"];
+//    }
+//    return self;
+//}
+//+ (instancetype)carInGroupWithDictionary:(NSDictionary *)dict{
+//    return [[self alloc] initWithDictionary:dict];
+//}
 
 @end

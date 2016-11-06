@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "YHCarsInGroup.h"
 #import "YHCarGroups.h"
+#import "MJExtension.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 /** 数据源数组*/
@@ -34,16 +35,22 @@
 - (NSArray *)allData{
     if (!_allData) {
         //从mainBundle中加载数据
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"cars" ofType:@"plist"];
-        NSArray *dataFromBundle = [NSArray arrayWithContentsOfFile:path];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:@"cars" ofType:@"plist"];
+//        NSArray *dataFromBundle = [NSArray arrayWithContentsOfFile:path];
+//
+//        //遍历dataFromBundle, 传入字典, 将字典转化为模型, 加入到_allData中
+//        NSMutableArray *temp = [NSMutableArray array];
+//        for (NSDictionary *carGroupsInDict in dataFromBundle) {
+//            YHCarGroups *carGroup = [YHCarGroups carGroupWithDictionary:carGroupsInDict];
+//            [temp addObject:carGroup];
+//        }
+//        _allData = temp;
 
-        //遍历dataFromBundle, 传入字典, 将字典转化为模型, 加入到_allData中
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSDictionary *carGroupsInDict in dataFromBundle) {
-            YHCarGroups *carGroup = [YHCarGroups carGroupWithDictionary:carGroupsInDict];
-            [temp addObject:carGroup];
-        }
-        _allData = temp;
+//        [YHCarGroups mj_setupObjectClassInArray:^NSDictionary *{
+//            NSLog(@"====");
+//            return @{@"carArrays": [YHCarsInGroup class]};
+//        }];
+        _allData = [YHCarGroups mj_objectArrayWithFilename:@"cars.plist"];
 
     }
     return _allData;

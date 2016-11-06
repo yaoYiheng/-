@@ -16,7 +16,7 @@
 /** 车数组*/
 @property (nonatomic, strong) NSArray *carArrays;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-+ (instancetype)carGroupWithDictionary:(NSDictionary *)dict;
+//- (instancetype)initWithDictionary:(NSDictionary *)dict;
+//+ (instancetype)carGroupWithDictionary:(NSDictionary *)dict;
 
 @end

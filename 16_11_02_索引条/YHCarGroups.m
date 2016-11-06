@@ -8,28 +8,31 @@
 
 #import "YHCarGroups.h"
 #import "YHCarsInGroup.h"
-
+#import "MJExtension.h"
 @implementation YHCarGroups
-- (instancetype)initWithDictionary:(NSDictionary *)dict{
-    if (self = [super init]) {
+//- (instancetype)initWithDictionary:(NSDictionary *)dict{
+//    if (self = [super init]) {
+//
+//        self.title = dict[@"title"];
+//
+//        NSMutableArray *temp = [NSMutableArray array];
+//        for (NSDictionary *carsDict in dict[@"cars"])
+//        {
+//            YHCarsInGroup *carsInGroup = [[YHCarsInGroup alloc] initWithDictionary:carsDict];
+//            [temp addObject:carsInGroup];
+//
+//        }
+//        self.carArrays = temp;
+//    }
+//    return  self;
+//
+//}
+//+ (instancetype)carGroupWithDictionary:(NSDictionary *)dict{
+//
+//    return [[self alloc] initWithDictionary:dict];
+//}
 
-        self.title = dict[@"title"];
-
-        NSMutableArray *temp = [NSMutableArray array];
-        for (NSDictionary *carsDict in dict[@"cars"])
-        {
-            YHCarsInGroup *carsInGroup = [[YHCarsInGroup alloc] initWithDictionary:carsDict];
-            [temp addObject:carsInGroup];
-
-        }
-        self.carArrays = temp;
-    }
-    return  self;
-
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"carArrays": [YHCarsInGroup class]};
 }
-+ (instancetype)carGroupWithDictionary:(NSDictionary *)dict{
-
-    return [[self alloc] initWithDictionary:dict];
-}
-
 @end
