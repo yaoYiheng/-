@@ -19,7 +19,7 @@
 
 @implementation ViewController
 
-NSString *ID = @"id";
+NSString *ID = @"TG";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,11 +29,11 @@ NSString *ID = @"id";
     [self.tableView registerClass:[YHTableViewCell class] forCellReuseIdentifier:ID];
 }
 
+#pragma mark 返回行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
-
-
+#pragma mark 返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     YHTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -42,7 +42,7 @@ NSString *ID = @"id";
 
     return cell;
 }
-//懒加载数组
+#pragma mark 懒加载数组
 - (NSArray *)dataArray{
     if (!_dataArray) {
 

@@ -19,7 +19,6 @@
     return self;
 }
 
-
 + (instancetype)tgcellWithDictionary:(NSDictionary *)dict{
 
     return [[self alloc] initWithDictionary:dict];

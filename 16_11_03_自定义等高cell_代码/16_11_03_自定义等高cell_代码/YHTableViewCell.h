@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class YHTgCell;
+
 @interface YHTableViewCell : UITableViewCell
-/** <#comments#>*/
+/** 团购cell模型*/
 @property (nonatomic, strong) YHTgCell *tgCell;
 
 @end
