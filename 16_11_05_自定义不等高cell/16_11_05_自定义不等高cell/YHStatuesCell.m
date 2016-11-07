@@ -71,56 +71,11 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
 
-    CGFloat space = 10;
-
-    /**头像图片 */
-    CGFloat iconX = space;
-    CGFloat iconY = space;
-    CGFloat iconWH = 30;
-    self.iconImageView.frame = CGRectMake(iconX, iconY, iconWH, iconWH);
-
-    /**昵称 */
-    CGFloat nameX = CGRectGetMaxX(self.iconImageView.frame) + space;
-    CGFloat nameY = space;
-
-    NSDictionary *nameAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:17]};
-
-    CGSize nameSize = [self.statuses.name sizeWithAttributes:nameAttribute];
-    CGFloat nameW = nameSize.width;
-    CGFloat nameH = nameSize.height;
-
-    self.nameLabel.frame = CGRectMake(nameX, nameY, nameW, nameH);
-
-    /**微博内容 */
-    CGFloat contentX = iconX;
-    CGFloat contentY = CGRectGetMaxY(self.iconImageView.frame) + space;
-    CGFloat contentW = self.contentView.frame.size.width - 2 *space;
-
-    NSDictionary *contentAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
-    CGSize contentSize = CGSizeMake(contentW, MAXFLOAT);
-
-
-    CGFloat contentH = [self.statuses.text boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contentAttribute context:nil].size.height;
-
-    self.contentLabel.frame = CGRectMake(contentX, contentY, contentW, contentH);
-
-    /**VIP */
-    if (self.statuses.vip) {
-        CGFloat vipX = CGRectGetMaxX(self.nameLabel.frame) + space;
-        CGFloat vipY = nameY;
-        CGFloat vipW = 14;
-        CGFloat vipH = nameH;
-        self.vipImageView.frame = CGRectMake(vipX, vipY, vipW, vipH);
-    }
-
-
-    /**微博图片 */
-    if (self.pictureImageView) {
-        CGFloat pictureX = space;
-        CGFloat pictureY = CGRectGetMaxY(self.contentLabel.frame) + space;
-        CGFloat pictureWH = 150;
-        self.pictureImageView.frame = CGRectMake(pictureX, pictureY, pictureWH, pictureWH);
-    }
+    self.iconImageView.frame = self.statuses.iconFrame;
+    self.contentLabel.frame =  self.statuses.textFrame;
+    self.vipImageView.frame = self.statuses.vipFrame;
+    self.pictureImageView.frame = self.statuses.pictureFrame;
+    self.nameLabel.frame = self.statuses.nameFrame;
 
 
 }

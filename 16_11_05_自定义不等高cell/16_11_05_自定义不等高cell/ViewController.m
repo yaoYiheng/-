@@ -66,13 +66,23 @@ NSString *ID = @"weibo";
     CGFloat iconX = space;
     CGFloat iconY = space;
     CGFloat iconWH = 30;
-    CGRect iconImageViewFrame = CGRectMake(iconX, iconY, iconWH, iconWH);
+    statuses.iconFrame = CGRectMake(iconX, iconY, iconWH, iconWH);
 
+    /**昵称 */
+    CGFloat nameX = CGRectGetMaxX(statuses.iconFrame) + space;
+    CGFloat nameY = space;
 
+    NSDictionary *nameAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:17]};
+
+    CGSize nameSize = [statuses.name sizeWithAttributes:nameAttribute];
+    CGFloat nameW = nameSize.width;
+    CGFloat nameH = nameSize.height;
+
+    statuses.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);
 
     /**微博内容 */
     CGFloat contentX = iconX;
-    CGFloat contentY = CGRectGetMaxY(iconImageViewFrame) + space;
+    CGFloat contentY = CGRectGetMaxY(statuses.iconFrame) + space;
     CGFloat contentW = self.view.frame.size.width - 2 *space;
 
     NSDictionary *contentAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
@@ -81,21 +91,29 @@ NSString *ID = @"weibo";
 
     CGFloat contentH = [statuses.text boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contentAttribute context:nil].size.height;
 
-    CGRect contentLabelFrame = CGRectMake(contentX, contentY, contentW, contentH);
+    statuses.textFrame = CGRectMake(contentX, contentY, contentW, contentH);
+
+    /**VIP */
+    if (statuses.vip) {
+        CGFloat vipX = CGRectGetMaxX(statuses.nameFrame) + space;
+        CGFloat vipY = nameY;
+        CGFloat vipW = 14;
+        CGFloat vipH = nameH;
+        statuses.vipFrame = CGRectMake(vipX, vipY, vipW, vipH);
+    }
 
 
     /**微博图片 */
     if (statuses.picture) {
         CGFloat pictureX = space;
-        CGFloat pictureY = CGRectGetMaxY(contentLabelFrame) + space;
+        CGFloat pictureY = CGRectGetMaxY(statuses.textFrame) + space;
         CGFloat pictureWH = 150;
-        CGRect pictureImageViewFrame = CGRectMake(pictureX, pictureY, pictureWH, pictureWH);
+        statuses.pictureFrame = CGRectMake(pictureX, pictureY, pictureWH, pictureWH);
 
-        //如果有图片, cell的高度为图片最大Y值+间距
-        cellHeight = CGRectGetMaxY(pictureImageViewFrame) + space;
-    }else
-    {   //没有图片, 正文内容加上间距
-        cellHeight = CGRectGetMaxY(contentLabelFrame) + space;
+        cellHeight = CGRectGetMaxY(statuses.pictureFrame) + space;
+    }
+    else{
+        cellHeight = CGRectGetMaxY(statuses.textFrame) + space;
     }
 
 

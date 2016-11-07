@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface YHStatus : NSObject
 /** 微博内容*/
@@ -22,5 +23,18 @@
 
 //- (instancetype)initWithDictionary:(NSDictionary *)dict;
 //+ (instancetype)statusWithDictionary:(NSDictionary *)dict;
+
+/**头像*/
+@property (nonatomic, assign) CGRect iconFrame;
+/**内容*/
+@property (nonatomic, assign) CGRect textFrame;
+/**vip*/
+@property (nonatomic, assign) CGRect vipFrame;
+/**昵称*/
+@property (nonatomic, assign) CGRect nameFrame;
+/**图片*/
+@property (nonatomic, assign) CGRect pictureFrame;
+
+
 
 @end
