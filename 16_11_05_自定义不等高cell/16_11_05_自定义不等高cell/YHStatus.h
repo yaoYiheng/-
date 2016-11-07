@@ -20,7 +20,7 @@
 /**是否会员*/
 @property (nonatomic, assign, getter=isVip) BOOL vip;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-+ (instancetype)statusWithDictionary:(NSDictionary *)dict;
+//- (instancetype)initWithDictionary:(NSDictionary *)dict;
+//+ (instancetype)statusWithDictionary:(NSDictionary *)dict;
 
 @end

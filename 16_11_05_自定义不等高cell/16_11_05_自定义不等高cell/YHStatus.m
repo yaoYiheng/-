@@ -10,14 +10,14 @@
 
 @implementation YHStatus
 
-- (instancetype)initWithDictionary:(NSDictionary *)dict{
-    if (self = [super init]) {
-        [self setValuesForKeysWithDictionary:dict];
-    }
-    return self;
-}
-+ (instancetype)statusWithDictionary:(NSDictionary *)dict{
-    return [[self alloc] initWithDictionary:dict];
-}
+//- (instancetype)initWithDictionary:(NSDictionary *)dict{
+//    if (self = [super init]) {
+//        [self setValuesForKeysWithDictionary:dict];
+//    }
+//    return self;
+//}
+//+ (instancetype)statusWithDictionary:(NSDictionary *)dict{
+//    return [[self alloc] initWithDictionary:dict];
+//}
 
 @end
