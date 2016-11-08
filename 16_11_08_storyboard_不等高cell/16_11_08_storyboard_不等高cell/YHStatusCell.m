@@ -22,6 +22,12 @@
 
 @end
 @implementation YHStatusCell
+- (void)awakeFromNib{
+    [super awakeFromNib];
+
+    //手动设置文字的最大宽度,(让label能够计算出自己最真实的尺寸)
+    self.text_Label.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - 20;
+}
 
 
 - (void)setStatus:(YHStatus *)status{
@@ -53,4 +59,17 @@
 
 }
 
+- (CGFloat)cellHeight{
+    // 强制刷新(label根据约束自动计算它的宽度和高度)
+    [self layoutIfNeeded];
+
+    CGFloat cellHeight = 0;
+    if (self.status.picture) { // 有配图
+        cellHeight = CGRectGetMaxY(self.pictureImageView.frame) + 10;
+    } else { // 无配图
+        cellHeight = CGRectGetMaxY(self.text_Label.frame) + 10;
+    }
+    return cellHeight;
+
+}
 @end

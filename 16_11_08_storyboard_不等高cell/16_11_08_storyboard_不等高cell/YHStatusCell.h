@@ -14,4 +14,6 @@
 /** 模型数据*/
 @property (nonatomic, strong) YHStatus *status;
 
+- (CGFloat)cellHeight;
+
 @end
