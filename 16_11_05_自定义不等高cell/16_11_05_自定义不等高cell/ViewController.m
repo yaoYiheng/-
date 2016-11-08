@@ -53,71 +53,14 @@ NSString *ID = @"weibo";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    //声明高度初始化为0
-    CGFloat cellHeight = 0;
+
 
     //拿到对应行的Status
     YHStatus *statuses = self.statusData[indexPath.row];
 
-    /** 重新计算影响cell高度的子控件并返回新高度.*/
-    CGFloat space = 10;
-
-    /**头像图片 */
-    CGFloat iconX = space;
-    CGFloat iconY = space;
-    CGFloat iconWH = 30;
-    statuses.iconFrame = CGRectMake(iconX, iconY, iconWH, iconWH);
-
-    /**昵称 */
-    CGFloat nameX = CGRectGetMaxX(statuses.iconFrame) + space;
-    CGFloat nameY = space;
-
-    NSDictionary *nameAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:17]};
-
-    CGSize nameSize = [statuses.name sizeWithAttributes:nameAttribute];
-    CGFloat nameW = nameSize.width;
-    CGFloat nameH = nameSize.height;
-
-    statuses.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);
-
-    /**微博内容 */
-    CGFloat contentX = iconX;
-    CGFloat contentY = CGRectGetMaxY(statuses.iconFrame) + space;
-    CGFloat contentW = self.view.frame.size.width - 2 *space;
-
-    NSDictionary *contentAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
-    CGSize contentSize = CGSizeMake(contentW, MAXFLOAT);
 
 
-    CGFloat contentH = [statuses.text boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:contentAttribute context:nil].size.height;
-
-    statuses.textFrame = CGRectMake(contentX, contentY, contentW, contentH);
-
-    /**VIP */
-    if (statuses.vip) {
-        CGFloat vipX = CGRectGetMaxX(statuses.nameFrame) + space;
-        CGFloat vipY = nameY;
-        CGFloat vipW = 14;
-        CGFloat vipH = nameH;
-        statuses.vipFrame = CGRectMake(vipX, vipY, vipW, vipH);
-    }
-
-
-    /**微博图片 */
-    if (statuses.picture) {
-        CGFloat pictureX = space;
-        CGFloat pictureY = CGRectGetMaxY(statuses.textFrame) + space;
-        CGFloat pictureWH = 150;
-        statuses.pictureFrame = CGRectMake(pictureX, pictureY, pictureWH, pictureWH);
-
-        cellHeight = CGRectGetMaxY(statuses.pictureFrame) + space;
-    }
-    else{
-        cellHeight = CGRectGetMaxY(statuses.textFrame) + space;
-    }
-
-
-    return cellHeight;
+    return statuses.cellHeight;
 }
 
 @end

@@ -67,18 +67,11 @@
     }
     return self;
 }
-#pragma mark 在该方法中设置子控件宽高与位置
-- (void)layoutSubviews{
-    [super layoutSubviews];
-
-    self.iconImageView.frame = self.statuses.iconFrame;
-    self.contentLabel.frame =  self.statuses.textFrame;
-    self.vipImageView.frame = self.statuses.vipFrame;
-    self.pictureImageView.frame = self.statuses.pictureFrame;
-    self.nameLabel.frame = self.statuses.nameFrame;
-
-
-}
+//#pragma mark 在该方法中设置子控件宽高与位置
+//- (void)layoutSubviews{
+//    [super layoutSubviews];
+//
+//}
 
 -(void)setStatuses:(YHStatus *)statuses{
 
@@ -102,6 +95,12 @@
     else{
         self.pictureImageView.hidden = YES;
     }
+
+    self.iconImageView.frame = self.statuses.iconFrame;
+    self.contentLabel.frame =  self.statuses.textFrame;
+    self.vipImageView.frame = self.statuses.vipFrame;
+    self.pictureImageView.frame = self.statuses.pictureFrame;
+    self.nameLabel.frame = self.statuses.nameFrame;
 
 }
 

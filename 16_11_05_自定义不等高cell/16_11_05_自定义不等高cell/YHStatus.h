@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface YHStatus : NSObject
+
 /** 微博内容*/
 @property (nonatomic, strong) NSString *text;
 /** 微博头像*/
@@ -34,6 +35,8 @@
 @property (nonatomic, assign) CGRect nameFrame;
 /**图片*/
 @property (nonatomic, assign) CGRect pictureFrame;
+/**cell的高度*/
+@property (nonatomic, assign) CGFloat cellHeight;
 
 
 
