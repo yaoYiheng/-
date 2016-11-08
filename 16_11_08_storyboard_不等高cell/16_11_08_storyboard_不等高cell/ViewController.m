@@ -44,9 +44,10 @@
 
     return self.statusData.count;
 }
+NSString * ID = @"status";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    static NSString * ID = @"status";
+
 
     YHStatusCell *statusCell = [tableView dequeueReusableCellWithIdentifier:ID];
 
@@ -55,4 +56,18 @@
     return statusCell;
 
 }
+//YHStatusCell *statusCell;
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    // 传递模型, 布局子控件
+//
+//    if (!statusCell) {
+//        statusCell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    }
+//    statusCell.status = self.statusData[indexPath.row];
+//
+//    return statusCell.cellHeight;
+//
+//
+//}
 @end
