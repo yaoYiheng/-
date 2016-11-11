@@ -25,19 +25,15 @@
                                 <items>
                                     <barButtonItem systemItem="add" id="JDt-Oe-IRz">
                                         <connections>
-                                            <action selector="addOrRefreshOrDelete:" destination="BYZ-38-t0r" id="waj-b5-cLg"/>
+                                            <action selector="delete:" destination="BYZ-38-t0r" id="oNw-XV-U8v"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Nbe-oy-ovu"/>
-                                    <barButtonItem systemItem="refresh" id="goR-v7-OEI">
-                                        <connections>
-                                            <action selector="addOrRefreshOrDelete:" destination="BYZ-38-t0r" id="dKd-l8-ymA"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="goR-v7-OEI"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7ch-2p-K99"/>
                                     <barButtonItem systemItem="trash" id="V90-lE-zKa">
                                         <connections>
-                                            <action selector="addOrRefreshOrDelete:" destination="BYZ-38-t0r" id="mDW-SQ-fka"/>
+                                            <action selector="multiDelete:" destination="BYZ-38-t0r" id="rta-MV-Rm4"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -62,12 +58,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="JDt-Oe-IRz" id="3qh-4T-T0q"/>
                         <outlet property="tableView" destination="cE9-SC-PSG" id="B0C-DH-ZCh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="-72"/>
+            <point key="canvasLocation" x="993" y="-66"/>
         </scene>
     </scenes>
 </document>
