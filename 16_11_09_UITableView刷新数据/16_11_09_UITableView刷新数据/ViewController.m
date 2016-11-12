@@ -11,23 +11,36 @@
 #import "YHWineCell.h"
 #import "MJExtension.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 /** 酒模型数组*/
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *deleteButton;
 @property (nonatomic, strong) NSMutableArray *wineArray;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refresh;
+
+/** 选中的元素的indexPath*/
+@property (nonatomic, strong) NSMutableArray *selectedIndexPath;
 @end
 
 @implementation ViewController
-
+#pragma mark 懒加载wineArray, indexPath数组
 - (NSMutableArray *)wineArray{
     if (!_wineArray) {
         _wineArray = [YHWine mj_objectArrayWithFilename:@"wine.plist"];
     }
     return _wineArray;
 }
+
+- (NSMutableArray *)selectedIndexPath{
+    if (!_selectedIndexPath) {
+        _selectedIndexPath = [NSMutableArray array];
+    }
+    return _selectedIndexPath;
+}
     NSString *ID = @"wine";
+
+#pragma mark 一些全局只需要设置一次的操作在该方法中完成
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -36,6 +49,7 @@
 
     self.deleteButton.enabled = NO;
 }
+#pragma mark 调用数据源方法确定行数以及返回每行对应的cell
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.wineArray.count;
 }
@@ -45,8 +59,10 @@
         cell = [[YHWineCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     cell.wine = self.wineArray[indexPath.row];
-    return cell;;
+    return cell;
 }
+
+#pragma mark 实现选中与删除功能
 - (IBAction)delete:(UIBarButtonItem *)sender
 {
     //创建一个数组用来保存选中的元素
@@ -63,6 +79,30 @@
 
     //调用 deleteRowsAtIndexPaths:方法 从tableView中删除对应的cell(完成刷新)
     [self.tableView deleteRowsAtIndexPaths:self.tableView.indexPathsForSelectedRows withRowAnimation:UITableViewRowAnimationAutomatic];
+
+
+}
+- (IBAction)customDelete:(UIBarButtonItem *)sender
+{
+    //创建一个临时数组用来装待删除的元素
+    NSMutableArray *deletedWine = [NSMutableArray array];
+
+    //变量indexPath数组, 将在数组内的元素添加到deletedWine数组中
+    for (NSIndexPath *indexPath in self.selectedIndexPath) {
+        [deletedWine addObject:self.wineArray[indexPath.row]];
+    }
+    //从模型数组中删除待删除的元素的数组.
+    [self.wineArray removeObjectsInArray:deletedWine];
+
+    //刷新cell
+    [self.tableView deleteRowsAtIndexPaths:self.selectedIndexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    //完成删除操作后, 将之前装有选中项目的indexPath的数组清空.
+    [self.selectedIndexPath removeAllObjects];
+
+    //使按钮变得不可用.
+    self.refresh.enabled = NO;
+
 
 
 }
@@ -94,6 +134,7 @@
 #pragma mark 调用该方法, 可为向左滑动增加新按钮与想要实现的功能
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
 
+    //创建两个UITableViewRowAction对象, 并设置其样式及标题, 在下面的block中实现相应的操作
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"关注" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSLog(@"关注按钮被点击");
         tableView.editing = NO;
@@ -110,6 +151,35 @@
             tableView.editing = NO;
     }];
     return @[action2, action1];
+}
+#pragma mark 在选中某行后,在该方法中实现对状态(wine.isSelected)的修改
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    YHWine *wine = self.wineArray[indexPath.row];
+
+
+
+    //判断勾选状态.
+    if (wine.isSelected) {
+        wine.selected = NO;
+        [self.selectedIndexPath removeObject:indexPath];
+    }
+    else{
+        wine.selected = YES;
+        [self.selectedIndexPath addObject:indexPath];
+
+    }
+
+    //refresh按钮的显示与否
+    if (self.selectedIndexPath.count == 0) {
+        self.refresh.enabled = NO;
+    }
+    else
+        self.refresh.enabled = YES;
+
+    //更改模型后, 刷新相应行的状态
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 

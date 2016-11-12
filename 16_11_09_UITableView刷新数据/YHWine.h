@@ -15,5 +15,8 @@
 @property (nonatomic, copy) NSString *image;
 /** 价格*/
 @property (nonatomic, copy) NSString *money;
+/**是否勾选*/
+@property (nonatomic, assign, getter=isSelected) BOOL selected;
+
 
 @end

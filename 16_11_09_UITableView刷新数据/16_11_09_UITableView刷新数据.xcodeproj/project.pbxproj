@@ -400,6 +400,7 @@
 				A50BCCA91DD3197500229718 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
