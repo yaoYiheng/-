@@ -16,6 +16,7 @@
 /** 酒数组*/
 @property (nonatomic, strong) NSArray *wineDataArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 
 @end
 
@@ -48,5 +49,6 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 @end

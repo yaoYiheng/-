@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,10 +90,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxh-7d-PoF">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="9lh-Im-eii"/>
-                                                        <constraint firstAttribute="height" constant="40" id="Wff-5Q-zc4"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                                     <state key="normal" title="-"/>
                                                     <connections>
@@ -118,19 +112,19 @@
                                                 <constraint firstItem="d04-s0-v0M" firstAttribute="leading" secondItem="Dvz-J3-39W" secondAttribute="trailing" constant="10" id="3sk-wZ-1QJ"/>
                                                 <constraint firstItem="Dvz-J3-39W" firstAttribute="top" secondItem="qeC-9V-yE2" secondAttribute="top" constant="10" id="4Lh-mU-8IY"/>
                                                 <constraint firstAttribute="trailing" secondItem="p5L-80-2wx" secondAttribute="trailing" constant="50" id="5tH-Kd-0KG"/>
-                                                <constraint firstItem="yxh-7d-PoF" firstAttribute="baseline" secondItem="A47-K3-Q22" secondAttribute="baseline" id="6h6-Rg-Eso"/>
+                                                <constraint firstItem="LYs-ON-bq1" firstAttribute="top" secondItem="p5L-80-2wx" secondAttribute="top" id="6Sk-IN-bcm"/>
                                                 <constraint firstItem="Dvz-J3-39W" firstAttribute="leading" secondItem="qeC-9V-yE2" secondAttribute="leading" constant="10" id="894-2K-xK9"/>
+                                                <constraint firstItem="p5L-80-2wx" firstAttribute="leading" secondItem="yxh-7d-PoF" secondAttribute="trailing" constant="10" id="Cvl-Gs-mjG"/>
+                                                <constraint firstItem="yxh-7d-PoF" firstAttribute="top" secondItem="p5L-80-2wx" secondAttribute="top" id="GdU-2I-2nk"/>
                                                 <constraint firstItem="LYs-ON-bq1" firstAttribute="leading" secondItem="p5L-80-2wx" secondAttribute="trailing" constant="8" symbolic="YES" id="Ja9-tg-GjU"/>
                                                 <constraint firstItem="A47-K3-Q22" firstAttribute="leading" secondItem="Dvz-J3-39W" secondAttribute="trailing" constant="10" id="Kpo-Bd-DfM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LYs-ON-bq1" secondAttribute="trailing" constant="-6" id="LlK-98-aug"/>
                                                 <constraint firstAttribute="bottom" secondItem="Dvz-J3-39W" secondAttribute="bottom" constant="10" id="NUH-GS-IDh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="d04-s0-v0M" secondAttribute="trailing" constant="10" id="Qcf-fl-yZf"/>
-                                                <constraint firstItem="yxh-7d-PoF" firstAttribute="firstBaseline" secondItem="A47-K3-Q22" secondAttribute="baseline" id="T82-r8-WIX"/>
                                                 <constraint firstItem="d04-s0-v0M" firstAttribute="top" secondItem="Dvz-J3-39W" secondAttribute="top" id="XRp-qI-ypf"/>
                                                 <constraint firstItem="LYs-ON-bq1" firstAttribute="top" secondItem="d04-s0-v0M" secondAttribute="bottom" constant="6" id="Y61-yh-CWX"/>
-                                                <constraint firstItem="p5L-80-2wx" firstAttribute="leading" secondItem="yxh-7d-PoF" secondAttribute="trailing" constant="10" id="YN4-b7-A6k"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="yxh-7d-PoF" secondAttribute="bottom" constant="1" id="epN-Uh-iYE"/>
                                                 <constraint firstItem="p5L-80-2wx" firstAttribute="bottom" secondItem="A47-K3-Q22" secondAttribute="bottom" id="f44-7K-XKv"/>
+                                                <constraint firstItem="yxh-7d-PoF" firstAttribute="bottom" secondItem="p5L-80-2wx" secondAttribute="bottom" id="fY8-ae-gCa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -161,6 +155,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WF5-tG-fTz" id="fdj-Cc-oIo"/>
+                        <outlet property="totalPriceLabel" destination="ijc-9V-HhV" id="MgM-18-QkY"/>
                     </connections>
                 </viewController>
             </objects>

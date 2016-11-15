@@ -34,6 +34,7 @@
 }
 #pragma mark 减少一瓶
 - (IBAction)remove {
+    //修改模型数据
     self.wine.count --;
     if (self.wine.count <= 0) {
         self.minusButton.enabled = NO;
@@ -42,8 +43,9 @@
 }
 - (IBAction)add {
     self.wine.count ++;
+    self.minusButton.enabled = YES;
     self.countLabel.text = [NSString stringWithFormat:@"%d",self.wine.count];
-    self.minusButton.enabled = self.wine.count;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -57,6 +59,9 @@
     self.imageImageView.image = [UIImage imageNamed:wine.image];
     self.nameLabel.text = wine.name;
     self.priceLabel.text = [NSString stringWithFormat:@"¥ %@", wine.money];
+    self.countLabel.text = [NSString stringWithFormat:@"%d", wine.count];
+    //根据模型判断修改是否更改按钮的属性
+    self.minusButton.enabled = self.wine.count > 0;
 
 }
 @end
