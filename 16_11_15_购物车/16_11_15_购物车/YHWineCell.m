@@ -39,13 +39,20 @@
     if (self.wine.count <= 0) {
         self.minusButton.enabled = NO;
     }
+    //更改
     self.countLabel.text = [NSString stringWithFormat:@"%d",self.wine.count];
+
+    //向通知中心发布消息
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"removeClickButton" object:self];
 }
 - (IBAction)add {
     self.wine.count ++;
     self.minusButton.enabled = YES;
     self.countLabel.text = [NSString stringWithFormat:@"%d",self.wine.count];
 
+    //编写消息, 并想通知中心发布.
+    NSNotification *note = [NSNotification notificationWithName:@"addClickButton" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:note];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
