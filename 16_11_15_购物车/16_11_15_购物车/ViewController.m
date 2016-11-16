@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSArray *wineDataArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -46,12 +48,15 @@
     YHWineCell *wineCell = note.object;
     int totalPrice = self.totalPriceLabel.text.intValue - wineCell.wine.money.intValue;
     self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", totalPrice];
+    self.clearButton.enabled = NO;
 
 }
 - (void)add:(NSNotification *)note{
     YHWineCell *wineCell = note.object;
     int totalPrice = self.totalPriceLabel.text.intValue + wineCell.wine.money.intValue;
     self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", totalPrice];
+    self.buyButton.enabled = wineCell.wine.count > 0;
+    self.clearButton.enabled = wineCell.wine.count > 0;
 }
 
 #pragma mark UITableViewDataSource数据源方法
@@ -73,4 +78,25 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
+
+#pragma mark 处理结算功能与清空功能
+- (IBAction)buy {
+    //变量数组中所有元素, 如果count不为零, 则打印购买内容
+    for (YHWine *wine in self.wineDataArray) {
+        if (wine.count) {
+            NSLog(@"购买了%d份%@", wine.count, wine.name);
+        }
+    }
+}
+- (IBAction)clear {
+
+    self.totalPriceLabel.text = @"0";
+    self.buyButton.enabled = NO;
+    self.clearButton.enabled = NO;
+    for (YHWine *wine in self.wineDataArray) {
+        wine.count = 0;
+    }
+    [self.tableView reloadData];
+}
+
 @end

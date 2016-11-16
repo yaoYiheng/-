@@ -27,35 +27,45 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b09-ml-ps3">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b09-ml-ps3">
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="结算"/>
+                                        <connections>
+                                            <action selector="buy" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tmt-oO-zQf"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-9V-HhV">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgD-oF-1RL">
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="清空购物车"/>
+                                        <connections>
+                                            <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="MRD-KP-Zrs"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-9V-HhV">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgD-oF-1RL">
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="清空购物车">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz5-EV-Bhy">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Bz5-EV-Bhy" firstAttribute="centerY" secondItem="feb-Mb-hcV" secondAttribute="centerY" id="9i3-IN-RiH"/>
+                                    <constraint firstItem="Pan-BU-UP2" firstAttribute="centerY" secondItem="Bz5-EV-Bhy" secondAttribute="centerY" id="AcU-2K-lAM"/>
                                     <constraint firstItem="KgD-oF-1RL" firstAttribute="top" secondItem="feb-Mb-hcV" secondAttribute="top" constant="10" id="CbW-gb-jif"/>
-                                    <constraint firstItem="ijc-9V-HhV" firstAttribute="leading" secondItem="Pan-BU-UP2" secondAttribute="trailing" id="Nch-N4-sEd"/>
+                                    <constraint firstItem="b09-ml-ps3" firstAttribute="top" secondItem="feb-Mb-hcV" secondAttribute="top" constant="10" id="DIQ-Ep-tcw"/>
                                     <constraint firstAttribute="height" constant="75" id="Vwo-qX-sN8"/>
+                                    <constraint firstItem="Bz5-EV-Bhy" firstAttribute="leading" secondItem="Pan-BU-UP2" secondAttribute="trailing" id="ZGP-KR-Pe9"/>
                                     <constraint firstAttribute="bottom" secondItem="KgD-oF-1RL" secondAttribute="bottom" constant="10" id="ZVO-jE-x9Y"/>
-                                    <constraint firstItem="Pan-BU-UP2" firstAttribute="leading" secondItem="feb-Mb-hcV" secondAttribute="leading" constant="30" id="bF9-Ck-wvE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pan-BU-UP2" secondAttribute="bottom" constant="30" id="dKp-wz-2yg"/>
-                                    <constraint firstItem="Pan-BU-UP2" firstAttribute="top" secondItem="feb-Mb-hcV" secondAttribute="top" constant="30" id="hVH-b5-EHC"/>
-                                    <constraint firstItem="ijc-9V-HhV" firstAttribute="centerY" secondItem="Pan-BU-UP2" secondAttribute="centerY" id="ie2-Vt-Wt7"/>
-                                    <constraint firstItem="b09-ml-ps3" firstAttribute="top" secondItem="feb-Mb-hcV" secondAttribute="top" constant="10" id="j9Y-eW-a5C"/>
-                                    <constraint firstAttribute="bottom" secondItem="b09-ml-ps3" secondAttribute="bottom" constant="10" id="v73-8g-jAl"/>
-                                    <constraint firstItem="KgD-oF-1RL" firstAttribute="leading" secondItem="b09-ml-ps3" secondAttribute="trailing" constant="10" id="x26-Ej-CxD"/>
+                                    <constraint firstAttribute="bottom" secondItem="b09-ml-ps3" secondAttribute="bottom" constant="10" id="b3f-3h-adt"/>
+                                    <constraint firstItem="ijc-9V-HhV" firstAttribute="centerY" secondItem="Bz5-EV-Bhy" secondAttribute="centerY" id="gk9-qy-Vq5"/>
+                                    <constraint firstItem="ijc-9V-HhV" firstAttribute="leading" secondItem="Bz5-EV-Bhy" secondAttribute="trailing" constant="10" id="pu3-D2-9Pd"/>
+                                    <constraint firstItem="Bz5-EV-Bhy" firstAttribute="centerX" secondItem="feb-Mb-hcV" secondAttribute="centerX" id="s8u-W5-khR"/>
+                                    <constraint firstItem="b09-ml-ps3" firstAttribute="leading" secondItem="feb-Mb-hcV" secondAttribute="leading" constant="10" id="uIx-js-RdW"/>
                                     <constraint firstAttribute="trailing" secondItem="KgD-oF-1RL" secondAttribute="trailing" constant="10" id="zEb-pS-Tl8"/>
                                 </constraints>
                             </view>
@@ -153,6 +163,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buyButton" destination="b09-ml-ps3" id="z64-cq-4g6"/>
+                        <outlet property="clearButton" destination="KgD-oF-1RL" id="6W4-vt-K5Z"/>
                         <outlet property="tableView" destination="WF5-tG-fTz" id="fdj-Cc-oIo"/>
                         <outlet property="totalPriceLabel" destination="ijc-9V-HhV" id="MgM-18-QkY"/>
                     </connections>
