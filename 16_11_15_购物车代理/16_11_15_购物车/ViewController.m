@@ -19,12 +19,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
+/** 购物车*/
+@property (nonatomic, strong) NSMutableArray *cart;
 
 @end
 
 @implementation ViewController
 
 #pragma mark 懒加载数组
+- (NSMutableArray *)cart{
+    if (!_cart) {
+        _cart = [NSMutableArray array];
+    }
+    return _cart;
+}
 - (NSArray *)wineDataArray{
     if (!_wineDataArray) {
         _wineDataArray = [YHWine mj_objectArrayWithFilename:@"wine.plist"];
@@ -63,10 +71,8 @@
 #pragma mark 处理结算功能与清空功能
 - (IBAction)buy {
     //变量数组中所有元素, 如果count不为零, 则打印购买内容
-    for (YHWine *wine in self.wineDataArray) {
-        if (wine.count) {
-            NSLog(@"购买了%d份%@", wine.count, wine.name);
-        }
+    for (YHWine *wine in self.cart) {
+        NSLog(@"购买了%d份%@", wine.count, wine.name);
     }
 }
 - (IBAction)clear {
@@ -74,10 +80,15 @@
     self.totalPriceLabel.text = @"0";
     self.buyButton.enabled = NO;
     self.clearButton.enabled = NO;
-    for (YHWine *wine in self.wineDataArray) {
+    //将选中的模型的count属性清零
+    for (YHWine *wine in self.cart) {
         wine.count = 0;
     }
+    //刷新表格
     [self.tableView reloadData];
+
+    //每当点击清除按钮, 则需要将购物车数组中所有元素清零
+    [self.cart removeAllObjects];
 }
 
 #pragma mark YHWineCellDelegate方法
@@ -88,15 +99,22 @@
 
     self.clearButton.enabled = YES;
     self.buyButton.enabled = YES;
+
+    if (![self.cart containsObject:wineCell.wine]) {
+        [self.cart addObject:wineCell.wine];
+    }
 }
 
 - (void)wineCellDidClickMinusButton:(YHWineCell *)wineCell{
     int totalPrice;
-    totalPrice = self.totalPriceLabel.text.intValue + wineCell.wine.money.intValue;
+    totalPrice = self.totalPriceLabel.text.intValue - wineCell.wine.money.intValue;
     self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", totalPrice];
 
-    self.clearButton.enabled = wineCell.wine.count > 0;
-    self.buyButton.enabled = wineCell.wine.count > 0;
+    self.clearButton.enabled = totalPrice > 0;
+    self.buyButton.enabled = totalPrice > 0;
+    if (wineCell.wine.count == 0) {
+        [self.cart removeObject:wineCell.wine];
+    }
 }
 
 
