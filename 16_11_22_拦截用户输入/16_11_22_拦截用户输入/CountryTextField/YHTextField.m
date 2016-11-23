@@ -17,6 +17,7 @@
 @end
 
 @implementation YHTextField
+#pragma mark 懒加载数组, 并将字典转化为模型数组.这里没有用到MJ的框架, 复习之前的写法.
 - (NSArray *)dataArray{
     if (!_dataArray) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"flags.plist" ofType:nil];
@@ -30,6 +31,7 @@
     }
     return _dataArray;
 }
+#pragma mark 以下两个方法, 是为了方便使用, 无论是从xib文件中加载或者是代码编写
 - (void)awakeFromNib{
     [super awakeFromNib];
 
@@ -42,12 +44,12 @@
     }
     return self;
 }
-
+#pragma mark 在该方法中完成初始化
 - (void)setUp{
     UIPickerView *pickerView = [[UIPickerView alloc] init];
     pickerView.delegate = self;
     pickerView.dataSource = self;
-
+    //更改inputView, 不是默认的键盘, 而是一个pickerView
     self.inputView = pickerView;
 }
 
@@ -62,8 +64,9 @@
     
     return self.dataArray.count;
 }
-
+#pragma mark 在该方法中, 返回想要显示的view.
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    //创建并返回自定义的view, 通过模型数组, 以及viewForRow: 拿到对应行的模型, 并赋值
     YHFlagView *flagView = [YHFlagView flagView];
     YHFlagItem *items = self.dataArray[row];
     flagView.flagItem = items;
