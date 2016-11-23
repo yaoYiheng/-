@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jfP-QX-ybF" customClass="YHFlagView">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="118"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAE-Ce-uCj">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="194" id="gTJ-Bf-vBB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e4l-Jm-V0t"/>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="e4l-Jm-V0t" firstAttribute="top" secondItem="jfP-QX-ybF" secondAttribute="top" id="6k1-0j-T12"/>
+                <constraint firstItem="OAE-Ce-uCj" firstAttribute="leading" secondItem="jfP-QX-ybF" secondAttribute="leading" id="Myh-Vg-35c"/>
+                <constraint firstItem="e4l-Jm-V0t" firstAttribute="leading" secondItem="OAE-Ce-uCj" secondAttribute="trailing" id="PKS-NR-eJw"/>
+                <constraint firstAttribute="trailing" secondItem="e4l-Jm-V0t" secondAttribute="trailing" id="dzm-gJ-yWF"/>
+                <constraint firstAttribute="bottom" secondItem="e4l-Jm-V0t" secondAttribute="bottom" id="fNg-n8-762"/>
+                <constraint firstItem="e4l-Jm-V0t" firstAttribute="leading" secondItem="OAE-Ce-uCj" secondAttribute="trailing" id="fj4-wA-y1h"/>
+                <constraint firstAttribute="bottom" secondItem="OAE-Ce-uCj" secondAttribute="bottom" id="tDq-yM-dc3"/>
+                <constraint firstItem="OAE-Ce-uCj" firstAttribute="top" secondItem="jfP-QX-ybF" secondAttribute="top" id="vce-go-uGL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="countryLabel" destination="OAE-Ce-uCj" id="rVa-c0-0rw"/>
+                <outlet property="flagImageView" destination="e4l-Jm-V0t" id="UdH-yd-QRH"/>
+            </connections>
+            <point key="canvasLocation" x="63" y="-287"/>
+        </view>
+    </objects>
+</document>

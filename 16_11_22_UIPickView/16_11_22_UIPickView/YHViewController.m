@@ -28,6 +28,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self pickerView:self.pickView didSelectRow:0 inComponent:0 ];
     // Do any additional setup after loading the view from its nib.
 
 }
