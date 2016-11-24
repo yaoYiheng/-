@@ -23,6 +23,9 @@
 - (void)setFlagItem:(YHFlagItem *)flagItem{
     _flagItem = flagItem;
     self.countryLabel.text = flagItem.name;
+
+    //通过kvc改写后, 拿到的是UIImage对象, 而不是通过传入的字符串来设置相应的图片.
+    //self.flagImageView.image = [UIImage imageNamed:flagItem.icon];
     self.flagImageView.image = flagItem.icon;
 }
 

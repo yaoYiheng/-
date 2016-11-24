@@ -59,4 +59,14 @@
     }
     return self;
 }
+
+/**
+ 为了能给flagView最需要的子控件(一张图片UIImage, 而不是字符串), 可以在通过字典传入时, 通过kvc在调用setValue:forKey:方法时,对set方法进行重写, 使其返回类型为UIImage.
+
+ */
+- (void)setIcon:(UIImage *)icon{
+    //强制类型转换. icon为NSString类型
+    NSString *iconName = (NSString *)icon;
+    _icon = [UIImage imageNamed:iconName];
+}
 @end
