@@ -23,7 +23,7 @@
 - (void)setFlagItem:(YHFlagItem *)flagItem{
     _flagItem = flagItem;
     self.countryLabel.text = flagItem.name;
-    self.flagImageView.image = [UIImage imageNamed:flagItem.icon];
+    self.flagImageView.image = flagItem.icon;
 }
 
 @end

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface YHFlagItem : NSObject
 /** 国家名*/
 @property (nonatomic, strong) NSString *name;
 /** 国旗名*/
-@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) UIImage *icon;
 
 + (instancetype)flagItemWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
