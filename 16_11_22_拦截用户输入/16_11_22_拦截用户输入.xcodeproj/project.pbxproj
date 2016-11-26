@@ -33,6 +33,9 @@
 		A5326AB21DE594B000A15725 /* YHFlagView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326AB11DE594B000A15725 /* YHFlagView.m */; };
 		A5326AB61DE5956C00A15725 /* YHFlagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5326AB51DE5956C00A15725 /* YHFlagView.xib */; };
 		A5326ABA1DE77B8C00A15725 /* YHDateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326AB91DE77B8C00A15725 /* YHDateTextField.m */; };
+		A5326ABE1DE8D0F600A15725 /* ProvinceTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326ABD1DE8D0F600A15725 /* ProvinceTextField.m */; };
+		A5326AC01DE96E9700A15725 /* provinces.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5326ABF1DE96E9700A15725 /* provinces.plist */; };
+		A5326AC31DE96ED000A15725 /* YHProvinceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A5326AC21DE96ED000A15725 /* YHProvinceItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,11 @@
 		A5326AB51DE5956C00A15725 /* YHFlagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHFlagView.xib; sourceTree = "<group>"; };
 		A5326AB81DE77B8C00A15725 /* YHDateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHDateTextField.h; sourceTree = "<group>"; };
 		A5326AB91DE77B8C00A15725 /* YHDateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHDateTextField.m; sourceTree = "<group>"; };
+		A5326ABC1DE8D0F600A15725 /* ProvinceTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceTextField.h; sourceTree = "<group>"; };
+		A5326ABD1DE8D0F600A15725 /* ProvinceTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceTextField.m; sourceTree = "<group>"; };
+		A5326ABF1DE96E9700A15725 /* provinces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = provinces.plist; sourceTree = "<group>"; };
+		A5326AC11DE96ED000A15725 /* YHProvinceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHProvinceItem.h; sourceTree = "<group>"; };
+		A5326AC21DE96ED000A15725 /* YHProvinceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHProvinceItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		A5326A6F1DE41FDF00A15725 /* 16_11_22_拦截用户输入 */ = {
 			isa = PBXGroup;
 			children = (
+				A5326ABB1DE8D06900A15725 /* ProvinceTextField */,
 				A5326AB71DE77B4C00A15725 /* DateTextField */,
 				A5326A8A1DE4F2CD00A15725 /* CountryTextField */,
 				A5326A731DE41FDF00A15725 /* AppDelegate.h */,
@@ -171,6 +180,18 @@
 			path = DateTextField;
 			sourceTree = "<group>";
 		};
+		A5326ABB1DE8D06900A15725 /* ProvinceTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A5326ABC1DE8D0F600A15725 /* ProvinceTextField.h */,
+				A5326ABD1DE8D0F600A15725 /* ProvinceTextField.m */,
+				A5326ABF1DE96E9700A15725 /* provinces.plist */,
+				A5326AC11DE96ED000A15725 /* YHProvinceItem.h */,
+				A5326AC21DE96ED000A15725 /* YHProvinceItem.m */,
+			);
+			path = ProvinceTextField;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +253,7 @@
 			files = (
 				A5326A801DE41FDF00A15725 /* LaunchScreen.storyboard in Resources */,
 				A5326AA31DE5924D00A15725 /* hanguo.gif in Resources */,
+				A5326AC01DE96E9700A15725 /* provinces.plist in Resources */,
 				A5326A7D1DE41FDF00A15725 /* Assets.xcassets in Resources */,
 				A5326AA41DE5924D00A15725 /* helan.gif in Resources */,
 				A5326AAA1DE5924D00A15725 /* ydl.gif in Resources */,
@@ -261,9 +283,11 @@
 			files = (
 				A5326A781DE41FDF00A15725 /* ViewController.m in Sources */,
 				A5326ABA1DE77B8C00A15725 /* YHDateTextField.m in Sources */,
+				A5326AC31DE96ED000A15725 /* YHProvinceItem.m in Sources */,
 				A5326A751DE41FDF00A15725 /* AppDelegate.m in Sources */,
 				A5326A8D1DE4F2CD00A15725 /* YHTextField.m in Sources */,
 				A5326AB21DE594B000A15725 /* YHFlagView.m in Sources */,
+				A5326ABE1DE8D0F600A15725 /* ProvinceTextField.m in Sources */,
 				A5326AAF1DE5929900A15725 /* YHFlagItem.m in Sources */,
 				A5326A721DE41FDF00A15725 /* main.m in Sources */,
 			);

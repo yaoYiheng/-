@@ -11,7 +11,7 @@
 @implementation YHDateTextField
 
 - (void)awakeFromNib{
-    [super awakeFromNib];
+//    [super awakeFromNib];
     [self setUp];
 
 }
@@ -39,11 +39,12 @@
 
     //将日期转化为字符串.
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    formatter.dateFormat = @"DD-MM-YYYY";
+    formatter.dateFormat = @"yyyy-MM-dd";
 
     NSDate *date =dataPicker.date;
     NSString *dateString = [formatter stringFromDate:date];
     //修改文本框的显示内容.
     self.text = dateString;
 }
+
 @end

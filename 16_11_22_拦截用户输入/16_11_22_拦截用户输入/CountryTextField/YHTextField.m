@@ -77,4 +77,8 @@
     return 118;
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    YHFlagItem *item = self.dataArray[row];
+    self.text = item.name;
+}
 @end
