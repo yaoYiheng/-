@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YHContryView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTl-jN-nm6">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="183" id="LT2-kk-VzO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eju-Ec-Rhn"/>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Eju-Ec-Rhn" secondAttribute="trailing" id="4Nx-H0-Apv"/>
+                <constraint firstItem="jTl-jN-nm6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9IH-j3-Eq3"/>
+                <constraint firstAttribute="bottom" secondItem="jTl-jN-nm6" secondAttribute="bottom" id="EKR-cj-9lJ"/>
+                <constraint firstItem="Eju-Ec-Rhn" firstAttribute="leading" secondItem="jTl-jN-nm6" secondAttribute="trailing" id="PHZ-O7-Val"/>
+                <constraint firstItem="Eju-Ec-Rhn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PLX-HI-nLq"/>
+                <constraint firstItem="Eju-Ec-Rhn" firstAttribute="leading" secondItem="jTl-jN-nm6" secondAttribute="trailing" id="aqq-HY-Pul"/>
+                <constraint firstAttribute="bottom" secondItem="Eju-Ec-Rhn" secondAttribute="bottom" id="gpV-Yo-Q5x"/>
+                <constraint firstItem="jTl-jN-nm6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kaw-Aj-gAT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="flagImageView" destination="Eju-Ec-Rhn" id="2Q2-UQ-0Jp"/>
+                <outlet property="nameLabel" destination="jTl-jN-nm6" id="Xkq-T5-1lH"/>
+            </connections>
+            <point key="canvasLocation" x="47.5" y="-220"/>
+        </view>
+    </objects>
+</document>
