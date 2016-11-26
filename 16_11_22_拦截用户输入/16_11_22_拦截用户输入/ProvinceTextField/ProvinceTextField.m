@@ -75,9 +75,30 @@
     //如果component为0, 说明当前选中的是省份那一列, 可以通过省份所在的row, 从数组中拿到对应的省份模型.
     if (component == 0) {
         self.proCurrentIndex = row;
+        [pickerView reloadAllComponents];
+        [pickerView selectRow:0 inComponent:1 animated:YES];
     }
     YHProvinceItem *provinceItem = self.dataArray[self.proCurrentIndex];
     NSString *provinceName = provinceItem.name;
 
+    //通过该方法拿到当前选中的row
+    NSInteger selectedCity = [pickerView selectedRowInComponent:1];
+    NSString *cityName = provinceItem.cities[selectedCity];
+
+    self.text = [NSString stringWithFormat:@"%@ %@", provinceName, cityName];
+
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    //component为0 ,则表示应返回模型数组中省份的名称
+    if (component == 0) {
+        YHProvinceItem *item = self.dataArray[row];
+
+        return item.name;
+    }else{
+        //component == 1的情况, 返回对应的城市
+        YHProvinceItem *item = self.dataArray[self.proCurrentIndex];
+
+        return item.cities[row];
+    }
 }
 @end
