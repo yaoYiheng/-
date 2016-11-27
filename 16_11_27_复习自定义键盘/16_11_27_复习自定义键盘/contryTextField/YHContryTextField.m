@@ -24,7 +24,7 @@
 - (void)initWithText{
     [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
 }
-
+#pragma mark 懒加载数据
 - (NSArray *)dataArray{
     if (!_dataArray) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"flags.plist" ofType:nil];
@@ -68,9 +68,12 @@
     self.inputView = picker;
     
 }
+#pragma mark pickerView返回的是自定义的UIView.
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+
     YHContryView *contryView = [YHContryView contryView];
     contryView.countryItem = self.dataArray[row];
+
     return contryView;
 }
 #pragma mark UIPickerView数据源方法
@@ -86,7 +89,9 @@
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
     return 100;
 }
+#pragma mark 选中某行后来到该方法, 在该方法中修改想要显示到文本框上的内容.
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+
     YHContryItem *item = self.dataArray[row];
     self.text = item.name;
 }
