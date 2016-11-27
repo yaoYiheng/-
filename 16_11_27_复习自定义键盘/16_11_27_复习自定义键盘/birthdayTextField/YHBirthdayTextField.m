@@ -10,10 +10,15 @@
 
 
 @interface YHBirthdayTextField ()<UITextFieldDelegate>
+/** <#comments#>*/
+@property (nonatomic, weak) UIDatePicker *datePicker;
 
 @end
 
 @implementation YHBirthdayTextField
+-(void)initWithText{
+    [self dateChange:self.datePicker];
+}
 - (void)awakeFromNib{
 
     [super awakeFromNib];
@@ -32,6 +37,7 @@
 - (void)setUp{
 
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    self.datePicker = datePicker;
     self.inputView = datePicker;
     datePicker.datePickerMode = UIDatePickerModeDate;
     datePicker.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];

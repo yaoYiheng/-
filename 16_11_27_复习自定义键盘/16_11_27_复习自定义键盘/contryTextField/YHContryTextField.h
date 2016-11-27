@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YHContryTextField : UITextField
-
+- (void)initWithText;
 @end

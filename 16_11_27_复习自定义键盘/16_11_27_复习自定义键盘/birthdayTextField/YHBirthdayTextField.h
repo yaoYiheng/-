@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YHBirthdayTextField : UITextField
+- (void)initWithText;
 
 @end

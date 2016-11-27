@@ -15,10 +15,15 @@
 /** 数组*/
 @property (nonatomic, strong) NSArray *dataArray;
 
+/** */
+@property (nonatomic, weak) UIPickerView *pickerView;
 @end
 
 
 @implementation YHContryTextField
+- (void)initWithText{
+    [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
+}
 
 - (NSArray *)dataArray{
     if (!_dataArray) {
@@ -53,6 +58,7 @@
 - (void)setUp{
 
     UIPickerView *picker = [[UIPickerView alloc] init];
+    self.pickerView = picker;
 
 
     self.inputView = picker;

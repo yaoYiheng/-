@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSArray *dataArray;
 /** 记录选中省份的索引*/
 @property (nonatomic, assign) NSInteger currentCityIndex;
+/** <#comments#>*/
+@property (nonatomic, weak) UIPickerView *pickerView;
 @end
 
 @implementation YHCitiesTextField
@@ -52,7 +54,7 @@
 - (void)setUp{
 
     UIPickerView *picker = [[UIPickerView alloc] init];
-
+    self.pickerView = picker;
 
     self.inputView = picker;
     picker.delegate = self;
@@ -99,6 +101,9 @@
     self.text = [NSString stringWithFormat:@"%@ %@", provinceName, cityName];
 
 
+}
+-(void)initWithText{
+    [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
 }
 
 @end

@@ -10,4 +10,5 @@
 
 @interface YHCitiesTextField : UITextField
 
+- (void)initWithText;
 @end
