@@ -36,6 +36,7 @@
 		A56A43481DEA21420082DAEE /* YHCitiesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A56A43471DEA21420082DAEE /* YHCitiesItem.m */; };
 		A56A434A1DEA215F0082DAEE /* provinces.plist in Resources */ = {isa = PBXBuildFile; fileRef = A56A43491DEA215F0082DAEE /* provinces.plist */; };
 		A56A434D1DEA225A0082DAEE /* YHCitiesTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A56A434C1DEA225A0082DAEE /* YHCitiesTextField.m */; };
+		A56A43501DEAD33E0082DAEE /* UITextField+YHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A56A434F1DEAD33E0082DAEE /* UITextField+YHTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		A56A43491DEA215F0082DAEE /* provinces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = provinces.plist; sourceTree = "<group>"; };
 		A56A434B1DEA225A0082DAEE /* YHCitiesTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHCitiesTextField.h; sourceTree = "<group>"; };
 		A56A434C1DEA225A0082DAEE /* YHCitiesTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHCitiesTextField.m; sourceTree = "<group>"; };
+		A56A434E1DEAD33E0082DAEE /* UITextField+YHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YHTextField.h"; sourceTree = "<group>"; };
+		A56A434F1DEAD33E0082DAEE /* UITextField+YHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YHTextField.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				A5326AD31DEA0B5F00A15725 /* AppDelegate.h */,
 				A5326AD61DEA0B5F00A15725 /* ViewController.h */,
 				A5326AD71DEA0B5F00A15725 /* ViewController.m */,
+				A56A434E1DEAD33E0082DAEE /* UITextField+YHTextField.h */,
+				A56A434F1DEAD33E0082DAEE /* UITextField+YHTextField.m */,
 				A5326AD91DEA0B5F00A15725 /* Main.storyboard */,
 				A5326ADC1DEA0B5F00A15725 /* Assets.xcassets */,
 				A5326ADE1DEA0B5F00A15725 /* LaunchScreen.storyboard */,
@@ -285,6 +290,7 @@
 				A5326AEF1DEA14D500A15725 /* YHContryTextField.m in Sources */,
 				A56A43481DEA21420082DAEE /* YHCitiesItem.m in Sources */,
 				A56A434D1DEA225A0082DAEE /* YHCitiesTextField.m in Sources */,
+				A56A43501DEAD33E0082DAEE /* UITextField+YHTextField.m in Sources */,
 				A5326AEC1DEA0D9800A15725 /* YHBirthdayTextField.m in Sources */,
 				A5326AF71DEA18D400A15725 /* YHContryItem.m in Sources */,
 				A5326AD51DEA0B5F00A15725 /* AppDelegate.m in Sources */,

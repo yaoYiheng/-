@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YHContryTextField.h"
+#import "UITextField+YHTextField.h"
 
 @interface ViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *contryTextField;
@@ -33,7 +34,7 @@
     return NO;
 }
 
-- (void)textFieldDidBeginEditing:(YHContryTextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
     [textField initWithText];
 }
 @end
