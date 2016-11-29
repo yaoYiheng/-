@@ -77,10 +77,10 @@
 				A56A43611DEC31820082DAEE /* AppDelegate.m */,
 				A56A43741DEC326E0082DAEE /* YHRootViewController.h */,
 				A56A43751DEC326E0082DAEE /* YHRootViewController.m */,
+				A56A43761DEC326E0082DAEE /* YHRootViewController.xib */,
 				A56A43791DEC362C0082DAEE /* YHViewControllerOne.h */,
 				A56A437A1DEC362C0082DAEE /* YHViewControllerOne.m */,
 				A56A437B1DEC362C0082DAEE /* YHViewControllerOne.xib */,
-				A56A43761DEC326E0082DAEE /* YHRootViewController.xib */,
 				A56A437E1DECA3110082DAEE /* YHViewControllerTwo.h */,
 				A56A437F1DECA3110082DAEE /* YHViewControllerTwo.m */,
 				A56A43801DECA3110082DAEE /* YHViewControllerTwo.xib */,
@@ -338,6 +338,7 @@
 				A56A43731DEC31830082DAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

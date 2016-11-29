@@ -18,14 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    //创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
+    //创建根控制器.
     YHRootViewController *rootViewController = [[YHRootViewController alloc] init];
 
+    //创建导航控制器的同时设置根控制器
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 
+    //设置窗口的跟控制器为导航控制器.
     self.window.rootViewController = navigationController;
 
+    //使窗口可见.
     [self.window makeKeyAndVisible];
 
     return YES;

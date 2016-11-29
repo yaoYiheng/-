@@ -17,13 +17,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    //设置导航栏的标题.
+    self.navigationItem.title = @"第一个控制器View";
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //普通状态下的图片.
+    [btn setImage:[UIImage imageNamed:@"navigationbar_friendsearch"] forState:UIControlStateNormal];
+    //高亮状态下的图片
+    [btn setImage:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] forState:UIControlStateHighlighted];
+    //不需要要设置button的位置, 但要设置图片的, 可以通过该方法.
+    [btn sizeToFit];
+
+    //为导航栏设置自定义的按钮.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/**
+ 控制器间的跳转
+ */
 - (IBAction)jumpToNext {
     YHViewControllerTwo *twoVc = [[YHViewControllerTwo alloc] init];
     [self.navigationController pushViewController:twoVc animated:YES];

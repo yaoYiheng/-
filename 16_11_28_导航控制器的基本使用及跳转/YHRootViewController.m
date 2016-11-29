@@ -19,6 +19,19 @@
     [super viewDidLoad];
 
     [self setUp];
+
+    self.navigationItem.title = @"根控制的View";
+
+    UIImage *image = [UIImage imageNamed:@"navigationbar_friendsearch"];
+
+    //使图片显示其原始状态.
+    UIImage *oriImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:oriImage style:0 target:self action:@selector(back)];
+}
+- (void)back{
+    NSLog(@"%s", __func__);
 }
 
 - (void)setUp{
@@ -30,7 +43,9 @@
     [self.view addSubview:jump];
 }
 - (void)jumpToNext{
+
     YHViewControllerOne *oneViewController = [[YHViewControllerOne alloc] init];
+    
    [self.navigationController pushViewController:oneViewController animated:YES];
 }
 - (void)didReceiveMemoryWarning {
