@@ -13,7 +13,6 @@
 		A597B77C1DED4B3500670E83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A597B77A1DED4B3500670E83 /* Main.storyboard */; };
 		A597B77E1DED4B3500670E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A597B77D1DED4B3500670E83 /* Assets.xcassets */; };
 		A597B7811DED4B3500670E83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A597B77F1DED4B3500670E83 /* LaunchScreen.storyboard */; };
-		A597B78A1DED4C3900670E83 /* ViewControllerTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = A597B7891DED4C3900670E83 /* ViewControllerTwo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +26,6 @@
 		A597B77D1DED4B3500670E83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A597B7801DED4B3500670E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A597B7821DED4B3500670E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A597B7881DED4C3900670E83 /* ViewControllerTwo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTwo.h; sourceTree = "<group>"; };
-		A597B7891DED4C3900670E83 /* ViewControllerTwo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTwo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +63,6 @@
 				A597B7771DED4B3500670E83 /* ViewController.h */,
 				A597B7781DED4B3500670E83 /* ViewController.m */,
 				A597B77A1DED4B3500670E83 /* Main.storyboard */,
-				A597B7881DED4C3900670E83 /* ViewControllerTwo.h */,
-				A597B7891DED4C3900670E83 /* ViewControllerTwo.m */,
 				A597B77D1DED4B3500670E83 /* Assets.xcassets */,
 				A597B77F1DED4B3500670E83 /* LaunchScreen.storyboard */,
 				A597B7821DED4B3500670E83 /* Info.plist */,
@@ -158,7 +153,6 @@
 				A597B7791DED4B3500670E83 /* ViewController.m in Sources */,
 				A597B7761DED4B3500670E83 /* AppDelegate.m in Sources */,
 				A597B7731DED4B3500670E83 /* main.m in Sources */,
-				A597B78A1DED4C3900670E83 /* ViewControllerTwo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
