@@ -25,6 +25,7 @@
     //监听文本输入框的改变.
     [self.accountText addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventEditingChanged];
     [self.pwdTextField addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventEditingChanged];
+    [self textChanged];
 }
 
 /**
@@ -47,7 +48,9 @@
     }
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
