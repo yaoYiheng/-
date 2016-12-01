@@ -32,17 +32,39 @@
     //演示两种已经过期的方法, 用来显示弹窗.
 //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定退出吗?" message:@"???" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
 //    [alertView show];
-    
+
 //    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"确定退出吗" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
+
 //    [actionSheet showInView:self.view];
 
+    //1.创建一个alertController, 设置其通知标题, 显示的信息, 以及样式.
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定退出吗?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+
+    //2.创建按钮, 每一个按钮对应不同的action.
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        /** <#do someting#>*/
+
+    }];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+
+    //3.将action添加到控制器中.
+    [alertController addAction:cancelAction];
+    [alertController addAction:confirmAction];
+
+    //4.显示弹窗
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
+#pragma mark actionSheet的代理方法
 //- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 //    if (buttonIndex == 0) {
 //        [self.navigationController popViewControllerAnimated:YES];
 //    }
 //
 //}
+#pragma mark alertView的代理方法
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 //    if (buttonIndex == 1) {
 //        [self.navigationController popViewControllerAnimated:YES];
