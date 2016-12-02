@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登录"/>
                                 <connections>
-                                    <segue destination="O22-Wz-htH" kind="show" id="SaV-wH-iMs"/>
+                                    <action selector="logIn:" destination="Bkc-nd-QcA" eventType="touchUpInside" id="tRq-8V-I1a"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IvP-Oj-jo6">
@@ -115,6 +115,7 @@
                         <outlet property="logInButton" destination="VBL-NO-GQA" id="IuL-6h-C0D"/>
                         <outlet property="pwdTextField" destination="g7k-4t-caJ" id="mXk-19-5Rt"/>
                         <outlet property="remPassword" destination="N8k-1o-nZ7" id="Vm2-oG-RiE"/>
+                        <segue destination="O22-Wz-htH" kind="show" identifier="contactViewController" id="iVE-AK-eXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6V-kf-DTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +156,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuW-8H-u2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="-9"/>
+            <point key="canvasLocation" x="1194" y="-23"/>
         </scene>
     </scenes>
 </document>

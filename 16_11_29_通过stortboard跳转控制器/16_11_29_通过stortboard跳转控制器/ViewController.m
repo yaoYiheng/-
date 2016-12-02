@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MBProgressHUD+XMG.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountText;
@@ -18,6 +19,30 @@
 @end
 
 @implementation ViewController
+- (IBAction)logIn:(UIButton *)sender {
+
+    //使用框架显示加载时,想要显示的文字.
+    [MBProgressHUD showMessage:@"努力加载中..." toView:self.view];
+    //设置延迟时间, 在延迟结束后想要实现的代码在block中完成.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //延迟结束后, 隐藏加载时显示的文字.
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //对输入结果进行判断, 只有当用户名与密码都正确时, 才能跳转到下一个界面.
+        if ([self.accountText.text isEqualToString:@"yyh"] && [self.pwdTextField.text isEqualToString:@"123"]) {
+
+            //调用该方法完成跳转到指定的控制器
+            [self performSegueWithIdentifier:@"contactViewController" sender:nil];
+            //结束编辑状态, 隐藏键盘.
+            [self.view endEditing: YES];
+        }else{
+
+            [MBProgressHUD showError:@"用户名或密码错误"];
+        }
+
+    });
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
