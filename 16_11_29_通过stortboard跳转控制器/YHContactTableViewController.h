@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface YHContactTableViewController : UITableViewController
+/** 用户名*/
+@property (nonatomic, strong) NSString *userName;
 
 @end

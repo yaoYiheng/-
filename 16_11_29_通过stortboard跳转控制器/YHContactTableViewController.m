@@ -16,18 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUserName:(NSString *)userName{
+    _userName = userName;
+    self.navigationItem.title = [NSString stringWithFormat:@"%@的通讯录", userName];
 }
+
 - (IBAction)logOut:(UIBarButtonItem *)sender {
     //演示两种已经过期的方法, 用来显示弹窗.
 //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定退出吗?" message:@"???" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];

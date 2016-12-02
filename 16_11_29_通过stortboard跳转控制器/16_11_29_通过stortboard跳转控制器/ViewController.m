@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MBProgressHUD+XMG.h"
+#import "YHContactTableViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountText;
@@ -24,7 +25,7 @@
     //使用框架显示加载时,想要显示的文字.
     [MBProgressHUD showMessage:@"努力加载中..." toView:self.view];
     //设置延迟时间, 在延迟结束后想要实现的代码在block中完成.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //延迟结束后, 隐藏加载时显示的文字.
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         //对输入结果进行判断, 只有当用户名与密码都正确时, 才能跳转到下一个界面.
@@ -42,6 +43,16 @@
     });
 
 
+}
+
+/**
+ 通过该方法, 在控制器与控制器之间传递值.
+
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //通过destinationViewController拿到目标控制器后, 对其属性进行赋值.
+    YHContactTableViewController *contantVC = segue.destinationViewController;
+    contantVC.userName = self.accountText.text;
 }
 
 - (void)viewDidLoad {
