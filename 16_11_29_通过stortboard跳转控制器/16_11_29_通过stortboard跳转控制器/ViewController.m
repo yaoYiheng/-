@@ -62,6 +62,8 @@
     [self.accountText addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventEditingChanged];
     [self.pwdTextField addTarget:self action:@selector(textChanged) forControlEvents:UIControlEventEditingChanged];
     [self textChanged];
+
+    self.accountText.clearButtonMode = UITextFieldViewModeWhileEditing;
 }
 
 /**
