@@ -76,14 +76,12 @@
 		A597B7701DED4B3500670E83 /* 16_11_29_通过stortboard跳转控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				A5A238C81DF4A08A0055D0D7 /* contactVC */,
+				A5A238C71DF4A0660055D0D7 /* logInVC */,
 				A5A238C01DF3F7B80055D0D7 /* Add */,
 				A597B7741DED4B3500670E83 /* AppDelegate.h */,
 				A597B7751DED4B3500670E83 /* AppDelegate.m */,
-				A597B7771DED4B3500670E83 /* ViewController.h */,
-				A597B7781DED4B3500670E83 /* ViewController.m */,
 				A597B77A1DED4B3500670E83 /* Main.storyboard */,
-				A597B78E1DF028B200670E83 /* YHContactTableViewController.h */,
-				A597B78F1DF028B200670E83 /* YHContactTableViewController.m */,
 				A597B77D1DED4B3500670E83 /* Assets.xcassets */,
 				A597B77F1DED4B3500670E83 /* LaunchScreen.storyboard */,
 				A597B7821DED4B3500670E83 /* Info.plist */,
@@ -137,6 +135,24 @@
 				A5A238C51DF3FA470055D0D7 /* YHAddItem.m */,
 			);
 			name = "Model-";
+			sourceTree = "<group>";
+		};
+		A5A238C71DF4A0660055D0D7 /* logInVC */ = {
+			isa = PBXGroup;
+			children = (
+				A597B7771DED4B3500670E83 /* ViewController.h */,
+				A597B7781DED4B3500670E83 /* ViewController.m */,
+			);
+			name = logInVC;
+			sourceTree = "<group>";
+		};
+		A5A238C81DF4A08A0055D0D7 /* contactVC */ = {
+			isa = PBXGroup;
+			children = (
+				A597B78E1DF028B200670E83 /* YHContactTableViewController.h */,
+				A597B78F1DF028B200670E83 /* YHContactTableViewController.m */,
+			);
+			name = contactVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

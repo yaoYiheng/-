@@ -12,7 +12,7 @@
 @interface YHContactTableViewController : UITableViewController
 /** 用户名*/
 @property (nonatomic, strong) NSString *userName;
-/** addItem*/
+/** 定义一个属性来接收数据*/
 @property (nonatomic, strong) YHAddItem *addItem;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "YHContactTableViewController.h"
 #import "YHAddItem.h"
+#import "YHAddViewController.h"
 
 @interface YHContactTableViewController ()<UIAlertViewDelegate, UIActionSheetDelegate>
 
@@ -25,12 +26,10 @@
     NSLog(@"%@---%@", addItem.userName, addItem.phoneNumber);
 }
 
-- (void)setUserName:(NSString *)userName{
-    _userName = userName;
-
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    YHAddViewController *addVC = segue.destinationViewController;
+    addVC.contantViewController = self;
 }
-
 - (IBAction)logOut:(UIBarButtonItem *)sender {
     //演示两种已经过期的方法, 用来显示弹窗.
 //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定退出吗?" message:@"???" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
