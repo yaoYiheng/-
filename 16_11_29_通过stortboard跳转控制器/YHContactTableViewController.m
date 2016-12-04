@@ -7,6 +7,7 @@
 //
 
 #import "YHContactTableViewController.h"
+#import "YHAddItem.h"
 
 @interface YHContactTableViewController ()<UIAlertViewDelegate, UIActionSheetDelegate>
 
@@ -16,12 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@的通讯录", _userName];
 
+}
+- (void)setAddItem:(YHAddItem *)addItem{
+    _addItem = addItem;
+    NSLog(@"%@---%@", addItem.userName, addItem.phoneNumber);
 }
 
 - (void)setUserName:(NSString *)userName{
     _userName = userName;
-    self.navigationItem.title = [NSString stringWithFormat:@"%@的通讯录", userName];
+
+
 }
 
 - (IBAction)logOut:(UIBarButtonItem *)sender {

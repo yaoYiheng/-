@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YHAddItem;
 
 @interface YHContactTableViewController : UITableViewController
 /** 用户名*/
 @property (nonatomic, strong) NSString *userName;
+/** addItem*/
+@property (nonatomic, strong) YHAddItem *addItem;
 
 @end

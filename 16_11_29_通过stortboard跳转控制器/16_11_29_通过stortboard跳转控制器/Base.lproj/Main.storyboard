@@ -165,7 +165,7 @@
         <!--添加联系人-->
         <scene sceneID="pQN-Tk-Qtg">
             <objects>
-                <viewController id="Gc7-fr-2Kp" sceneMemberID="viewController">
+                <viewController id="Gc7-fr-2Kp" customClass="YHAddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qxg-CA-h7d"/>
                         <viewControllerLayoutGuide type="bottom" id="6Cp-Wq-6cS"/>
@@ -200,17 +200,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-9J-gkg">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-9J-gkg">
                                 <frame key="frameInset" minX="16" minY="313" width="343" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="btnClick:" destination="Gc7-fr-2Kp" eventType="touchUpInside" id="Mje-eP-Pee"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="添加联系人" id="kla-9v-apB"/>
+                    <connections>
+                        <outlet property="addButton" destination="e8L-9J-gkg" id="ukq-iP-FHh"/>
+                        <outlet property="nameTextField" destination="tXa-mL-9SZ" id="TKx-fe-k2W"/>
+                        <outlet property="numberTextField" destination="Da0-Uf-5Ss" id="tjD-96-z3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXn-A2-zlD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
