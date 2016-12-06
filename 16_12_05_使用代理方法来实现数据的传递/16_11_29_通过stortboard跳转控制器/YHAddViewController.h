@@ -10,7 +10,7 @@
 #import "YHAddItem.h"
 
 
-@class YHContactTableViewController, YHAddViewController;
+@class YHAddViewController;
 
 //编写协议
 @protocol addViewDelegate <NSObject>
@@ -22,8 +22,7 @@
 @end
 
 @interface YHAddViewController : ViewController
-/** 联系人控制器*/
-@property (nonatomic, weak)  YHContactTableViewController *contantViewController;
+
 
 /** 设置代理属性*/
 @property (nonatomic, weak) id<addViewDelegate> delegate;

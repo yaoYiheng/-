@@ -11,7 +11,7 @@
 #import "YHAddViewController.h"
 #import "YHEditViewController.h"
 
-@interface YHContactTableViewController ()<addViewDelegate>
+@interface YHContactTableViewController ()<addViewDelegate, EditViewDelegate>
 /** 数据数组*/
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -31,21 +31,23 @@
 
 
 }
-- (void)setAddItem:(YHAddItem *)addItem{
-    _addItem = addItem;
-    NSLog(@"%@---%@", addItem.userName, addItem.phoneNumber);
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
+    //如果目标控制器是YHAddViewController, 则拿到YHAddViewController控制器, 并设置其代理.
     if ([segue.destinationViewController isKindOfClass:[YHAddViewController class]]) {
         YHAddViewController *addVC = segue.destinationViewController;
 
         addVC.delegate = self;
     }else{
+        //如果目标控制器是编辑控制器, 则设置其代理, 并拿到所点击的那一行的item并传给编辑控制器
         YHEditViewController *editVC = segue.destinationViewController;
+        editVC.delegate = self;
+        //调用indexPathForSelectedRow拿到所点击那一个行的indexPath
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //通过对应的indexPath从数组中拿到对应的item
         YHAddItem *item = self.dataArray[indexPath.row];
+        //为编辑控制器中的item赋值.
         editVC.addItem = item;
     }
 
@@ -59,6 +61,11 @@
     //刷新数据.
     [self.tableView reloadData];
 }
+#pragma mark 调用代理方法, 拿到编辑控制器传入的新值, 并刷新.
+- (void)edittingViewController:(YHEditViewController *)editingViewController addItem:(YHAddItem *)additem{
+    [self.tableView reloadData];
+}
+#pragma mark 注销功能的实现
 - (IBAction)logOut:(UIBarButtonItem *)sender {
 
 
@@ -82,25 +89,8 @@
     [self presentViewController:alertController animated:YES completion:nil];
 
 }
-#pragma mark actionSheet的代理方法
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if (buttonIndex == 0) {
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
-//
-//}
-#pragma mark alertView的代理方法
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if (buttonIndex == 1) {
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
-//}
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -111,9 +101,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *ID = @"contact";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-//    }
+
     YHAddItem * item = self.dataArray[indexPath.row];
     cell.textLabel.text = item.userName;
     cell.detailTextLabel.text = item.phoneNumber;
@@ -123,48 +111,6 @@
 
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

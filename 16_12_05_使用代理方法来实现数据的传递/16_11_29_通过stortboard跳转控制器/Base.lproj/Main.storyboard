@@ -227,6 +227,7 @@
                                 <state key="normal" title="保存"/>
                                 <connections>
                                     <action selector="btnClick:" destination="Gc7-fr-2Kp" eventType="touchUpInside" id="yw8-V7-Tgh"/>
+                                    <action selector="saveButtonClick:" destination="miX-Gv-t8u" eventType="touchUpInside" id="04H-s5-RrZ"/>
                                 </connections>
                             </button>
                         </subviews>
