@@ -19,12 +19,14 @@
 
 @implementation YHContactTableViewController
 
+#pragma mark 懒加载数组.
 - (NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
+#pragma mark 控制器加载完毕来带此方法, 完成一些初始化的操作.
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@的通讯录", _userName];
@@ -32,6 +34,7 @@
 
 }
 
+#pragma mark 通过segue拿到目标控制器, 在跳转前完成代理的设置或者值的传递.
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
     //如果目标控制器是YHAddViewController, 则拿到YHAddViewController控制器, 并设置其代理.
@@ -53,6 +56,7 @@
 
 
 }
+#pragma mark addViewDelegate的代理方法.在该方法中拿到 <添加编辑器> 传来的数据模型
 - (void)addViewController:(YHAddViewController *)addViewController addItem:(YHAddItem *)addItem{
 
     //调用代理方法, 将带来传入的item添加到数组中
@@ -60,8 +64,11 @@
 
     //刷新数据.
     [self.tableView reloadData];
+
+    //设置tableFooterView, 取消空白处分割线.
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
-#pragma mark 调用代理方法, 拿到编辑控制器传入的新值, 并刷新.
+#pragma mark EditViewDelegate代理方法, 拿到 <编辑控制器> 传入的新值, 并刷新.
 - (void)edittingViewController:(YHEditViewController *)editingViewController addItem:(YHAddItem *)additem{
     [self.tableView reloadData];
 }
@@ -91,7 +98,7 @@
 }
 
 
-
+#pragma mark UITableView的代理方法, 返回显示多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return self.dataArray.count;
