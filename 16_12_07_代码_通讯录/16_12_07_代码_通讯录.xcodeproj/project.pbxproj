@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A53E55A11DF743A500FC2766 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55A01DF743A500FC2766 /* main.m */; };
+		A53E55A41DF743A500FC2766 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55A31DF743A500FC2766 /* AppDelegate.m */; };
+		A53E55AA1DF743A500FC2766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E55A81DF743A500FC2766 /* Main.storyboard */; };
+		A53E55AC1DF743A500FC2766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53E55AB1DF743A500FC2766 /* Assets.xcassets */; };
+		A53E55AF1DF743A500FC2766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53E55AD1DF743A500FC2766 /* LaunchScreen.storyboard */; };
+		A53E55B91DF744D400FC2766 /* YHLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55B71DF744D400FC2766 /* YHLogInViewController.m */; };
+		A53E55BA1DF744D400FC2766 /* YHLogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53E55B81DF744D400FC2766 /* YHLogInViewController.xib */; };
+		A53E55C21DF747A200FC2766 /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55BE1DF747A200FC2766 /* MBProgressHUD+XMG.m */; };
+		A53E55C31DF747A200FC2766 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A53E55BF1DF747A200FC2766 /* MBProgressHUD.bundle */; };
+		A53E55C41DF747A200FC2766 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55C11DF747A200FC2766 /* MBProgressHUD.m */; };
+		A53E55C91DF7496600FC2766 /* YHContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55C71DF7496600FC2766 /* YHContactTableViewController.m */; };
+		A53E55CA1DF7496600FC2766 /* YHContactTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53E55C81DF7496600FC2766 /* YHContactTableViewController.xib */; };
+		A53E55CF1DF74EEA00FC2766 /* YHAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55CD1DF74EEA00FC2766 /* YHAddContactViewController.m */; };
+		A53E55D01DF74EEA00FC2766 /* YHAddContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53E55CE1DF74EEA00FC2766 /* YHAddContactViewController.xib */; };
+		A53E55D51DF755CD00FC2766 /* YHContactItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55D41DF755CD00FC2766 /* YHContactItems.m */; };
+		A53E55DA1DF75EBA00FC2766 /* YHEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55D81DF75EBA00FC2766 /* YHEditViewController.m */; };
+		A53E55DB1DF75EBA00FC2766 /* YHEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53E55D91DF75EBA00FC2766 /* YHEditViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A53E559C1DF743A500FC2766 /* 16_12_07_代码_通讯录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16_12_07_代码_通讯录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A53E55A01DF743A500FC2766 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A53E55A21DF743A500FC2766 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A53E55A31DF743A500FC2766 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A53E55A91DF743A500FC2766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A53E55AB1DF743A500FC2766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A53E55AE1DF743A500FC2766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A53E55B01DF743A500FC2766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A53E55B61DF744D400FC2766 /* YHLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHLogInViewController.h; path = classes/Login/YHLogInViewController.h; sourceTree = "<group>"; };
+		A53E55B71DF744D400FC2766 /* YHLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHLogInViewController.m; path = classes/Login/YHLogInViewController.m; sourceTree = "<group>"; };
+		A53E55B81DF744D400FC2766 /* YHLogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YHLogInViewController.xib; path = classes/Login/YHLogInViewController.xib; sourceTree = "<group>"; };
+		A53E55BD1DF747A200FC2766 /* MBProgressHUD+XMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XMG.h"; sourceTree = "<group>"; };
+		A53E55BE1DF747A200FC2766 /* MBProgressHUD+XMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+XMG.m"; sourceTree = "<group>"; };
+		A53E55BF1DF747A200FC2766 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		A53E55C01DF747A200FC2766 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		A53E55C11DF747A200FC2766 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		A53E55C61DF7496600FC2766 /* YHContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHContactTableViewController.h; path = "16_12_07_代码_通讯录/classes/Contact/YHContactTableViewController.h"; sourceTree = "<group>"; };
+		A53E55C71DF7496600FC2766 /* YHContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHContactTableViewController.m; path = "16_12_07_代码_通讯录/classes/Contact/YHContactTableViewController.m"; sourceTree = "<group>"; };
+		A53E55C81DF7496600FC2766 /* YHContactTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YHContactTableViewController.xib; path = "16_12_07_代码_通讯录/classes/Contact/YHContactTableViewController.xib"; sourceTree = "<group>"; };
+		A53E55CC1DF74EEA00FC2766 /* YHAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHAddContactViewController.h; path = "16_12_07_代码_通讯录/classes/AddContact/YHAddContactViewController.h"; sourceTree = "<group>"; };
+		A53E55CD1DF74EEA00FC2766 /* YHAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHAddContactViewController.m; path = "16_12_07_代码_通讯录/classes/AddContact/YHAddContactViewController.m"; sourceTree = "<group>"; };
+		A53E55CE1DF74EEA00FC2766 /* YHAddContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YHAddContactViewController.xib; path = "16_12_07_代码_通讯录/classes/AddContact/YHAddContactViewController.xib"; sourceTree = "<group>"; };
+		A53E55D31DF755CD00FC2766 /* YHContactItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHContactItems.h; path = classes/Other/YHContactItems.h; sourceTree = "<group>"; };
+		A53E55D41DF755CD00FC2766 /* YHContactItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHContactItems.m; path = classes/Other/YHContactItems.m; sourceTree = "<group>"; };
+		A53E55D71DF75EBA00FC2766 /* YHEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHEditViewController.h; path = classes/Edit/YHEditViewController.h; sourceTree = "<group>"; };
+		A53E55D81DF75EBA00FC2766 /* YHEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHEditViewController.m; path = classes/Edit/YHEditViewController.m; sourceTree = "<group>"; };
+		A53E55D91DF75EBA00FC2766 /* YHEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YHEditViewController.xib; path = classes/Edit/YHEditViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A53E55991DF743A500FC2766 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A53E55931DF743A500FC2766 = {
+			isa = PBXGroup;
+			children = (
+				A53E559E1DF743A500FC2766 /* 16_12_07_代码_通讯录 */,
+				A53E559D1DF743A500FC2766 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A53E559D1DF743A500FC2766 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A53E559C1DF743A500FC2766 /* 16_12_07_代码_通讯录.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A53E559E1DF743A500FC2766 /* 16_12_07_代码_通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55D21DF7556D00FC2766 /* other */,
+				A53E55D11DF74EF100FC2766 /* AddContact */,
+				A53E55CB1DF7496A00FC2766 /* Contact */,
+				A53E55BB1DF7453300FC2766 /* LogIn */,
+				A53E55C51DF747AB00FC2766 /* library */,
+				A53E55D61DF75E8200FC2766 /* Editting */,
+				A53E55AB1DF743A500FC2766 /* Assets.xcassets */,
+				A53E559F1DF743A500FC2766 /* Supporting Files */,
+			);
+			path = "16_12_07_代码_通讯录";
+			sourceTree = "<group>";
+		};
+		A53E559F1DF743A500FC2766 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55A01DF743A500FC2766 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A53E55BB1DF7453300FC2766 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55B61DF744D400FC2766 /* YHLogInViewController.h */,
+				A53E55B71DF744D400FC2766 /* YHLogInViewController.m */,
+				A53E55B81DF744D400FC2766 /* YHLogInViewController.xib */,
+			);
+			name = LogIn;
+			sourceTree = "<group>";
+		};
+		A53E55BC1DF747A200FC2766 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55BD1DF747A200FC2766 /* MBProgressHUD+XMG.h */,
+				A53E55BE1DF747A200FC2766 /* MBProgressHUD+XMG.m */,
+				A53E55BF1DF747A200FC2766 /* MBProgressHUD.bundle */,
+				A53E55C01DF747A200FC2766 /* MBProgressHUD.h */,
+				A53E55C11DF747A200FC2766 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = ../MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		A53E55C51DF747AB00FC2766 /* library */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55BC1DF747A200FC2766 /* MBProgressHUD */,
+			);
+			name = library;
+			sourceTree = "<group>";
+		};
+		A53E55CB1DF7496A00FC2766 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55C61DF7496600FC2766 /* YHContactTableViewController.h */,
+				A53E55C71DF7496600FC2766 /* YHContactTableViewController.m */,
+				A53E55C81DF7496600FC2766 /* YHContactTableViewController.xib */,
+			);
+			name = Contact;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A53E55D11DF74EF100FC2766 /* AddContact */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55CC1DF74EEA00FC2766 /* YHAddContactViewController.h */,
+				A53E55CD1DF74EEA00FC2766 /* YHAddContactViewController.m */,
+				A53E55CE1DF74EEA00FC2766 /* YHAddContactViewController.xib */,
+			);
+			name = AddContact;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A53E55D21DF7556D00FC2766 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55A21DF743A500FC2766 /* AppDelegate.h */,
+				A53E55A31DF743A500FC2766 /* AppDelegate.m */,
+				A53E55A81DF743A500FC2766 /* Main.storyboard */,
+				A53E55AD1DF743A500FC2766 /* LaunchScreen.storyboard */,
+				A53E55B01DF743A500FC2766 /* Info.plist */,
+				A53E55D31DF755CD00FC2766 /* YHContactItems.h */,
+				A53E55D41DF755CD00FC2766 /* YHContactItems.m */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		A53E55D61DF75E8200FC2766 /* Editting */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55D71DF75EBA00FC2766 /* YHEditViewController.h */,
+				A53E55D81DF75EBA00FC2766 /* YHEditViewController.m */,
+				A53E55D91DF75EBA00FC2766 /* YHEditViewController.xib */,
+			);
+			name = Editting;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A53E559B1DF743A500FC2766 /* 16_12_07_代码_通讯录 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A53E55B31DF743A500FC2766 /* Build configuration list for PBXNativeTarget "16_12_07_代码_通讯录" */;
+			buildPhases = (
+				A53E55981DF743A500FC2766 /* Sources */,
+				A53E55991DF743A500FC2766 /* Frameworks */,
+				A53E559A1DF743A500FC2766 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "16_12_07_代码_通讯录";
+			productName = "16_12_07_代码_通讯录";
+			productReference = A53E559C1DF743A500FC2766 /* 16_12_07_代码_通讯录.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A53E55941DF743A500FC2766 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YH;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "姚懿恒";
+				TargetAttributes = {
+					A53E559B1DF743A500FC2766 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A53E55971DF743A500FC2766 /* Build configuration list for PBXProject "16_12_07_代码_通讯录" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A53E55931DF743A500FC2766;
+			productRefGroup = A53E559D1DF743A500FC2766 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A53E559B1DF743A500FC2766 /* 16_12_07_代码_通讯录 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A53E559A1DF743A500FC2766 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A53E55AF1DF743A500FC2766 /* LaunchScreen.storyboard in Resources */,
+				A53E55AC1DF743A500FC2766 /* Assets.xcassets in Resources */,
+				A53E55C31DF747A200FC2766 /* MBProgressHUD.bundle in Resources */,
+				A53E55AA1DF743A500FC2766 /* Main.storyboard in Resources */,
+				A53E55CA1DF7496600FC2766 /* YHContactTableViewController.xib in Resources */,
+				A53E55D01DF74EEA00FC2766 /* YHAddContactViewController.xib in Resources */,
+				A53E55BA1DF744D400FC2766 /* YHLogInViewController.xib in Resources */,
+				A53E55DB1DF75EBA00FC2766 /* YHEditViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A53E55981DF743A500FC2766 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A53E55C91DF7496600FC2766 /* YHContactTableViewController.m in Sources */,
+				A53E55C41DF747A200FC2766 /* MBProgressHUD.m in Sources */,
+				A53E55A41DF743A500FC2766 /* AppDelegate.m in Sources */,
+				A53E55D51DF755CD00FC2766 /* YHContactItems.m in Sources */,
+				A53E55CF1DF74EEA00FC2766 /* YHAddContactViewController.m in Sources */,
+				A53E55A11DF743A500FC2766 /* main.m in Sources */,
+				A53E55DA1DF75EBA00FC2766 /* YHEditViewController.m in Sources */,
+				A53E55B91DF744D400FC2766 /* YHLogInViewController.m in Sources */,
+				A53E55C21DF747A200FC2766 /* MBProgressHUD+XMG.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A53E55A81DF743A500FC2766 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A53E55A91DF743A500FC2766 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A53E55AD1DF743A500FC2766 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A53E55AE1DF743A500FC2766 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A53E55B11DF743A500FC2766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A53E55B21DF743A500FC2766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A53E55B41DF743A500FC2766 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "16_12_07_代码_通讯录/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yiheng.-6-12-07-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A53E55B51DF743A500FC2766 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "16_12_07_代码_通讯录/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yiheng.-6-12-07-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A53E55971DF743A500FC2766 /* Build configuration list for PBXProject "16_12_07_代码_通讯录" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A53E55B11DF743A500FC2766 /* Debug */,
+				A53E55B21DF743A500FC2766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A53E55B31DF743A500FC2766 /* Build configuration list for PBXNativeTarget "16_12_07_代码_通讯录" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A53E55B41DF743A500FC2766 /* Debug */,
+				A53E55B51DF743A500FC2766 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A53E55941DF743A500FC2766 /* Project object */;
+}
