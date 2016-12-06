@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53E55921DF643A500FC2766 /* YHEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53E55911DF643A500FC2766 /* YHEditViewController.m */; };
 		A597B7731DED4B3500670E83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A597B7721DED4B3500670E83 /* main.m */; };
 		A597B7761DED4B3500670E83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A597B7751DED4B3500670E83 /* AppDelegate.m */; };
 		A597B7791DED4B3500670E83 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A597B7781DED4B3500670E83 /* ViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A53E55901DF643A500FC2766 /* YHEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHEditViewController.h; sourceTree = "<group>"; };
+		A53E55911DF643A500FC2766 /* YHEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHEditViewController.m; sourceTree = "<group>"; };
 		A597B76E1DED4B3500670E83 /* 16_11_29_通过stortboard跳转控制器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16_11_29_通过stortboard跳转控制器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A597B7721DED4B3500670E83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A597B7741DED4B3500670E83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A53E558F1DF6435C00FC2766 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				A53E55901DF643A500FC2766 /* YHEditViewController.h */,
+				A53E55911DF643A500FC2766 /* YHEditViewController.m */,
+			);
+			name = Edit;
+			sourceTree = "<group>";
+		};
 		A597B7651DED4B3500670E83 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +88,7 @@
 		A597B7701DED4B3500670E83 /* 16_11_29_通过stortboard跳转控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				A53E558F1DF6435C00FC2766 /* Edit */,
 				A5A238C81DF4A08A0055D0D7 /* contactVC */,
 				A5A238C71DF4A0660055D0D7 /* logInVC */,
 				A5A238C01DF3F7B80055D0D7 /* Add */,
@@ -181,6 +194,7 @@
 		A597B7661DED4B3500670E83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YH;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "姚懿恒";
 				TargetAttributes = {
@@ -233,6 +247,7 @@
 				A597B7761DED4B3500670E83 /* AppDelegate.m in Sources */,
 				A597B7731DED4B3500670E83 /* main.m in Sources */,
 				A5A238BF1DF36B5F0055D0D7 /* YHAddViewController.m in Sources */,
+				A53E55921DF643A500FC2766 /* YHEditViewController.m in Sources */,
 				A597B79E1DF178EC00670E83 /* MBProgressHUD+XMG.m in Sources */,
 				A5A238C61DF3FA470055D0D7 /* YHAddItem.m in Sources */,
 			);

@@ -9,16 +9,26 @@
 #import "YHContactTableViewController.h"
 #import "YHAddItem.h"
 #import "YHAddViewController.h"
+#import "YHEditViewController.h"
 
-@interface YHContactTableViewController ()<UIAlertViewDelegate, UIActionSheetDelegate>
+@interface YHContactTableViewController ()<addViewDelegate>
+/** 数据数组*/
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
 @implementation YHContactTableViewController
 
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@的通讯录", _userName];
+
 
 }
 - (void)setAddItem:(YHAddItem *)addItem{
@@ -27,17 +37,30 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    YHAddViewController *addVC = segue.destinationViewController;
-    addVC.contantViewController = self;
+
+    if ([segue.destinationViewController isKindOfClass:[YHAddViewController class]]) {
+        YHAddViewController *addVC = segue.destinationViewController;
+
+        addVC.delegate = self;
+    }else{
+        YHEditViewController *editVC = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        YHAddItem *item = self.dataArray[indexPath.row];
+        editVC.addItem = item;
+    }
+
+
+}
+- (void)addViewController:(YHAddViewController *)addViewController addItem:(YHAddItem *)addItem{
+
+    //调用代理方法, 将带来传入的item添加到数组中
+    [self.dataArray addObject:addItem];
+
+    //刷新数据.
+    [self.tableView reloadData];
 }
 - (IBAction)logOut:(UIBarButtonItem *)sender {
-    //演示两种已经过期的方法, 用来显示弹窗.
-//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定退出吗?" message:@"???" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//    [alertView show];
 
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"确定退出吗" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
-
-//    [actionSheet showInView:self.view];
 
     //1.创建一个alertController, 设置其通知标题, 显示的信息, 以及样式.
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定退出吗?" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -75,24 +98,30 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.dataArray.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+#pragma mark 拿到具体的item返回对应的cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *ID = @"contact";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+//    }
+    YHAddItem * item = self.dataArray[indexPath.row];
+    cell.textLabel.text = item.userName;
+    cell.detailTextLabel.text = item.phoneNumber;
+    cell.imageView.image = [UIImage imageNamed:@"m1.png"];
+
     return cell;
+
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

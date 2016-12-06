@@ -23,12 +23,11 @@
     //将从输入框中得到的内容封装到一个类中, 更方便专递.
     YHAddItem *addItem = [YHAddItem addItemWithName:self.nameTextField.text andPhoneNumber:self.numberTextField.text];
 
-    //为contantViewController的item属性赋值
-    /**
-     作为数据的来源控制器(self), 要拿到 数据接收 的控制器(contantViewController).
-     为其 接收数据的属性(addItem)赋值.
-     */
-    self.contantViewController.addItem = addItem;
+
+    //当点击按钮是调用协议方法, 当代理实现代理方法时, 代理才调用代理方法.
+    if ([self.delegate respondsToSelector:@selector(addViewController:addItem:)]) {
+        [self.delegate addViewController:self addItem:addItem];
+    }
 
     //返回上一个控制器.
     [self.navigationController popViewControllerAnimated:YES];
