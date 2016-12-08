@@ -45,11 +45,25 @@
     NSArray *array = [NSArray arrayWithContentsOfFile:filePath];
     NSLog(@"%@", array);
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark 保存偏好设置
+- (IBAction)preferenceSave:(id)sender {
+    //拿到偏好设置
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //对偏好进行赋值
+    [defaults setObject:@"张mm" forKey:@"name"];
+    [defaults setInteger:22 forKey:@"age"];
+    //立即写入文件
+    [defaults synchronize];
 }
+#pragma mark 读取偏好设置
+- (IBAction)preferenceRead:(id)sender {
+    //拿到偏好设置
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //根据键拿到对应的值
+    NSString *name = [defaults objectForKey:@"name"];
+    NSInteger age = [defaults integerForKey:@"age"];
 
+    NSLog(@"%@, %ld", name, age);
+}
 
 @end

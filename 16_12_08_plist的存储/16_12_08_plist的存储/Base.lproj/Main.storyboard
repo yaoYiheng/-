@@ -27,11 +27,27 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1D-M7-XuC">
-                                <frame key="frameInset" minX="99" minY="322" width="177" height="61"/>
+                                <frame key="frameInset" minX="99" minY="252" width="177" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Read"/>
                                 <connections>
                                     <action selector="readBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IIg-yZ-VmT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mj-s2-QMU">
+                                <frame key="frameInset" minX="9" minY="369" width="343" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SaveWithPreference"/>
+                                <connections>
+                                    <action selector="preferenceSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="25K-lw-s0v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVy-2L-Fdz">
+                                <frame key="frameInset" minX="16" minY="472" width="343" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ReadWithPreference"/>
+                                <connections>
+                                    <action selector="preferenceRead:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GPW-Vc-RKP"/>
                                 </connections>
                             </button>
                         </subviews>
