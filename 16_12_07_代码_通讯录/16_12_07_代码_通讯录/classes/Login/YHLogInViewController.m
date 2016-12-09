@@ -101,7 +101,7 @@
 
     //如果记住密码为yes, 则拿到偏好, 为文本框赋值,
     if (self.rememberSwitch.on) {
-        
+
         self.accountTextField.text = [defaults objectForKey:YHAccount];
         self.passwordTextField.text = [defaults objectForKey:YHPassword];
         if (self.autoLogInSwith.on) {

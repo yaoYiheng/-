@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Person.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+#pragma mark 将数据写入到plist文件
 - (IBAction)saveBtnClick:(UIButton *)sender {
     //获取想要存放文件的路径数组.
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -30,7 +32,7 @@
     [array writeToFile:filePath atomically:YES];
 
 }
-
+#pragma mark 从plist文件中读取数据
 - (IBAction)readBtnClick:(UIButton *)sender {
 
     //获取想要读取文件的路径数组.
@@ -64,6 +66,38 @@
     NSInteger age = [defaults integerForKey:@"age"];
 
     NSLog(@"%@, %ld", name, age);
+}
+
+#pragma mark 保存归档文件
+
+/**
+ 保存自定义对象
+
+ */
+- (IBAction)KeyedArchiver:(UIButton *)sender {
+
+    //返回沙盒中temp文件夹的地址.
+    NSString *tempPath = NSTemporaryDirectory();
+    ///拼接待保存的文件路径
+    NSString *filePath = [tempPath stringByAppendingPathComponent:@"Person.data"];
+    Person *person = [[Person alloc] init];
+    person.name = @"张mm";
+    person.age = 22;
+    //将对象保存至指定路径
+    if([NSKeyedArchiver archiveRootObject:person toFile:filePath]){
+        NSLog(@"归档成功");
+    }
+
+}
+
+#pragma mark 读取归档文件
+- (IBAction)KeyedUnarchiver:(UIButton *)sender {
+    //返回沙盒temp文件夹, 并拼接待保存文件路径,
+    NSString *tempPath = NSTemporaryDirectory();
+    NSString *filePath = [tempPath stringByAppendingPathComponent:@"Person.data"];
+    //拿到保存的对象.
+    Person *per = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    NSLog(@"%@---%d", per.name, per.age);
 }
 
 @end
