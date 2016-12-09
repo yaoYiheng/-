@@ -90,6 +90,10 @@
 
 }
 
+/**
+从文件中读取被保存的自定义对象
+
+ */
 #pragma mark 读取归档文件
 - (IBAction)KeyedUnarchiver:(UIButton *)sender {
     //返回沙盒temp文件夹, 并拼接待保存文件路径,
