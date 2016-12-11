@@ -13,7 +13,6 @@
 		A57011E91DFAB489005B5E96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57011E71DFAB489005B5E96 /* Main.storyboard */; };
 		A57011EB1DFAB489005B5E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57011EA1DFAB489005B5E96 /* Assets.xcassets */; };
 		A57011EE1DFAB489005B5E96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57011EC1DFAB489005B5E96 /* LaunchScreen.storyboard */; };
-		A57011F71DFAB558005B5E96 /* YHDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57011F61DFAB558005B5E96 /* YHDetailTableViewController.m */; };
 		A57011FA1DFBA828005B5E96 /* YHPersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57011F91DFBA828005B5E96 /* YHPersonDetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +27,6 @@
 		A57011EA1DFAB489005B5E96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A57011ED1DFAB489005B5E96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A57011EF1DFAB489005B5E96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A57011F51DFAB558005B5E96 /* YHDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHDetailTableViewController.h; sourceTree = "<group>"; };
-		A57011F61DFAB558005B5E96 /* YHDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHDetailTableViewController.m; sourceTree = "<group>"; };
 		A57011F81DFBA828005B5E96 /* YHPersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPersonDetailViewController.h; sourceTree = "<group>"; };
 		A57011F91DFBA828005B5E96 /* YHPersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPersonDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,8 +68,6 @@
 				A57011E71DFAB489005B5E96 /* Main.storyboard */,
 				A57011F81DFBA828005B5E96 /* YHPersonDetailViewController.h */,
 				A57011F91DFBA828005B5E96 /* YHPersonDetailViewController.m */,
-				A57011F51DFAB558005B5E96 /* YHDetailTableViewController.h */,
-				A57011F61DFAB558005B5E96 /* YHDetailTableViewController.m */,
 				A57011EA1DFAB489005B5E96 /* Assets.xcassets */,
 				A57011EC1DFAB489005B5E96 /* LaunchScreen.storyboard */,
 				A57011EF1DFAB489005B5E96 /* Info.plist */,
@@ -165,7 +160,6 @@
 				A57011E31DFAB489005B5E96 /* AppDelegate.m in Sources */,
 				A57011E01DFAB489005B5E96 /* main.m in Sources */,
 				A57011FA1DFBA828005B5E96 /* YHPersonDetailViewController.m in Sources */,
-				A57011F71DFAB558005B5E96 /* YHDetailTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

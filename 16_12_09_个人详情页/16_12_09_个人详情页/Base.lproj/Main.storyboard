@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="-248" y="54"/>
         </scene>
-        <!--View Controller-->
+        <!--Person Detail View Controller-->
         <scene sceneID="k7x-IT-idD">
             <objects>
-                <viewController id="onN-zC-QiB" sceneMemberID="viewController">
+                <viewController id="onN-zC-QiB" customClass="YHPersonDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RkS-aF-hrW"/>
                         <viewControllerLayoutGuide type="bottom" id="hR2-3X-I5M"/>
@@ -46,10 +46,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-9o-GKD">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-9o-GKD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-Lt-T0I">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-Lt-T0I">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="cxY-3x-4ho"/>
@@ -73,12 +73,22 @@
                                     <constraint firstAttribute="height" constant="200" id="vkd-HB-n3r"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oi3-xl-iGt">
+                                <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nKy-LO-MCx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Oi3-xl-iGt" firstAttribute="leading" secondItem="bnd-dj-xdq" secondAttribute="leading" id="0qU-G5-3F3"/>
                             <constraint firstItem="Bxm-XG-JWl" firstAttribute="leading" secondItem="bnd-dj-xdq" secondAttribute="leading" id="3lL-Q3-4iq"/>
                             <constraint firstAttribute="trailing" secondItem="Bxm-XG-JWl" secondAttribute="trailing" id="9XG-MK-9kM"/>
+                            <constraint firstAttribute="trailing" secondItem="Oi3-xl-iGt" secondAttribute="trailing" id="C0v-O1-LbO"/>
                             <constraint firstItem="3pG-9o-GKD" firstAttribute="top" secondItem="RkS-aF-hrW" secondAttribute="bottom" id="Kvj-fd-2Aa"/>
+                            <constraint firstItem="Oi3-xl-iGt" firstAttribute="top" secondItem="3pG-9o-GKD" secondAttribute="bottom" id="O2P-UA-Uxc"/>
                             <constraint firstAttribute="trailing" secondItem="3pG-9o-GKD" secondAttribute="trailing" id="SQ0-fE-yKI"/>
                             <constraint firstItem="3pG-9o-GKD" firstAttribute="leading" secondItem="bnd-dj-xdq" secondAttribute="leading" id="enQ-Uf-TYv"/>
                             <constraint firstItem="hR2-3X-I5M" firstAttribute="top" secondItem="Bxm-XG-JWl" secondAttribute="bottom" id="gQE-QN-IoV"/>
@@ -86,6 +96,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YJk-2P-bNN"/>
+                    <connections>
+                        <outlet property="imageViewHeightConstraints" destination="vkd-HB-n3r" id="I9l-FV-nQW"/>
+                        <outlet property="tableView" destination="Bxm-XG-JWl" id="NUf-OU-hKB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghj-Na-rjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

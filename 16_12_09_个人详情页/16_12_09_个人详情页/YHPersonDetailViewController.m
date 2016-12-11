@@ -7,9 +7,12 @@
 //
 
 #import "YHPersonDetailViewController.h"
+#define imageViewHeight 200
+#define originalOffsetY 244
 
 @interface YHPersonDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeightConstraints;
 
 @end
 
@@ -23,14 +26,15 @@ NSString *ID = @"cellID";
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    headerView.backgroundColor = [UIColor lightGrayColor];
-    self.tableView.tableHeaderView = headerView;
-    self.tableView.contentInset = UIEdgeInsetsMake(244, 0, 0, 0);
+//
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+//    headerView.backgroundColor = [UIColor lightGrayColor];
+//    self.tableView.tableHeaderView = headerView;
+    self.tableView.contentInset = UIEdgeInsetsMake(originalOffsetY, originalOffsetY, 0, 0);
 
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 }
@@ -52,5 +56,20 @@ NSString *ID = @"cellID";
     return cell;
 
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%f", scrollView.contentOffset.x);
+
+    CGFloat offsetBetweenImageViewAndTabel =  originalOffsetY + scrollView.contentOffset.y ;
+
+
+    CGFloat currentHeightOfImageView = imageViewHeight - offsetBetweenImageViewAndTabel;
+    if (currentHeightOfImageView < 64) {
+        currentHeightOfImageView = 64;
+    }
+    self.imageViewHeightConstraints.constant = currentHeightOfImageView;
+    NSLog(@"%f", offsetBetweenImageViewAndTabel);
+}
+
 
 @end
