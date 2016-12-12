@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-//#import "TextTableViewController.h"
+#import "massageViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,31 +17,74 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //创建窗口
+//    //创建窗口
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//
+//    //创建tabBarController控制器.
+//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+//
+//    //创建UITableViewController
+//    UITableViewController *tableVC = [[UITableViewController alloc] init];
+//    //为对应的控制器设置标题以及图片
+//    tableVC.tabBarItem.title = @"个人";
+//    tableVC.tabBarItem.image = [UIImage imageNamed:@"tab_buddy_nor"];
+//
+//    //创建导航控制器.
+//    UINavigationController *navigationVC =[[UINavigationController alloc] initWithRootViewController:tableVC];
+//
+//    UITableViewController *tableVC1 = [[UITableViewController alloc] init];
+//    tableVC1.tabBarItem.title = @"动态";
+//
+//    //可以以数组的形式添加tabBarController的子控件, 一开始显示的为最先添加的控制器(索引为0的控制器)
+//    tabBarController.viewControllers = @[tableVC1,navigationVC];
+//
+//    //或者通过以下方法添加子控制器.
+//    //[tabBarController addChildViewController:tabBarController];
+//    //设置窗口根控制器为导航控制器.
+//    self.window.rootViewController = tabBarController;
+//    [self.window makeKeyAndVisible];
+
+        /**********************/
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-    //创建tabBarController控制器.
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    //创建tabBarController
+    UITabBarController *mainTabBarVC = [[UITabBarController alloc] init];
 
-    //创建UITableViewController
-    UITableViewController *tableVC = [[UITableViewController alloc] init];
-    //为对应的控制器设置标题以及图片
-    tableVC.tabBarItem.title = @"个人";
-    tableVC.tabBarItem.image = [UIImage imageNamed:@"tab_buddy_nor"];
+    //导航控制器1--消息
+    massageViewController *massageTableVC = [[massageViewController alloc] init];
+    UINavigationController *navigationVC1  =[[UINavigationController alloc] initWithRootViewController:massageTableVC];
+    massageTableVC.tabBarItem.title = @"消息";
+    massageTableVC.tabBarItem.badgeValue = @"10";
+    massageTableVC.tabBarItem.image = [UIImage imageNamed:@"tab_recent_nor"];
 
-    //创建导航控制器.
-    UINavigationController *navigationVC =[[UINavigationController alloc] initWithRootViewController:tableVC];
+    //导航控制2--动态
+    UITableViewController *statusTableViewController = [[UITableViewController alloc] init];
+    UINavigationController *navigationVC2  =[[UINavigationController alloc] initWithRootViewController:statusTableViewController];
+    //设置title属性, 可以为两个状态栏上的title赋值.
+    statusTableViewController.title = @"动态";
+    statusTableViewController.tabBarItem.image = [UIImage imageNamed:@"tab_qworld_nor"];
 
-    UITableViewController *tableVC1 = [[UITableViewController alloc] init];
-    tableVC1.tabBarItem.title = @"动态";
 
-    //可以以数组的形式添加tabBarController的子控件, 一开始显示的为最先添加的控制器(索引为0的控制器)
-    tabBarController.viewControllers = @[tableVC1,navigationVC];
 
-    //或者通过以下方法添加子控制器.
-    //[tabBarController addChildViewController:tabBarController];
-    //设置窗口根控制器为导航控制器.
-    self.window.rootViewController = tabBarController;
+    //导航控制器3 -- 人物
+    UITableViewController *personTableViewController = [[UITableViewController alloc] init];
+    UINavigationController *navigationVC3  =[[UINavigationController alloc] initWithRootViewController:personTableViewController];
+    personTableViewController.tabBarItem.title = @"个人";
+    personTableViewController.tabBarItem.image = [UIImage imageNamed:@"tab_buddy_nor"];
+
+    //导航控制4  ---- 设置
+    UITableViewController *settingTableViewController = [[UITableViewController alloc] init];
+    UINavigationController *navigationVC4  =[[UINavigationController alloc] initWithRootViewController:settingTableViewController];
+    settingTableViewController.title = @"设置";
+    settingTableViewController.tabBarItem.image = [UIImage imageNamed:@"tab_me_nor"];
+
+
+    mainTabBarVC.viewControllers = @[navigationVC1, navigationVC2, navigationVC3, navigationVC4];
+
+
+
+    self.window.rootViewController = mainTabBarVC;
     [self.window makeKeyAndVisible];
     return YES;
 }

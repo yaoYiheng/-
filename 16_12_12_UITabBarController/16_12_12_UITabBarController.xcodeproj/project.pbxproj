@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		A59C60791DFE4D2000BE51E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60781DFE4D2000BE51E0 /* main.m */; };
 		A59C607C1DFE4D2000BE51E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C607B1DFE4D2000BE51E0 /* AppDelegate.m */; };
-		A59C607F1DFE4D2000BE51E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C607E1DFE4D2000BE51E0 /* ViewController.m */; };
 		A59C60821DFE4D2000BE51E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59C60801DFE4D2000BE51E0 /* Main.storyboard */; };
 		A59C60841DFE4D2000BE51E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59C60831DFE4D2000BE51E0 /* Assets.xcassets */; };
 		A59C60871DFE4D2000BE51E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59C60851DFE4D2000BE51E0 /* LaunchScreen.storyboard */; };
+		A59C60941DFEA89200BE51E0 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60931DFEA89200BE51E0 /* UIImage+Image.m */; };
+		A59C609A1DFEA8ED00BE51E0 /* PersonDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60991DFEA8ED00BE51E0 /* PersonDetailVC.m */; };
+		A59C60A51DFEB5F900BE51E0 /* massageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60A31DFEB5F900BE51E0 /* massageViewController.m */; };
+		A59C60A61DFEB5F900BE51E0 /* massageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59C60A41DFEB5F900BE51E0 /* massageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,17 @@
 		A59C60781DFE4D2000BE51E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A59C607A1DFE4D2000BE51E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A59C607B1DFE4D2000BE51E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A59C607D1DFE4D2000BE51E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A59C607E1DFE4D2000BE51E0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A59C60811DFE4D2000BE51E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A59C60831DFE4D2000BE51E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A59C60861DFE4D2000BE51E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59C60881DFE4D2000BE51E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59C60921DFEA89200BE51E0 /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		A59C60931DFEA89200BE51E0 /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
+		A59C60981DFEA8ED00BE51E0 /* PersonDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailVC.h; sourceTree = "<group>"; };
+		A59C60991DFEA8ED00BE51E0 /* PersonDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailVC.m; sourceTree = "<group>"; };
+		A59C60A21DFEB5F900BE51E0 /* massageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = massageViewController.h; path = ../massageViewController.h; sourceTree = "<group>"; };
+		A59C60A31DFEB5F900BE51E0 /* massageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = massageViewController.m; path = ../massageViewController.m; sourceTree = "<group>"; };
+		A59C60A41DFEB5F900BE51E0 /* massageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = massageViewController.xib; path = ../massageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 			children = (
 				A59C60761DFE4D2000BE51E0 /* 16_12_12_UITabBarController */,
 				A59C60751DFE4D2000BE51E0 /* Products */,
+				A59C60911DFEA89200BE51E0 /* Category */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,9 @@
 			children = (
 				A59C607A1DFE4D2000BE51E0 /* AppDelegate.h */,
 				A59C607B1DFE4D2000BE51E0 /* AppDelegate.m */,
-				A59C607D1DFE4D2000BE51E0 /* ViewController.h */,
-				A59C607E1DFE4D2000BE51E0 /* ViewController.m */,
+				A59C60A21DFEB5F900BE51E0 /* massageViewController.h */,
+				A59C60A31DFEB5F900BE51E0 /* massageViewController.m */,
+				A59C60A41DFEB5F900BE51E0 /* massageViewController.xib */,
 				A59C60801DFE4D2000BE51E0 /* Main.storyboard */,
 				A59C60831DFE4D2000BE51E0 /* Assets.xcassets */,
 				A59C60851DFE4D2000BE51E0 /* LaunchScreen.storyboard */,
@@ -77,6 +87,17 @@
 				A59C60781DFE4D2000BE51E0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A59C60911DFEA89200BE51E0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A59C60921DFEA89200BE51E0 /* UIImage+Image.h */,
+				A59C60931DFEA89200BE51E0 /* UIImage+Image.m */,
+				A59C60981DFEA8ED00BE51E0 /* PersonDetailVC.h */,
+				A59C60991DFEA8ED00BE51E0 /* PersonDetailVC.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +160,7 @@
 			files = (
 				A59C60871DFE4D2000BE51E0 /* LaunchScreen.storyboard in Resources */,
 				A59C60841DFE4D2000BE51E0 /* Assets.xcassets in Resources */,
+				A59C60A61DFEB5F900BE51E0 /* massageViewController.xib in Resources */,
 				A59C60821DFE4D2000BE51E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,8 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A59C607F1DFE4D2000BE51E0 /* ViewController.m in Sources */,
+				A59C60941DFEA89200BE51E0 /* UIImage+Image.m in Sources */,
+				A59C60A51DFEB5F900BE51E0 /* massageViewController.m in Sources */,
 				A59C607C1DFE4D2000BE51E0 /* AppDelegate.m in Sources */,
+				A59C609A1DFEA8ED00BE51E0 /* PersonDetailVC.m in Sources */,
 				A59C60791DFE4D2000BE51E0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

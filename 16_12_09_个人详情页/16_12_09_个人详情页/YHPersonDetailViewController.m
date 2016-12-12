@@ -34,8 +34,9 @@ NSString *ID = @"cellID";
     self.tableView.contentInset = UIEdgeInsetsMake(originalOffsetY, 0, 0, 0);
 
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     UILabel *title = [[UILabel alloc] init];
@@ -73,9 +74,9 @@ NSString *ID = @"cellID";
 
 
     CGFloat currentHeightOfImageView = imageViewHeight - offsetBetweenImageViewAndTabel;
-    if (currentHeightOfImageView < 64) {
-        currentHeightOfImageView = 64;
-    }
+//    if (currentHeightOfImageView < 64) {
+//        currentHeightOfImageView = 64;
+//    }
     self.imageViewHeightConstraints.constant = currentHeightOfImageView;
     //根据透明度来生成图片
     //找最大值/

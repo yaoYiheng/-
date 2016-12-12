@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  massageViewController.h
 //  16_12_12_UITabBarController
 //
 //  Created by 姚懿恒 on 2016/12/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface massageViewController : UIViewController
 
 @end
-
