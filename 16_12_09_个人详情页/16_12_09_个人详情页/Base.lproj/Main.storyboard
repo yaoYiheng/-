@@ -12,8 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="UQP-5y-fZc">
             <objects>
-                <navigationController navigationBarHidden="YES" id="UxC-Rg-OHs" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController id="UxC-Rg-OHs" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNP-gC-O7g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="onN-zC-QiB" kind="relationship" relationship="rootViewController" id="6yl-xM-rLf"/>
+                        <segue destination="onN-zC-QiB" kind="relationship" relationship="rootViewController" id="Qgd-0z-TSQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGI-wX-SFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,17 +42,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bxm-XG-JWl">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pG-9o-GKD">
-                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-Lt-T0I">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="cxY-3x-4ho"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="火影" translatesAutoresizingMaskIntoConstraints="NO" id="MMI-Sk-BcC">
                                         <rect key="frame" x="137.5" y="36" width="100" height="100"/>
@@ -65,16 +61,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="8jF-Lt-T0I" firstAttribute="leading" secondItem="3pG-9o-GKD" secondAttribute="leading" id="B1X-Ss-DMo"/>
+                                    <constraint firstAttribute="trailing" secondItem="8jF-Lt-T0I" secondAttribute="trailing" id="3jH-lj-Wxy"/>
+                                    <constraint firstAttribute="bottom" secondItem="8jF-Lt-T0I" secondAttribute="bottom" id="EMI-G5-SiL"/>
+                                    <constraint firstItem="8jF-Lt-T0I" firstAttribute="leading" secondItem="3pG-9o-GKD" secondAttribute="leading" id="Gkm-2C-s8h"/>
                                     <constraint firstAttribute="bottom" secondItem="MMI-Sk-BcC" secondAttribute="bottom" constant="64" id="R9x-fB-KYI"/>
                                     <constraint firstItem="MMI-Sk-BcC" firstAttribute="centerX" secondItem="3pG-9o-GKD" secondAttribute="centerX" id="XMU-Bc-C6q"/>
-                                    <constraint firstItem="8jF-Lt-T0I" firstAttribute="top" secondItem="3pG-9o-GKD" secondAttribute="top" id="YFO-Z2-ayB"/>
-                                    <constraint firstAttribute="trailing" secondItem="8jF-Lt-T0I" secondAttribute="trailing" id="quG-0u-C0v"/>
+                                    <constraint firstItem="8jF-Lt-T0I" firstAttribute="top" secondItem="3pG-9o-GKD" secondAttribute="top" id="fWW-Gm-zOm"/>
                                     <constraint firstAttribute="height" constant="200" id="vkd-HB-n3r"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oi3-xl-iGt">
-                                <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="264" width="375" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nKy-LO-MCx"/>
@@ -97,7 +94,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YJk-2P-bNN"/>
                     <connections>
-                        <outlet property="imageViewHeightConstraints" destination="vkd-HB-n3r" id="I9l-FV-nQW"/>
+                        <outlet property="imageViewHeightConstraints" destination="vkd-HB-n3r" id="dcK-g0-jfT"/>
                         <outlet property="tableView" destination="Bxm-XG-JWl" id="NUf-OU-hKB"/>
                     </connections>
                 </viewController>

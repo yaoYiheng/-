@@ -14,6 +14,7 @@
 		A57011EB1DFAB489005B5E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57011EA1DFAB489005B5E96 /* Assets.xcassets */; };
 		A57011EE1DFAB489005B5E96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57011EC1DFAB489005B5E96 /* LaunchScreen.storyboard */; };
 		A57011FA1DFBA828005B5E96 /* YHPersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57011F91DFBA828005B5E96 /* YHPersonDetailViewController.m */; };
+		A59C606A1DFDEE9400BE51E0 /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60691DFDEE9400BE51E0 /* UIImage+Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A57011EF1DFAB489005B5E96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57011F81DFBA828005B5E96 /* YHPersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPersonDetailViewController.h; sourceTree = "<group>"; };
 		A57011F91DFBA828005B5E96 /* YHPersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPersonDetailViewController.m; sourceTree = "<group>"; };
+		A59C60681DFDEE9400BE51E0 /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		A59C60691DFDEE9400BE51E0 /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			children = (
 				A57011DD1DFAB489005B5E96 /* 16_12_09_个人详情页 */,
 				A57011DC1DFAB489005B5E96 /* Products */,
+				A59C60671DFDEE9400BE51E0 /* Category */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +86,15 @@
 				A57011DF1DFAB489005B5E96 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A59C60671DFDEE9400BE51E0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A59C60681DFDEE9400BE51E0 /* UIImage+Image.h */,
+				A59C60691DFDEE9400BE51E0 /* UIImage+Image.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57011E61DFAB489005B5E96 /* ViewController.m in Sources */,
+				A59C606A1DFDEE9400BE51E0 /* UIImage+Image.m in Sources */,
 				A57011E31DFAB489005B5E96 /* AppDelegate.m in Sources */,
 				A57011E01DFAB489005B5E96 /* main.m in Sources */,
 				A57011FA1DFBA828005B5E96 /* YHPersonDetailViewController.m in Sources */,
