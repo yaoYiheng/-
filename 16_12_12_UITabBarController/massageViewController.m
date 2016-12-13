@@ -8,6 +8,7 @@
 
 #import "massageViewController.h"
 #import "UIImage+Image.h"
+#import "TextViewController.h"
 
 #define imageViewHeight 200
 #define originalOffsetY 244
@@ -47,6 +48,17 @@ NSString *ID = @"cell";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:0 target:self action:@selector(addContact)];
 }
 - (void)addContact{
+    TextViewController *textVC = [[TextViewController alloc] init];
+    
+    //当跳转到下一个控制器时, 隐藏底部导航条.
+    self.hidesBottomBarWhenPushed = YES;
+    //调用presentViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#> 该方法实现modal效果.
+
+    //modal底层实现, 当实现该方法是, 会把窗口的view替换为要modal的控制器的view.
+    [self presentViewController:textVC animated:YES completion:^{
+        NSLog(@"试试");
+    }];
+
 
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

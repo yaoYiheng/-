@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A57E74941DFF5C6100DC1FF4 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57E74921DFF5C6100DC1FF4 /* TextViewController.m */; };
+		A57E74951DFF5C6100DC1FF4 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57E74931DFF5C6100DC1FF4 /* TextViewController.xib */; };
 		A59C60791DFE4D2000BE51E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C60781DFE4D2000BE51E0 /* main.m */; };
 		A59C607C1DFE4D2000BE51E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C607B1DFE4D2000BE51E0 /* AppDelegate.m */; };
 		A59C60821DFE4D2000BE51E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59C60801DFE4D2000BE51E0 /* Main.storyboard */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A57E74911DFF5C6100DC1FF4 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		A57E74921DFF5C6100DC1FF4 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		A57E74931DFF5C6100DC1FF4 /* TextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		A59C60741DFE4D2000BE51E0 /* 16_12_12_UITabBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 16_12_12_UITabBarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59C60781DFE4D2000BE51E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A59C607A1DFE4D2000BE51E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +77,9 @@
 				A59C60A21DFEB5F900BE51E0 /* massageViewController.h */,
 				A59C60A31DFEB5F900BE51E0 /* massageViewController.m */,
 				A59C60A41DFEB5F900BE51E0 /* massageViewController.xib */,
+				A57E74911DFF5C6100DC1FF4 /* TextViewController.h */,
+				A57E74921DFF5C6100DC1FF4 /* TextViewController.m */,
+				A57E74931DFF5C6100DC1FF4 /* TextViewController.xib */,
 				A59C60801DFE4D2000BE51E0 /* Main.storyboard */,
 				A59C60831DFE4D2000BE51E0 /* Assets.xcassets */,
 				A59C60851DFE4D2000BE51E0 /* LaunchScreen.storyboard */,
@@ -159,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59C60871DFE4D2000BE51E0 /* LaunchScreen.storyboard in Resources */,
+				A57E74951DFF5C6100DC1FF4 /* TextViewController.xib in Resources */,
 				A59C60841DFE4D2000BE51E0 /* Assets.xcassets in Resources */,
 				A59C60A61DFEB5F900BE51E0 /* massageViewController.xib in Resources */,
 				A59C60821DFE4D2000BE51E0 /* Main.storyboard in Resources */,
@@ -175,6 +184,7 @@
 				A59C60941DFEA89200BE51E0 /* UIImage+Image.m in Sources */,
 				A59C60A51DFEB5F900BE51E0 /* massageViewController.m in Sources */,
 				A59C607C1DFE4D2000BE51E0 /* AppDelegate.m in Sources */,
+				A57E74941DFF5C6100DC1FF4 /* TextViewController.m in Sources */,
 				A59C609A1DFEA8ED00BE51E0 /* PersonDetailVC.m in Sources */,
 				A59C60791DFE4D2000BE51E0 /* main.m in Sources */,
 			);
