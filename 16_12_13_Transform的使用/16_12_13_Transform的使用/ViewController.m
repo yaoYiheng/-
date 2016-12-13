@@ -42,7 +42,7 @@
     [UIView animateWithDuration:0.5 animations:^{
 
         //其中有Make的方法, 都只能在原基础上进行一次操作.
-        self.imageView.transform = CGAffineTransformMakeRotation(M_PI_4);
+//        self.imageView.transform = CGAffineTransformMakeRotation(M_PI_4);
 
         //想着原基础上进行多次操作, 调用不含有Make的方法(需要把自身传进去)
         self.imageView.transform = CGAffineTransformRotate(self.imageView.transform, M_PI_4);
@@ -52,8 +52,9 @@
 
     [UIView animateWithDuration:0.5 animations:^{
         //原基础上只进行一次缩放
-        self.imageView.transform = CGAffineTransformMakeScale(1.5, 1.5);
+//        self.imageView.transform = CGAffineTransformMakeScale(1.5, 1.5);
 
+        self.imageView.transform = CGAffineTransformScale(self.imageView.transform, 1.3, 1.3);
 
     }];
 }
@@ -93,6 +94,25 @@
 
 }
 
+/**
+ 当手指持续在屏幕上移动的时候, 会来到该方法
+
+ @param touches 一根手指就是一个touch, 使用[touches anyObject], 拿到当前一根手指对象.
+ */
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //拿到一根手指触摸时的对象
+    UITouch *touch = [touches anyObject];
+    //拿到触摸的当前点与之前的点
+    CGPoint currentPoint = [touch locationInView:self.imageView];
+    CGPoint previousPoint = [touch previousLocationInView:self.imageView];
+
+    //计算前后点的偏移量
+    CGFloat offsetX = currentPoint.x - previousPoint.x;
+    CGFloat offsetY = currentPoint.y - previousPoint.y;
+
+    //实现拖拽效果.
+    self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, offsetX, offsetY);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
