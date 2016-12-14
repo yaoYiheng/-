@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UIView *yellowView;
 
 @end
 
@@ -93,6 +94,9 @@
     [super viewDidLoad];
 
 }
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"%s", __func__);
+}
 
 /**
  当手指持续在屏幕上移动的时候, 会来到该方法
@@ -106,13 +110,23 @@
     CGPoint currentPoint = [touch locationInView:self.imageView];
     CGPoint previousPoint = [touch previousLocationInView:self.imageView];
 
+    CGPoint YellowcurrentPoint = [touch locationInView:self.yellowView];
+    CGPoint YellowpreviousPoint = [touch previousLocationInView:self.yellowView];
+
     //计算前后点的偏移量
     CGFloat offsetX = currentPoint.x - previousPoint.x;
     CGFloat offsetY = currentPoint.y - previousPoint.y;
 
+    CGFloat YellowOffsetX = YellowcurrentPoint.x - YellowpreviousPoint.x;
+    CGFloat YellowOffsetY = YellowcurrentPoint.y - YellowpreviousPoint.y;
+
     //实现拖拽效果.
     self.imageView.transform = CGAffineTransformTranslate(self.imageView.transform, offsetX, offsetY);
+
+    self.yellowView.transform = CGAffineTransformTranslate(self.yellowView.transform, YellowOffsetX, YellowOffsetY);
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

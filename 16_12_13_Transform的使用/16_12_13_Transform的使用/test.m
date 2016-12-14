@@ -9,6 +9,9 @@
 #import "test.h"
 
 @implementation test
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"%s", __func__);
+}
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
