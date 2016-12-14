@@ -13,6 +13,7 @@
 		A57E74AD1DFFFBE200DC1FF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57E74AB1DFFFBE200DC1FF4 /* Main.storyboard */; };
 		A57E74AF1DFFFBE200DC1FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57E74AE1DFFFBE200DC1FF4 /* Assets.xcassets */; };
 		A57E74B21DFFFBE200DC1FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57E74B01DFFFBE200DC1FF4 /* LaunchScreen.storyboard */; };
+		A57E74DE1E01376500DC1FF4 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = A57E74DD1E01376500DC1FF4 /* test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A57E74AE1DFFFBE200DC1FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A57E74B11DFFFBE200DC1FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A57E74B31DFFFBE200DC1FF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57E74DC1E01376500DC1FF4 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		A57E74DD1E01376500DC1FF4 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				A57E74A81DFFFBE200DC1FF4 /* ViewController.h */,
 				A57E74A91DFFFBE200DC1FF4 /* ViewController.m */,
 				A57E74AB1DFFFBE200DC1FF4 /* Main.storyboard */,
+				A57E74DC1E01376500DC1FF4 /* test.h */,
+				A57E74DD1E01376500DC1FF4 /* test.m */,
 				A57E74AE1DFFFBE200DC1FF4 /* Assets.xcassets */,
 				A57E74B01DFFFBE200DC1FF4 /* LaunchScreen.storyboard */,
 				A57E74B31DFFFBE200DC1FF4 /* Info.plist */,
@@ -151,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57E74AA1DFFFBE200DC1FF4 /* ViewController.m in Sources */,
+				A57E74DE1E01376500DC1FF4 /* test.m in Sources */,
 				A57E74A71DFFFBE200DC1FF4 /* AppDelegate.m in Sources */,
 				A57E74A41DFFFBE200DC1FF4 /* main.m in Sources */,
 			);
