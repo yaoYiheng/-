@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "testView.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) NSTimer *timer;
@@ -92,6 +92,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    testView * view = [testView item];
+    view.frame = CGRectMake(20, 20, 200, 100);
+    [self.view addSubview:view];
 
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
