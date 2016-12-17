@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A539D9EF1E05E77E00A7FDF4 /* redView.m in Sources */ = {isa = PBXBuildFile; fileRef = A539D9EE1E05E77E00A7FDF4 /* redView.m */; };
 		A57E74ED1E029DAD00DC1FF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A57E74EC1E029DAD00DC1FF4 /* main.m */; };
 		A57E74F01E029DAD00DC1FF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A57E74EF1E029DAD00DC1FF4 /* AppDelegate.m */; };
 		A57E74F31E029DAD00DC1FF4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57E74F21E029DAD00DC1FF4 /* ViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A539D9ED1E05E77E00A7FDF4 /* redView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = redView.h; sourceTree = "<group>"; };
+		A539D9EE1E05E77E00A7FDF4 /* redView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = redView.m; sourceTree = "<group>"; };
 		A57E74E81E029DAD00DC1FF4 /* 16_12_15_寻找最适合的view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16_12_15_寻找最适合的view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57E74EC1E029DAD00DC1FF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A57E74EE1E029DAD00DC1FF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				A57E75121E02A36E00DC1FF4 /* YHWindow.m */,
 				A57E75081E029F4600DC1FF4 /* blueView.h */,
 				A57E75091E029F4600DC1FF4 /* blueView.m */,
+				A539D9ED1E05E77E00A7FDF4 /* redView.h */,
+				A539D9EE1E05E77E00A7FDF4 /* redView.m */,
 				A57E750B1E029F5600DC1FF4 /* grayView.h */,
 				A57E750C1E029F5600DC1FF4 /* grayView.m */,
 				A57E75051E029F3300DC1FF4 /* yellowView.h */,
@@ -186,6 +191,7 @@
 				A57E74F01E029DAD00DC1FF4 /* AppDelegate.m in Sources */,
 				A57E75131E02A36E00DC1FF4 /* YHWindow.m in Sources */,
 				A57E75071E029F3300DC1FF4 /* yellowView.m in Sources */,
+				A539D9EF1E05E77E00A7FDF4 /* redView.m in Sources */,
 				A57E74ED1E029DAD00DC1FF4 /* main.m in Sources */,
 				A57E750A1E029F4600DC1FF4 /* blueView.m in Sources */,
 				A57E75041E029ED900DC1FF4 /* basicView.m in Sources */,
@@ -343,6 +349,7 @@
 				A57E75011E029DAD00DC1FF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
