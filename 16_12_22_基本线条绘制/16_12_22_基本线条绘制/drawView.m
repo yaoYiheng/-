@@ -26,6 +26,57 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    [self drawLine];
+
+}
+- (void)drawLine{
+    //拿到当前view上下文.
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //设置颜色
+    CGContextSetRGBFillColor(context, 1, 0, 1, 1);
+    CGContextSetLineWidth(context, 10);
+    //设置线的连接样式.
+    CGContextSetLineJoin(context, kCGLineJoinBevel);
+    //设置线的顶角样式
+    CGContextSetLineCap(context, kCGLineCapRound);
+    //创建path creates a mutable graphics path.
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, 20, 30);
+    CGPathAddLineToPoint(path, NULL, 280, 30);
+
+
+    CGContextAddPath(context, path);
+
+    /**
+     带有Ref后缀的类型的对象可能具有指向其他CoreGraphics"对象"的强引用指针, 并成为这些
+     "对象"的拥有者.但是ARC无法识别这类强引用和对象的所有权, 必须在使用完之后手动释放.
+     规则是, 如果使用名称中带有create 或者copy的函数创建了一个CoreGraphics对象, 就
+     必须调用对应的Release函数, 并传入该对象指针.
+     */
+    CGContextStrokePath(context);
+    CGPathRelease(path);
+
+
+        /**********这两段代码的效果是相同的************/
+
+    /**
+     把路径添加到上下文当中.
+     UIKit path -> CoreGraphics Path
+     CGContextAddPath(context, path.CGPath);
+     */
+
+    [[UIColor colorWithRed:1 green:0 blue:1 alpha:1] setStroke];
+
+    UIBezierPath *path_1 = [UIBezierPath bezierPath];
+    [path_1 moveToPoint:CGPointMake(20, 50)];
+    [path_1 addLineToPoint:CGPointMake(280, 50)];
+    //设置宽度, 顶角样式, 与连接样式
+    [path_1 setLineWidth:10];
+    [path_1 setLineCapStyle:kCGLineCapRound];
+    [path_1 setLineJoinStyle:kCGLineJoinRound];
+    //绘制
+    [path_1 stroke];
+
 
 }
 #pragma mark  画变色半圆
