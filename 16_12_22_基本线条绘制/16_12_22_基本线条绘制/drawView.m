@@ -30,6 +30,31 @@
 //    [self drawQuadCurve];
 //    [self drwrect];
 //    [self drawHalfCircle];
+    [self draw];
+
+}
+#pragma mark 画椭圆
+- (void)draw{
+    CGFloat radius = 100;
+    CGPoint center;
+    center.x = self.bounds.size.width / 2;
+    center.y = self.bounds.size.height / 2;
+
+    //调用该方法画椭圆
+//    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(20, 20, 100, 60)];
+//    [path stroke];
+
+    //绘制弧度以及扇形
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path addArcWithCenter:center radius:radius startAngle:M_PI_2 endAngle:M_PI clockwise:YES];
+//    [path moveToPoint:CGPointMake(200, 250)];
+    [path addLineToPoint:center];
+
+    //可调用该方法封闭未完成的图形
+    [path closePath];
+
+
+    [path stroke];
 
 }
 
