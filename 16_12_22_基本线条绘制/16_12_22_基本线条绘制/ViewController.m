@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "drawView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet drawView *myView;
+
 
 @end
 
@@ -16,9 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIRotationGestureRecognizer *rotation = [[UIRotationGestureRecognizer alloc
+                                              ] initWithTarget:self action:@selector(rotatioGes:)];
+    [self.myView addGestureRecognizer:rotation];
 }
 
+- (void)rotatioGes:(UIRotationGestureRecognizer *)rotation{
+    self.myView.transform = CGAffineTransformRotate(self.myView.transform, rotation.rotation);
+    [rotation setRotation:0];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

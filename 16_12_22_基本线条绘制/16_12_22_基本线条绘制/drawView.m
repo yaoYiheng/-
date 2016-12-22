@@ -26,11 +26,13 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [super drawRect:rect];
+//    [super drawRect:rect];
 //    [self drawQuadCurve];
-    [self drwrect];
+//    [self drwrect];
+//    [self drawHalfCircle];
 
 }
+
 #pragma mark 画矩形
 - (void) drwrect{
 
@@ -117,20 +119,37 @@
 }
 #pragma mark  画变色半圆
 - (void)drawHalfCircle{
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
     UIBezierPath *path = [UIBezierPath bezierPath];
+    UIBezierPath *path1 = [UIBezierPath bezierPath];
+    UIBezierPath *path2 = [UIBezierPath bezierPath];
 
     CGFloat radius = 100;
     CGPoint center;
     center.x = self.bounds.size.width / 2;
     center.y = self.bounds.size.height / 2;
-    [path addArcWithCenter:center radius:radius startAngle:0 endAngle:M_PI clockwise:YES];
-    [path addLineToPoint:CGPointMake(252, center.y)];
+    [path addArcWithCenter:center radius:radius startAngle:0 endAngle:M_PI *2 clockwise:YES];
+//    [path addLineToPoint:CGPointMake(252, center.y)];
+    [path addArcWithCenter:CGPointMake(center.x + 50, center.y) radius:50 startAngle:0 endAngle:M_PI clockwise:NO];
 
+    [path addArcWithCenter:CGPointMake(center.x - 50, center.y) radius:50 startAngle:0 endAngle:M_PI clockwise:YES];
+    [path1 moveToPoint:CGPointMake(center.x + 50, center.y)];
+    [path1 addArcWithCenter:CGPointMake(center.x + 50, center.y) radius:10 startAngle:0 endAngle:M_PI *2 clockwise:YES];
+
+//    [path2 moveToPoint:CGPointMake(center.x - 50, center.y)];
+    [path2 addArcWithCenter:CGPointMake(center.x - 50, center.y) radius:10 startAngle:0 endAngle:M_PI *2 clockwise:YES];
 
     //    [[UIColor orangeColor] setStroke];
-    [self.circleColor setFill];
+    [self.circleColor setStroke];
+//    [[UIColor colorWithRed:1 green:0 blue:1 alpha:1] setStroke];
     path.lineWidth = 4;
-    [path fill];
+    [path stroke];
+    [path1 fill];
+
+    CGContextSetRGBFillColor(currentContext, 1, 1, 1, 1);
+    CGContextAddPath(currentContext, path2.CGPath);
+    CGContextFillPath(currentContext);
 
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
