@@ -14,6 +14,7 @@
 		A5C5DFE11E0BD84E00720C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C5DFE01E0BD84E00720C72 /* Assets.xcassets */; };
 		A5C5DFE41E0BD84E00720C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C5DFE21E0BD84E00720C72 /* LaunchScreen.storyboard */; };
 		A5C5DFED1E0BD8FD00720C72 /* loadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5DFEC1E0BD8FD00720C72 /* loadingView.m */; };
+		A5C5DFF01E0C690000720C72 /* pieView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5DFEF1E0C690000720C72 /* pieView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A5C5DFE51E0BD84E00720C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C5DFEB1E0BD8FD00720C72 /* loadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingView.h; sourceTree = "<group>"; };
 		A5C5DFEC1E0BD8FD00720C72 /* loadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadingView.m; sourceTree = "<group>"; };
+		A5C5DFEE1E0C690000720C72 /* pieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieView.h; sourceTree = "<group>"; };
+		A5C5DFEF1E0C690000720C72 /* pieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,8 @@
 				A5C5DFDA1E0BD84E00720C72 /* ViewController.h */,
 				A5C5DFDB1E0BD84E00720C72 /* ViewController.m */,
 				A5C5DFDD1E0BD84E00720C72 /* Main.storyboard */,
+				A5C5DFEE1E0C690000720C72 /* pieView.h */,
+				A5C5DFEF1E0C690000720C72 /* pieView.m */,
 				A5C5DFEB1E0BD8FD00720C72 /* loadingView.h */,
 				A5C5DFEC1E0BD8FD00720C72 /* loadingView.m */,
 				A5C5DFE01E0BD84E00720C72 /* Assets.xcassets */,
@@ -157,6 +162,7 @@
 			files = (
 				A5C5DFDC1E0BD84E00720C72 /* ViewController.m in Sources */,
 				A5C5DFED1E0BD8FD00720C72 /* loadingView.m in Sources */,
+				A5C5DFF01E0C690000720C72 /* pieView.m in Sources */,
 				A5C5DFD91E0BD84E00720C72 /* AppDelegate.m in Sources */,
 				A5C5DFD61E0BD84E00720C72 /* main.m in Sources */,
 			);
