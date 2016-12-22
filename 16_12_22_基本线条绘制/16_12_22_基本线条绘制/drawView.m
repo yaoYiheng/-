@@ -27,8 +27,25 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     [super drawRect:rect];
-    [self drawQuadCurve];
+//    [self drawQuadCurve];
+    [self drwrect];
 
+}
+#pragma mark 画矩形
+- (void) drwrect{
+
+    //绘制带圆角的矩形
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(currentContext, 1, 0, 1, 1);
+    UIBezierPath *path1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(150, 150, 50, 50) cornerRadius:10];
+
+    CGContextAddPath(currentContext, path1.CGPath);
+    CGContextFillPath(currentContext);
+
+    //绘制不带圆角的矩形
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(20, 20, 100, 100)];
+    [[UIColor orangeColor] set];
+    [path stroke];
 }
 #pragma mark 画曲线
 - (void)drawQuadCurve{
