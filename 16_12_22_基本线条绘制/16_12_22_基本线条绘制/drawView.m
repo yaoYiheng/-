@@ -26,9 +26,28 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [self drawLine];
+    [super drawRect:rect];
+    [self drawQuadCurve];
 
 }
+#pragma mark 画曲线
+- (void)drawQuadCurve{
+    //1.获取上下文
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
+    //2.创建路径对象
+    UIBezierPath *path = [UIBezierPath bezierPath];
+
+    //3.设置起点
+    [path moveToPoint:CGPointMake(20, 200)];
+    //设置曲线的终点, 以及控制点, 用来控制曲线的弯曲.
+    [path addQuadCurveToPoint:CGPointMake(280, 200) controlPoint:CGPointMake(0, 0)];
+    //UIKit path -> CoreGraphics Path
+    CGContextAddPath(currentContext, path.CGPath);
+
+    CGContextStrokePath(currentContext);
+}
+#pragma mark 画直线.
 - (void)drawLine{
     //拿到当前view上下文.
     CGContextRef context = UIGraphicsGetCurrentContext();
