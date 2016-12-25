@@ -58,6 +58,23 @@
      Merry Xmas :)
      */
 
+    UIBezierPath *path4 = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(200,200, 200, 100)];
+    [[UIColor orangeColor] set];
+
+    //平移: 在原基础上位移 所设置的数值
+//    CGContextTranslateCTM(currentContext, 0, 300);
+
+    //旋转
+//    CGContextRotateCTM(currentContext, M_PI_4);
+
+    //缩放
+    CGContextScaleCTM(currentContext, 0.1, 0.1);
+
+
+    CGContextAddPath(currentContext, path4.CGPath);
+    CGContextFillPath(currentContext);
+
+
 }
 //- (void)awakeFromNib{
 //    [super awakeFromNib];
