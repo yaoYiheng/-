@@ -15,6 +15,7 @@
 		A5C5E03C1E0E684B00720C72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C5E03A1E0E684B00720C72 /* LaunchScreen.storyboard */; };
 		A5C5E0451E0E686B00720C72 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0441E0E686B00720C72 /* DrawView.m */; };
 		A5C5E0481E0FC64D00720C72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C5E0471E0FC64D00720C72 /* UIKit.framework */; };
+		A5C5E04A1E0FCF5200720C72 /* Gin_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A5C5E0431E0E686B00720C72 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		A5C5E0441E0E686B00720C72 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		A5C5E0471E0FC64D00720C72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gin_1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A5C5E02F1E0E684B00720C72 /* AppDelegate.h */,
 				A5C5E0301E0E684B00720C72 /* AppDelegate.m */,
 				A5C5E0321E0E684B00720C72 /* ViewController.h */,
+				A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */,
 				A5C5E0331E0E684B00720C72 /* ViewController.m */,
 				A5C5E0351E0E684B00720C72 /* Main.storyboard */,
 				A5C5E0431E0E686B00720C72 /* DrawView.h */,
@@ -154,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C5E04A1E0FCF5200720C72 /* Gin_1.jpeg in Resources */,
 				A5C5E03C1E0E684B00720C72 /* LaunchScreen.storyboard in Resources */,
 				A5C5E0391E0E684B00720C72 /* Assets.xcassets in Resources */,
 				A5C5E0371E0E684B00720C72 /* Main.storyboard in Resources */,
