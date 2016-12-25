@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIImage+ImageWithBoarder.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -17,6 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.imageView.image = [UIImage imageWithBoarder:20 boardColor:[UIColor orangeColor] image:[UIImage imageNamed:@"Gin_1.jpeg"]];
+
+
+}
+
+- (void)drawImageWithCircle{
     //0. 加载图片
     UIImage *originalImage = [UIImage imageNamed:@"Gin_1.jpeg"];
     //1. 获取位图上下文
@@ -35,12 +42,12 @@
     [originalImage drawAtPoint:CGPointZero];
 
     //3. 设置想要显示的文字, 以及设置文字的相关属性, 通过字典的形式.
-//    NSString *logo = @"By Yiheng";
-//    NSMutableDictionary *logoAttribute = [NSMutableDictionary dictionary];
-//    logoAttribute[NSFontAttributeName] = [UIFont systemFontOfSize:50];
-//    logoAttribute[NSForegroundColorAttributeName] = [UIColor orangeColor];
-//    //4. 将文字绘制到上下文中
-//    [logo drawAtPoint:CGPointMake(300, 700) withAttributes:logoAttribute];
+    //    NSString *logo = @"By Yiheng";
+    //    NSMutableDictionary *logoAttribute = [NSMutableDictionary dictionary];
+    //    logoAttribute[NSFontAttributeName] = [UIFont systemFontOfSize:50];
+    //    logoAttribute[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    //    //4. 将文字绘制到上下文中
+    //    [logo drawAtPoint:CGPointMake(300, 700) withAttributes:logoAttribute];
 
 
     //5. 调用UIGraphicsGetImageFromCurrentImageContext()返回一张已经生成图片与水印的新图
@@ -51,9 +58,7 @@
     
     self.imageView.image = newImage;
 
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

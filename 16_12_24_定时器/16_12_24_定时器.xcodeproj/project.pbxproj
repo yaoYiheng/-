@@ -16,6 +16,7 @@
 		A5C5E0451E0E686B00720C72 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0441E0E686B00720C72 /* DrawView.m */; };
 		A5C5E0481E0FC64D00720C72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C5E0471E0FC64D00720C72 /* UIKit.framework */; };
 		A5C5E04A1E0FCF5200720C72 /* Gin_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */; };
+		A5C5E0721E10661B00720C72 /* UIImage+ImageWithBoarder.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0711E10661B00720C72 /* UIImage+ImageWithBoarder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		A5C5E0441E0E686B00720C72 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		A5C5E0471E0FC64D00720C72 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gin_1.jpeg; sourceTree = "<group>"; };
+		A5C5E0701E10661B00720C72 /* UIImage+ImageWithBoarder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithBoarder.h"; sourceTree = "<group>"; };
+		A5C5E0711E10661B00720C72 /* UIImage+ImageWithBoarder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithBoarder.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				A5C5E0321E0E684B00720C72 /* ViewController.h */,
 				A5C5E0491E0FCF5200720C72 /* Gin_1.jpeg */,
 				A5C5E0331E0E684B00720C72 /* ViewController.m */,
+				A5C5E0701E10661B00720C72 /* UIImage+ImageWithBoarder.h */,
+				A5C5E0711E10661B00720C72 /* UIImage+ImageWithBoarder.m */,
 				A5C5E0351E0E684B00720C72 /* Main.storyboard */,
 				A5C5E0431E0E686B00720C72 /* DrawView.h */,
 				A5C5E0441E0E686B00720C72 /* DrawView.m */,
@@ -172,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5E0341E0E684B00720C72 /* ViewController.m in Sources */,
+				A5C5E0721E10661B00720C72 /* UIImage+ImageWithBoarder.m in Sources */,
 				A5C5E0311E0E684B00720C72 /* AppDelegate.m in Sources */,
 				A5C5E0451E0E686B00720C72 /* DrawView.m in Sources */,
 				A5C5E02E1E0E684B00720C72 /* main.m in Sources */,
