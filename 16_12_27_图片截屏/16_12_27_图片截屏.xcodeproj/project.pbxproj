@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5083C071E1300A300C08661 /* PracticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5083C051E1300A300C08661 /* PracticeViewController.m */; };
+		A5083C081E1300A300C08661 /* PracticeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5083C061E1300A300C08661 /* PracticeViewController.xib */; };
 		A5C5E0811E124EB300720C72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0801E124EB300720C72 /* main.m */; };
 		A5C5E0841E124EB400720C72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0831E124EB400720C72 /* AppDelegate.m */; };
 		A5C5E0871E124EB400720C72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C5E0861E124EB400720C72 /* ViewController.m */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5083C041E1300A300C08661 /* PracticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeViewController.h; sourceTree = "<group>"; };
+		A5083C051E1300A300C08661 /* PracticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeViewController.m; sourceTree = "<group>"; };
+		A5083C061E1300A300C08661 /* PracticeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PracticeViewController.xib; sourceTree = "<group>"; };
 		A5C5E07C1E124EB300720C72 /* 16_12_27_图片截屏.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16_12_27_图片截屏.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C5E0801E124EB300720C72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5C5E0821E124EB300720C72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +67,9 @@
 				A5C5E0831E124EB400720C72 /* AppDelegate.m */,
 				A5C5E0851E124EB400720C72 /* ViewController.h */,
 				A5C5E0861E124EB400720C72 /* ViewController.m */,
+				A5083C041E1300A300C08661 /* PracticeViewController.h */,
+				A5083C051E1300A300C08661 /* PracticeViewController.m */,
+				A5083C061E1300A300C08661 /* PracticeViewController.xib */,
 				A5C5E0881E124EB400720C72 /* Main.storyboard */,
 				A5C5E08B1E124EB400720C72 /* Assets.xcassets */,
 				A5C5E08D1E124EB400720C72 /* LaunchScreen.storyboard */,
@@ -138,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5E08F1E124EB400720C72 /* LaunchScreen.storyboard in Resources */,
+				A5083C081E1300A300C08661 /* PracticeViewController.xib in Resources */,
 				A5C5E08C1E124EB400720C72 /* Assets.xcassets in Resources */,
 				A5C5E08A1E124EB400720C72 /* Main.storyboard in Resources */,
 			);
@@ -151,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5E0871E124EB400720C72 /* ViewController.m in Sources */,
+				A5083C071E1300A300C08661 /* PracticeViewController.m in Sources */,
 				A5C5E0841E124EB400720C72 /* AppDelegate.m in Sources */,
 				A5C5E0811E124EB300720C72 /* main.m in Sources */,
 			);
@@ -307,6 +317,7 @@
 				A5C5E0951E124EB400720C72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
