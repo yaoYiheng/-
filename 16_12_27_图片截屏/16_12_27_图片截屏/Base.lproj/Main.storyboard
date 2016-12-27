@@ -37,9 +37,16 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J0J-cD-gxM" secondAttribute="bottom" id="wmc-07-8Mf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="J0J-cD-gxM" id="Lce-Wi-RoU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ObW-DX-TF4"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ObW-DX-TF4">
+                    <connections>
+                        <action selector="panGesture:" destination="BYZ-38-t0r" id="fe7-M7-OSQ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>
