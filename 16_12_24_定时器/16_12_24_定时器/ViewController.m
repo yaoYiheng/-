@@ -59,7 +59,36 @@
     self.imageView.image = newImage;
 
 }
+#pragma mark 实现截屏功能.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //0. 开启一个位图上下文, 与view一样大小
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0);
 
+    //1. 获取当前开启的上下文
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
+    //2. 必须使用渲染模式, 才能将UIView的内容渲染到上下文当中
+    [self.view.layer renderInContext:currentContext];
+
+    //3. 从当前的上下文中获取图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    //4. 关闭图形上下文.
+    UIGraphicsEndImageContext();
+
+    //5. 将生成的图片写入到桌面 (调用UIImageJPEGRepresentation)将生成JPG图形文件转化为NSData对象
+    //该方法的第二个参数, 取值范围为0-1,为1质量最高.
+    NSData *imageData = UIImageJPEGRepresentation(newImage, 1);
+
+    //调用该方法生成图片格式为png.
+    NSData *imageData1 = UIImagePNGRepresentation(newImage);
+
+    //将NSData对象保存至指定路径.
+    [imageData writeToFile:@"/Users/Morris/Desktop/newImage1.jpg" atomically:YES];
+    [imageData1 writeToFile:@"/Users/Morris/Desktop/newImage1.png" atomically:YES];
+
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
