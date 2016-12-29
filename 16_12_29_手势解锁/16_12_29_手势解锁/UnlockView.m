@@ -30,6 +30,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage: [UIImage imageNamed:@"gesture_node_selected"] forState:UIControlStateSelected];
         [button setImage:[UIImage imageNamed:@"gesture_node_normal"] forState:UIControlStateNormal];
+        button.userInteractionEnabled = NO;
         [self addSubview:button];
 
     }
@@ -56,5 +57,47 @@
     }
 
 }
+#pragma mark 抽取方法 返回当前手指所在的点
+- (CGPoint)getCurrentPoint:(NSSet *)touches{
+    UITouch *fingerTouch = [touches anyObject];
 
+    return [fingerTouch locationInView:self];
+}
+#pragma mark 抽取方法 如果点在当前按钮中就返回.
+- (UIButton *)buttonContainsPoint:(CGPoint)point{
+
+    for (UIButton *button in self.subviews) {
+        if (CGRectContainsPoint(button.frame, point)) {
+            return button;
+        }
+    }
+    
+    return nil;
+}
+
+#pragma mark 手指在接触到屏幕, 或在屏幕移动上时, 将手指进过的按钮状态改为选中状态.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    CGPoint currentPoint = [self getCurrentPoint:touches];
+
+    //如果手指点在按钮上就将按钮设置为选中状态
+    UIButton *button = [self buttonContainsPoint:currentPoint];
+    if (button) {
+        button.selected = YES;
+    }
+
+}
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    CGPoint currentPoint = [self getCurrentPoint:touches];
+
+    //如果手指点在按钮上就将按钮设置为选中状态
+    UIButton *button = [self buttonContainsPoint:currentPoint];
+    if (button) {
+        button.selected = YES;
+    }
+
+}
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+}
 @end
