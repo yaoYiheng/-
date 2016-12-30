@@ -133,34 +133,53 @@
 }
 #pragma mark 手指离开屏幕来带该方法
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSMutableString *selectedString = [NSMutableString string];
-    //所有选中状态的按钮取消选中
-    for (UIButton *button in self.selectedButton) {
-        button.selected = NO;
-        [selectedString appendFormat:@"%ld", button.tag];
+    if (self.selectedButton.count) {
+        NSMutableString *selectedString = [NSMutableString string];
+        //所有选中状态的按钮取消选中
+        for (UIButton *button in self.selectedButton) {
+            button.selected = NO;
+            [selectedString appendFormat:@"%ld", button.tag];
+        }
+        //移除所有选中的按钮
+        [self.selectedButton removeAllObjects];
+        //重新绘制
+        [self setNeedsDisplay];
+
+        //从沙盒中取出密码.
+        NSString *passWord = [[NSUserDefaults standardUserDefaults] objectForKey:@"passWord"];
+
+        //如果密码为空, 说明第一次输入密码, 将输入的密码保存至沙盒
+        if (!passWord) {
+            [[NSUserDefaults standardUserDefaults] setObject:selectedString forKey:@"passWord"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }else{
+            
+            if ([passWord isEqualToString:selectedString]) {
+                NSLog(@"密码正确, do something here..");
+            }else{
+                NSLog(@"密码错误, do something here..");
+            }
+        }
+
+
+        //在UIView中使用 UIAlertController
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"手势顺序为" message:selectedString preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:confirm];
+        [alertController addAction:cancel];
+
+        //获取当前控制器.
+        UIViewController *currentViewController = [self currentTopViewController];
+
+        //显示alertController
+        [currentViewController presentViewController:alertController animated:YES completion:^{
+            
+        }];
     }
-    //移除所有选中的按钮
-    [self.selectedButton removeAllObjects];
-    //重新绘制
-    [self setNeedsDisplay];
 
-
-    //在UIView中使用 UIAlertController
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"手势顺序为" message:selectedString preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
-
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:confirm];
-    [alertController addAction:cancel];
-
-    //获取当前控制器.
-    UIViewController *currentViewController = [self currentTopViewController];
-
-    //显示alertController
-    [currentViewController presentViewController:alertController animated:YES completion:^{
-
-    }];
 
 
 }
