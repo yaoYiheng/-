@@ -7,6 +7,7 @@
 //
 
 #import "DrawView.h"
+#import "YHBezierPath.h"
 @interface DrawView()
 
 
@@ -32,12 +33,9 @@
 }
 #pragma mark 初始化
 - (void)awakeFromNib{
-//    [super awakeFromNib];
-    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    [self addGestureRecognizer:panGes];
+    [super awakeFromNib];
+    [self setUp];
 
-    self.lineWidth = 10;
-    self.lineColor = [UIColor orangeColor];
 
 }
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -47,33 +45,51 @@
     return self;
 }
 - (void)setUp{
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self addGestureRecognizer:panGes];
 
+    //为线宽与颜色设置初始值
+    self.lineWidth = 1;
+    self.lineColor = [UIColor orangeColor];
 
 }
-
+#pragma mark 手势方法.
 - (void)pan:(UIPanGestureRecognizer *)panGesture{
 
     CGPoint currentPoint = [panGesture locationInView:self];
 
     if (panGesture.state == UIGestureRecognizerStateBegan) {
-        UIBezierPath *path = [UIBezierPath bezierPath];
+
+        //使用自定义的YHBezierPath, 含有 pathColor属性.
+        YHBezierPath *path = [YHBezierPath bezierPath];
         self.path = path;
+
+        /**
+         保存路径的相关属性, 由于系统自带的UIBezierPath没有 pathColor属性,为了满足
+         需求则需要重写类, 添加需要的属性.
+        */
+        [path setLineWidth:self.lineWidth];
+        path.pathColor = self.lineColor;
+
         [path moveToPoint:currentPoint];
         [self.allPathArray addObject:path];
 
     }else if (panGesture.state == UIGestureRecognizerStateChanged){
+
+        //手指在屏幕上移动时, 添加一条线到手指的点, 并立刻重绘.
         [self.path addLineToPoint:currentPoint];
         [self setNeedsDisplay];
     }
 
 }
+#pragma mark  绘图
 - (void)drawRect:(CGRect)rect{
-    for (UIBezierPath *path  in self.allPathArray) {
-        [self.lineColor set];
-        [path setLineWidth:self.lineWidth];
+    for (YHBezierPath *path in self.allPathArray) {
+
+        //拿到对应path里保存的颜色, 从而进行绘制.
+        [path.pathColor set];
         [path stroke];
     }
-    NSLog(@"%f", self.lineWidth);
 }
 
 #pragma mark 画板相关的功能
@@ -102,11 +118,11 @@
     [self setLineColor:[UIColor whiteColor]];
 
 }
-- (void)setLineWidth:(CGFloat) lineWidth{
-    _lineWidth = lineWidth;
+- (void)setLineWidths:(CGFloat) lineWidth{
+    self.lineWidth = lineWidth;
 }
-- (void)setLineColor:(UIColor *) lineColor{
-    _lineColor = lineColor;
+- (void)setLineColors:(UIColor *) lineColor{
+    self.lineColor = lineColor;
 }
 
 

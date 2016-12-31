@@ -25,7 +25,7 @@
  */
 - (void)eraser;
 
-- (void)setLineWidth:(CGFloat) lineWidth;
-- (void)setLineColor:(UIColor *) lineColor;
+- (void)setLineWidths:(CGFloat) lineWidth;
+- (void)setLineColors:(UIColor *) lineColor;
 
 @end

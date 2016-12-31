@@ -25,12 +25,21 @@
 
 
 - (IBAction)undo:(UIBarButtonItem *)sender {
+    [self.drawView undo];
 }
 - (IBAction)eraser:(UIBarButtonItem *)sender {
+    [self.drawView eraser];
 }
 - (IBAction)photoFromAlbum:(UIBarButtonItem *)sender {
 }
 - (IBAction)savePicture:(UIBarButtonItem *)sender {
+}
+
+- (IBAction)setLineWidth:(UISlider *)sender {
+    [self.drawView setLineWidths:sender.value];
+}
+- (IBAction)setLineColor:(UIButton *)sender {
+    [self.drawView setLineColors:sender.backgroundColor];
 }
 
 #pragma mark -view生命周期

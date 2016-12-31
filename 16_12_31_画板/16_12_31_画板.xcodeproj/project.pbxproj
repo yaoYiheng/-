@@ -14,6 +14,7 @@
 		A5180C4D1E16EE69009BC8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5180C4C1E16EE69009BC8E4 /* Assets.xcassets */; };
 		A5180C501E16EE69009BC8E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5180C4E1E16EE69009BC8E4 /* LaunchScreen.storyboard */; };
 		A5180C591E171309009BC8E4 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5180C581E171309009BC8E4 /* DrawView.m */; };
+		A5180C5C1E17B209009BC8E4 /* YHBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A5180C5B1E17B209009BC8E4 /* YHBezierPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A5180C511E16EE69009BC8E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5180C571E171309009BC8E4 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		A5180C581E171309009BC8E4 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		A5180C5A1E17B209009BC8E4 /* YHBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBezierPath.h; sourceTree = "<group>"; };
+		A5180C5B1E17B209009BC8E4 /* YHBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBezierPath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				A5180C491E16EE69009BC8E4 /* Main.storyboard */,
 				A5180C571E171309009BC8E4 /* DrawView.h */,
 				A5180C581E171309009BC8E4 /* DrawView.m */,
+				A5180C5A1E17B209009BC8E4 /* YHBezierPath.h */,
+				A5180C5B1E17B209009BC8E4 /* YHBezierPath.m */,
 				A5180C4C1E16EE69009BC8E4 /* Assets.xcassets */,
 				A5180C4E1E16EE69009BC8E4 /* LaunchScreen.storyboard */,
 				A5180C511E16EE69009BC8E4 /* Info.plist */,
@@ -159,6 +164,7 @@
 				A5180C451E16EE69009BC8E4 /* AppDelegate.m in Sources */,
 				A5180C591E171309009BC8E4 /* DrawView.m in Sources */,
 				A5180C421E16EE69009BC8E4 /* main.m in Sources */,
+				A5180C5C1E17B209009BC8E4 /* YHBezierPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
