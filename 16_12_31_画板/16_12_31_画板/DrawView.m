@@ -51,6 +51,7 @@
     //为线宽与颜色设置初始值
     self.lineWidth = 1;
     self.lineColor = [UIColor orangeColor];
+    self.Drawing = NO;
 
 }
 #pragma mark 手势方法.
@@ -79,7 +80,10 @@
         //手指在屏幕上移动时, 添加一条线到手指的点, 并立刻重绘.
         [self.path addLineToPoint:currentPoint];
         [self setNeedsDisplay];
+
     }
+    self.Drawing = self.allPathArray.count;
+
 
 }
 #pragma mark  绘图
@@ -99,6 +103,7 @@
 - (void)allClear{
     [self.allPathArray removeAllObjects];
     [self setNeedsDisplay];
+    self.Drawing = NO;
 
 }
 

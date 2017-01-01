@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DrawView : UIView
+/** 是否有绘制*/
+@property (nonatomic, assign) BOOL Drawing;
 
 /**
  clear all pathes
