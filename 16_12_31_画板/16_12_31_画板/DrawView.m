@@ -90,9 +90,16 @@
 - (void)drawRect:(CGRect)rect{
     for (YHBezierPath *path in self.allPathArray) {
 
+        //路径数组中可能含有图片对象, 需要在这里进行判断
+        if (path.class == [UIImage class]) {
+            //如果是图形对象, 就将其作为图形对象, 绘制到绘画板上.
+            UIImage *image = (UIImage *)path;
+            [image drawInRect:rect];
+        }else{
         //拿到对应path里保存的颜色, 从而进行绘制.
         [path.pathColor set];
         [path stroke];
+        }
     }
 }
 
@@ -129,6 +136,12 @@
 - (void)setLineColors:(UIColor *) lineColor{
     self.lineColor = lineColor;
 }
+-  (void)setImage:(UIImage *)image{
+    _image = image;
 
+    //将传入的图片加入到路径数组中
+    [self.allPathArray addObject:image];
+    [self setNeedsDisplay];
+}
 
 @end

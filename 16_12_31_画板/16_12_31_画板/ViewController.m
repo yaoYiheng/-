@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "DrawView.h"
+#import "YHImageView.h"
 
-@interface ViewController ()
+@interface ViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, YHImageViewDelegate>
 
 @property (weak, nonatomic) IBOutlet DrawView *drawView;
 
@@ -38,8 +39,45 @@
     [self.drawView setLineColors:sender.backgroundColor];
 
 }
-
+#pragma mark -从相册中选出一张图片
 - (IBAction)photoFromAlbum:(UIBarButtonItem *)sender {
+    UIImagePickerController *imagePicker = [UIImagePickerController new];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+    [self presentViewController:imagePicker animated:YES completion:nil];
+
+}
+
+/**
+ 从相册中选出一张图片后, 会来到该方法
+
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+
+    //通过传递来的字典文件, 拿到传来的图片
+    UIImage *imageFromAlbum = info[UIImagePickerControllerOriginalImage];
+//    self.drawView.image = imageFromAlbum;
+
+    //创建一个新的UIView, 在该view上完成对传入的图片的拖拽, 旋转以及缩放
+    YHImageView *handleImageView = [[YHImageView alloc] init];
+    handleImageView.frame = self.drawView.frame;
+    handleImageView.passedImage = imageFromAlbum;
+
+    handleImageView.delegate = self;
+    [self.view addSubview:handleImageView];
+
+
+    //使系统相册以modal形式消失.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ 实现代理方法: 长按后 将从系统相册里加载的并按成了拖拽, 旋转及缩放后的图片, 赋值给 画板的
+
+ */
+- (void)YHImageView:(YHImageView *)imageView image:(UIImage *)image{
+    self.drawView.image = image;
 }
 #pragma mark -保存图片到相册
 - (IBAction)savePicture:(UIBarButtonItem *)sender {
@@ -85,6 +123,9 @@
     [super viewDidLoad];
 }
 
+/**
+ 隐藏顶部状态栏
+ */
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }

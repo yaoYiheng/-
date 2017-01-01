@@ -11,6 +11,8 @@
 @interface DrawView : UIView
 /** 是否有绘制*/
 @property (nonatomic, assign) BOOL Drawing;
+/** 接收来自相册, 或拍照的图片*/
+@property (nonatomic, strong) UIImage *image;
 
 /**
  clear all pathes
