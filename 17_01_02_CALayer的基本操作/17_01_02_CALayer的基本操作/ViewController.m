@@ -32,6 +32,24 @@
     //是否裁剪超过根层意外的东西.
     self.imageView.layer.masksToBounds = YES;
 
+    [UIView animateWithDuration:1 animations:^{
+        //在旋转的基础上再做旋转
+
+        /**
+         CATransform3D 3D操作.
+         哪个参数为1, 绕着哪个轴旋转.
+         */
+        self.imageView.layer.transform = CATransform3DRotate(self.imageView.layer.transform, M_PI , 1, 1, 1);
+
+    } completion:^(BOOL finished) {
+       [UIView animateWithDuration:0.5 animations:^{
+
+//           self.imageView.layer.transform = CATransform3DScale(self.imageView.layer.transform, 0.5, 0.5, 1.2);
+
+           [self.imageView.layer setValue:@(M_PI) forKeyPath:@"transform.rotation"];
+       }];
+    }];
+
 }
 
 - (IBAction)tapOnGrayView:(UITapGestureRecognizer *)sender {
@@ -53,6 +71,9 @@
 
     //设置圆角半径
     self.grayView.layer.cornerRadius = 20;
+    [UIView animateWithDuration:1 animations:^{
+        self.grayView.layer.transform = CATransform3DScale(self.grayView.layer.transform, 1, 2, 1);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
