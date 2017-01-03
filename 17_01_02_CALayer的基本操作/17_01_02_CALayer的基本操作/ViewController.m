@@ -11,6 +11,8 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *grayView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+/** 自创建的calyer*/
+@property (nonatomic, weak) CALayer *myLayer;
 
 @end
 
@@ -18,6 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(100, 100, 200, 200);
+    layer.backgroundColor = [UIColor orangeColor].CGColor;
+    [self.view.layer addSublayer:layer];
+    self.myLayer = layer;
+
+
+
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)tapOnImageView:(UITapGestureRecognizer *)sender {
@@ -76,6 +88,34 @@
     }];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    /**
+ 
+     隐式动画:
+     UIView内部自动关联的layer为根层
+     自己创建的layer为非根层, 只有非根层才有隐式动画
+     
+     所谓隐式动画就是对可 动画的属性进行修改时, 自动产生的动画效果.
+     常见的可以动画的属性有bounds backgroundColor position
+ 
+ 
+     */
+
+    //开启事物
+    [CATransaction begin];
+    //设置是否需要动画
+    [CATransaction setDisableActions:NO];
+    //设置动画持续时间
+    [CATransaction setAnimationDuration:2];
+
+    self.myLayer.bounds = CGRectMake(100, 100, 200, 200);
+    self.myLayer.backgroundColor = [UIColor redColor].CGColor;
+    self.myLayer.position = CGPointZero;
+
+    //提交事物
+    [CATransaction commit];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
