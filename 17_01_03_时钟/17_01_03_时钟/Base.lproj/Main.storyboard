@@ -35,6 +35,9 @@
                             <constraint firstItem="oJU-jE-qlp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="U4c-nn-idW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clockImageView" destination="oJU-jE-qlp" id="q6W-RS-up2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
