@@ -70,26 +70,76 @@
     [self.heartImageView.layer addAnimation:animation forKey:nil];
 
     /**
-    以下为帧动画
+    以下为帧动画 CAKeyframeAnimation
+     
+
+     用法1:可以传入多个动画效果值.
+             KFAnimation.values = @[@angleToRadio(180), @angleToRadio(-180)];
+
+
+     用法2:控件设置运行路径
+            1. 创建动画对象
+            2. 设置动画属性
+         KFAnimation.keyPath = @"position"; (位置改变)
+            3. 为控件添加移动路径
+         UIBezierPath *path = [UIBezierPath bezierPath];
+         [path moveToPoint:center];
+         [path addLineToPoint:CGPointMake(0, 0)];
+
+         KFAnimation.path = path.CGPath;
+     
+     
+     注意: 想要为同一个控件添加多个动画, 比如旋转的同时进行移动, 需要创建两个动画对象, 并
+     添加到需要设置动画的子控件上.
+
      */
 
     CAKeyframeAnimation *KFAnimation = [CAKeyframeAnimation animation];
     //设置动画属性
-    KFAnimation.keyPath = @"transform.rotation";
+    KFAnimation.keyPath = @"position";
+
+
+    CGPoint center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+
+
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:center];
+    [path addLineToPoint:CGPointMake(20, 20)];
+    [path addLineToPoint:CGPointMake(370, 500)];
+
+    KFAnimation.path = path.CGPath;
+
+
+    KFAnimation.duration = 4;
+    KFAnimation.autoreverses = YES;
+    KFAnimation.repeatCount = MAXFLOAT;
+
+    [self.ginImageView.layer addAnimation:KFAnimation forKey:nil];
+
+
+
+
+    //旋转动画
+    CAKeyframeAnimation *KFAnimation1 = [CAKeyframeAnimation animation];
+    KFAnimation1.keyPath = @"transform.rotation";
+
+
 
     /**
      #define angleToRadio(angle) ((angle) / 180.0 * M_PI)
 
      翻转效果,将一个空间进行180°旋转后在进行-180°旋转,
-     
+
      也可以设置控件抖动效果.
-
+     
      */
-    KFAnimation.values = @[@angleToRadio(180), @angleToRadio(-180)];
 
-    KFAnimation.duration = 5;
-    KFAnimation.repeatCount = MAXFLOAT;
-    [self.ginImageView.layer addAnimation:KFAnimation forKey:nil];
+    KFAnimation1.values = @[@angleToRadio(180), @angleToRadio(-180)];
+
+    KFAnimation1.duration = 5;
+    KFAnimation1.repeatCount = MAXFLOAT;
+
+    [self.ginImageView.layer addAnimation:KFAnimation1 forKey:nil];
 
 
 
