@@ -67,9 +67,29 @@
     animation.repeatCount = MAXFLOAT;
     //怎么去怎么样回
     animation.autoreverses = YES;
-
     [self.heartImageView.layer addAnimation:animation forKey:nil];
-//
+
+    /**
+    以下为帧动画
+     */
+
+    CAKeyframeAnimation *KFAnimation = [CAKeyframeAnimation animation];
+    //设置动画属性
+    KFAnimation.keyPath = @"transform.rotation";
+
+    /**
+     #define angleToRadio(angle) ((angle) / 180.0 * M_PI)
+
+     翻转效果,将一个空间进行180°旋转后在进行-180°旋转,
+     
+     也可以设置控件抖动效果.
+
+     */
+    KFAnimation.values = @[@angleToRadio(180), @angleToRadio(-180)];
+
+    KFAnimation.duration = 5;
+    KFAnimation.repeatCount = MAXFLOAT;
+    [self.ginImageView.layer addAnimation:KFAnimation forKey:nil];
 
 
 
