@@ -22,14 +22,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5q-y0-55v">
-                                <rect key="frame" x="67" y="180" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="心" translatesAutoresizingMaskIntoConstraints="NO" id="hFl-OS-dF4">
+                                <rect key="frame" x="100" y="0.0" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Gin_1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="p4R-Z7-Wwe">
+                                <rect key="frame" x="100" y="340" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="ginImageView" destination="p4R-Z7-Wwe" id="SKE-ja-p3h"/>
+                        <outlet property="heartImageView" destination="hFl-OS-dF4" id="oKB-FP-jub"/>
                         <outlet property="orangeView" destination="d5q-y0-55v" id="itx-N1-R3z"/>
                     </connections>
                 </viewController>
@@ -37,4 +47,8 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gin_1.jpeg" width="700" height="762"/>
+        <image name="心" width="200" height="200"/>
+    </resources>
 </document>

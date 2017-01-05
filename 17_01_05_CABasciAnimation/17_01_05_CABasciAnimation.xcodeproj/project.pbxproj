@@ -13,6 +13,7 @@
 		A506B7F11E1E473A0091E0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A506B7EF1E1E473A0091E0EE /* Main.storyboard */; };
 		A506B7F31E1E473A0091E0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A506B7F21E1E473A0091E0EE /* Assets.xcassets */; };
 		A506B7F61E1E473A0091E0EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A506B7F41E1E473A0091E0EE /* LaunchScreen.storyboard */; };
+		A53C228D1E1EDF820063487A /* Gin_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A53C228C1E1EDF820063487A /* Gin_1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A506B7F21E1E473A0091E0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A506B7F51E1E473A0091E0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A506B7F71E1E473A0091E0EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A53C228C1E1EDF820063487A /* Gin_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gin_1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			children = (
 				A506B7E51E1E473A0091E0EE /* 17_01_05_CABasciAnimation */,
 				A506B7E41E1E473A0091E0EE /* Products */,
+				A53C228C1E1EDF820063487A /* Gin_1.jpeg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53C228D1E1EDF820063487A /* Gin_1.jpeg in Resources */,
 				A506B7F61E1E473A0091E0EE /* LaunchScreen.storyboard in Resources */,
 				A506B7F31E1E473A0091E0EE /* Assets.xcassets in Resources */,
 				A506B7F11E1E473A0091E0EE /* Main.storyboard in Resources */,
@@ -307,6 +311,7 @@
 				A506B7FC1E1E473A0091E0EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
