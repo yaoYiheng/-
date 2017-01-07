@@ -51,7 +51,7 @@
     return self;
 }
 
-#pragma mark -添加按钮
+#pragma mark -设置子控件的状态
 - (void)awakeFromNib{
     [super awakeFromNib];
     //加载原始图片
@@ -59,8 +59,11 @@
     UIImage *originalImage = [UIImage imageNamed:@"LuckyAstrology"];
     UIImage *originalSelImage = [UIImage imageNamed:@"LuckyAstrologyPressed"];
 
+
+    //使UIImageView能够相应用户点击
     self.rotateImageView.userInteractionEnabled = YES;
 
+    //计算控件的位置及宽高
     CGFloat buttonW = 68;
     CGFloat buttonH = 143;
     CGFloat rotationAngle = 0;
@@ -73,7 +76,7 @@
     CGRect photoRect;
 
 
-
+    //根据计算结果创建并布局控件
     for (int i = 0; i < 12; i++) {
         YHYButton *button = [YHYButton buttonWithType:UIButtonTypeCustom];
 
@@ -98,20 +101,23 @@
         [button setImage:[UIImage imageWithCGImage:clippedSelImage] forState:UIControlStateSelected];
 
 
-
-
         button.bounds = CGRectMake(0, 0, buttonW, buttonH);
 
+        //设置按钮锚点及按钮位置
         button.layer.anchorPoint = CGPointMake(0.5, 1);
         button.layer.position = CGPointMake(self.rotateImageView.frame.size.width / 2, self.rotateImageView.frame.size.height /2);
-
+        //设置不同按钮的旋转角度
         button.transform = CGAffineTransformMakeRotation(angleToRadio(rotationAngle));
 
+
+        //为按钮添加监听器, 点击按钮时, 调用方法, 使其保持只有一个按钮处于选中状态.
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+
         [self.rotateImageView addSubview:button];
 
         rotationAngle += 30;
 
+        //使第一个按钮保持选中状态
         if (i == 0) {
             [self buttonClick:button];
         }
@@ -177,6 +183,6 @@
     CGFloat angle = atan2(transform.b, transform.a);
 
     //使按钮的父控件倒转所选时的角度, 完成在最上面显示
-    self.rotateImageView.transform =  CGAffineTransformMakeRotation(-angle);
+    self.rotateImageView.transform = CGAffineTransformMakeRotation(-angle);
 }
 @end

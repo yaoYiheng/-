@@ -10,10 +10,11 @@
 
 @interface YHYRoundAbout : UIView
 
-
+//快速创建方法
 + (instancetype)roundAbout;
 
-
+//开始旋转
 - (void)startRotate;
+//停止旋转
 - (void)pause;
 @end
