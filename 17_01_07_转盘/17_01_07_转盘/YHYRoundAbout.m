@@ -39,6 +39,10 @@
 #pragma mark -添加按钮
 - (void)awakeFromNib{
     [super awakeFromNib];
+    //加载原始图片
+
+    UIImage *originalImage = [UIImage imageNamed:@"LuckyAstrology"];
+    UIImage *originalSelImage = [UIImage imageNamed:@"LuckyAstrologyPressed"];
 
     self.rotateImageView.userInteractionEnabled = YES;
 
@@ -46,11 +50,39 @@
     CGFloat buttonH = 143;
     CGFloat rotationAngle = 0;
 
+    CGFloat photoRectX = 0;
+    CGFloat photoRectY = 0;
+    CGFloat photoRectW = originalImage.size.width / 12 * [UIScreen mainScreen].scale ;
+    CGFloat photoRectH = originalImage.size.height * [UIScreen mainScreen].scale;
+
+    CGRect photoRect;
+
+
+
     for (int i = 0; i < 12; i++) {
         YHYButton *button = [YHYButton buttonWithType:UIButtonTypeCustom];
 
-
+        //设置选中状态下的背景图片
         [button setBackgroundImage:[UIImage imageNamed:@"LuckyRototeSelected"]  forState:UIControlStateSelected];
+
+
+        photoRectX = photoRectW * i;
+        photoRect = CGRectMake(photoRectX , photoRectY, photoRectW, photoRectH);
+
+
+        //调用 CGImageCreateWithImageInRect 传入一张图片,以及裁剪区域的大小, 可以返回一张裁剪自原图的图片指针, 需要使用imageWithCGImage 将其转为 对象.
+        CGImageRef clippedImage = CGImageCreateWithImageInRect(originalImage.CGImage, photoRect);
+
+        //设置按钮正常状态下的图片
+
+        [button setImage:[UIImage imageWithCGImage:clippedImage] forState:UIControlStateNormal];
+
+        CGImageRef clippedSelImage = CGImageCreateWithImageInRect(originalSelImage.CGImage, photoRect);
+
+        [button setImage:[UIImage imageWithCGImage:clippedSelImage] forState:UIControlStateSelected];
+
+
+
 
         button.bounds = CGRectMake(0, 0, buttonW, buttonH);
 
