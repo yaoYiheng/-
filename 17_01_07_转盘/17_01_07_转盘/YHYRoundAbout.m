@@ -18,9 +18,21 @@
 
 /** 选中的按钮*/
 @property (nonatomic, weak) YHYButton *selectedButton;
+
+/** 添加定时器*/
+@property (nonatomic, strong) CADisplayLink *link;
 @end
 
 @implementation YHYRoundAbout
+
+- (CADisplayLink *)link{
+    if (!_link) {
+        CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(rotate)];
+        [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        _link = link;
+    }
+    return _link;
+}
 
 #pragma mark -初始化方法.
 +(instancetype)roundAbout{
@@ -71,12 +83,13 @@
 
 
         //调用 CGImageCreateWithImageInRect 传入一张图片,以及裁剪区域的大小, 可以返回一张裁剪自原图的图片指针, 需要使用imageWithCGImage 将其转为 对象.
-        CGImageRef clippedImage = CGImageCreateWithImageInRect(originalImage.CGImage, photoRect);
 
         //设置按钮正常状态下的图片
 
+        CGImageRef clippedImage = CGImageCreateWithImageInRect(originalImage.CGImage, photoRect);
         [button setImage:[UIImage imageWithCGImage:clippedImage] forState:UIControlStateNormal];
 
+        //设置按钮高亮下的状态
         CGImageRef clippedSelImage = CGImageCreateWithImageInRect(originalSelImage.CGImage, photoRect);
 
         [button setImage:[UIImage imageWithCGImage:clippedSelImage] forState:UIControlStateSelected];
@@ -105,26 +118,37 @@
 
 }
 
+/**
+ 更改按钮的点击状态
+ */
 - (void)buttonClick:(YHYButton *)btn{
     self.selectedButton.selected = NO;
     btn.selected = YES;
     self.selectedButton = btn;
 }
 #pragma mark -旋转与停止旋转
+
+
+/**
+ 直接调用link的paused 方法来开始或暂停动画
+ */
 - (void)startRotate{
 
-    CABasicAnimation *animation = [CABasicAnimation animation];
-    animation.keyPath = @"transform.rotation";
-    animation.toValue = @(M_PI * 2);
-    animation.duration= 1;
+    self.link.paused = NO;
 
-    [self.rotateImageView.layer addAnimation:animation forKey:nil];
 
 }
 - (void)pause{
-    
+    self.link.paused = YES;
 }
 
+
+/**
+ 不用核心动画, 而是cg动画完成旋转, 因为需要在旋转的过程中对转盘进行操作, 而核心动画只是假象.
+ */
+- (void)rotate{
+    self.rotateImageView.transform = CGAffineTransformRotate(self.rotateImageView.transform, M_PI / 180);
+}
 
 
 @end
