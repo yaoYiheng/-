@@ -31,7 +31,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Gin_1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="p4R-Z7-Wwe">
-                                <rect key="frame" x="100" y="340" width="200" height="200"/>
+                                <rect key="frame" x="247" y="0.0" width="128" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="q6i-4Q-cbi">
+                                <rect key="frame" x="0.0" y="99" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -41,13 +45,16 @@
                         <outlet property="ginImageView" destination="p4R-Z7-Wwe" id="SKE-ja-p3h"/>
                         <outlet property="heartImageView" destination="hFl-OS-dF4" id="oKB-FP-jub"/>
                         <outlet property="orangeView" destination="d5q-y0-55v" id="itx-N1-R3z"/>
+                        <outlet property="universeImageView" destination="q6i-4Q-cbi" id="XSg-21-sna"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1.jpg" width="600" height="435"/>
         <image name="Gin_1.jpeg" width="700" height="762"/>
         <image name="心" width="200" height="200"/>
     </resources>
