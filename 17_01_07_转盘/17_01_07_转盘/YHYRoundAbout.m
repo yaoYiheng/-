@@ -11,7 +11,7 @@
 
 #define angleToRadio(angle) ((angle) / 180 * M_PI)
 
-@interface YHYRoundAbout ()
+@interface YHYRoundAbout () <CAAnimationDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *rotateImageView;
@@ -25,6 +25,8 @@
 
 @implementation YHYRoundAbout
 
+
+#pragma mark -懒加载定时器
 - (CADisplayLink *)link{
     if (!_link) {
         CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(rotate)];
@@ -150,5 +152,30 @@
     self.rotateImageView.transform = CGAffineTransformRotate(self.rotateImageView.transform, M_PI / 180);
 }
 
+/**
+ 快速旋转, 用户不能点击, 所以可用使用核心动画完成此功能
 
+ */
+- (IBAction)startChoosing:(UIButton *)sender {
+
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.rotation";
+    animation.toValue = @(M_PI * 8);
+    animation.duration= 1;
+    animation.delegate = self;
+
+    [self.rotateImageView.layer addAnimation:animation forKey:nil];
+}
+#pragma mark -CAAnimationDelegate代理方法, 核心动画结束后调用.
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+
+    /**
+     可以通过获取控件的transform属性, 在调用atan2(transform.b, transform.a)方法, 可以获取控件当前旋转的角度
+    */
+    CGAffineTransform transform = self.selectedButton.transform;
+    CGFloat angle = atan2(transform.b, transform.a);
+
+    //使按钮的父控件倒转所选时的角度, 完成在最上面显示
+    self.rotateImageView.transform =  CGAffineTransformMakeRotation(-angle);
+}
 @end
