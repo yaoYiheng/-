@@ -32,4 +32,16 @@
     return CGRectMake(imageX, imageY, imageW, imageH);
 }
 
+#pragma mark -解决按钮重叠问题
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    //设置可点击区域
+    CGRect enableRect = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height / 2);
+    //判断点是否落在rect上
+    if (CGRectContainsPoint(enableRect, point)) {
+        return [super hitTest:point withEvent:event];
+    }
+    else{
+        return nil;
+    }
+}
 @end
