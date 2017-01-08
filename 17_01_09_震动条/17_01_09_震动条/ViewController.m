@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIView *imageView;
 
 @end
 
@@ -19,7 +20,20 @@
 
 
 
+}
+#pragma mark -倒影效果
+- (void)configureShadow{
 
+    CAReplicatorLayer *repL = (CAReplicatorLayer *)self.view.layer;
+
+    repL.instanceCount = 2;
+
+    repL.instanceTransform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+    //更改复制层RGB值, 是颜色变淡, 其修改器透明度, 实现影子效果
+    repL.instanceRedOffset -=0.2;
+    repL.instanceBlueOffset -= 0.2;
+    repL.instanceGreenOffset -= 0.2;
+    repL.instanceAlphaOffset -= 0.2;
 }
 
 #pragma mark -添加复制层动画.
