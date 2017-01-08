@@ -11,7 +11,8 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *buttomImageView;
-
+/** <#comments#>*/
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 @end
 
 @implementation ViewController
@@ -28,6 +29,25 @@
 
     self.topImageView.layer.anchorPoint = CGPointMake(0.5, 1);
     self.buttomImageView.layer.anchorPoint = CGPointMake(0.5, 0);
+
+    //为图层添加渐变层
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    //设置渐变颜色
+    gradientLayer.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor blackColor].CGColor];
+    //渐变区域
+    gradientLayer.frame = self.buttomImageView.bounds;
+    //渐变透明度, 1 为不透明
+    gradientLayer.opacity = 0;
+
+
+    //设置渐变的方向
+//    gradientLayer.startPoint = CGPointMake(0, 0);
+//    gradientLayer.endPoint = CGPointMake(1, 0);
+    //设置一个渐变到另一个渐变的起始位置
+//    gradientLayer.locations = @[@0.4, @0.7];
+
+    [self.buttomImageView.layer addSublayer:gradientLayer];
+    self.gradientLayer = gradientLayer;
 }
 
 
@@ -52,6 +72,21 @@
 //    self.topImageView.layer.transform = CATransform3DMakeRotation(-angle, 1, 0, 0);
 
     self.topImageView.layer.transform = CATransform3DRotate(transform, -angle, 1, 0, 0);
+
+    self.gradientLayer.opacity = offset.y * 1 / 256;
+
+    if (sender.state == UIGestureRecognizerStateEnded) {
+
+        self.gradientLayer.opacity = NO;
+
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
+
+            self.topImageView.layer.transform = CATransform3DIdentity;
+
+        } completion:^(BOOL finished) {
+        }];
+    }
+
 }
 
 
