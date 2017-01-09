@@ -13,18 +13,24 @@
 
 /** 红色小view*/
 @property (nonatomic, weak) UIView *littleCircle;
-/** <#comments#>*/
+/** 可通过过形状图层添加.
+ 形状图层会根据一个路径生成一个形状.*/
 @property (nonatomic, weak) CAShapeLayer *shapeLayer;
 
 @end
 
 @implementation BageVauleButton
 
+
+#pragma mark -懒加载形状图层
 - (CAShapeLayer *)shapeLayer{
     if (!_shapeLayer) {
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+        //将形状图层添加到父控件, 最接近父曾的位置
         [self.superview.layer insertSublayer:shapeLayer atIndex:0];
+        //设置填充色
         shapeLayer.fillColor = [UIColor redColor].CGColor;
+        //为成员变量赋值
         _shapeLayer = shapeLayer;
     }
     return _shapeLayer;
@@ -91,9 +97,38 @@
     //同时设置小圆的圆角半径
     self.littleCircle.layer.cornerRadius = littleRadius;
 
+    //当小圆的没有隐藏时, 才需要重绘不规则路径.
+    if (!self.littleCircle.hidden) {
+        self.shapeLayer.path = [self pathForBetweenView:self.littleCircle AndView:self].CGPath;
 
-    self.shapeLayer.path = [self pathForBetweenView:self.littleCircle AndView:self].CGPath;
+    }
 
+
+    //距离大于60时, 隐藏小圆并移除添加的不规则图形
+    if (distance > 60) {
+        self.littleCircle.hidden = YES;
+        [self.shapeLayer removeFromSuperlayer];
+    }
+    if (panGes.state == UIGestureRecognizerStateEnded) {
+        //当手指离开屏幕时, 如果两个之间的距离小于60, 则按钮回到原来位置
+        if (distance < 60) {
+            [self.shapeLayer removeFromSuperlayer];
+            self.center = self.littleCircle.center;
+            self.littleCircle.hidden = NO;
+        }
+        //距离大于60, 按钮消失
+        else
+        {
+
+            /**
+             可做一下消失时的动画.
+             
+             */
+
+
+        }
+
+    }
 
 
 }
