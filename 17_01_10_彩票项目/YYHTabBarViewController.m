@@ -16,7 +16,7 @@
 
 #import "YYHTabBar.h"
 
-@interface YYHTabBarViewController ()
+@interface YYHTabBarViewController () <YYHTabBarDelegate>
 
 /** tabBar Items数组*/
 @property (nonatomic, strong) NSMutableArray *itemsArray;
@@ -55,9 +55,15 @@
     tabBar.frame = self.tabBar.frame;
 
     tabBar.tabBarItems = self.itemsArray;
-    
+
+    //设置代理
+    tabBar.delegate = self;
 
     [self.view addSubview:tabBar];
+}
+#pragma mark -YYHTabBarDelegate代理方法
+- (void)tabBar:(YYHTabBar *)tabBar index:(NSInteger)index{
+    self.selectedIndex = index;
 }
 #pragma mark -加载所有的子控制器
 - (void)configureAllChildViewController{

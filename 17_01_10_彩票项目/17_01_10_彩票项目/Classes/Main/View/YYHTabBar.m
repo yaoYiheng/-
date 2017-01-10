@@ -26,6 +26,9 @@
     for (int i = 0; i < tabBarItems.count; i++) {
         UIButton *button = [[YYHTabButton alloc] init];
 
+        //为按钮绑定tag
+        button.tag = i;
+
         //从数组中取出对应的 UITabBarItem
         UITabBarItem *tabBar= tabBarItems[i];
 
@@ -54,6 +57,11 @@
 
     //3.记录当前选中的按钮
     self.selectedButton = button;
+
+    //4. 当前按钮被点击时, 通知代理
+    if ([self.delegate respondsToSelector:@selector(tabBar:index:)]) {
+        [self.delegate tabBar:self index:button.tag];
+    }
 }
 
 #pragma mark 设置子控件位置及尺寸
