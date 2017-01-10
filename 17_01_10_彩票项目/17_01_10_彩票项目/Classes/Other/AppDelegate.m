@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "YYHTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    YYHTabBarViewController *tabBarController = [[YYHTabBarViewController alloc] init];
+    self.window.rootViewController = tabBarController;
+
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

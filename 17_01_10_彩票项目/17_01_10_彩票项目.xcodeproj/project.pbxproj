@@ -11,6 +11,12 @@
 		A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54C588A1E24E36900AEF49B /* LaunchScreen.storyboard */; };
 		A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58AE1E24E4A800AEF49B /* AppDelegate.m */; };
 		A54C58B31E24E4A800AEF49B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58B11E24E4A800AEF49B /* main.m */; };
+		A54C58B61E24E6CE00AEF49B /* YYHTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58B51E24E6CE00AEF49B /* YYHTabBarViewController.m */; };
+		A54C58BC1E24E97000AEF49B /* YYHHallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58BB1E24E97000AEF49B /* YYHHallTableViewController.m */; };
+		A54C58BF1E24E9A700AEF49B /* YYHArenaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58BE1E24E9A700AEF49B /* YYHArenaViewController.m */; };
+		A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C11E24E9D500AEF49B /* YYHDiscoverTableViewController.m */; };
+		A54C58C51E24E9FD00AEF49B /* YYHHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C41E24E9FD00AEF49B /* YYHHistoryTableViewController.m */; };
+		A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,18 @@
 		A54C58AD1E24E4A800AEF49B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A54C58AE1E24E4A800AEF49B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A54C58B11E24E4A800AEF49B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A54C58B41E24E6CE00AEF49B /* YYHTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYHTabBarViewController.h; path = ../../../../YYHTabBarViewController.h; sourceTree = "<group>"; };
+		A54C58B51E24E6CE00AEF49B /* YYHTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYHTabBarViewController.m; path = ../../../../YYHTabBarViewController.m; sourceTree = "<group>"; };
+		A54C58BA1E24E97000AEF49B /* YYHHallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHHallTableViewController.h; sourceTree = "<group>"; };
+		A54C58BB1E24E97000AEF49B /* YYHHallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHHallTableViewController.m; sourceTree = "<group>"; };
+		A54C58BD1E24E9A700AEF49B /* YYHArenaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHArenaViewController.h; sourceTree = "<group>"; };
+		A54C58BE1E24E9A700AEF49B /* YYHArenaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHArenaViewController.m; sourceTree = "<group>"; };
+		A54C58C01E24E9D500AEF49B /* YYHDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHDiscoverTableViewController.h; sourceTree = "<group>"; };
+		A54C58C11E24E9D500AEF49B /* YYHDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHDiscoverTableViewController.m; sourceTree = "<group>"; };
+		A54C58C31E24E9FD00AEF49B /* YYHHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHHistoryTableViewController.h; sourceTree = "<group>"; };
+		A54C58C41E24E9FD00AEF49B /* YYHHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHHistoryTableViewController.m; sourceTree = "<group>"; };
+		A54C58C61E24EA2E00AEF49B /* YYHMyLottoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHMyLottoViewController.h; sourceTree = "<group>"; };
+		A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHMyLottoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +106,8 @@
 		A54C58951E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58BD1E24E9A700AEF49B /* YYHArenaViewController.h */,
+				A54C58BE1E24E9A700AEF49B /* YYHArenaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +139,8 @@
 		A54C58991E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58C01E24E9D500AEF49B /* YYHDiscoverTableViewController.h */,
+				A54C58C11E24E9D500AEF49B /* YYHDiscoverTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -150,6 +172,8 @@
 		A54C589D1E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58BA1E24E97000AEF49B /* YYHHallTableViewController.h */,
+				A54C58BB1E24E97000AEF49B /* YYHHallTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +205,8 @@
 		A54C58A11E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58C31E24E9FD00AEF49B /* YYHHistoryTableViewController.h */,
+				A54C58C41E24E9FD00AEF49B /* YYHHistoryTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,6 +238,8 @@
 		A54C58A51E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58B41E24E6CE00AEF49B /* YYHTabBarViewController.h */,
+				A54C58B51E24E6CE00AEF49B /* YYHTabBarViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +271,8 @@
 		A54C58A91E24E4A800AEF49B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58C61E24EA2E00AEF49B /* YYHMyLottoViewController.h */,
+				A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -358,7 +388,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54C58C51E24E9FD00AEF49B /* YYHHistoryTableViewController.m in Sources */,
 				A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */,
+				A54C58BF1E24E9A700AEF49B /* YYHArenaViewController.m in Sources */,
+				A54C58BC1E24E97000AEF49B /* YYHHallTableViewController.m in Sources */,
+				A54C58B61E24E6CE00AEF49B /* YYHTabBarViewController.m in Sources */,
+				A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */,
+				A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */,
 				A54C58B31E24E4A800AEF49B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
