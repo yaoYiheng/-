@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A54C58891E24E36900AEF49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54C58881E24E36900AEF49B /* Assets.xcassets */; };
+		A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54C588A1E24E36900AEF49B /* LaunchScreen.storyboard */; };
+		A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58AE1E24E4A800AEF49B /* AppDelegate.m */; };
+		A54C58B31E24E4A800AEF49B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58B11E24E4A800AEF49B /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A54C58791E24E36800AEF49B /* 17_01_10_彩票项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "17_01_10_彩票项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54C58881E24E36900AEF49B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A54C588B1E24E36900AEF49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A54C588D1E24E36900AEF49B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A54C58AD1E24E4A800AEF49B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A54C58AE1E24E4A800AEF49B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A54C58B11E24E4A800AEF49B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A54C58761E24E36800AEF49B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A54C58701E24E36800AEF49B = {
+			isa = PBXGroup;
+			children = (
+				A54C587B1E24E36800AEF49B /* 17_01_10_彩票项目 */,
+				A54C587A1E24E36800AEF49B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A54C587A1E24E36800AEF49B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58791E24E36800AEF49B /* 17_01_10_彩票项目.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A54C587B1E24E36800AEF49B /* 17_01_10_彩票项目 */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58931E24E4A800AEF49B /* Classes */,
+				A54C58881E24E36900AEF49B /* Assets.xcassets */,
+				A54C588A1E24E36900AEF49B /* LaunchScreen.storyboard */,
+				A54C588D1E24E36900AEF49B /* Info.plist */,
+			);
+			path = "17_01_10_彩票项目";
+			sourceTree = "<group>";
+		};
+		A54C58931E24E4A800AEF49B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58941E24E4A800AEF49B /* Arena(竞技场) */,
+				A54C58981E24E4A800AEF49B /* Discover(发现) */,
+				A54C589C1E24E4A800AEF49B /* Hall(大厅) */,
+				A54C58A01E24E4A800AEF49B /* History(开奖信息) */,
+				A54C58A41E24E4A800AEF49B /* Main */,
+				A54C58A81E24E4A800AEF49B /* MyLotto(我的彩票) */,
+				A54C58AC1E24E4A800AEF49B /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A54C58941E24E4A800AEF49B /* Arena(竞技场) */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58951E24E4A800AEF49B /* Controller */,
+				A54C58961E24E4A800AEF49B /* Model */,
+				A54C58971E24E4A800AEF49B /* View */,
+			);
+			path = "Arena(竞技场)";
+			sourceTree = "<group>";
+		};
+		A54C58951E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C58961E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C58971E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C58981E24E4A800AEF49B /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58991E24E4A800AEF49B /* Controller */,
+				A54C589A1E24E4A800AEF49B /* Model */,
+				A54C589B1E24E4A800AEF49B /* View */,
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		A54C58991E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C589A1E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C589B1E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C589C1E24E4A800AEF49B /* Hall(大厅) */ = {
+			isa = PBXGroup;
+			children = (
+				A54C589D1E24E4A800AEF49B /* Controller */,
+				A54C589E1E24E4A800AEF49B /* Model */,
+				A54C589F1E24E4A800AEF49B /* View */,
+			);
+			path = "Hall(大厅)";
+			sourceTree = "<group>";
+		};
+		A54C589D1E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C589E1E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C589F1E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C58A01E24E4A800AEF49B /* History(开奖信息) */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58A11E24E4A800AEF49B /* Controller */,
+				A54C58A21E24E4A800AEF49B /* Model */,
+				A54C58A31E24E4A800AEF49B /* View */,
+			);
+			path = "History(开奖信息)";
+			sourceTree = "<group>";
+		};
+		A54C58A11E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C58A21E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C58A31E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C58A41E24E4A800AEF49B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58A51E24E4A800AEF49B /* Controller */,
+				A54C58A61E24E4A800AEF49B /* Model */,
+				A54C58A71E24E4A800AEF49B /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A54C58A51E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C58A61E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C58A71E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C58A81E24E4A800AEF49B /* MyLotto(我的彩票) */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58A91E24E4A800AEF49B /* Controller */,
+				A54C58AA1E24E4A800AEF49B /* Model */,
+				A54C58AB1E24E4A800AEF49B /* View */,
+			);
+			path = "MyLotto(我的彩票)";
+			sourceTree = "<group>";
+		};
+		A54C58A91E24E4A800AEF49B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A54C58AA1E24E4A800AEF49B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A54C58AB1E24E4A800AEF49B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A54C58AC1E24E4A800AEF49B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A54C58AD1E24E4A800AEF49B /* AppDelegate.h */,
+				A54C58AE1E24E4A800AEF49B /* AppDelegate.m */,
+				A54C58AF1E24E4A800AEF49B /* Category */,
+				A54C58B01E24E4A800AEF49B /* Library */,
+				A54C58B11E24E4A800AEF49B /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		A54C58AF1E24E4A800AEF49B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A54C58B01E24E4A800AEF49B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A54C58781E24E36800AEF49B /* 17_01_10_彩票项目 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A54C58901E24E36900AEF49B /* Build configuration list for PBXNativeTarget "17_01_10_彩票项目" */;
+			buildPhases = (
+				A54C58751E24E36800AEF49B /* Sources */,
+				A54C58761E24E36800AEF49B /* Frameworks */,
+				A54C58771E24E36800AEF49B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "17_01_10_彩票项目";
+			productName = "17_01_10_彩票项目";
+			productReference = A54C58791E24E36800AEF49B /* 17_01_10_彩票项目.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A54C58711E24E36800AEF49B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YYH;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "姚懿恒";
+				TargetAttributes = {
+					A54C58781E24E36800AEF49B = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A54C58741E24E36800AEF49B /* Build configuration list for PBXProject "17_01_10_彩票项目" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A54C58701E24E36800AEF49B;
+			productRefGroup = A54C587A1E24E36800AEF49B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A54C58781E24E36800AEF49B /* 17_01_10_彩票项目 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A54C58771E24E36800AEF49B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */,
+				A54C58891E24E36900AEF49B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A54C58751E24E36800AEF49B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */,
+				A54C58B31E24E4A800AEF49B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A54C588A1E24E36900AEF49B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A54C588B1E24E36900AEF49B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A54C588E1E24E36900AEF49B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A54C588F1E24E36900AEF49B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A54C58911E24E36900AEF49B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "17_01_10_彩票项目/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-10-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A54C58921E24E36900AEF49B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "17_01_10_彩票项目/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-10-----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A54C58741E24E36800AEF49B /* Build configuration list for PBXProject "17_01_10_彩票项目" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54C588E1E24E36900AEF49B /* Debug */,
+				A54C588F1E24E36900AEF49B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A54C58901E24E36900AEF49B /* Build configuration list for PBXNativeTarget "17_01_10_彩票项目" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A54C58911E24E36900AEF49B /* Debug */,
+				A54C58921E24E36900AEF49B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A54C58711E24E36800AEF49B /* Project object */;
+}
