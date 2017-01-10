@@ -17,6 +17,8 @@
 		A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C11E24E9D500AEF49B /* YYHDiscoverTableViewController.m */; };
 		A54C58C51E24E9FD00AEF49B /* YYHHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C41E24E9FD00AEF49B /* YYHHistoryTableViewController.m */; };
 		A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */; };
+		A54C58CB1E25800700AEF49B /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58CA1E25800700AEF49B /* YYHTabBar.m */; };
+		A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58D01E258A5800AEF49B /* YYHTabButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		A54C58C41E24E9FD00AEF49B /* YYHHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHHistoryTableViewController.m; sourceTree = "<group>"; };
 		A54C58C61E24EA2E00AEF49B /* YYHMyLottoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHMyLottoViewController.h; sourceTree = "<group>"; };
 		A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHMyLottoViewController.m; sourceTree = "<group>"; };
+		A54C58C91E25800700AEF49B /* YYHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabBar.h; sourceTree = "<group>"; };
+		A54C58CA1E25800700AEF49B /* YYHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBar.m; sourceTree = "<group>"; };
+		A54C58CF1E258A5800AEF49B /* YYHTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabButton.h; sourceTree = "<group>"; };
+		A54C58D01E258A5800AEF49B /* YYHTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,10 @@
 		A54C58A71E24E4A800AEF49B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A54C58C91E25800700AEF49B /* YYHTabBar.h */,
+				A54C58CA1E25800700AEF49B /* YYHTabBar.m */,
+				A54C58CF1E258A5800AEF49B /* YYHTabButton.h */,
+				A54C58D01E258A5800AEF49B /* YYHTabButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54C58C51E24E9FD00AEF49B /* YYHHistoryTableViewController.m in Sources */,
+				A54C58CB1E25800700AEF49B /* YYHTabBar.m in Sources */,
+				A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */,
 				A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */,
 				A54C58BF1E24E9A700AEF49B /* YYHArenaViewController.m in Sources */,
 				A54C58BC1E24E97000AEF49B /* YYHHallTableViewController.m in Sources */,
