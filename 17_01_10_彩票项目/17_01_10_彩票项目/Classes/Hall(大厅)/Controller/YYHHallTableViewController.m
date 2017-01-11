@@ -8,8 +8,10 @@
 
 #import "YYHHallTableViewController.h"
 #import "UIImage+WithoutRendering.h"
+#import "YYHCover.h"
+#import "YYHPopMenuView.h"
 
-@interface YYHHallTableViewController ()
+@interface YYHHallTableViewController () <YYHPopMenuViewDelegate>
 
 @end
 
@@ -24,9 +26,24 @@
 
 }
 - (void)leftBarButtonOnClick{
-    
+    //弹出蒙板
+    [YYHCover show];
+
+
+    YYHPopMenuView *popMenu = [YYHPopMenuView showAtPoint:self.view.center];
+    NSLog(@"%@", popMenu);
+    popMenu.delegate = self;
+    NSLog(@"%s", __func__);
+
+
 }
 
+#pragma mark YYHPopMenuViewDelegate代理
+- (void)popMenuViewDidClickOnCloseButton:(YYHPopMenuView *)popMenuView{
+//
+//    //点击了关闭按钮后
+//    [popMenuView disapperAtPoint:CGPointMake(0, 0)];
+}
 
 
 @end

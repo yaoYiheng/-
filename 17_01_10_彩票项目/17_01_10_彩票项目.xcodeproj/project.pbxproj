@@ -21,6 +21,9 @@
 		A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58D01E258A5800AEF49B /* YYHTabButton.m */; };
 		A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */; };
 		A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B71E25E82200ACA488 /* YYHNavigationViewController.m */; };
+		A5EA60BB1E25EBA900ACA488 /* YYHCover.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60BA1E25EBA800ACA488 /* YYHCover.m */; };
+		A5EA60BE1E25EF4E00ACA488 /* YYHPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60BD1E25EF4E00ACA488 /* YYHPopMenuView.m */; };
+		A5EA60C01E25EF5600ACA488 /* YYHPopMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5EA60BF1E25EF5600ACA488 /* YYHPopMenuView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,11 @@
 		A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
 		A5EA60B61E25E82200ACA488 /* YYHNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHNavigationViewController.h; sourceTree = "<group>"; };
 		A5EA60B71E25E82200ACA488 /* YYHNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHNavigationViewController.m; sourceTree = "<group>"; };
+		A5EA60B91E25EBA800ACA488 /* YYHCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHCover.h; sourceTree = "<group>"; };
+		A5EA60BA1E25EBA800ACA488 /* YYHCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHCover.m; sourceTree = "<group>"; };
+		A5EA60BC1E25EF4E00ACA488 /* YYHPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHPopMenuView.h; sourceTree = "<group>"; };
+		A5EA60BD1E25EF4E00ACA488 /* YYHPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHPopMenuView.m; sourceTree = "<group>"; };
+		A5EA60BF1E25EF5600ACA488 /* YYHPopMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHPopMenuView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +208,11 @@
 		A54C589F1E24E4A800AEF49B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5EA60B91E25EBA800ACA488 /* YYHCover.h */,
+				A5EA60BA1E25EBA800ACA488 /* YYHCover.m */,
+				A5EA60BC1E25EF4E00ACA488 /* YYHPopMenuView.h */,
+				A5EA60BD1E25EF4E00ACA488 /* YYHPopMenuView.m */,
+				A5EA60BF1E25EF5600ACA488 /* YYHPopMenuView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */,
+				A5EA60C01E25EF5600ACA488 /* YYHPopMenuView.xib in Resources */,
 				A54C58891E24E36900AEF49B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,9 +428,11 @@
 				A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */,
 				A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */,
 				A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */,
+				A5EA60BB1E25EBA900ACA488 /* YYHCover.m in Sources */,
 				A54C58BF1E24E9A700AEF49B /* YYHArenaViewController.m in Sources */,
 				A54C58BC1E24E97000AEF49B /* YYHHallTableViewController.m in Sources */,
 				A54C58B61E24E6CE00AEF49B /* YYHTabBarViewController.m in Sources */,
+				A5EA60BE1E25EF4E00ACA488 /* YYHPopMenuView.m in Sources */,
 				A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */,
 				A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */,
 				A54C58B31E24E4A800AEF49B /* main.m in Sources */,

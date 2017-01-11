@@ -1,4 +1,4 @@
-//
+  //
 //  main.m
 //  17_01_10_彩票项目
 //
@@ -13,4 +13,5 @@ int main(int argc, char * argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
+
 }
