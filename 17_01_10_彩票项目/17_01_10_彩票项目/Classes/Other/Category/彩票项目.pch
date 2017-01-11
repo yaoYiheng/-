@@ -1,0 +1,18 @@
+//
+//  彩票项目.pch
+//  17_01_10_彩票项目
+//
+//  Created by 姚懿恒 on 2017/1/11.
+//  Copyright © 2017年 姚懿恒. All rights reserved.
+//
+
+#ifndef _____pch
+#define _____pch
+
+#ifdef __OBJC__ // 只有oc文件才导入
+#import "UIView+Frame.h"
+#import "UIImage+WithoutRendering.h"
+
+#endif
+
+#endif /* _____pch */

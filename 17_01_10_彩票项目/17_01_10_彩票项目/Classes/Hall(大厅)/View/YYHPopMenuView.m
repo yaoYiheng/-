@@ -32,6 +32,7 @@
         [self.delegate popMenuViewDidClickOnCloseButton:self];
     }
 
+
 }
 
 - (void)disapperAtPoint:(CGPoint)point{
@@ -42,8 +43,5 @@
     }];
 }
 
-- (void)setDelegate:(id<YYHPopMenuViewDelegate>)delegate{
-
-}
 
 @end

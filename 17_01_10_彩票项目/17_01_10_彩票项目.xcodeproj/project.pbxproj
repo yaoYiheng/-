@@ -19,6 +19,7 @@
 		A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */; };
 		A54C58CB1E25800700AEF49B /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58CA1E25800700AEF49B /* YYHTabBar.m */; };
 		A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58D01E258A5800AEF49B /* YYHTabButton.m */; };
+		A5E8F4911E2640DD003FD403 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8F4901E2640DD003FD403 /* UIView+Frame.m */; };
 		A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */; };
 		A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B71E25E82200ACA488 /* YYHNavigationViewController.m */; };
 		A5EA60BB1E25EBA900ACA488 /* YYHCover.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60BA1E25EBA800ACA488 /* YYHCover.m */; };
@@ -50,6 +51,9 @@
 		A54C58CA1E25800700AEF49B /* YYHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBar.m; sourceTree = "<group>"; };
 		A54C58CF1E258A5800AEF49B /* YYHTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabButton.h; sourceTree = "<group>"; };
 		A54C58D01E258A5800AEF49B /* YYHTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabButton.m; sourceTree = "<group>"; };
+		A5E8F48F1E2640DD003FD403 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		A5E8F4901E2640DD003FD403 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		A5E8F4921E2642FC003FD403 /* 彩票项目.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "彩票项目.pch"; sourceTree = "<group>"; };
 		A5EA60B31E25E78000ACA488 /* UIImage+WithoutRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithoutRendering.h"; sourceTree = "<group>"; };
 		A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
 		A5EA60B61E25E82200ACA488 /* YYHNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHNavigationViewController.h; sourceTree = "<group>"; };
@@ -339,6 +343,9 @@
 			children = (
 				A5EA60B31E25E78000ACA488 /* UIImage+WithoutRendering.h */,
 				A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */,
+				A5E8F48F1E2640DD003FD403 /* UIView+Frame.h */,
+				A5E8F4901E2640DD003FD403 /* UIView+Frame.m */,
+				A5E8F4921E2642FC003FD403 /* 彩票项目.pch */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -425,6 +432,7 @@
 				A54C58C51E24E9FD00AEF49B /* YYHHistoryTableViewController.m in Sources */,
 				A54C58CB1E25800700AEF49B /* YYHTabBar.m in Sources */,
 				A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */,
+				A5E8F4911E2640DD003FD403 /* UIView+Frame.m in Sources */,
 				A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */,
 				A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */,
 				A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */,
@@ -545,6 +553,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "17_01_10_彩票项目/Classes/Other/Category/彩票项目.pch";
 				INFOPLIST_FILE = "17_01_10_彩票项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-10-----";
@@ -556,6 +566,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "17_01_10_彩票项目/Classes/Other/Category/彩票项目.pch";
 				INFOPLIST_FILE = "17_01_10_彩票项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-10-----";
