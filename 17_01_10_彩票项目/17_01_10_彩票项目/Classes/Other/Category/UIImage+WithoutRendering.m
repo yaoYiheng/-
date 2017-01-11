@@ -10,9 +10,9 @@
 
 @implementation UIImage (WithoutRendering)
 
-#pragma mark -返回一张没有渲染的图片
-+(UIImage *)imageWithoutRendering:(NSString *)imageName{
-
+#pragma mark 返回不经过渲染的图片
++ (UIImage *)imageWithoutRendering:(NSString *)imageName{
+    
     UIImage *image = [UIImage imageNamed:imageName];
     return [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }

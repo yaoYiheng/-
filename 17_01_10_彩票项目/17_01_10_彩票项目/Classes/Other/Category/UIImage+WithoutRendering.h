@@ -11,5 +11,4 @@
 @interface UIImage (WithoutRendering)
 
 + (UIImage *)imageWithoutRendering:(NSString *)imageName;
-
 @end
