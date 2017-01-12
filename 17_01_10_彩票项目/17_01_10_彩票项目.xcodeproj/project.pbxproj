@@ -20,6 +20,7 @@
 		A54C58CB1E25800700AEF49B /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58CA1E25800700AEF49B /* YYHTabBar.m */; };
 		A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58D01E258A5800AEF49B /* YYHTabButton.m */; };
 		A5E8F4911E2640DD003FD403 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8F4901E2640DD003FD403 /* UIView+Frame.m */; };
+		A5E8F4981E278ACA003FD403 /* YYHMyLottoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E8F4971E278ACA003FD403 /* YYHMyLottoView.xib */; };
 		A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */; };
 		A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B71E25E82200ACA488 /* YYHNavigationViewController.m */; };
 		A5EA60BB1E25EBA900ACA488 /* YYHCover.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60BA1E25EBA800ACA488 /* YYHCover.m */; };
@@ -53,7 +54,8 @@
 		A54C58D01E258A5800AEF49B /* YYHTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabButton.m; sourceTree = "<group>"; };
 		A5E8F48F1E2640DD003FD403 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		A5E8F4901E2640DD003FD403 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		A5E8F4921E2642FC003FD403 /* 彩票项目.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "彩票项目.pch"; sourceTree = "<group>"; };
+		A5E8F4921E2642FC003FD403 /* 彩票项目.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "彩票项目.pch"; path = "Category/彩票项目.pch"; sourceTree = "<group>"; };
+		A5E8F4971E278ACA003FD403 /* YYHMyLottoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHMyLottoView.xib; sourceTree = "<group>"; };
 		A5EA60B31E25E78000ACA488 /* UIImage+WithoutRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithoutRendering.h"; sourceTree = "<group>"; };
 		A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
 		A5EA60B61E25E82200ACA488 /* YYHNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHNavigationViewController.h; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				A54C58C61E24EA2E00AEF49B /* YYHMyLottoViewController.h */,
 				A54C58C71E24EA2E00AEF49B /* YYHMyLottoViewController.m */,
+				A5E8F4971E278ACA003FD403 /* YYHMyLottoView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				A54C58AF1E24E4A800AEF49B /* Category */,
 				A54C58B01E24E4A800AEF49B /* Library */,
 				A54C58B11E24E4A800AEF49B /* main.m */,
+				A5E8F4921E2642FC003FD403 /* 彩票项目.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -345,7 +349,6 @@
 				A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */,
 				A5E8F48F1E2640DD003FD403 /* UIView+Frame.h */,
 				A5E8F4901E2640DD003FD403 /* UIView+Frame.m */,
-				A5E8F4921E2642FC003FD403 /* 彩票项目.pch */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			files = (
 				A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */,
 				A5EA60C01E25EF5600ACA488 /* YYHPopMenuView.xib in Resources */,
+				A5E8F4981E278ACA003FD403 /* YYHMyLottoView.xib in Resources */,
 				A54C58891E24E36900AEF49B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
