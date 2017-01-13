@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="94M-t5-WaS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discover Table View Controller-->
+        <scene sceneID="GTn-Zo-h8a">
+            <objects>
+                <tableViewController id="94M-t5-WaS" customClass="YYHDiscoverTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fvW-OM-wYn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="QU7-sU-Pzi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="102" id="IBs-AC-XUC">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IBs-AC-XUC" id="SBr-rc-UQT">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="101"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国彩票就是个笑话呵呵." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBa-lz-xG5">
+                                                    <rect key="frame" x="10" y="70.5" width="196" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discovery_groupBuy_title" translatesAutoresizingMaskIntoConstraints="NO" id="StY-Cp-5r9">
+                                                    <rect key="frame" x="10" y="8" width="70" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="KSX-NI-aMT"/>
+                                                        <constraint firstAttribute="width" constant="70" id="Z3B-Np-DLy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discovery_groupBuy_icon" translatesAutoresizingMaskIntoConstraints="NO" id="znM-hD-yUB">
+                                                    <rect key="frame" x="260" y="8" width="80" height="56"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="StY-Cp-5r9" firstAttribute="top" secondItem="SBr-rc-UQT" secondAttribute="top" constant="8" id="9v5-LJ-ecX"/>
+                                                <constraint firstItem="StY-Cp-5r9" firstAttribute="leading" secondItem="SBr-rc-UQT" secondAttribute="leading" constant="10" id="GsV-BV-oOR"/>
+                                                <constraint firstItem="hBa-lz-xG5" firstAttribute="leading" secondItem="SBr-rc-UQT" secondAttribute="leading" constant="10" id="TCL-Yq-8vd"/>
+                                                <constraint firstAttribute="bottom" secondItem="hBa-lz-xG5" secondAttribute="bottom" constant="10" id="W8u-r4-ort"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="uV4-Lp-GtD" kind="show" id="GaX-Vr-8sd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="wez-DA-hgI">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="4Lt-4I-a0B">
+                                        <rect key="frame" x="0.0" y="173" width="375" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Lt-4I-a0B" id="7xP-yF-Ie5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国彩票就是个笑话呵呵." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-ZF-IIn">
+                                                    <rect key="frame" x="10" y="70.5" width="196" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discovery_groupBuy_title" translatesAutoresizingMaskIntoConstraints="NO" id="IqV-P6-8qT">
+                                                    <rect key="frame" x="10" y="8" width="70" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="8Iy-Ar-xY4"/>
+                                                        <constraint firstAttribute="width" constant="70" id="ZT5-KN-D0K"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discovery_groupBuy_icon" translatesAutoresizingMaskIntoConstraints="NO" id="5rb-uO-bJD">
+                                                    <rect key="frame" x="260" y="8" width="80" height="56"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="COR-ZF-IIn" secondAttribute="bottom" constant="10" id="Q2b-f5-Lhy"/>
+                                                <constraint firstItem="IqV-P6-8qT" firstAttribute="leading" secondItem="7xP-yF-Ie5" secondAttribute="leading" constant="10" id="cxm-4T-pSg"/>
+                                                <constraint firstItem="IqV-P6-8qT" firstAttribute="top" secondItem="7xP-yF-Ie5" secondAttribute="top" constant="8" id="kGk-vc-4gg"/>
+                                                <constraint firstItem="COR-ZF-IIn" firstAttribute="leading" secondItem="7xP-yF-Ie5" secondAttribute="leading" constant="10" id="mLv-SB-jFe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="94M-t5-WaS" id="d3R-Az-6wg"/>
+                            <outlet property="delegate" destination="94M-t5-WaS" id="cYD-kT-um5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="cell" destination="IBs-AC-XUC" id="lly-qK-adR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkL-Np-HwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-280.80000000000001" y="129.08545727136433"/>
+        </scene>
+        <!--Pop View Controller-->
+        <scene sceneID="IcB-Dn-6yX">
+            <objects>
+                <viewController id="uV4-Lp-GtD" customClass="YYHPopViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cup-uI-C2T"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z80-Kb-Obb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RW1-gO-Thr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehs-0Z-RBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="discovery_groupBuy_icon" width="113" height="67"/>
+        <image name="discovery_groupBuy_title" width="54" height="23"/>
+    </resources>
+</document>

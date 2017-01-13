@@ -91,9 +91,13 @@
                                title:nil];
 
     //发现
-    YYHDiscoverTableViewController *discoverViewController = [[YYHDiscoverTableViewController alloc] init];
+    //加载storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:NSStringFromClass([YYHDiscoverTableViewController class]) bundle:nil];
 
-    discoverViewController.view.backgroundColor = [UIColor grayColor];
+    //初始化箭头指向的控制器
+    YYHDiscoverTableViewController *discoverViewController = [storyboard instantiateInitialViewController];
+//
+//    discoverViewController.view.backgroundColor = [UIColor grayColor];
 
     [self configureOneViewController:discoverViewController
                                image:[UIImage imageNamed:@"TabBar_Discovery_new"]
