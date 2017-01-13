@@ -7,6 +7,7 @@
 //
 
 #import "YYHPopViewController.h"
+#import "YYHBuyButton.h"
 
 @interface YYHPopViewController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    UIButton *button = [YYHBuyButton buttonWithType:UIButtonTypeCustom];
+
+    [button setTitle:@"全部彩种" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"YellowDownArrow"] forState:UIControlStateNormal];
+    [button sizeToFit];
+    
+    self.navigationItem.titleView = button;
+    
     
 }
 
