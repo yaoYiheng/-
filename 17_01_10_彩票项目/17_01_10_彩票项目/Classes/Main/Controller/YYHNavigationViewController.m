@@ -35,7 +35,7 @@
      4.我们只要管好自己的事情就可以了 谁用我的导航控制器,我就改下面的类的导航条
      5.采取这种方法
      */
-    UINavigationBar *bar = [UINavigationBar appearance];
+    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
 
     [bar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
 

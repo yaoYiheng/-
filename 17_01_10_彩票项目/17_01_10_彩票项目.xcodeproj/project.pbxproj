@@ -21,6 +21,7 @@
 		A54C58D11E258A5800AEF49B /* YYHTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58D01E258A5800AEF49B /* YYHTabButton.m */; };
 		A5E8F4911E2640DD003FD403 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8F4901E2640DD003FD403 /* UIView+Frame.m */; };
 		A5E8F4981E278ACA003FD403 /* YYHMyLottoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E8F4971E278ACA003FD403 /* YYHMyLottoView.xib */; };
+		A5E8F49D1E282FEC003FD403 /* YYHArenaNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E8F49C1E282FEC003FD403 /* YYHArenaNavViewController.m */; };
 		A5EA60B51E25E78000ACA488 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */; };
 		A5EA60B81E25E82200ACA488 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60B71E25E82200ACA488 /* YYHNavigationViewController.m */; };
 		A5EA60BB1E25EBA900ACA488 /* YYHCover.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA60BA1E25EBA800ACA488 /* YYHCover.m */; };
@@ -56,6 +57,8 @@
 		A5E8F4901E2640DD003FD403 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		A5E8F4921E2642FC003FD403 /* 彩票项目.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "彩票项目.pch"; path = "Category/彩票项目.pch"; sourceTree = "<group>"; };
 		A5E8F4971E278ACA003FD403 /* YYHMyLottoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHMyLottoView.xib; sourceTree = "<group>"; };
+		A5E8F49B1E282FEC003FD403 /* YYHArenaNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHArenaNavViewController.h; sourceTree = "<group>"; };
+		A5E8F49C1E282FEC003FD403 /* YYHArenaNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHArenaNavViewController.m; sourceTree = "<group>"; };
 		A5EA60B31E25E78000ACA488 /* UIImage+WithoutRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithoutRendering.h"; sourceTree = "<group>"; };
 		A5EA60B41E25E78000ACA488 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
 		A5EA60B61E25E82200ACA488 /* YYHNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHNavigationViewController.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 			children = (
 				A54C58BD1E24E9A700AEF49B /* YYHArenaViewController.h */,
 				A54C58BE1E24E9A700AEF49B /* YYHArenaViewController.m */,
+				A5E8F49B1E282FEC003FD403 /* YYHArenaNavViewController.h */,
+				A5E8F49C1E282FEC003FD403 /* YYHArenaNavViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				A54C58BF1E24E9A700AEF49B /* YYHArenaViewController.m in Sources */,
 				A54C58BC1E24E97000AEF49B /* YYHHallTableViewController.m in Sources */,
 				A54C58B61E24E6CE00AEF49B /* YYHTabBarViewController.m in Sources */,
+				A5E8F49D1E282FEC003FD403 /* YYHArenaNavViewController.m in Sources */,
 				A5EA60BE1E25EF4E00ACA488 /* YYHPopMenuView.m in Sources */,
 				A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */,
 				A54C58C81E24EA2E00AEF49B /* YYHMyLottoViewController.m in Sources */,

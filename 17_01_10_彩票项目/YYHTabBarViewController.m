@@ -16,6 +16,7 @@
 
 #import "YYHTabBar.h"
 #import "YYHNavigationViewController.h"
+#import "YYHArenaNavViewController.h"
 
 
 @interface YYHTabBarViewController () <YYHTabBarDelegate>
@@ -130,6 +131,9 @@
 
 
     UINavigationController *nav = [[YYHNavigationViewController alloc] initWithRootViewController:viewController];
+    if ([viewController isKindOfClass:[YYHArenaViewController class]]) {
+        nav = [[YYHArenaNavViewController alloc] initWithRootViewController:viewController];
+    }
 
 
     viewController.tabBarItem.image = image;
