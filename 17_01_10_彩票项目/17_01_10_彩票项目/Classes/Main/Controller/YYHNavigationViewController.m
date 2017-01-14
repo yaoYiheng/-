@@ -14,6 +14,25 @@
 
 @implementation YYHNavigationViewController
 
+
+/**
+ 重写该方法, 如果是非根控制器, 就更改导航控制器左侧的图标的按钮.
+ 如果是跟控制器, 则保持系统做法.
+
+ @param viewController <#viewController description#>
+ @param animated <#animated description#>
+ */
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+
+    if (self.childViewControllers.count > 0) {
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageWithoutRendering:@"NavBack"] style:0 target:self action:@selector(back)];
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
+- (void)back{
+    [self popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

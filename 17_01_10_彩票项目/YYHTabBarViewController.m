@@ -148,6 +148,7 @@
 
 
     UINavigationController *nav = [[YYHNavigationViewController alloc] initWithRootViewController:viewController];
+    
     if ([viewController isKindOfClass:[YYHArenaViewController class]]) {
         nav = [[YYHArenaNavViewController alloc] initWithRootViewController:viewController];
     }
