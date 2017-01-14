@@ -34,8 +34,8 @@
     NSLog(@"%@", popMenu);
 
 #warning 真他么奇怪, 无法设置代理属性?
-    popMenu.delegate = self;
-    NSLog(@"%s", __func__);
+//    popMenu.delegate = self;
+   
 
 
     
