@@ -36,7 +36,7 @@
     }
     return _itemsArray;
 }
-
+#pragma mark -view生命周期方法
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -46,23 +46,36 @@
 
 
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    //遍历系统自带tabBar的子控件, 移除不是自定义的控件
+    for (UIView *view in self.tabBar.subviews) {
+        if (![view isKindOfClass:[YYHTabBar class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
 - (void)configureTabBar{
     //1.移除系统自带tabBar
 
-    [self.tabBar removeFromSuperview];
+    //不能直接移除系统自带的tabBar, 因为无法实现hide bottom bar on push
+//    [self.tabBar removeFromSuperview];
 
     //2. 添加自定义tabBar
 
     YYHTabBar *tabBar = [[YYHTabBar alloc] init];
     //设置其大小等于系统tabBar大小
-    tabBar.frame = self.tabBar.frame;
+    //自定义的frame等于系统tabBar的bounds
+    tabBar.frame = self.tabBar.bounds;
 
     tabBar.tabBarItems = self.itemsArray;
 
     //设置代理
     tabBar.delegate = self;
 
-    [self.view addSubview:tabBar];
+    //添加到tabBar上而不是self.view中.
+    [self.tabBar addSubview:tabBar];
 }
 #pragma mark -YYHTabBarDelegate代理方法
 - (void)tabBar:(YYHTabBar *)tabBar index:(NSInteger)index{

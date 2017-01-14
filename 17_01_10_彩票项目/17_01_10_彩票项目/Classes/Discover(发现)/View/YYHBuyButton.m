@@ -20,5 +20,14 @@
         self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
     }
 }
+//封装标题按钮, 外界传入新标题或图片时, 重新布局控件的位置.
+- (void)setTitle:(NSString *)title forState:(UIControlState)state{
+    [super setTitle:title forState:state];
+    [self sizeToFit];
+}
 
+- (void)setImage:(UIImage *)image forState:(UIControlState)state{
+    [super setImage:image forState:state];
+    [self sizeToFit];
+}
 @end

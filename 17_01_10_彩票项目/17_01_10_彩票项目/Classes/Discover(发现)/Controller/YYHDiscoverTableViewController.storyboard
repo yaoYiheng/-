@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IBs-AC-XUC" id="SBr-rc-UQT">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国彩票就是个笑话呵呵." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBa-lz-xG5">
@@ -64,7 +64,7 @@
                                         <rect key="frame" x="0.0" y="173" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Lt-4I-a0B" id="7xP-yF-Ie5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国彩票就是个笑话呵呵." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COR-ZF-IIn">
@@ -112,7 +112,7 @@
         <!--Pop View Controller-->
         <scene sceneID="IcB-Dn-6yX">
             <objects>
-                <viewController id="uV4-Lp-GtD" customClass="YYHPopViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="uV4-Lp-GtD" customClass="YYHPopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cup-uI-C2T"/>
                         <viewControllerLayoutGuide type="bottom" id="Z80-Kb-Obb"/>
