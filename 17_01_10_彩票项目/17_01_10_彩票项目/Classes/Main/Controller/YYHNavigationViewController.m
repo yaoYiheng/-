@@ -8,7 +8,7 @@
 
 #import "YYHNavigationViewController.h"
 
-@interface YYHNavigationViewController () <UINavigationControllerDelegate>
+@interface YYHNavigationViewController () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
 /** 系统手势代理, 无需关心其类型, 使用id指向*/
 @property (nonatomic, strong) id popGestureDelegate;
@@ -66,8 +66,30 @@
 
     self.popGestureDelegate = self.interactivePopGestureRecognizer.delegate;
 
+    id target = self.interactivePopGestureRecognizer.delegate;
+
+    //    // 禁止系统的手势
+    self.interactivePopGestureRecognizer.enabled = NO;
+
+    //添加全局手势.
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
+    //    pan.enabled = NO;
+
+    [self.view addGestureRecognizer:pan];
+
+
+    pan.delegate = self;
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+// 当开始滑动的就会调用 如果返回YES ,可以滑动 返回NO,禁止手势
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    // 当是跟控制器不让移除(禁止), 非根控制器,允许移除控制
+    //    NSLog(@"%ld",self.viewControllers.count);
+    BOOL open = self.viewControllers.count > 1;
+
+    return open;
+}
 
 /**
  initialize方法
