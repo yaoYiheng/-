@@ -20,8 +20,55 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-    YYHTabBarViewController *tabBarController = [[YYHTabBarViewController alloc] init];
-    self.window.rootViewController = tabBarController;
+
+    //添加新特性界面.
+
+
+    /**
+    
+     在该方法(
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions)中判断.
+     
+
+     当版本有更新, 或是第一次运行界面时, 跳转到显示新特性界面, 如果不是,则进入主框架.
+     
+     需要在偏好设置中保存版本号.
+     [NSUserDefaults standardUserDefaults]
+     
+     关于获取当前版本号
+     
+     Info.plist文件以 source code打开, 找到 CFBundleShortVersionString 的key.
+
+     比较当前版本号与最新版本号, 
+     如果相等, 则进入主框架
+     如果不相等, 则跳转到新特性界面, 并将当前版本号同步到偏好设置中.
+
+     
+     */
+
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
+
+
+    UIViewController *rootViewController = nil;
+    if ([currentVersion isEqualToString:lastVersion]) {
+
+        rootViewController  = [[YYHTabBarViewController alloc] init];
+    }
+    else{
+
+        rootViewController = [[UIViewController alloc] init];
+        rootViewController.view.backgroundColor = [UIColor orangeColor];
+
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"version"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+    }
+
+
+    self.window.rootViewController = rootViewController;
 
     [self.window makeKeyAndVisible];
 
