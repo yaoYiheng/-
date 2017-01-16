@@ -7,6 +7,7 @@
 //
 
 #import "YYHNewFeatureCollectionViewController.h"
+#import "YYHNewFeatureCollectionViewCell.h"
 
 @interface YYHNewFeatureCollectionViewController ()
 
@@ -24,10 +25,16 @@ static NSString * const reuseIdentifier = @"Cell";
      */
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumInteritemSpacing = 100;
-    flowLayout.itemSize = CGSizeMake(40, 40);
-    flowLayout.minimumLineSpacing = 20;
-    flowLayout.sectionInset = UIEdgeInsetsMake(20, 20, 0, 20);
+
+    //修改每个Items 的间距
+    flowLayout.minimumInteritemSpacing = 0;
+    //设置item的大小, 与屏幕大小一样.
+    flowLayout.itemSize = [UIScreen mainScreen].bounds.size;
+    //修改行间距
+    flowLayout.minimumLineSpacing = 0;
+
+    //修改水平滚动
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
     return [super initWithCollectionViewLayout:flowLayout];
 
@@ -41,13 +48,47 @@ static NSString * const reuseIdentifier = @"Cell";
 //     self.clearsSelectionOnViewWillAppear = NO;
 
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[YYHNewFeatureCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
     self.collectionView.backgroundColor = [UIColor orangeColor];
 
+    //去掉弹簧效果
+    self.collectionView.bounces = NO;
+    //设置分页功能
+    self.collectionView.pagingEnabled = YES;
+
+    //隐藏水平滚动条
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+
+//    NSLog(@"%@", self.collectionView);
+
+    //添加子控件到self.collectionView上
+    [self configureSubViews];
 }
 
+- (void)configureSubViews{
+    // 1.线
+    UIImageView *guideLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guideLine"]];
+    [self.collectionView addSubview:guideLine];
+    guideLine.x -= 150;
+
+    // 2.球
+    UIImageView *guide = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guide1"]];
+    [self.collectionView addSubview:guide];
+    guide.x += 50;
+
+    // 3.大标题 guideLargeText
+    UIImageView *guideLargeText = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guideLargeText1"]];
+    [self.collectionView addSubview:guideLargeText];
+    guideLargeText.center = CGPointMake(self.view.Width / 2, self.view.Height * 0.7f );
+
+
+    // 4.小标题 guideSmallText
+    UIImageView *guideSmallText = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guideSmallText1"]];
+    [self.collectionView addSubview:guideSmallText];
+    guideSmallText.center = CGPointMake(self.view.Width / 2, self.view.Height * 0.8f );
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -67,21 +108,29 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 #warning Incomplete implementation, return the number of sections
-    return 2;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of items
-    return 10;
+    return 4;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    YYHNewFeatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UICollectionViewCell alloc] init];
+        cell = [[YYHNewFeatureCollectionViewCell alloc] init];
     }
-    cell.backgroundColor = [UIColor blueColor];
+
+    //通过拿到indexPath对图片名进行拼接
+    NSString *imageName = [NSString stringWithFormat:@"guide%ldBackground", indexPath.item + 1];
+
+    UIImage *image = [UIImage imageNamed:imageName];
+
+    //对cell中的cellImage属性进行赋值
+    cell.cellImage = image;
 
     return cell;
 }
