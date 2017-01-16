@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YYHTabBarViewController.h"
+#import "YYHNewFeatureCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -47,28 +48,29 @@
      
      */
 
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+//    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+//
+//    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
+//
+//
+//    UIViewController *rootViewController = nil;
+//    if ([currentVersion isEqualToString:lastVersion]) {
+//
+//        rootViewController  = [[YYHTabBarViewController alloc] init];
+//    }
+//    else{
+//
+//        rootViewController = [[UIViewController alloc] init];
+//        rootViewController.view.backgroundColor = [UIColor orangeColor];
+//
+//        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"version"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//
+//    }
 
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
+    YYHNewFeatureCollectionViewController *newFeature = [[YYHNewFeatureCollectionViewController alloc] init];
 
-
-    UIViewController *rootViewController = nil;
-    if ([currentVersion isEqualToString:lastVersion]) {
-
-        rootViewController  = [[YYHTabBarViewController alloc] init];
-    }
-    else{
-
-        rootViewController = [[UIViewController alloc] init];
-        rootViewController.view.backgroundColor = [UIColor orangeColor];
-
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"version"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-    }
-
-
-    self.window.rootViewController = rootViewController;
+    self.window.rootViewController = newFeature;
 
     [self.window makeKeyAndVisible];
 
