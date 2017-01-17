@@ -10,6 +10,14 @@
 #import "YYHNewFeatureCollectionViewCell.h"
 
 @interface YYHNewFeatureCollectionViewController ()
+/** 球imageView*/
+@property (nonatomic, weak) UIImageView *guide;
+/** <#comments#>*/
+@property (nonatomic, weak) UIImageView *guideLargeText;
+/** <#comments#>*/
+@property (nonatomic, weak) UIImageView *guideSmallText;
+/** <#comments#>*/
+@property (nonatomic, assign) CGFloat lastOffsetX;
 
 @end
 
@@ -39,6 +47,41 @@ static NSString * const reuseIdentifier = @"Cell";
     return [super initWithCollectionViewLayout:flowLayout];
 
 
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    //拿到当前总偏移量
+    CGFloat offset = scrollView.contentOffset.x;
+
+    //计算一个偏移量
+    CGFloat delta = offset - self.lastOffsetX;
+    //计算当前页数
+    NSInteger page = offset / delta + 1;
+
+    //根据页数拼接图片名
+    NSString *guideName = [NSString stringWithFormat:@"guide%ld", page];
+    NSString *largtTitle = [NSString stringWithFormat:@"guideLargeText%ld", page];
+    NSString *smaleTitle = [NSString stringWithFormat:@"guideSmallText%ld", page];
+
+    //设置图片
+    self.guide.image = [UIImage imageNamed:guideName];
+    self.guideLargeText.image = [UIImage imageNamed:largtTitle];
+    self.guideSmallText.image = [UIImage imageNamed:smaleTitle];
+
+    //根据偏移量修改图片位置
+    self.guide.x += 2 *delta;
+    self.guideLargeText.x += 2 *delta;
+    self.guideSmallText.x += 2 * delta;
+
+    //加载动画
+    [UIView animateWithDuration:0.2 animations:^{
+        self.guide.x -= delta;
+        self.guideLargeText.x -= delta;
+        self.guideSmallText.x -= delta;
+    }];
+
+    //保存当前偏移量
+    self.lastOffsetX = offset;
 }
 
 - (void)viewDidLoad {
@@ -77,17 +120,19 @@ static NSString * const reuseIdentifier = @"Cell";
     UIImageView *guide = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guide1"]];
     [self.collectionView addSubview:guide];
     guide.x += 50;
+    self.guide = guide;
 
     // 3.大标题 guideLargeText
     UIImageView *guideLargeText = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guideLargeText1"]];
     [self.collectionView addSubview:guideLargeText];
     guideLargeText.center = CGPointMake(self.view.Width / 2, self.view.Height * 0.7f );
-
+    self.guideLargeText = guideLargeText;
 
     // 4.小标题 guideSmallText
     UIImageView *guideSmallText = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"guideSmallText1"]];
     [self.collectionView addSubview:guideSmallText];
     guideSmallText.center = CGPointMake(self.view.Width / 2, self.view.Height * 0.8f );
+    self.guideSmallText = guideSmallText;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
