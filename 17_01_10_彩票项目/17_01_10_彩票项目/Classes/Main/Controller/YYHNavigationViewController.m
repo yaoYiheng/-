@@ -93,7 +93,7 @@
 
 /**
  initialize方法
- 当前类或者他的子类第一次使用的时候调用
+ 当前类或者他的子类第一次使用的时候调用, 如果这个类有子类, 则会调用多次, 先初始化父类, 在初始化子类.
  作用:初始化一个类
  */
 + (void)initialize{
@@ -106,15 +106,34 @@
      4.我们只要管好自己的事情就可以了 谁用我的导航控制器,我就改下面的类的导航条
      5.采取这种方法
      */
-    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
 
-    [bar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
+    //当为当前类时, 才对该类进行初始化配置.
+    if (self == [YYHNavigationViewController class]) {
 
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
-    dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
+        UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
 
-    [bar setTitleTextAttributes:dict];
+        [bar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
+
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+        dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
+
+        [bar setTitleTextAttributes:dict];
+
+    }
+
+//    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
+//
+//    [bar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
+//
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    dict[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+//    dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
+//
+//    [bar setTitleTextAttributes:dict];
+
+    NSLog(@"%s",__func__);
 }
+
 
 @end

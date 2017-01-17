@@ -47,21 +47,22 @@
 
      
      */
-
+//
 //    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
 //
 //    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
 //
 //
 //    UIViewController *rootViewController = nil;
+//    //无更新时, 正常加载进入主框架
 //    if ([currentVersion isEqualToString:lastVersion]) {
 //
 //        rootViewController  = [[YYHTabBarViewController alloc] init];
 //    }
 //    else{
+//        //有更新或第一次进入时, 从新特性页面加载.
 //
-//        rootViewController = [[UIViewController alloc] init];
-//        rootViewController.view.backgroundColor = [UIColor orangeColor];
+//        rootViewController = [[YYHNewFeatureCollectionViewController alloc] init];
 //
 //        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"version"];
 //        [[NSUserDefaults standardUserDefaults] synchronize];
@@ -72,6 +73,7 @@
 
     self.window.rootViewController = newFeature;
 
+//    self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
 
     return YES;

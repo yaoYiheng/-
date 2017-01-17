@@ -12,4 +12,7 @@
 
 /** 图片*/
 @property (nonatomic, strong) UIImage *cellImage;
+/** 是不是最后一个*/
+@property (nonatomic, assign, getter = isLastPage) BOOL lastPage;
+
 @end

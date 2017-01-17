@@ -156,10 +156,10 @@ static NSString * const reuseIdentifier = @"Cell";
     return 1;
 }
 
-
+#define YYHPage 4
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of items
-    return 4;
+    return YYHPage;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -177,8 +177,13 @@ static NSString * const reuseIdentifier = @"Cell";
     //对cell中的cellImage属性进行赋值
     cell.cellImage = image;
 
+    //如果是最后一个
+
+    cell.lastPage = indexPath.item == YYHPage - 1;
+
     return cell;
 }
+
 
 #pragma mark <UICollectionViewDelegate>
 
