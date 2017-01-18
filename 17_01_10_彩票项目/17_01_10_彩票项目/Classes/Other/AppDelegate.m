@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "YYHTabBarViewController.h"
-#import "YYHNewFeatureCollectionViewController.h"
 
+
+#import "YYHRootViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -69,11 +69,11 @@
 //
 //    }
 
-    YYHNewFeatureCollectionViewController *newFeature = [[YYHNewFeatureCollectionViewController alloc] init];
+//    YYHNewFeatureCollectionViewController *newFeature = [[YYHNewFeatureCollectionViewController alloc] init];
+//
+//    self.window.rootViewController = newFeature;
 
-    self.window.rootViewController = newFeature;
-
-//    self.window.rootViewController = rootViewController;
+    self.window.rootViewController = [YYHRootViewController rootViewController];
     [self.window makeKeyAndVisible];
 
     return YES;
