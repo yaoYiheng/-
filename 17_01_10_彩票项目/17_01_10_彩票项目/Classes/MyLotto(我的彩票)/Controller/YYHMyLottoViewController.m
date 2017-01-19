@@ -7,6 +7,7 @@
 //
 
 #import "YYHMyLottoViewController.h"
+#import "YYHSettingTableViewController.h"
 
 @interface YYHMyLottoViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *LogInButton;
@@ -38,7 +39,15 @@
     //因为有渲染效果, 所以调用之前写好的分类方法, 返回一张不带有渲染的图片
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageWithoutRendering:@"Mylottery_config"] style:0 target:self action:@selector(configure)];
 }
+//
+/**
+ 点击按钮, 跳转到设置界面
+ */
 - (void)configure{
+
+    YYHSettingTableViewController *settingVC = [[YYHSettingTableViewController alloc] init];
+
+    [self.navigationController pushViewController:settingVC animated:YES];
 
 }
 - (void)didReceiveMemoryWarning {

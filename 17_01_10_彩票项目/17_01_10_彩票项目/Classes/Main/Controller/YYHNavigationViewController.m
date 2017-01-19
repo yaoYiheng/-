@@ -34,6 +34,10 @@
     if (self.childViewControllers.count > 0) {
 
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageWithoutRendering:@"NavBack"] style:0 target:self action:@selector(back)];
+
+
+        //重写nav的push方法,在非跟控制器的时候隐藏底部工具条
+        viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
 }
@@ -59,6 +63,8 @@
 
 
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

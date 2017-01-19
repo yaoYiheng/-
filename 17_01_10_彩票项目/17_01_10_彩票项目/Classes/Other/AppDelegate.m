@@ -10,6 +10,7 @@
 
 
 #import "YYHRootViewController.h"
+#import "YYHNewFeatureCollectionViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -70,7 +71,7 @@
 //    }
 
 //    YYHNewFeatureCollectionViewController *newFeature = [[YYHNewFeatureCollectionViewController alloc] init];
-//
+////
 //    self.window.rootViewController = newFeature;
 
     self.window.rootViewController = [YYHRootViewController rootViewController];

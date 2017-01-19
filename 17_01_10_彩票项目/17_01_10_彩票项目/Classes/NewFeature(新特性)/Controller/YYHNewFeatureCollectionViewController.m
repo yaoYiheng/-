@@ -50,13 +50,15 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 
+
     //拿到当前总偏移量
     CGFloat offset = scrollView.contentOffset.x;
 
     //计算一个偏移量
     CGFloat delta = offset - self.lastOffsetX;
     //计算当前页数
-    NSInteger page = offset / delta + 1;
+    //(偏移量 / scrollView的宽度), 修正滑动不成功动画成功的bug.
+    NSInteger page = offset / scrollView.Width + 1;
 
     //根据页数拼接图片名
     NSString *guideName = [NSString stringWithFormat:@"guide%ld", page];
@@ -152,13 +154,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 #define YYHPage 4
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
+
     return YYHPage;
 }
 

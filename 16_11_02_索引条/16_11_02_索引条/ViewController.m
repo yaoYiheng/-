@@ -30,6 +30,8 @@
     //设置索引条的背景颜色
     self.tableView.sectionIndexBackgroundColor = [UIColor yellowColor];
 
+    NSLog(@"%@", self.allData);
+
 }
 #pragma mark 懒加载数据源数组
 - (NSArray *)allData{
