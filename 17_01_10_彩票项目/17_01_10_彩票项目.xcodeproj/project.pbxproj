@@ -26,6 +26,7 @@
 		A52834C51E30B7B800A43226 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = A52834B81E30B7B800A43226 /* NSObject+MJKeyValue.m */; };
 		A52834C61E30B7B800A43226 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A52834BA1E30B7B800A43226 /* NSObject+MJProperty.m */; };
 		A52834C71E30B7B800A43226 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A52834BC1E30B7B800A43226 /* NSString+MJExtension.m */; };
+		A52834CA1E316BDF00A43226 /* YYHSettingCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A52834C91E316BDF00A43226 /* YYHSettingCellTableViewCell.m */; };
 		A54C58891E24E36900AEF49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54C58881E24E36900AEF49B /* Assets.xcassets */; };
 		A54C588C1E24E36900AEF49B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54C588A1E24E36900AEF49B /* LaunchScreen.storyboard */; };
 		A54C58B21E24E4A800AEF49B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A54C58AE1E24E4A800AEF49B /* AppDelegate.m */; };
@@ -90,6 +91,8 @@
 		A52834BA1E30B7B800A43226 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		A52834BB1E30B7B800A43226 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		A52834BC1E30B7B800A43226 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		A52834C81E316BDF00A43226 /* YYHSettingCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSettingCellTableViewCell.h; sourceTree = "<group>"; };
+		A52834C91E316BDF00A43226 /* YYHSettingCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHSettingCellTableViewCell.m; sourceTree = "<group>"; };
 		A54C58791E24E36800AEF49B /* 17_01_10_彩票项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "17_01_10_彩票项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54C58881E24E36900AEF49B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A54C588B1E24E36900AEF49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				A52834A01E30B66200A43226 /* YYHCellItem.m */,
 				A52834A21E30B71400A43226 /* YYHItemInCellArray.h */,
 				A52834A31E30B71400A43226 /* YYHItemInCellArray.m */,
+				A52834C81E316BDF00A43226 /* YYHSettingCellTableViewCell.h */,
+				A52834C91E316BDF00A43226 /* YYHSettingCellTableViewCell.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +681,7 @@
 				A52834A11E30B66200A43226 /* YYHCellItem.m in Sources */,
 				A5EA60BE1E25EF4E00ACA488 /* YYHPopMenuView.m in Sources */,
 				A54C58C21E24E9D500AEF49B /* YYHDiscoverTableViewController.m in Sources */,
+				A52834CA1E316BDF00A43226 /* YYHSettingCellTableViewCell.m in Sources */,
 				A52834891E2C1D3C00A43226 /* YYHNewFeatureCollectionViewController.m in Sources */,
 				A528348C1E2CD79600A43226 /* YYHNewFeatureCollectionViewCell.m in Sources */,
 				A52834C31E30B7B800A43226 /* NSObject+MJClass.m in Sources */,

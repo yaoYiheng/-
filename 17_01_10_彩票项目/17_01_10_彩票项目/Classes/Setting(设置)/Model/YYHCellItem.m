@@ -17,7 +17,7 @@
         self.header = dict[@"header"];
 
         self.footer = dict[@"footer"];
-        self.rightView = dict[@"rightView"];
+
         NSMutableArray *temp = [NSMutableArray array];
         for (NSDictionary *carsDict in dict[@"arrayForCell"])
         {

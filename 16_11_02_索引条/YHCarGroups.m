@@ -32,7 +32,7 @@
 //    return [[self alloc] initWithDictionary:dict];
 //}
 
-+ (NSDictionary *)mj_objectClassInArray{
-    return @{@"carArrays": [YHCarsInGroup class]};
-}
+//+ (NSDictionary *)mj_objectClassInArray{
+//    return @{@"carArrays": [YHCarsInGroup class]};
+//}
 @end

@@ -66,7 +66,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     YHCarGroups *carsInGroup = _allData[section];
-    return carsInGroup.carArrays.count;
+    return carsInGroup.cars.count;
 
 }
 
@@ -81,7 +81,7 @@
     }
     //拿到对应行号的组
     YHCarGroups *carGroups = self.allData[indexPath.section];
-    YHCarsInGroup *carsInGroup = carGroups.carArrays[indexPath.row];
+    YHCarsInGroup *carsInGroup = carGroups.cars[indexPath.row];
 
     cell.imageView.image = [UIImage imageNamed:carsInGroup.icon];
 
@@ -107,17 +107,17 @@
 /**
  返回索引条字符串数组.
  该方法会返回一个字符串数组, 作为索引条.
- */
-- (NSArray <NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-
-    NSMutableArray *titleArray = [NSMutableArray array];
-    for (YHCarGroups *carGroup in self.allData) {
-        [titleArray addObject:carGroup.title];
-    }
-    return titleArray;
-
-
-    return [self.allData valueForKeyPath:@"title"];
-
-}
+// */
+//- (NSArray <NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+//
+//    NSMutableArray *titleArray = [NSMutableArray array];
+//    for (YHCarGroups *carGroup in self.allData) {
+//        [titleArray addObject:carGroup.title];
+//    }
+//    return titleArray;
+//
+//
+//    return [self.allData valueForKeyPath:@"title"];
+//
+//}
 @end

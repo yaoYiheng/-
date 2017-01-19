@@ -14,7 +14,7 @@
 /** 索引title*/
 @property (nonatomic, strong) NSString *title;
 /** 车数组*/
-@property (nonatomic, strong) NSArray *carArrays;
+@property (nonatomic, strong) NSArray *cars;
 
 //- (instancetype)initWithDictionary:(NSDictionary *)dict;
 //+ (instancetype)carGroupWithDictionary:(NSDictionary *)dict;

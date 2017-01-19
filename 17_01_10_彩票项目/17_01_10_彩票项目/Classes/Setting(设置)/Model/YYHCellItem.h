@@ -16,8 +16,7 @@
 @property (nonatomic, strong) NSString *footer;
 /** cell数组*/
 @property (nonatomic, strong) NSArray *arrayForCell;
-/** <#comments#>*/
-@property (nonatomic, weak) UIView *rightView;
+
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 
