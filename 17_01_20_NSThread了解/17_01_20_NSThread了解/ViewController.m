@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <pthread.h>
 
 @interface ViewController ()
 
@@ -36,11 +37,50 @@
      不要将耗时的任务放到主线程中进行, 因为主线程主要处理UI事件, 耗时的
      任务会阻塞主线程, 不能及时处理UI事件, 给人以卡的感觉.
      */
-    for (int i = 0 ; i < 100000; i++) {
-        NSLog(@"%d---%@", i, [NSThread mainThread]);
-    }
+//    for (int i = 0 ; i < 100000; i++) {
+//        NSLog(@"%d---%@", i, [NSThread mainThread]);
+//    }
+
+
+
+    //1.创建线程对象
+    pthread_t threadA;
+
+    //2.创建线程
+    /**
+     pthread_creat
+     参数一: 第一步创建的线程对象的地址
+     参数二: 线程的而一些属性
+     参数三: 创建的线程需要执行的方法
+     参数四: 函数需要接受的参数
+     */
+    pthread_create(&threadA, NULL, sum, NULL);
+
+    //创建第二条线线程
+    pthread_t threadB;
+
+    pthread_create(&threadB, NULL, sum, NULL);
+
+
+    //判断两条线程是否是同一线程
+    int value = pthread_equal(threadA, threadB);
+
+    NSLog(@"value === %d", value);
 }
 
+
+void *sum(void *pa){
+    NSLog(@"=====%@", [NSThread currentThread]);
+
+    /**
+     将耗时的操作放到子线程中, 不影响UI操作.无卡顿感.
+     
+     */
+        for (int i = 0 ; i < 100000; i++) {
+            NSLog(@"%d---%@", i, [NSThread mainThread]);
+        }
+    return NULL;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
