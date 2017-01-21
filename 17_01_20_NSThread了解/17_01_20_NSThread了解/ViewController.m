@@ -52,26 +52,43 @@
  alloc init 创建主线程, 需手动开始主线程
  */
 - (void)ctreatNSThreadA{
-    NSThread *threadA = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+    NSThread *threadA = [[NSThread alloc] initWithTarget:self selector:@selector(task) object:nil];
     [threadA start];
 
     //设置线层名
-    threadA.name = @"线程A";
-    
-    //设置优先级  取值范围 0.0 ~ 1.0 之间 最高是1.0 默认优先级是0.5
-    threadA.threadPriority = 1.0;
-
-    NSThread *threadB = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
-    [threadB start];
-    threadB.name = @"线程B";
-    threadB.threadPriority = 0.1;
-
-    NSThread *threadC = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
-    [threadC start];
-    threadC.name = @"线程C";
-    threadC.threadPriority = 0.5;
+//    threadA.name = @"线程A";
+//    //设置优先级  取值范围 0.0 ~ 1.0 之间 最高是1.0 默认优先级是0.5
+//    threadA.threadPriority = 1.0;
+//
+//    NSThread *threadB = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+//    [threadB start];
+//    threadB.name = @"线程B";
+//    threadB.threadPriority = 0.1;
+//
+//    NSThread *threadC = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+//    [threadC start];
+//    threadC.name = @"线程C";
+//    threadC.threadPriority = 0.5;
 }
 
+- (void)task{
+    for (int i = 0; i < 10; i++) {
+        NSLog(@"%d", i);
+    }
+    //阻塞线程方法1.
+    [NSThread sleepForTimeInterval:2];
+
+    //阻塞线程方法2.
+    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+
+    for (int i = 0; i < 10; i++) {
+        NSLog(@"%d",i);
+        if (i == 5) {
+            //强制退出线程
+            [NSThread exit];
+        }
+    }
+}
 /**
  分离一条子线程, 自动启动
  */
