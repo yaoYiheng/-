@@ -27,8 +27,22 @@
      第二个参数 可传   DISPATCH_QUEUE_CONCURRENT  并发
                     DISPATCH_QUEUE_SERIAL      串行
      */
-    dispatch_queue_t queue = dispatch_queue_create("printSomething", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t queue = dispatch_queue_create("printSomething", DISPATCH_QUEUE_CONCURRENT);
 
+
+    //获得全局并发队列 dispatch_get_global_queue()
+    /*
+     第一个参数:优先级
+     DISPATCH_QUEUE_PRIORITY_HIGH 2
+     DISPATCH_QUEUE_PRIORITY_DEFAULT 0
+     DISPATCH_QUEUE_PRIORITY_LOW (-2)
+     DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN
+
+     第二个参数:传0即可, 供将来使用
+     
+     Return : The requested global concurrent queue.
+     */
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     //2. 调用异步函数,dispatch_async()
     /**
      参数一: 之前创建的队列
