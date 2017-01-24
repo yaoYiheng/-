@@ -15,7 +15,7 @@
 @implementation ViewController
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self asyncConcurrent];
+    [NSThread detachNewThreadSelector:@selector(syncMain) toTarget:self withObject:nil];
 
 }
 //异步函数(dispatch_async) + 并发队列(DISPATCH_QUEUE_CONCURRENT):会开启多条线程,队列中的任务是并发执行
@@ -116,5 +116,76 @@
     dispatch_sync(queue, ^{
         NSLog(@"task3----%@", [NSThread currentThread]);
     });
+}
+
+
+//异步函数 + 主队列
+- (void)asyncMain{
+
+    //通过该函数获得主队列
+    //主队列的任务必须在主线程中完成
+    dispatch_queue_t queue = dispatch_get_main_queue();
+
+    //将要执行的任务封装到主队列中
+    dispatch_async(queue, ^{
+        NSLog(@"task1----%@", [NSThread currentThread]);
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"task2----%@", [NSThread currentThread]);
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"task3----%@", [NSThread currentThread]);
+    });
+
+    /**
+     number = 1, 执行任务的线程为主线程.
+     
+     2017-01-24 22:47:08.561 17_01_23_GCD的基本使用[28311:1365030] task1----<NSThread: 0x60800006bec0>{number = 1, name = main}
+     2017-01-24 22:47:08.562 17_01_23_GCD的基本使用[28311:1365030] task2----<NSThread: 0x60800006bec0>{number = 1, name = main}
+     2017-01-24 22:47:08.562 17_01_23_GCD的基本使用[28311:1365030] task3----<NSThread: 0x60800006bec0>{number = 1, name = main}
+     
+     */
+
+}
+
+- (void)syncMain{
+    //通过该函数获得主队列
+    //主队列的任务必须在主线程中完成
+    /**
+
+     
+     同步函数: 当前没有执行完, 就不能继续执行之后的代码.
+     异步函数: 当前没有执行完, 也可以继续执行之后的代码.
+
+     如果在主线程中调用同步 函数 + 主队列 的组合
+     这样会造成死锁.
+     原因: 同步函数 任务串行执行, 而任务被分配在主线程中, 而主线程在执行syncMain(当前任务)
+     (任务A的开始的前提是任务A结束?)不知是不是这样理解,
+
+     为了解决这个问题, 可以将该任务的执行放到子线程中.
+
+     
+     */
+    dispatch_queue_t queue = dispatch_get_main_queue();
+
+    NSLog(@"start --");
+
+    dispatch_sync(queue, ^{
+        NSLog(@"task1----%@", [NSThread currentThread]);
+    });
+    dispatch_sync(queue, ^{
+        NSLog(@"task2----%@", [NSThread currentThread]);
+    });
+    dispatch_sync(queue, ^{
+        NSLog(@"task3----%@", [NSThread currentThread]);
+    });
+    NSLog(@"end---");
+    /**
+     2017-01-24 22:51:14.464 17_01_23_GCD的基本使用[28372:1368401] start --
+     (lldb)
+
+    */
+
+
 }
 @end
