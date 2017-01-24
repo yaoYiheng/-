@@ -9,15 +9,54 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
 @implementation ViewController
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [NSThread detachNewThreadSelector:@selector(syncMain) toTarget:self withObject:nil];
+
+    [self downLoad];
 
 }
+- (void)downLoad{
+    /**
+     1. 创建子线程调用异步函数, 可进行嵌套, 传入dispatch_get_global_queue(0, 0), 获取全局队列
+     并在队列中封装任务
+    */
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"%@", [NSThread currentThread]);
+        //从网络获取图片URL
+        NSURL *url = [NSURL URLWithString:@"http://www.ylmfupan.com/zhuti/UploadPic/2013-8/2013819104526645.jpg"];
+
+        //将URL转为DATA
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+
+        //从DATA中加载图片
+        UIImage *image = [UIImage imageWithData:imageData];
+
+//        self.imageView.image = image;
+
+        //调用该方法, 也可以实现.
+//        [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
+
+        CFTimeInterval start = CFAbsoluteTimeGetCurrent();
+
+        //调用异步函数, 回到主队列, 进行UI的刷新.
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            self.imageView.image = image;
+            NSLog(@"%@", [NSThread currentThread]);
+        });
+        CFTimeInterval end = CFAbsoluteTimeGetCurrent();
+        NSLog(@"%f", end - start);
+    });
+}
+
+
+
 //异步函数(dispatch_async) + 并发队列(DISPATCH_QUEUE_CONCURRENT):会开启多条线程,队列中的任务是并发执行
 -(void)asyncConcurrent{
     //1. 创建队列
