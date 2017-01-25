@@ -17,8 +17,56 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self downLoad];
+    [self once];
 
+}
+
+/**
+ 一次性代码:整个应用程序只会执行一次.
+ 不能用在懒加载中, 
+ 一般会应用在单例模式中
+ */
+- (void)once{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"once");
+    });
+
+}
+/**
+ 延迟执行任务的几种方法.
+ */
+- (void)delay{
+    //1.方法一
+    [self performSelector:@selector(task) withObject:nil afterDelay:2.0];
+
+    //2.方法二
+//    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(task) userInfo:nil repeats:YES];
+
+    /*
+     
+     以上两种方法, 只能在主线程中执行
+     */
+
+    //3.方法三.GCD延迟
+    /**
+     dispatch_after() DISPATCH_TIME_NOW 从现在开始计算时间,
+     NSEC_PER_SEC 可精确到纳秒.
+     可传入一个队列, 决定任务是否在子线程中进行.
+     
+     **/
+    //获取全局并发队列.
+
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), queue, ^{
+        [self task];
+    });
+    //2017-01-25 23:31:46.381 17_01_23_GCD的基本使用[30552:1460904] -[ViewController task], <NSThread: 0x608000073d80>{number = 3, name = (null)}
+
+}
+
+- (void)task{
+    NSLog(@"%s, %@", __func__, [NSThread currentThread]);
 }
 - (void)downLoad{
     /**
@@ -57,7 +105,10 @@
 
 
 
-//异步函数(dispatch_async) + 并发队列(DISPATCH_QUEUE_CONCURRENT):会开启多条线程,队列中的任务是并发执行
+
+/**
+ 异步函数(dispatch_async) + 并发队列(DISPATCH_QUEUE_CONCURRENT):会开启多条线程,队列中的任务是并发执行
+ */
 -(void)asyncConcurrent{
     //1. 创建队列
     /**
@@ -106,7 +157,10 @@
      
      */
 }
-//异步函数(dispatch_async)+串行队列(DISPATCH_QUEUE_SERIAL):会开线程,开一条线程,队列中的任务是串行执行的
+
+/**
+ 异步函数(dispatch_async)+串行队列(DISPATCH_QUEUE_SERIAL):会开线程,开一条线程,队列中的任务是串行执行的
+ */
 -(void)asyncSerial{
     dispatch_queue_t queue = dispatch_queue_create("printSomething", DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue, ^{
@@ -128,7 +182,8 @@
      */
 }
 
-//同步函数(dispatch_sync)+并发队列(DISPATCH_QUEUE_CONCURRENT):不会开线程,任务是串行执行的
+/**同步函数(dispatch_sync)+并发队列(DISPATCH_QUEUE_CONCURRENT):不会开线程,任务是串行执行的
+ */
 -(void)syncConcurrent{
     dispatch_queue_t queue = dispatch_queue_create("printSomething", DISPATCH_QUEUE_CONCURRENT);
 
@@ -143,7 +198,7 @@
     });
 }
 
-//同步函数(dispatch_sync)+串行队列(DISPATCH_QUEUE_SERIAL):不会开线程,任务是串行执行的
+/**同步函数(dispatch_sync)+串行队列(DISPATCH_QUEUE_SERIAL):不会开线程,任务是串行执行的*/
 -(void)syncSerial{
     dispatch_queue_t queue = dispatch_queue_create("printSomething", DISPATCH_QUEUE_SERIAL);
     dispatch_sync(queue, ^{
@@ -158,7 +213,7 @@
 }
 
 
-//异步函数 + 主队列
+/**异步函数 + 主队列*/
 - (void)asyncMain{
 
     //通过该函数获得主队列
