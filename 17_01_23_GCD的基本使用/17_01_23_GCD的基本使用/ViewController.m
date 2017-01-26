@@ -17,9 +17,24 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self barrier];
+    [self applyDemo];
 
 }
+
+/**
+ 快速迭代: 内部会开启子线程(并和主线程), 异步并发的来执行这些任务
+ */
+- (void)applyDemo{
+    /**
+     参数一: 迭代的次数
+     参数二: 队列(必须是并发队列)
+     参数三: 索引
+     */
+    dispatch_apply(50, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        NSLog(@"%zu ---- %@ ", index, [NSThread currentThread]);
+    });
+}
+
 /**
 通过栅栏函数, 控制并发队列的任务的执行顺序
  
