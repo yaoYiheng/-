@@ -17,7 +17,38 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self once];
+    [self barrier];
+
+}
+/**
+通过栅栏函数, 控制并发队列的任务的执行顺序
+ 
+ */
+- (void)barrier{
+    //0. 获取并发队列,
+    //注意. 栅栏函数不能使用全局并发队列
+//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+
+    dispatch_queue_t queue = dispatch_queue_create("task", DISPATCH_QUEUE_CONCURRENT);
+
+    //1. 调用异步函数
+    dispatch_async(queue, ^{
+        NSLog(@"test --- 1 %@",[NSThread currentThread]);
+    });
+
+    dispatch_async(queue, ^{
+        NSLog(@"test --- 2 %@",[NSThread currentThread]);
+    });
+
+    //调用栅栏函数
+
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"+++++++++");
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"test --- 3 %@",[NSThread currentThread]);
+    });
+
 
 }
 
