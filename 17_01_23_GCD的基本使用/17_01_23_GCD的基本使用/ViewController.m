@@ -17,8 +17,31 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self applyDemo];
+    [self moveFileDemo];
 
+}
+
+/**
+ 普通方法移动文件
+ */
+- (void)moveFileDemo{
+    //1. 获取起点路径
+    NSString *from = @"/Users/Morris/Desktop/From";
+    //2. 获取终点路径
+    NSString *to = @"/Users/Morris/Desktop/To";
+    //3. 得到起点路径下所有文件的路径
+    NSArray *allFilePath = [[NSFileManager defaultManager] subpathsAtPath:from];
+    //4. 执行移动操作
+    for (NSString *eachFilePath in allFilePath) {
+        //[string stringByAppendingPathComponent:]调用该方法拼接路径, 会自定加上 / .
+        //拼接 要剪切的文件全路径
+        NSString *fromFile = [from stringByAppendingPathComponent:eachFilePath];
+        //拼接 文件保存的全路径
+        NSString *toFile = [to stringByAppendingPathComponent:eachFilePath];
+
+        //调用该方法 将文件从某路径移动待指定路径
+        [[NSFileManager defaultManager] moveItemAtPath:fromFile toPath:toFile error:nil];
+    }
 }
 
 /**
