@@ -17,7 +17,32 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self moveFileDemo];
+    [self moveFileWithGCD];
+
+}
+
+/**
+ 使用快速迭代移动文件
+ */
+- (void)moveFileWithGCD{
+    //1. 获取起点路径
+    NSString *from = @"/Users/Morris/Desktop/From";
+    //2. 获取终点路径
+    NSString *to = @"/Users/Morris/Desktop/To";
+    //3. 得到起点路径下所有文件的路径
+    NSArray *allFilePath = [[NSFileManager defaultManager] subpathsAtPath:from];
+    //4. 执行移动操作
+    NSInteger count = allFilePath.count;
+    dispatch_apply(count, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        //拼接 要剪切的文件全路径
+        NSString *fromFile = [from stringByAppendingPathComponent:allFilePath[index]];
+        //拼接 文件保存的全路径
+        NSString *toFile = [to stringByAppendingPathComponent:allFilePath[index]];
+        //调用该方法 将文件从某路径移动待指定路径
+        [[NSFileManager defaultManager] moveItemAtPath:fromFile toPath:toFile error:nil];
+
+        NSLog(@"%@----%ld", [NSThread currentThread], index);
+    });
 
 }
 
@@ -41,6 +66,7 @@
 
         //调用该方法 将文件从某路径移动待指定路径
         [[NSFileManager defaultManager] moveItemAtPath:fromFile toPath:toFile error:nil];
+        NSLog(@"%@", [NSThread currentThread]);
     }
 }
 
