@@ -11,16 +11,89 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+/** 图片1*/
+@property (nonatomic, strong) UIImage *image1;
+
+/** 图片2*/
+@property (nonatomic, strong) UIImage *image2;
+
 @end
 
 @implementation ViewController
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self moveFileWithGCD];
+    [self downloadWithGCDGroup];
 
 }
 
+/**
+ 在队列组中完成
+ */
+- (void)downloadWithGCDGroup{
+    //0. 获取队列组
+
+    dispatch_group_t group = dispatch_group_create();
+    //1. 获取并发队列
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+
+    //2. 调用队列组开启子线程下载图片
+        //获取图片1
+    dispatch_group_async(group, queue, ^{
+        //2.1 获取图片url
+
+        NSLog(@"%@", [NSThread currentThread]);
+        NSURL *url = [NSURL URLWithString:@"http://pic.wenwen.soso.com/p/20110708/20110708210904-899747265.jpg"];
+        //2.2 下载二进制数据到NSData
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+
+        //2.3 从data中获得图片
+        self.image1 = [UIImage imageWithData:imageData];
+
+    });
+        //获取图片2
+    dispatch_group_async(group, queue, ^{
+        //2.1 获取图片url
+        NSLog(@"%@", [NSThread currentThread]);
+        NSURL *url = [NSURL URLWithString:@"http://www.ylmfupan.com/zhuti/UploadPic/2013-8/2013819104526645.jpg"];
+        //2.2 下载二进制数据到NSData
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+
+        //2.3 从data中获得图片
+        self.image2 = [UIImage imageWithData:imageData];
+        
+    });
+
+    //3. 合并图片(在图片下载完成后)
+    //等待.死等. 直到队列组中所有的任务都执行完毕之后才能执行
+    //dispatch_group_wait 是阻塞的
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+        //3.1 开启图形上下文
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0);
+
+        //3.2 绘制图片到上下文
+    [self.image1 drawInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height / 2)];
+    self.image1 = nil;
+
+    [self.image2 drawInRect:CGRectMake(0, self.view.bounds.size.height / 2, self.view.bounds.size.width, self.view.bounds.size.height / 2)];
+    self.image2 = nil;
+
+        //3.3 获取新图片
+    UIImage *combieImage = UIGraphicsGetImageFromCurrentImageContext();
+
+        //3.4 关闭图形上下文
+    UIGraphicsEndImageContext();
+
+
+        //3.4 更新UI(需到主线程)
+//    [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:combieImage waitUntilDone:NO];
+
+    //回到主线程更新image.
+    dispatch_group_async(group, dispatch_get_main_queue(), ^{
+        self.imageView.image = combieImage;
+        NSLog(@"%@", [NSThread currentThread]);
+    });
+}
 /**
  使用快速迭代移动文件
  */
