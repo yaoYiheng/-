@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YYHTool.h"
 
 @interface ViewController ()
 
@@ -14,16 +15,12 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    YYHTool *tool1 = [YYHTool shareTool];
+    YYHTool *tool2 = [[YYHTool alloc] init];
+    YYHTool *tool3 = [YYHTool new];
+    NSLog(@"%p, %p, %p", tool1, tool2, tool3);
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		A5F6F7E21E3B1B40004CCD8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7E11E3B1B40004CCD8D /* main.m */; };
 		A5F6F7E51E3B1B40004CCD8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7E41E3B1B40004CCD8D /* AppDelegate.m */; };
-		A5F6F7E81E3B1B40004CCD8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7E71E3B1B40004CCD8D /* ViewController.m */; };
 		A5F6F7EB1E3B1B40004CCD8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F6F7E91E3B1B40004CCD8D /* Main.storyboard */; };
 		A5F6F7ED1E3B1B40004CCD8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5F6F7EC1E3B1B40004CCD8D /* Assets.xcassets */; };
 		A5F6F7F01E3B1B40004CCD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F6F7EE1E3B1B40004CCD8D /* LaunchScreen.storyboard */; };
+		A5F6F7FA1E3B1B69004CCD8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7F71E3B1B69004CCD8D /* ViewController.m */; };
+		A5F6F7FB1E3B1B69004CCD8D /* YYHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,13 @@
 		A5F6F7E31E3B1B40004CCD8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5F6F7E41E3B1B40004CCD8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A5F6F7E61E3B1B40004CCD8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5F6F7E71E3B1B40004CCD8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A5F6F7EA1E3B1B40004CCD8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5F6F7EC1E3B1B40004CCD8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5F6F7EF1E3B1B40004CCD8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5F6F7F11E3B1B40004CCD8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F6F7F71E3B1B69004CCD8D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
+		A5F6F7F81E3B1B69004CCD8D /* YYHTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYHTool.h; path = ../YYHTool.h; sourceTree = "<group>"; };
+		A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYHTool.m; path = ../YYHTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +64,9 @@
 				A5F6F7E31E3B1B40004CCD8D /* AppDelegate.h */,
 				A5F6F7E41E3B1B40004CCD8D /* AppDelegate.m */,
 				A5F6F7E61E3B1B40004CCD8D /* ViewController.h */,
-				A5F6F7E71E3B1B40004CCD8D /* ViewController.m */,
+				A5F6F7F71E3B1B69004CCD8D /* ViewController.m */,
+				A5F6F7F81E3B1B69004CCD8D /* YYHTool.h */,
+				A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */,
 				A5F6F7E91E3B1B40004CCD8D /* Main.storyboard */,
 				A5F6F7EC1E3B1B40004CCD8D /* Assets.xcassets */,
 				A5F6F7EE1E3B1B40004CCD8D /* LaunchScreen.storyboard */,
@@ -150,8 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F6F7E81E3B1B40004CCD8D /* ViewController.m in Sources */,
 				A5F6F7E51E3B1B40004CCD8D /* AppDelegate.m in Sources */,
+				A5F6F7FB1E3B1B69004CCD8D /* YYHTool.m in Sources */,
+				A5F6F7FA1E3B1B69004CCD8D /* ViewController.m in Sources */,
 				A5F6F7E21E3B1B40004CCD8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
