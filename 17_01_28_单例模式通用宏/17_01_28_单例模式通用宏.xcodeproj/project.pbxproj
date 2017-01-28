@@ -14,6 +14,7 @@
 		A5F6F7F01E3B1B40004CCD8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F6F7EE1E3B1B40004CCD8D /* LaunchScreen.storyboard */; };
 		A5F6F7FA1E3B1B69004CCD8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7F71E3B1B69004CCD8D /* ViewController.m */; };
 		A5F6F7FB1E3B1B69004CCD8D /* YYHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */; };
+		A5F6F8061E3C514D004CCD8D /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F6F8051E3C514D004CCD8D /* test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,9 @@
 		A5F6F7F71E3B1B69004CCD8D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		A5F6F7F81E3B1B69004CCD8D /* YYHTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYHTool.h; path = ../YYHTool.h; sourceTree = "<group>"; };
 		A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYHTool.m; path = ../YYHTool.m; sourceTree = "<group>"; };
+		A5F6F7FF1E3C4A68004CCD8D /* YYHSingle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYHSingle.h; sourceTree = "<group>"; };
+		A5F6F8041E3C514D004CCD8D /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		A5F6F8051E3C514D004CCD8D /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,9 @@
 				A5F6F7F91E3B1B69004CCD8D /* YYHTool.m */,
 				A5F6F7E91E3B1B40004CCD8D /* Main.storyboard */,
 				A5F6F7EC1E3B1B40004CCD8D /* Assets.xcassets */,
+				A5F6F7FF1E3C4A68004CCD8D /* YYHSingle.h */,
+				A5F6F8041E3C514D004CCD8D /* test.h */,
+				A5F6F8051E3C514D004CCD8D /* test.m */,
 				A5F6F7EE1E3B1B40004CCD8D /* LaunchScreen.storyboard */,
 				A5F6F7F11E3B1B40004CCD8D /* Info.plist */,
 				A5F6F7E01E3B1B40004CCD8D /* Supporting Files */,
@@ -156,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F6F8061E3C514D004CCD8D /* test.m in Sources */,
 				A5F6F7E51E3B1B40004CCD8D /* AppDelegate.m in Sources */,
 				A5F6F7FB1E3B1B69004CCD8D /* YYHTool.m in Sources */,
 				A5F6F7FA1E3B1B69004CCD8D /* ViewController.m in Sources */,
@@ -277,7 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = "17_01_27_ARC环境下实现单例模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-27-ARC---------";
@@ -289,7 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = "17_01_27_ARC环境下实现单例模式/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-01-27-ARC---------";

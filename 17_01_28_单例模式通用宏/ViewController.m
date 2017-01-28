@@ -17,7 +17,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    YYHTool *tool1 = [YYHTool shareTool];
+    YYHTool *tool1 = [YYHTool shareYYHTool];
     YYHTool *tool2 = [[YYHTool alloc] init];
     YYHTool *tool3 = [YYHTool new];
     NSLog(@"%p, %p, %p", tool1, tool2, tool3);
