@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YYHOperation.h"
 
 @interface ViewController ()
 
@@ -22,7 +23,24 @@
 
 //    [self inovationOperationWithQueue];
 
-    [self blockOperationWithQueue];
+//    [self blockOperationWithQueue];
+
+    [self customOperation];
+
+}
+- (void)customOperation{
+    //1. 创建操作
+    YYHOperation *op1 = [[YYHOperation alloc] init];
+    YYHOperation *op2 = [[YYHOperation alloc] init];
+
+    //2. 创建非主队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+
+    //3. 添加操作到队列
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+
+
 
 }
 - (void)blockOperationWithQueue{
