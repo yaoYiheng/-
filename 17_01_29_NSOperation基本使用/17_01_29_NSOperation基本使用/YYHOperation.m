@@ -20,5 +20,25 @@
  */
 - (void)main{
     NSLog(@"%s--%d, %@", __func__, __LINE__, [NSThread currentThread]);
+    for (int i = 0; i < 1000; i++) {
+        NSLog(@"op1%@, %d,",[NSThread currentThread], i);
+    }
+    NSLog(@"%s--%d, %@", __func__, __LINE__, [NSThread currentThread]);
+
+    //苹果官方的建议:每执行完一小段耗时操作的时候判断当前操作时候被取消
+    if(self.isCancelled) return;
+
+    for (int i = 0; i < 1000; i++) {
+        NSLog(@"op2%@, %d,",[NSThread currentThread], i);
+    }
+    NSLog(@"%s--%d, %@", __func__, __LINE__, [NSThread currentThread]);
+
+    if(self.isCancelled) return;
+
+    for (int i = 0; i < 1000; i++) {
+        NSLog(@"op3%@, %d,",[NSThread currentThread], i);
+    }
+    NSLog(@"%s--%d, %@", __func__, __LINE__, [NSThread currentThread]);
+
 }
 @end

@@ -10,11 +10,77 @@
 #import "YYHOperation.h"
 
 @interface ViewController ()
-
+/** <#comments#>*/
+@property (nonatomic, strong) NSOperationQueue *queue;
 @end
 
 @implementation ViewController
 
+- (IBAction)start:(id)sender {
+    [self test1];
+}
+- (IBAction)pause:(id)sender {
+
+    /*
+     队列中的任务也是有状态的:已经执行完毕的 | 正在执行 | 排队等待状态
+     */
+    //不能暂停当前正在处于执行状态的任务
+    [self.queue setSuspended:YES];
+}
+- (IBAction)goON:(id)sender {
+    //可以从暂停的状态中恢复
+    [self.queue setSuspended:NO];
+}
+- (IBAction)cancel:(id)sender {
+    [self.queue cancelAllOperations];
+}
+- (void)test1{
+    self.queue = [[NSOperationQueue alloc] init];
+    YYHOperation *op1 = [[YYHOperation alloc] init];
+    [self.queue addOperation:op1];
+}
+
+- (void)test{
+    self.queue = [[NSOperationQueue alloc] init];
+
+    //maxConcurrentOperationCount 同一时间最多有多少个任务可以执行
+    //串行执行任务!=只开一条线程 (线程同步)
+    // maxConcurrentOperationCount >1 那么就是并发队列
+    // maxConcurrentOperationCount == 1 那就是串行队列
+    // maxConcurrentOperationCount == 0  不会执行任务
+    // maxConcurrentOperationCount == -1 特殊意义 最大值 表示不受限制
+    self.queue.maxConcurrentOperationCount = 1;
+
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 1000; i++) {
+            NSLog(@"op1%@, %d,",[NSThread currentThread], i);
+        }
+    }];
+
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 1000; i++) {
+            NSLog(@"op2%@, %d,",[NSThread currentThread], i);
+        }
+    }];
+
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 1000; i++) {
+            NSLog(@"op3%@, %d,",[NSThread currentThread], i);
+        }
+    }];
+
+    NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 1000; i++) {
+            NSLog(@"op4%@, %d,",[NSThread currentThread], i);
+        }
+    }];
+
+    [self.queue addOperation:op1];
+
+    [self.queue addOperation:op2];
+    [self.queue addOperation:op3];
+    [self.queue addOperation:op4];
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
 //    [self inovationOperation];
