@@ -17,7 +17,7 @@
 @implementation ViewController
 
 - (IBAction)start:(id)sender {
-    [self test1];
+    [self test];
 }
 - (IBAction)pause:(id)sender {
 
@@ -75,11 +75,24 @@
         }
     }];
 
+    //设置任务间的依赖, [任务1 依赖于:任务2];
+    //注意: 操作依赖不能循环依赖, 否则循环依赖的任务不会执行
+    //可以跨队列依赖, 即任务不添加在一个队列, 也能相互依赖执行.
+    [op1 addDependency:op2];
+    [op2 addDependency:op3];
+    [op3 addDependency:op4];
+//    [op4 addDependency:op1];
+
     [self.queue addOperation:op1];
 
     [self.queue addOperation:op2];
     [self.queue addOperation:op3];
     [self.queue addOperation:op4];
+
+    //为任务添加监听, 即在一个任务执行后, 执行下一个任务.
+    op2.completionBlock = ^{
+        NSLog(@"指定的任务执行完了, 可以进行下一任务");
+    };
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
