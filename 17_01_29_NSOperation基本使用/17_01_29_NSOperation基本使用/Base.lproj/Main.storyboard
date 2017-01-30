@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXg-Hu-csJ">
-                                <rect key="frame" x="172" y="95" width="31" height="30"/>
+                                <rect key="frame" x="26" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="开始"/>
                                 <connections>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEM-0O-OMr">
-                                <rect key="frame" x="172" y="185" width="31" height="30"/>
+                                <rect key="frame" x="112" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="暂停"/>
                                 <connections>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-Ms-I5L">
-                                <rect key="frame" x="172" y="294" width="31" height="30"/>
+                                <rect key="frame" x="187" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="继续"/>
                                 <connections>
@@ -46,16 +46,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXZ-EE-kH9">
-                                <rect key="frame" x="172" y="416" width="31" height="30"/>
+                                <rect key="frame" x="288" y="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="取消"/>
                                 <connections>
                                     <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MpJ-8u-5x6"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bpy-Mn-GKZ">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bpy-Mn-GKZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V7p-El-zoe"/>
+                            <constraint firstAttribute="trailing" secondItem="Bpy-Mn-GKZ" secondAttribute="trailing" id="dch-dZ-ugN"/>
+                            <constraint firstItem="Bpy-Mn-GKZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="itC-UK-n8P"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Bpy-Mn-GKZ" secondAttribute="bottom" id="ted-9r-XUy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Bpy-Mn-GKZ" id="oeq-j6-hVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,13 +11,79 @@
 
 @interface ViewController ()
 /** <#comments#>*/
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @end
 
 @implementation ViewController
 
+- (void)download{
+    __block  UIImage *image1;
+    __block  UIImage *image2;
+    //创建任务队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+
+    //封装任务下载图片1
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        //2.1 获取图片url
+
+        NSLog(@"%@", [NSThread currentThread]);
+        NSURL *url = [NSURL URLWithString:@"http://pic.wenwen.soso.com/p/20110708/20110708210904-899747265.jpg"];
+        //2.2 下载二进制数据到NSData
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+
+        //2.3 从data中获得图片
+        image1 = [UIImage imageWithData:imageData];
+    }];
+
+    //封装任务下载图片2
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        //2.1 获取图片url
+
+        NSLog(@"%@", [NSThread currentThread]);
+        NSURL *url = [NSURL URLWithString:@"http://www.ylmfupan.com/zhuti/UploadPic/2013-8/2013819104526645.jpg"];
+        //2.2 下载二进制数据到NSData
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+
+        //2.3 从data中获得图片
+        image2 = [UIImage imageWithData:imageData];
+    }];
+
+    //合成图片
+    NSBlockOperation *combie = [NSBlockOperation blockOperationWithBlock:^{
+
+        //开启图形上下文
+        UIGraphicsBeginImageContext(self.imageView.frame.size);
+
+        //将图片绘制到上下文
+        [image1 drawInRect:CGRectMake(0, 0, self.imageView.frame.size.width / 2, self.imageView.frame.size.height)];
+
+        [image2 drawInRect:CGRectMake(self.imageView.frame.size.width / 2, 0, self.imageView.frame.size.width / 2, self.imageView.frame.size.height)];
+
+        //拿到新图片
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+
+        //关闭上下文
+        UIGraphicsEndImageContext();
+
+        //简便操作, 回到主队列刷新UI
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.imageView.image = newImage;
+        }];
+
+    }];
+    //添加依赖只有当图片下载完成后, 才开始合成图片
+    [combie addDependency:op1];
+    [combie addDependency:op2];
+
+    //添加任务到队列
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+    [queue addOperation:combie];
+}
+
 - (IBAction)start:(id)sender {
-    [self test];
+    [self download];
 }
 - (IBAction)pause:(id)sender {
 
