@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self test];
+//    [self test2];
 
 
 }
@@ -34,6 +36,94 @@
     repL.instanceBlueOffset -= 0.2;
     repL.instanceGreenOffset -= 0.2;
     repL.instanceAlphaOffset -= 0.2;
+}
+#pragma mark -知乎等待效果
+- (void)test{
+
+    //创建复制层
+    CAReplicatorLayer *relL = [CAReplicatorLayer layer];
+    relL.frame = CGRectMake(100, 200, 50, 50);
+    [self.view.layer addSublayer:relL];
+
+    CALayer *layer = [CALayer layer];
+    layer.bounds = CGRectMake(0, 0, 10, 10);
+    layer.cornerRadius = 5;
+    layer.masksToBounds = YES;
+    layer.backgroundColor = [UIColor orangeColor].CGColor;
+    [relL addSublayer:layer];
+
+
+    relL.instanceDelay = 0.1;
+    relL.instanceCount = 20;
+//    relL.instanceTransform = CATransform3DMakeTranslation(20, 0, 0);
+
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.keyPath = @"transform.scale";
+//    animation.keyPath =@"alpha";
+//    animation.keyPath = @"transform.scale.y";
+    animation.values  = @[@0,@1];
+    animation.duration = 0.4;
+    animation.autoreverses = YES;
+    animation.repeatCount = MAXFLOAT;
+
+    CAKeyframeAnimation *animation1 = [CAKeyframeAnimation animation];
+
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(-30, -30, 60 , 60)];
+    animation1.keyPath = @"position";
+    animation1.path = path.CGPath;
+    animation1.duration = 2;
+    //    animation.autoreverses = YES;
+    animation1.repeatCount = MAXFLOAT;
+
+    [layer addAnimation:animation1 forKey:nil];
+    [layer addAnimation:animation forKey:nil];
+
+}
+- (void)test2{
+
+    CAReplicatorLayer *relL = [CAReplicatorLayer layer];
+    relL.frame = CGRectMake(100, 400, 50, 50);
+    [self.view.layer addSublayer:relL];
+
+
+    CALayer *layer = [CALayer layer];
+    layer.bounds = CGRectMake(0, 0, 20, 20);
+    layer.cornerRadius = 10;
+    layer.masksToBounds = YES;
+    layer.backgroundColor = [UIColor grayColor].CGColor;
+    [relL addSublayer:layer];
+
+
+    relL.instanceDelay = 0.2;
+    relL.instanceCount = 5;
+//    relL.instanceTransform = CATransform3DMakeTranslation(20, 0, 0);
+
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+
+    CGPoint center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 30 , 30)];
+//    UIBezierPath *path = [UIBezierPath bezierPath];
+//    [path moveToPoint:center];
+//    [path addLineToPoint:CGPointMake(20, 20)];
+//    [path addLineToPoint:CGPointMake(370, 500)];
+    animation.keyPath = @"position";
+    animation.path = path.CGPath;
+    animation.duration = 1;
+//    animation.autoreverses = YES;
+    animation.repeatCount = MAXFLOAT;
+
+    CAKeyframeAnimation *animation1 = [CAKeyframeAnimation animation];
+    animation.keyPath = @"transform.scale";
+    //    animation.keyPath = @"transform.scale.y";
+    animation1.values  = @[@0.2];
+    animation1.duration = 0.4;
+    animation1.autoreverses = YES;
+    animation1.repeatCount = MAXFLOAT;
+    [layer addAnimation:animation1 forKey:nil];
+
+
+    [layer addAnimation:animation forKey:nil];
+
 }
 
 #pragma mark -添加复制层动画.
