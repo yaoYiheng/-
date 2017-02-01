@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@", NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject);
 }
 
 #pragma mark - lazy loading
@@ -59,21 +60,46 @@
     cell.textLabel.text = appItem.name;
     cell.detailTextLabel.text = appItem.download;
 
+
+    //获取cache路径
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    //调用lastPathComponent该方法, 获取地址的最后 图片的名称
+    NSString *fileName = [appItem.icon lastPathComponent];
+    //拼接图片名
+    NSString *filePath = [path stringByAppendingPathComponent:fileName];
+
     //尝试从内存缓存中获取图片
     UIImage *iconImage = self.images[appItem.icon];
+
     if (iconImage) {
         cell.imageView.image = iconImage;
     }
     else{
-    //从网络下载图片
-    NSURL *url = [NSURL URLWithString:appItem.icon];
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
-    iconImage = [UIImage imageWithData:imageData];
-        //设置到cell
-    cell.imageView.image = iconImage;
+        //1. 如果图片存在于沙盒中, 就从沙盒中获取数据
+        NSData *imageData  = [NSData dataWithContentsOfFile:filePath];
 
-    //如果内存中没有就将图片根据键保存到字典中.
-    [self.images setObject:iconImage forKey:appItem.icon];
+        if (imageData) {
+            iconImage = [UIImage imageWithData:imageData];
+            //设置到cell
+            cell.imageView.image = iconImage;
+
+            //内存中没有就将图片根据键保存到字典中.
+            [self.images setObject:iconImage forKey:appItem.icon];
+        }
+        //2. 如果没有, 就从网络下载
+        else{
+            //从网络下载图片
+            NSURL *url = [NSURL URLWithString:appItem.icon];
+            imageData = [NSData dataWithContentsOfURL:url];
+            iconImage = [UIImage imageWithData:imageData];
+            //设置到cell
+            cell.imageView.image = iconImage;
+            //将图片数据写入到沙盒
+            [imageData writeToFile:filePath atomically:YES];
+            //内存中没有就将图片根据键保存到字典中.
+            [self.images setObject:iconImage forKey:appItem.icon];
+
+        }
 
     }
 
