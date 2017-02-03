@@ -172,4 +172,13 @@
     return cell;
 }
 
+/**
+ 当收到内存警告时, 移除缓存.
+ */
+- (void)didReceiveMemoryWarning{
+    [self.images removeAllObjects];
+
+    [self.operations removeAllObjects];
+}
+
 @end
