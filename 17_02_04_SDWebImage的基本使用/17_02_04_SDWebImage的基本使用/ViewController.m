@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -45,5 +46,18 @@
     }];
 }
 
+
+/**
+ 通过单例对象SDWebImageManager
+ 只需要简单获得一张图片
+ //内存缓存&磁盘缓存
+ */
+- (void)download2{
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:@"http://pic.hanhande.com/files/121010/1283568_172701_4988.jpg"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        self.imageView.image = image;
+    }];
+}
 
 @end
