@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIImageView+WebCache.h"
 #import "SDWebImageManager.h"
+#import "SDWebImageDownloader.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -59,5 +60,25 @@
         self.imageView.image = image;
     }];
 }
+
+//3.不需要任何的缓存处理
+//没有做任何缓存处理|
+-(void)download3
+{
+
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:@"http://pic.hanhande.com/files/121010/1283568_172701_4988.jpg"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+
+
+        //data:图片的二进制数据
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+
+        //该block是在子线程中, 刷新UI的操作需要回到主线程.
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            self.imageView.image = image;
+        }];
+
+    }];
+}
+
 
 @end
