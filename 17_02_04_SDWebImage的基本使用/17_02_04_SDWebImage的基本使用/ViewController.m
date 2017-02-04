@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "SDWebImageManager.h"
 #import "SDWebImageDownloader.h"
+#import "UIImage+GIF.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -21,7 +22,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
 
-    [self download1];
+    [self playGif];
 }
 //1.下载图片且需要获取下载进度
 //内存缓存&磁盘缓存
@@ -78,6 +79,33 @@
         }];
 
     }];
+}
+
+
+/**
+播放gif图
+ */
+- (void)playGif{
+
+    //传入gif文件名
+//    UIImage *gifImage = [UIImage sd_animatedGIFNamed:@"1809687_095433_2468"];
+
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+
+        NSURL *url = [NSURL URLWithString:@"http://blogs.c.yimg.jp/res/blog-f4-5b/poke0045212/folder/897398/85/22907585/img_0"];
+        NSData *gifData = [NSData dataWithContentsOfURL:url];
+        //通过传入Data对象, 设置gif图
+        UIImage *gifImage = [UIImage sd_animatedGIFWithData:gifData];
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.imageView.image = gifImage;
+        }];
+    }];
+    [queue addOperation:op];
+
+
 }
 
 

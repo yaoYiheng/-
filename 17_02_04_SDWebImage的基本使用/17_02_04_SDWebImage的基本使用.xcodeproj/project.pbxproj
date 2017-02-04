@@ -30,6 +30,7 @@
 		A5DCCC681E45D19C0042C674 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DCCC571E45D19C0042C674 /* UIImageView+WebCache.m */; };
 		A5DCCC691E45D19C0042C674 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DCCC591E45D19C0042C674 /* UIView+WebCacheOperation.m */; };
 		A5DCCC6B1E45D31E0042C674 /* Snip20160221_306.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DCCC6A1E45D31E0042C674 /* Snip20160221_306.png */; };
+		A5DCCC6D1E45D7560042C674 /* 1809687_095433_2468.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5DCCC6C1E45D7560042C674 /* 1809687_095433_2468.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A5DCCC581E45D19C0042C674 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		A5DCCC591E45D19C0042C674 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		A5DCCC6A1E45D31E0042C674 /* Snip20160221_306.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Snip20160221_306.png; path = ../SDWebImage/Snip20160221_306.png; sourceTree = "<group>"; };
+		A5DCCC6C1E45D7560042C674 /* 1809687_095433_2468.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1809687_095433_2468.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				A5DCCC241E45D1680042C674 /* AppDelegate.h */,
 				A5DCCC251E45D1680042C674 /* AppDelegate.m */,
 				A5DCCC271E45D1680042C674 /* ViewController.h */,
+				A5DCCC6C1E45D7560042C674 /* 1809687_095433_2468.gif */,
 				A5DCCC281E45D1680042C674 /* ViewController.m */,
 				A5DCCC2A1E45D1680042C674 /* Main.storyboard */,
 				A5DCCC2D1E45D1680042C674 /* Assets.xcassets */,
@@ -234,6 +237,7 @@
 				A5DCCC2E1E45D1680042C674 /* Assets.xcassets in Resources */,
 				A5DCCC2C1E45D1680042C674 /* Main.storyboard in Resources */,
 				A5DCCC6B1E45D31E0042C674 /* Snip20160221_306.png in Resources */,
+				A5DCCC6D1E45D7560042C674 /* 1809687_095433_2468.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
