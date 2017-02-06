@@ -14,16 +14,20 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //主线程对应的runloop
+    NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
+//    NSLog(@"%@", mainRunLoop);
+    //当前线程对应的runLoop
+    NSRunLoop *currentLoop = [NSRunLoop currentRunLoop];
+//    NSLog(@"%@", currentLoop);
+    NSLog(@"main == %p, current == %p", mainRunLoop, currentLoop);
+
+    //core foundatation获得方法.
+    CFRunLoopRef mainRL = CFRunLoopGetMain();
+    CFRunLoopRef currentRL = CFRunLoopGetCurrent();
+
+    NSLog(@"main == %p, current == %p", mainRL, currentRL);
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
