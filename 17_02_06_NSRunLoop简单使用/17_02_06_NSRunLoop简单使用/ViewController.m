@@ -12,6 +12,8 @@
 /** <#comments#>*/
 @property (nonatomic, strong) dispatch_source_t timer;
 
+/** <#comments#>*/
+@property (nonatomic, strong) NSThread *thread;
 @end
 
 @implementation ViewController
@@ -21,6 +23,55 @@
     [self creatTimerInGCD];
 }
 
+/**
+ 开启常驻线程
+ */
+- (IBAction)creatThread:(id)sender {
+
+    self.thread = [[NSThread alloc] initWithTarget:self selector:@selector(task1) object:nil];
+    //启动线程
+    [self.thread start];
+}
+
+/**
+ 在子线程中做其他任务
+ */
+- (IBAction)doOtherTask:(id)sender {
+    [self performSelector:@selector(task3) onThread:self.thread withObject:nil waitUntilDone:YES];
+}
+
+- (void)task1{
+    /**
+     为了使该线程一直持续存在, 给子线程添加一个runLoop,
+     */
+
+    NSLog(@"task1 -- start");
+    NSLog(@"%@", [NSThread currentThread]);
+    //获得子线程对应的runLoop
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+
+    //该timer的作用是保证该runLoop不退出.
+    //一般不推荐该做法.
+
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(task2) userInfo:nil repeats:YES];
+//
+//    [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
+
+    //创建一个新[NSPort port],来保证不退出.
+    [runLoop addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+
+    //子线程对应的runLoop默认是没有开启, 需要调用run方法来开启.
+    [runLoop run];
+
+    NSLog(@"--- end");
+}
+- (void)task2{
+    NSLog(@"%s", __func__);
+}
+
+- (void)task3{
+    NSLog(@"%s", __func__);
+}
 /**
  创建GCD中的timer, 相较于NSTimer的定时器,
  优点1: GCD的定时器timer并不会受到runLoop的影响.
