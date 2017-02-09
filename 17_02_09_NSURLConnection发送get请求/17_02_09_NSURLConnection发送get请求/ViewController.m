@@ -8,16 +8,82 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <NSURLConnectionDataDelegate>
 
+/**接收到的数据*/
+@property (nonatomic, strong) NSMutableData *allData;
 @end
 
 @implementation ViewController
+- (NSMutableData *)allData{
+    if (!_allData) {
+        _allData = [NSMutableData data];
+    }
+    return _allData;
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
     [self async];
 }
+
+/**
+ 通过设置代理发送请求.
+ */
+- (void)requestWithDelegate{
+    //1请求地址
+    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=123&pwd=520it&type=JSON"];
+    //2创建请求对象
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSLog(@"%@", request);
+
+    //3. 设置代理.
+//    [NSURLConnection connectionWithRequest:request delegate:self];
+
+    //startImmediately 传YES则会马上发送, 如果传NO, 则需要调用start方法.
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+    [connection start];
+
+}
+#pragma mark NSURLConnectionDataDelegate
+/**
+ //1.当接收到服务器响应的时候调用
+
+ */
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+
+}
+/**
+接收到服务器返回数据的时候调用,调用多次
+当接收的数据较大时, 需要对数据进行拼接
+ */
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+
+    [self.allData appendData:data];
+}
+
+/**
+ 接收完成时, 来到该方法
+在该方法中, 解析数据.
+ */
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+
+    NSString *stringFromData = [[NSString alloc] initWithData:self.allData encoding:NSUTF8StringEncoding];
+
+    NSLog(@"%@", stringFromData);
+}
+
+/**
+ 当请求失败的时候调用
+*/
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+
+}
+
+#pragma mark -----
+/**
+ 发送同步请求
+ */
 - (void)sync{
     //1请求地址
     NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=123&pwd=520it&type=JSON"];
@@ -42,13 +108,16 @@
      */
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
 
-    //解析数据 
+    //解析数据
     NSString *stringFromData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
     NSLog(@"%@", stringFromData);
 
 }
 
+/**
+ 发送异步请求
+ */
 - (void)async{
 
     //1请求地址
