@@ -27,6 +27,31 @@
     [self async];
 }
 
+- (void)postWithChinese{
+    //1. 确定URL
+    NSURL *url = [NSURL URLWithString: @"http://120.25.226.186:32812/login2"];
+    //2. 封装请求
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    //2.1设置请求方法,
+    request.HTTPMethod = @"POST";
+    //将带有中文的url进行转码
+    NSString *strWithChinese = @"username=小码哥&pwd=520it&type=JSON";
+    //设置请求体
+    request.HTTPBody = [strWithChinese dataUsingEncoding:NSUTF8StringEncoding];
+    //3. 发送请求
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+
+        //容错处理
+        if (connectionError) {
+            NSLog(@"%@", connectionError);
+            return;
+        }
+        //对data进行解析
+        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+    }];
+}
+
 - (void)postRequest{
     //1.确定请求路径
     NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login"];
