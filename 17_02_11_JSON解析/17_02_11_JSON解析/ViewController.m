@@ -16,9 +16,45 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self ocToJSON];
+    [self JSONToOC];
 }
 
+- (void)JSONToOC{
+    //NSString *strM = @"{\"error\":\"用户名不存在\"}";
+    //NSString *strM = @"[\"error\",\"用户名不存在\"]";
+    //NSString *strM = @"\"yaoyiheng\"";
+    NSString *strM = @"false";
+    //NSString *strM = @"true";
+//    NSString *strM = @"null";
+
+    //JSON--->oc对象 反序列化
+    /*
+     第一个参数:JSON的二进制数据
+     第二个参数:
+     第三个参数:错误信息
+     */
+    /*
+     NSJSONReadingMutableContainers = (1UL << 0), 可变字典和数组
+     NSJSONReadingMutableLeaves = (1UL << 1),      内部所有的字符串都是可变的 ios7之后又问题  一般不用
+     NSJSONReadingAllowFragments = (1UL << 2)   既不是字典也不是数组,则必须使用该枚举值
+     */
+
+    id obj = [NSJSONSerialization JSONObjectWithData:[strM dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:0];
+    NSLog(@"%@---%@",[obj class],obj);
+
+    /*
+     JOSN   OC
+     {}     @{}
+     []     @[]
+     ""     @""
+     false  NSNumber 0
+     true   NSNumber 1
+     null      NSNull为空
+     */
+
+    //nil
+    [NSNull null];   //该方法获得的是一个单粒,表示为空,可以用在字典或者是数组中
+}
 
 - (void)ocToJSON{
 
