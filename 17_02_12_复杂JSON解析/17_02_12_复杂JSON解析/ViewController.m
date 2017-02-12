@@ -8,6 +8,14 @@
 
 #import "ViewController.h"
 #import "UIImageView+WebCache.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+
+
+//baseurl = @"http://120.25.226.186:32812";
+
+#define baseurl @"http://120.25.226.186:32812"
+
 @interface ViewController ()
 /** <#comments#>*/
 @property (nonatomic, strong) NSArray *dataArray;
@@ -70,8 +78,8 @@
     cell.textLabel.text = dict[@"name"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"时长%@", dict[@"length"]];
     //2.1 设置图片.
-    NSString *url = @"http://120.25.226.186:32812";
-    NSString *fullPath = [url stringByAppendingPathComponent:dict[@"image"]];
+//    NSString *baseurl = @"http://120.25.226.186:32812";
+    NSString *fullPath = [baseurl stringByAppendingPathComponent:dict[@"image"]];
 
     NSLog(@"%@", fullPath);
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:fullPath] placeholderImage:[UIImage imageNamed:@"test"]];
@@ -80,5 +88,16 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *urlStr = [baseurl stringByAppendingPathComponent:dict[@"url"]];
+    //3.创建播放控制器
+
+
+    MPMoviePlayerViewController *vc = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:urlStr]];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 @end
