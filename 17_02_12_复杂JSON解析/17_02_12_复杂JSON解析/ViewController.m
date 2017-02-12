@@ -49,5 +49,36 @@
     }];
 }
 
+#pragma mark -------
+#pragma mark UITabelViewSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"%lu ", (unsigned long)self.dataArray.count);
+    return self.dataArray.count;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *ID = @"video";
+
+    //1.从缓存中获取cell
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    //2. 设置cell
+    cell.textLabel.text = dict[@"name"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"时长%@", dict[@"length"]];
+    //2.1 设置图片.
+    NSString *url = @"http://120.25.226.186:32812";
+    NSString *fullPath = [url stringByAppendingPathComponent:dict[@"image"]];
+
+    NSLog(@"%@", fullPath);
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:fullPath] placeholderImage:[UIImage imageNamed:@"test"]];
+    NSLog(@"%@", cell);
+    return cell;
+
+}
+
 
 @end
