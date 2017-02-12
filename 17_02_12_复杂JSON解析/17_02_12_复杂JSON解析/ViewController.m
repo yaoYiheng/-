@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UIImageView+WebCache.h"
 @interface ViewController ()
 /** <#comments#>*/
 @property (nonatomic, strong) NSArray *dataArray;
@@ -30,7 +30,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
     //3. 发送异步请求
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         //拿到数据后将data转为对象
 
 
@@ -39,31 +39,14 @@
 
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 
-        self.dataArray = dict[@"video"];
+        self.dataArray = dict[@"videos"];
+
+        NSLog(@"%@", dict);
+//        [self.tableView reloadData];
 
         //刷新tableView, 回到主线程中
-        [self performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
     }];
-}
-
-#pragma mark -------
-#pragma mark UITabelViewSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
-}
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *ID = @"vedio";
-
-    //1.从缓存中获取cell
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-
-    NSDictionary *dict = self.dataArray[indexPath.row];
-    //2. 设置cell
-    cell.textLabel.text = dict[@"name"];
-    cell.detailTextLabel.text = dict[@"length"];
-    //2.1 设置图片.
-
 }
 
 
