@@ -11,7 +11,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "MJExtension.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "GDataXMLNode.h"
 #import "VideoItem.h"
 
 //baseurl = @"http://120.25.226.186:32812";
@@ -30,7 +30,9 @@
     }
     return _dataArray;
 }
+- (void)test{
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -49,20 +51,41 @@
     //3. 发送异步请求
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc]init] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         //拿到数据后将data转为对象
+//
+//
+//        //容错处理
+//        if(connectionError) return ;
+//
+//        //创建NSXMLParser解析器
+//        NSXMLParser *paeser = [[NSXMLParser alloc] initWithData:data];
+//        //设置代理 通过代理完成解析
+//        paeser.delegate = self;
+//        //开始解析
+//        [paeser parse];
 
 
-        //容错处理
-        if(connectionError) return ;
+        //加载XML文档.
+        GDataXMLDocument *docu = [[GDataXMLDocument alloc] initWithData:data options:kNilOptions error:nil];
 
-        //创建NSXMLParser解析器
-        NSXMLParser *paeser = [[NSXMLParser alloc] initWithData:data];
-        //设置代理 通过代理完成解析
-        paeser.delegate = self;
-        //开始解析
-        [paeser parse];
+        //拿到根元素, 得带所有名为video的子元素
+        NSArray *array = [docu.rootElement elementsForName:@"video"];
+
+        //变量所有子元素, 子元素的类型为GDataXMLElement
+        for (GDataXMLElement *element in array) {
+            VideoItem *item = [[VideoItem alloc] init];
+
+            //调用attributeForName为相关属性赋值,
+            item.name = [element attributeForName:@"name"].stringValue;
+            item.length = [element attributeForName:@"length"].stringValue;
+            item.url = [element attributeForName:@"url"].stringValue;
+            item.image = [element attributeForName:@"image"].stringValue;
+            item.ID = [element attributeForName:@"id"].stringValue;
+
+            [self.dataArray addObject:item];
+        }
 
 
-//        [self.tableView reloadData];
+
 
         //刷新tableView, 回到主线程中
 //        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];

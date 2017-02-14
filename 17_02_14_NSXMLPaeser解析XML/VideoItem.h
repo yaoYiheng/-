@@ -10,7 +10,7 @@
 
 @interface VideoItem : NSObject
 /** ID*/
-@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *length;
 @property (nonatomic, strong) NSString *image;

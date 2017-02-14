@@ -45,6 +45,7 @@
 		A58652FE1E530AD2008F7F0E /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = A58652F11E530AD2008F7F0E /* NSObject+MJKeyValue.m */; };
 		A58652FF1E530AD2008F7F0E /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A58652F31E530AD2008F7F0E /* NSObject+MJProperty.m */; };
 		A58653001E530AD2008F7F0E /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A58652F51E530AD2008F7F0E /* NSString+MJExtension.m */; };
+		A58653041E539B11008F7F0E /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A58653031E539B11008F7F0E /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,8 @@
 		A58652F31E530AD2008F7F0E /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		A58652F41E530AD2008F7F0E /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		A58652F51E530AD2008F7F0E /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		A58653021E539B11008F7F0E /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		A58653031E539B11008F7F0E /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 				A58652611E506E38008F7F0E /* AppDelegate.m */,
 				A58652B81E5246D3008F7F0E /* VideoItem.h */,
 				A58652B91E5246D3008F7F0E /* VideoItem.m */,
+				A58653011E539B11008F7F0E /* GDataXML */,
 				A58652631E506E38008F7F0E /* ViewController.h */,
 				A58652641E506E38008F7F0E /* ViewController.m */,
 				A58652661E506E38008F7F0E /* Main.storyboard */,
@@ -257,6 +261,15 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		A58653011E539B11008F7F0E /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				A58653021E539B11008F7F0E /* GDataXMLNode.h */,
+				A58653031E539B11008F7F0E /* GDataXMLNode.m */,
+			);
+			path = GDataXML;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,6 +364,7 @@
 				A58652FA1E530AD2008F7F0E /* MJPropertyKey.m in Sources */,
 				A58652FB1E530AD2008F7F0E /* MJPropertyType.m in Sources */,
 				A58652A61E507455008F7F0E /* SDWebImageDecoder.m in Sources */,
+				A58653041E539B11008F7F0E /* GDataXMLNode.m in Sources */,
 				A58652A01E507455008F7F0E /* MKAnnotationView+WebCache.m in Sources */,
 				A58652A11E507455008F7F0E /* NSData+ImageContentType.m in Sources */,
 				A58652A51E507455008F7F0E /* SDWebImageCompat.m in Sources */,
@@ -480,8 +494,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "17_02_12_复杂JSON解析/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-02-12---JSON--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -491,8 +507,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "17_02_12_复杂JSON解析/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-02-12---JSON--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
