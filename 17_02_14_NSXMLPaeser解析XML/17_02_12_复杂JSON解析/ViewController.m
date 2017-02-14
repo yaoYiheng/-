@@ -11,12 +11,13 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
+#import "VideoItem.h"
 
 //baseurl = @"http://120.25.226.186:32812";
 
 #define baseurl @"http://120.25.226.186:32812"
 
-@interface ViewController ()
+@interface ViewController () <NSXMLParserDelegate>
 /** <#comments#>*/
 @property (nonatomic, strong) NSArray *dataArray;
 @end
@@ -47,7 +48,12 @@
 
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 
-        self.dataArray = dict[@"videos"];
+        //创建NSXMLParser解析器
+        NSXMLParser *paeser = [[NSXMLParser alloc] initWithData:data];
+        //设置代理 通过代理完成解析
+        paeser.delegate = self;
+        //开始解析
+        [paeser parse];
 
         NSLog(@"%@", dict);
 //        [self.tableView reloadData];
@@ -55,6 +61,12 @@
         //刷新tableView, 回到主线程中
         [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
     }];
+}
+
+#pragma mark -------
+#pragma mark NSXMLParserDelegate
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
+    
 }
 
 #pragma mark -------
