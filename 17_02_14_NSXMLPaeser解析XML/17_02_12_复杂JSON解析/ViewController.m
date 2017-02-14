@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIImageView+WebCache.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MJExtension.h"
 #import <AVFoundation/AVFoundation.h>
 
 #import "VideoItem.h"
@@ -19,22 +20,29 @@
 
 @interface ViewController () <NSXMLParserDelegate>
 /** <#comments#>*/
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @end
 
 @implementation ViewController
--(NSArray *)dataArray{
+-(NSMutableArray *)dataArray{
     if (!_dataArray) {
-        _dataArray = [NSArray array];
+        _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    //替换
+        [VideoItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"ID":@"id"
+                     };
+        }];
     //从网络获JSON数据
     //1. 确定URL
-    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/video?type=JSON"];
+    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/video?type=XML"];
     //2. 创建请求体
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -46,8 +54,6 @@
         //容错处理
         if(connectionError) return ;
 
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-
         //创建NSXMLParser解析器
         NSXMLParser *paeser = [[NSXMLParser alloc] initWithData:data];
         //设置代理 通过代理完成解析
@@ -55,18 +61,26 @@
         //开始解析
         [paeser parse];
 
-        NSLog(@"%@", dict);
+
 //        [self.tableView reloadData];
 
         //刷新tableView, 回到主线程中
-        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+//        [self.tableView performSelector:@selector(reloadData) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
+
+        [self.tableView reloadData];
+
     }];
 }
 
 #pragma mark -------
 #pragma mark NSXMLParserDelegate
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
-    
+    //开始逐一解析XML文件, 每解析一次便会来到该方法, 所以在该方法中, 使用MJ框架,将字典转化为模型数组
+    //过滤根元素
+    if ([elementName isEqualToString:@"videos"]) {
+        return;
+    }
+    [self.dataArray addObject:[VideoItem mj_objectWithKeyValues:attributeDict]];
 }
 
 #pragma mark -------
@@ -85,13 +99,14 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
 
-    NSDictionary *dict = self.dataArray[indexPath.row];
+
+    VideoItem *item = self.dataArray[indexPath.row];
     //2. 设置cell
-    cell.textLabel.text = dict[@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"时长%@", dict[@"length"]];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"时长%@", item.length];
     //2.1 设置图片.
 //    NSString *baseurl = @"http://120.25.226.186:32812";
-    NSString *fullPath = [baseurl stringByAppendingPathComponent:dict[@"image"]];
+    NSString *fullPath = [baseurl stringByAppendingPathComponent:item.image];
 
     NSLog(@"%@", fullPath);
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:fullPath] placeholderImage:[UIImage imageNamed:@"test"]];
@@ -102,9 +117,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    NSDictionary *dict = self.dataArray[indexPath.row];
+//    NSDictionary *dict = self.dataArray[indexPath.row];
+    VideoItem *item = self.dataArray[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *urlStr = [baseurl stringByAppendingPathComponent:dict[@"url"]];
+    NSString *urlStr = [baseurl stringByAppendingPathComponent:item.url];
     //3.创建播放控制器
 
 
