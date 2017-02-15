@@ -13,6 +13,7 @@
 		A586531C1E5461C2008F7F0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A586531A1E5461C2008F7F0E /* Main.storyboard */; };
 		A586531E1E5461C2008F7F0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A586531D1E5461C2008F7F0E /* Assets.xcassets */; };
 		A58653211E5461C2008F7F0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A586531F1E5461C2008F7F0E /* LaunchScreen.storyboard */; };
+		A586532A1E5463AE008F7F0E /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = A58653291E5463AE008F7F0E /* Foundation+Log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A586531D1E5461C2008F7F0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58653201E5461C2008F7F0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58653221E5461C3008F7F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A58653291E5463AE008F7F0E /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				A58653151E5461C2008F7F0E /* AppDelegate.m */,
 				A58653171E5461C2008F7F0E /* ViewController.h */,
 				A58653181E5461C2008F7F0E /* ViewController.m */,
+				A58653291E5463AE008F7F0E /* Foundation+Log.m */,
 				A586531A1E5461C2008F7F0E /* Main.storyboard */,
 				A586531D1E5461C2008F7F0E /* Assets.xcassets */,
 				A586531F1E5461C2008F7F0E /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A58653191E5461C2008F7F0E /* ViewController.m in Sources */,
+				A586532A1E5463AE008F7F0E /* Foundation+Log.m in Sources */,
 				A58653161E5461C2008F7F0E /* AppDelegate.m in Sources */,
 				A58653131E5461C2008F7F0E /* main.m in Sources */,
 			);

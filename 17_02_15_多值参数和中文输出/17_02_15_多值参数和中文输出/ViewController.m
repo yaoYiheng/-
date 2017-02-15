@@ -15,7 +15,22 @@
 @implementation ViewController
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
+    //1.确定URL
+    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/weather?place=Beijing&place=Guangzhou&place=Shanghai"];
+
+
+    //2. 创建请求
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    //3. 发送请求
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+
+        if (connectionError) return;
+
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+
+        NSLog(@"%@", dict);
+    }];
 }
 
 @end
