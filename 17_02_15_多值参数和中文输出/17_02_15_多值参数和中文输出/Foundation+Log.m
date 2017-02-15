@@ -42,13 +42,16 @@
 
     [string appendString:@"["];
 
+    //遍历数组每一个元素
         [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [string appendFormat:@"%@,\n",obj];
         }];
     [string appendString:@"]"];
 
+    //查找的范围, 与长度options:NSBackwardsSearch: 从后向前查找
     NSRange range = [string rangeOfString:@"," options:NSBackwardsSearch];
     if (range.location != NSNotFound) {
+        //删除范围内的字符.
         [string deleteCharactersInRange:range];
     }
 
