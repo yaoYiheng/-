@@ -39,5 +39,89 @@
     [self down];
 }
 
+- (void)down{
+
+    //1. 确定URL
+    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+
+    //设置请求头信息,告诉服务器值请求一部分数据range
+    //注意: 这里必须设置为 bytes=- 等号两边不能有空格.
+    /*
+     bytes=0-100
+     bytes=-100
+     bytes=0- 请求100之后的所有数据
+     */
+    NSString *range = [NSString stringWithFormat:@"bytes=%zd-", self.currentProgress];
+    [request setValue:range forHTTPHeaderField:@"Range"];
+
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+
+    self.connection = connection;
+}
+
+#pragma mark ----------
+#pragma mark NSURLConnectionDataDelegate
+
+
+
+//收到来自服务器的响应时调用.
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+
+    if (self.currentProgress > 0) {
+        return;
+    }
+    //确定文件的总大小.
+    self.totalFile = response.expectedContentLength;
+
+    //确定写入路径
+
+    self.fielPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];;
+
+
+
+    //通过文件管理者这个类, 创建一个空的文件, 路径为指定路径.
+    [[NSFileManager defaultManager] createFileAtPath:self.fielPath contents:nil attributes:nil];
+
+    //创建文件句柄(用于指向文件末尾的指针)
+    self.handle = [NSFileHandle fileHandleForWritingAtPath:self.fielPath];
+
+
+
+}
+//接收到来自服务器的数据时调用, 会调用多次.
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+
+
+
+    NSLog(@"%lu", (unsigned long)data.length);
+    //将文件句柄移动到文件末端
+    [self.handle seekToEndOfFile];
+
+    //将文件写入到句柄后
+    [self.handle writeData:data];
+
+    //设置当前进度
+    self.currentProgress += data.length;
+
+    NSLog(@"%f", 1.0 * self.currentProgress / self.totalFile);
+
+    //设置进度条
+    self.progressView.progress = 1.0 * self.currentProgress / self.totalFile;
+
+
+}
+//结束传输时调用.
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    //关闭文件句柄
+    [self.handle closeFile];
+
+    self.handle = nil;
+    
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+}
 
 @end
