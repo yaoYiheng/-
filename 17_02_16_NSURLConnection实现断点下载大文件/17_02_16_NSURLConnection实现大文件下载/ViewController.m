@@ -40,9 +40,8 @@
 }
 
 - (void)down{
-
     //1. 确定URL
-    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"];
+    NSURL *url = [NSURL URLWithString:@"http://pic1.win4000.com/wallpaper/2/4fcec0bf0fb7f.jpg"];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 
@@ -60,7 +59,6 @@
 
     self.connection = connection;
 }
-
 #pragma mark ----------
 #pragma mark NSURLConnectionDataDelegate
 
@@ -68,12 +66,13 @@
 
 //收到来自服务器的响应时调用.
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-
+   // 得到文件的总大小(本次请求的文件数据的总大小 != 文件的总大小)
+    self.totalFile = response.expectedContentLength + self.currentProgress;
     if (self.currentProgress > 0) {
         return;
     }
     //确定文件的总大小.
-    self.totalFile = response.expectedContentLength;
+//    self.totalFile = response.expectedContentLength;
 
     //确定写入路径
 
@@ -95,7 +94,6 @@
 
 
 
-    NSLog(@"%lu", (unsigned long)data.length);
     //将文件句柄移动到文件末端
     [self.handle seekToEndOfFile];
 
@@ -118,10 +116,11 @@
     [self.handle closeFile];
 
     self.handle = nil;
-    
+
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     
 }
+
 
 @end
