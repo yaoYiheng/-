@@ -43,8 +43,8 @@
     self.totalFile = response.expectedContentLength;
 
     //确定写入路径
-
-    self.fielPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"1.mp4"];;
+    //关于拼接文件名, 可以获取response.suggestedFilename,属性.
+    self.fielPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];;
 
 
 
