@@ -42,7 +42,16 @@
  --分隔符--
 */
 
+
+/**
+ 获取文件的MimeType
+ 方法1. 向文件发送请求.
+ 方法2. 百度
+ 方法3. 调用C语言的API
+ 方法4. application/octet-stream 任意的二进制数据类型
+ */
 #import "ViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 #define kboundary @"----WebKitFormBoundaryjv0UfA04ED44AhWx"
 
@@ -55,7 +64,48 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
+    [self getMimeType];
+
+
+    NSLog(@"%@", [self mimeTypeForFileAtPath:@"/Users/Morris/Downloads/伯里曼中文清晰扫描版.pdf"]);
 }
+
+/**
+ 调用该方法, 获取文件的mimeType
+
+ */
+- (NSString *)mimeTypeForFileAtPath:(NSString *)path
+{
+    if (![[[NSFileManager alloc] init] fileExistsAtPath:path]) {
+        return nil;
+    }
+
+    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[path pathExtension], NULL);
+    CFStringRef MIMEType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);
+    CFRelease(UTI);
+    if (!MIMEType) {
+        return @"application/octet-stream";
+    }
+    return (__bridge NSString *)(MIMEType);
+}
+
+/**
+ 获取文件的MimeType
+ 方法1. 向文件发送请求.
+ */
+- (void)getMimeType{
+
+    //获取文件url
+    NSURL *url = [NSURL fileURLWithPath:@"/Users/Morris/Downloads/伯里曼中文清晰扫描版.pdf"];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        //response 的MIMEType属性
+        NSLog(@"%@", response.MIMEType);
+    }];
+}
+
 
 - (void)upload{
 
