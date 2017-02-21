@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <NSURLSessionDataDelegate>
+
+/** <#comments#>*/
+@property (nonatomic, strong) NSMutableData *data;
 
 @end
 
@@ -18,8 +21,79 @@
 
     [self postWithNSURLSession];
 }
+
 #pragma mark ----------
-#pragma mark 发送get请求
+#pragma mark lazy loading
+- (NSMutableData *)data{
+    if (!_data) {
+        _data = [NSMutableData  data];
+    }
+
+    return _data;
+}
+#pragma mark ----------
+#pragma mark 设置NSURLSession代理方法
+
+- (void)NSURLSessionWithDelegate{
+
+    //1.确定URL
+    NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=123&pwd=123&type=JSON"];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    //3. 创建NSURLSession对象
+    NSURLSession *sesstion = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+
+    NSURLSessionDataTask *dataTask = [sesstion dataTaskWithRequest:request];
+
+    [dataTask resume];
+}
+
+
+/**
+ 当接收到来自服务器的的响应时调用
+ 默认取消请求, 需要在该方法中的第四个参数设置参数以更改
+
+ @param session 会话对象
+ @param dataTask 请求任务
+ @param response 请求体
+ @param completionHandler 回调
+ */
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler{
+
+    /*
+     NSURLSessionResponseCancel = 0,取消 默认
+     NSURLSessionResponseAllow = 1, 接收
+     NSURLSessionResponseBecomeDownload = 2, 变成下载任务
+     NSURLSessionResponseBecomeStream        变成流
+     */
+    completionHandler(NSURLSessionResponseAllow);
+
+}
+
+/**
+ 接收到来自服务器的数据时调用, 该方法会多次调用.
+
+ @param session 会话对象
+ @param dataTask 请求任务对象
+ @param data 数据
+ */
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
+
+    [self.data appendData:data];
+}
+
+/**
+
+ @param session 会话对象
+ @param task 请求任务对象
+ @param error 错误信息
+ */
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error{
+
+}
+#pragma mark ----------
+#pragma mark NSURLSession发送get请求
 - (void)getWithNSURLSession{
     //1.确定URL
     NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=123&pwd=123&type=JSON"];
