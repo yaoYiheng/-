@@ -11,14 +11,62 @@
 @interface ViewController ()<NSURLSessionDownloadDelegate>
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+/** <#comments#>*/
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
+/** <#comments#>*/
+@property (nonatomic, strong) NSData *resumData;
+
+/** <#comments#>*/
+@property (nonatomic, strong) NSURLSession *session;
 @end
 
 @implementation ViewController
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
-    [self downloadWithDelegate];
+//    [self downloadWithDelegate];
 
+}
+
+/**
+ 开始下载
+ */
+- (IBAction)startClick:(id)sender {
+
+    [self downloadWithDelegate];
+}
+
+/**
+ 暂停下载
+ */
+- (IBAction)pauseClick:(id)sender {
+    [self.downloadTask suspend];
+}
+
+/**
+ 继续下载
+ */
+- (IBAction)continueCLick:(id)sender {
+
+    //如果恢复数据有值, 就继续之前的下载;
+    //调用会话对象的downloadTaskWithResumeData:方法断点下载..
+    if (self.resumData) {
+        [self.session downloadTaskWithResumeData:self.resumData];
+    }
+    [self.downloadTask resume];
+}
+
+/**
+ 取消下载
+ */
+- (IBAction)cancelClick:(id)sender {
+//    [self.downloadTask cancel];
+
+    //resumeData保存下载文件的相关信息, 但并代表文件数据.
+    [self.downloadTask cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+        //将resumeData赋值给属性保存以恢复下载使用.
+        self.resumData = resumeData;
+    }];
 }
 
 /**
@@ -29,11 +77,13 @@
 
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
 
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request];
+    NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
 
     [downloadTask resume];
+
+    self.downloadTask = downloadTask;
 
 }
 #pragma mark ----------
