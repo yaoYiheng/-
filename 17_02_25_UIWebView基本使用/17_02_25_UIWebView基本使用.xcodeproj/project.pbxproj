@@ -13,6 +13,7 @@
 		A5DE89EA1E618A8800340FCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DE89E81E618A8800340FCF /* Main.storyboard */; };
 		A5DE89EC1E618A8800340FCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DE89EB1E618A8800340FCF /* Assets.xcassets */; };
 		A5DE89EF1E618A8800340FCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DE89ED1E618A8800340FCF /* LaunchScreen.storyboard */; };
+		A5DE89F71E61944A00340FCF /* text.html in Resources */ = {isa = PBXBuildFile; fileRef = A5DE89F61E61944A00340FCF /* text.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A5DE89EB1E618A8800340FCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5DE89EE1E618A8800340FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5DE89F01E618A8800340FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DE89F61E61944A00340FCF /* text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = text.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			children = (
 				A5DE89DE1E618A8800340FCF /* 17_02_25_UIWebView基本使用 */,
 				A5DE89DD1E618A8800340FCF /* Products */,
+				A5DE89F61E61944A00340FCF /* text.html */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DE89EF1E618A8800340FCF /* LaunchScreen.storyboard in Resources */,
+				A5DE89F71E61944A00340FCF /* text.html in Resources */,
 				A5DE89EC1E618A8800340FCF /* Assets.xcassets in Resources */,
 				A5DE89EA1E618A8800340FCF /* Main.storyboard in Resources */,
 			);
