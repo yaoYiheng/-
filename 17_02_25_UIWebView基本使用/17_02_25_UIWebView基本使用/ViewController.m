@@ -8,17 +8,67 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goBack;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goForward;
 
 @end
 
 @implementation ViewController
 
+#pragma mark -----UIWebViewDelegate-----
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+
+    //能否前进去后退.
+    self.goForward.enabled = self.webView.canGoForward;
+    self.goBack.enabled = self.webView.canGoBack;
+}
+
+/**
+ 是否应该开始加载
+ 可在该方法中, 进行简单的字符过滤
+
+ */
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    NSString *str = request.URL.absoluteString;
+    if ([str containsString:@"baidu"]) {
+        return NO;
+    }
+    return YES;
+}
+#pragma mark -----buttonClick-----
+
+/**
+ 后退
+ */
+- (IBAction)goBack:(id)sender {
+    [self.webView goBack];
+}
+
+/**
+ 前进
+
+ */
+- (IBAction)goForward:(id)sender {
+    [self.webView goForward];
+}
+
+/**
+ 刷新
+ */
+- (IBAction)refresh:(id)sender {
+    [self.webView reload];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self test3];
+    [self test1];
+    self.webView.delegate = self;
 }
 
 /**
