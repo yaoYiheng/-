@@ -1,0 +1,9 @@
+platform :ios, '8.0'
+
+
+target '17_03_01_CocoaPods使用' do
+pod 'AFNetworking', '~> 2.6'
+pod ‘MJExtension’
+pod ‘SDWebImage’
+
+end
