@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53299B91E6A113200931068 /* NSObject+Porperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A53299B81E6A113200931068 /* NSObject+Porperty.m */; };
 		A541DC041E6816250018E41C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC031E6816250018E41C /* main.m */; };
 		A541DC071E6816250018E41C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC061E6816250018E41C /* AppDelegate.m */; };
 		A541DC0A1E6816250018E41C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC091E6816250018E41C /* ViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A53299B71E6A113200931068 /* NSObject+Porperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Porperty.h"; sourceTree = "<group>"; };
+		A53299B81E6A113200931068 /* NSObject+Porperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Porperty.m"; sourceTree = "<group>"; };
 		A541DBFF1E6816250018E41C /* 17_03_02_runtime相关.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "17_03_02_runtime相关.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A541DC031E6816250018E41C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A541DC051E6816250018E41C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				A541DC061E6816250018E41C /* AppDelegate.m */,
 				A541DC081E6816250018E41C /* ViewController.h */,
 				A541DC091E6816250018E41C /* ViewController.m */,
+				A53299B71E6A113200931068 /* NSObject+Porperty.h */,
+				A53299B81E6A113200931068 /* NSObject+Porperty.m */,
 				A541DC1C1E694A7C0018E41C /* UIImage+Image.h */,
 				A541DC1D1E694A7C0018E41C /* UIImage+Image.m */,
 				A541DC191E68167B0018E41C /* Human.h */,
@@ -164,6 +169,7 @@
 				A541DC1E1E694A7C0018E41C /* UIImage+Image.m in Sources */,
 				A541DC071E6816250018E41C /* AppDelegate.m in Sources */,
 				A541DC041E6816250018E41C /* main.m in Sources */,
+				A53299B91E6A113200931068 /* NSObject+Porperty.m in Sources */,
 				A541DC1B1E68167B0018E41C /* Human.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +327,7 @@
 				A541DC181E6816250018E41C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
