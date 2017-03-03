@@ -35,7 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    objc_msgSend(self, @selector(exchangeMethod));
+//    objc_msgSend(self, @selector(exchangeMethod));
+
+//    [self performSelector:@selector(exchangeMethod)];
+
+    [self addMethodDynamically];
 
 }
 
@@ -74,5 +78,29 @@
 - (void)exchangeMethod{
 
     UIImage *image = [UIImage imageNamed:@"123.png"];
+}
+
+/**
+ 动态添加方法
+
+     app:免费版,收费版
+     QQ,微博,直播等等应用,都有会员机制
+
+    有没有使用过performSelector,什么时候使用?
+    动态添加方法的时候使用过.
+    怎么动态添加方法?为什么要动态添加方法?
+     Runtime(动态添加方法):OC都是懒加载机制,只要一个方法实现了,就会马上添加到方法列表中.
+    当有些方法不用时(例如有些app中有免费功能与收费功能), 会消耗系统内存, 所以当这些功能被使用
+    时, 才需要添加.
+ */
+
+- (void)addMethodDynamically{
+
+    Human *human = [Human new];
+
+    [human performSelector:@selector(sleep)];
+
+    [human performSelector:@selector(sleepFor:) withObject:@8];
+
 }
 @end
