@@ -35,7 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    objc_msgSend(self, sel_registerName("runtime"));
+    objc_msgSend(self, @selector(exchangeMethod));
+
 }
 
 
@@ -65,4 +66,13 @@
      */
 }
 
+
+/*
+ Runtime(交换方法):只要想修改系统的方法实现
+ */
+
+- (void)exchangeMethod{
+
+    UIImage *image = [UIImage imageNamed:@"123.png"];
+}
 @end

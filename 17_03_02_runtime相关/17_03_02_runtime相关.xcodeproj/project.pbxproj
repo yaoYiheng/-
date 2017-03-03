@@ -14,6 +14,7 @@
 		A541DC0F1E6816250018E41C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A541DC0E1E6816250018E41C /* Assets.xcassets */; };
 		A541DC121E6816250018E41C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A541DC101E6816250018E41C /* LaunchScreen.storyboard */; };
 		A541DC1B1E68167B0018E41C /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC1A1E68167B0018E41C /* Human.m */; };
+		A541DC1E1E694A7C0018E41C /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC1D1E694A7C0018E41C /* UIImage+Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A541DC131E6816250018E41C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A541DC191E68167B0018E41C /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
 		A541DC1A1E68167B0018E41C /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
+		A541DC1C1E694A7C0018E41C /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		A541DC1D1E694A7C0018E41C /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,8 @@
 				A541DC061E6816250018E41C /* AppDelegate.m */,
 				A541DC081E6816250018E41C /* ViewController.h */,
 				A541DC091E6816250018E41C /* ViewController.m */,
+				A541DC1C1E694A7C0018E41C /* UIImage+Image.h */,
+				A541DC1D1E694A7C0018E41C /* UIImage+Image.m */,
 				A541DC191E68167B0018E41C /* Human.h */,
 				A541DC1A1E68167B0018E41C /* Human.m */,
 				A541DC0B1E6816250018E41C /* Main.storyboard */,
@@ -156,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A541DC0A1E6816250018E41C /* ViewController.m in Sources */,
+				A541DC1E1E694A7C0018E41C /* UIImage+Image.m in Sources */,
 				A541DC071E6816250018E41C /* AppDelegate.m in Sources */,
 				A541DC041E6816250018E41C /* main.m in Sources */,
 				A541DC1B1E68167B0018E41C /* Human.m in Sources */,
