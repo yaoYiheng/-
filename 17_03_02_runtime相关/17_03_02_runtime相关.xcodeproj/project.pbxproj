@@ -19,6 +19,7 @@
 		A541DC121E6816250018E41C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A541DC101E6816250018E41C /* LaunchScreen.storyboard */; };
 		A541DC1B1E68167B0018E41C /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC1A1E68167B0018E41C /* Human.m */; };
 		A541DC1E1E694A7C0018E41C /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC1D1E694A7C0018E41C /* UIImage+Image.m */; };
+		A5EA1B8C1E6ACD7000029836 /* NSObject+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = A5EA1B8B1E6ACD7000029836 /* NSObject+Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		A541DC1A1E68167B0018E41C /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
 		A541DC1C1E694A7C0018E41C /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
 		A541DC1D1E694A7C0018E41C /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
+		A5EA1B8A1E6ACD7000029836 /* NSObject+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Model.h"; sourceTree = "<group>"; };
+		A5EA1B8B1E6ACD7000029836 /* NSObject+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Model.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				A53299BD1E6AA9BA00931068 /* NSDictionary+Property.m */,
 				A53299BF1E6AAB2300931068 /* statusItem.h */,
 				A53299C01E6AAB2300931068 /* statusItem.m */,
+				A5EA1B8A1E6ACD7000029836 /* NSObject+Model.h */,
+				A5EA1B8B1E6ACD7000029836 /* NSObject+Model.m */,
 				A53299B71E6A113200931068 /* NSObject+Porperty.h */,
 				A53299B81E6A113200931068 /* NSObject+Porperty.m */,
 				A541DC1C1E694A7C0018E41C /* UIImage+Image.h */,
@@ -185,6 +190,7 @@
 				A541DC071E6816250018E41C /* AppDelegate.m in Sources */,
 				A541DC041E6816250018E41C /* main.m in Sources */,
 				A53299B91E6A113200931068 /* NSObject+Porperty.m in Sources */,
+				A5EA1B8C1E6ACD7000029836 /* NSObject+Model.m in Sources */,
 				A53299BE1E6AA9BA00931068 /* NSDictionary+Property.m in Sources */,
 				A541DC1B1E68167B0018E41C /* Human.m in Sources */,
 			);

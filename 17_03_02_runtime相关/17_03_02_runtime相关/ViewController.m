@@ -26,8 +26,11 @@
  runtime使用场景, 需要调用私有方法时.
  */
 #import <objc/message.h>
-
+//快速代码
 #import "NSDictionary+Property.h"
+
+#import "statusItem.h"
+#import "NSObject+Model.h"
 
 @interface ViewController ()
 
@@ -44,7 +47,7 @@
 
 //    [self addMethodDynamically];
 
-    [self dictToItems];
+    [self dictionaryToModel];
 
 }
 
@@ -128,7 +131,10 @@
     objc.name = @"123";
 }
 
-- (void)dictToItems{
+/**
+ 将字典数组快速转化为相关的属性
+ */
+- (void)dictToItemsPorpertyCode{
 
     //plist文件的路径
     NSString *dictPath = [[NSBundle mainBundle] pathForResource:@"status.plist" ofType:nil];
@@ -140,6 +146,17 @@
     NSString *code =  [dict creatPorpertyCode];
 
     NSLog(@"%@",code);
+
+}
+
+- (void)dictionaryToModel{
+    //plist文件的路径
+    NSString *dictPath = [[NSBundle mainBundle] pathForResource:@"status.plist" ofType:nil];
+    //拿到字典
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dictPath];
+
+    statusItem *items = [statusItem modelWithDictionary:dict];
+
 
 }
 @end
