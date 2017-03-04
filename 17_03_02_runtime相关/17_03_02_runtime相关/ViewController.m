@@ -27,6 +27,8 @@
  */
 #import <objc/message.h>
 
+#import "NSDictionary+Property.h"
+
 @interface ViewController ()
 
 @end
@@ -40,7 +42,9 @@
 
 //    [self performSelector:@selector(exchangeMethod)];
 
-    [self addMethodDynamically];
+//    [self addMethodDynamically];
+
+    [self dictToItems];
 
 }
 
@@ -122,5 +126,20 @@
     NSObject *objc = [[NSObject alloc] init];
 
     objc.name = @"123";
+}
+
+- (void)dictToItems{
+
+    //plist文件的路径
+    NSString *dictPath = [[NSBundle mainBundle] pathForResource:@"status.plist" ofType:nil];
+    //拿到字典
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dictPath];
+
+    //调用字典转模型的方法
+
+    NSString *code =  [dict creatPorpertyCode];
+
+    NSLog(@"%@",code);
+
 }
 @end

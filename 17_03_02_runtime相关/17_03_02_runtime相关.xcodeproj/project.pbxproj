@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A53299B91E6A113200931068 /* NSObject+Porperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A53299B81E6A113200931068 /* NSObject+Porperty.m */; };
+		A53299BB1E6AA90500931068 /* status.plist in Resources */ = {isa = PBXBuildFile; fileRef = A53299BA1E6AA90500931068 /* status.plist */; };
+		A53299BE1E6AA9BA00931068 /* NSDictionary+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = A53299BD1E6AA9BA00931068 /* NSDictionary+Property.m */; };
+		A53299C11E6AAB2300931068 /* statusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A53299C01E6AAB2300931068 /* statusItem.m */; };
 		A541DC041E6816250018E41C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC031E6816250018E41C /* main.m */; };
 		A541DC071E6816250018E41C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC061E6816250018E41C /* AppDelegate.m */; };
 		A541DC0A1E6816250018E41C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A541DC091E6816250018E41C /* ViewController.m */; };
@@ -21,6 +24,11 @@
 /* Begin PBXFileReference section */
 		A53299B71E6A113200931068 /* NSObject+Porperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Porperty.h"; sourceTree = "<group>"; };
 		A53299B81E6A113200931068 /* NSObject+Porperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Porperty.m"; sourceTree = "<group>"; };
+		A53299BA1E6AA90500931068 /* status.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = status.plist; sourceTree = "<group>"; };
+		A53299BC1E6AA9BA00931068 /* NSDictionary+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Property.h"; sourceTree = "<group>"; };
+		A53299BD1E6AA9BA00931068 /* NSDictionary+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Property.m"; sourceTree = "<group>"; };
+		A53299BF1E6AAB2300931068 /* statusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statusItem.h; sourceTree = "<group>"; };
+		A53299C01E6AAB2300931068 /* statusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusItem.m; sourceTree = "<group>"; };
 		A541DBFF1E6816250018E41C /* 17_03_02_runtime相关.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "17_03_02_runtime相关.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A541DC031E6816250018E41C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A541DC051E6816250018E41C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +61,7 @@
 			children = (
 				A541DC011E6816250018E41C /* 17_03_02_runtime相关 */,
 				A541DC001E6816250018E41C /* Products */,
+				A53299BA1E6AA90500931068 /* status.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +80,10 @@
 				A541DC061E6816250018E41C /* AppDelegate.m */,
 				A541DC081E6816250018E41C /* ViewController.h */,
 				A541DC091E6816250018E41C /* ViewController.m */,
+				A53299BC1E6AA9BA00931068 /* NSDictionary+Property.h */,
+				A53299BD1E6AA9BA00931068 /* NSDictionary+Property.m */,
+				A53299BF1E6AAB2300931068 /* statusItem.h */,
+				A53299C01E6AAB2300931068 /* statusItem.m */,
 				A53299B71E6A113200931068 /* NSObject+Porperty.h */,
 				A53299B81E6A113200931068 /* NSObject+Porperty.m */,
 				A541DC1C1E694A7C0018E41C /* UIImage+Image.h */,
@@ -154,6 +167,7 @@
 			files = (
 				A541DC121E6816250018E41C /* LaunchScreen.storyboard in Resources */,
 				A541DC0F1E6816250018E41C /* Assets.xcassets in Resources */,
+				A53299BB1E6AA90500931068 /* status.plist in Resources */,
 				A541DC0D1E6816250018E41C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,9 +181,11 @@
 			files = (
 				A541DC0A1E6816250018E41C /* ViewController.m in Sources */,
 				A541DC1E1E694A7C0018E41C /* UIImage+Image.m in Sources */,
+				A53299C11E6AAB2300931068 /* statusItem.m in Sources */,
 				A541DC071E6816250018E41C /* AppDelegate.m in Sources */,
 				A541DC041E6816250018E41C /* main.m in Sources */,
 				A53299B91E6A113200931068 /* NSObject+Porperty.m in Sources */,
+				A53299BE1E6AA9BA00931068 /* NSDictionary+Property.m in Sources */,
 				A541DC1B1E68167B0018E41C /* Human.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
