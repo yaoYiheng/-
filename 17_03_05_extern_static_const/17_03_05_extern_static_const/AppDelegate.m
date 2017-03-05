@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+extern NSString *name;
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSLog(@"%@", name);
     return YES;
 }
 
