@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class User;
 @interface statusItem : NSObject
 //使用为字典添加的分类, 自动生成这些属性.
 //@property (nonatomic, strong) NSString *source;
@@ -26,7 +27,7 @@
 
 @property (nonatomic, assign) NSInteger comments_count;
 
-@property (nonatomic, strong) NSDictionary *user;
+@property (nonatomic, strong) User *user;
 
 + (instancetype)itemsWithDictionary:(NSDictionary *)dict;
 

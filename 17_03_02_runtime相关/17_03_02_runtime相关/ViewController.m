@@ -47,6 +47,8 @@
 
 //    [self addMethodDynamically];
 
+//    [self dictToItemsPorpertyCode];
+
     [self dictionaryToModel];
 
 }
@@ -143,7 +145,7 @@
 
     //调用字典转模型的方法
 
-    NSString *code =  [dict creatPorpertyCode];
+    NSString *code =  [dict[@"user"] creatPorpertyCode];
 
     NSLog(@"%@",code);
 
@@ -156,6 +158,8 @@
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:dictPath];
 
     statusItem *items = [statusItem modelWithDictionary:dict];
+
+    NSLog(@"%@", items.user);
 
 
 }

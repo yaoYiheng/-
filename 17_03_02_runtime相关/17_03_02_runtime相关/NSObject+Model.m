@@ -42,11 +42,32 @@
         //将返回的C语言的字符串的成员变量转换成NSString对象
         NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
 
+        //获取成员变量的Type
+        NSString *ivarType = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
+
+        ivarType = [ivarType stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        ivarType = [ivarType stringByReplacingOccurrencesOfString:@"@" withString:@""];
+
+
+
         //将带下划线的成员变量转换成与字典中一致的key
         NSString *key = [ivarName substringFromIndex:1];
 
         //通过key来获得对应的值.
         id value = dict[key];
+
+
+        if ([value isKindOfClass:[NSDictionary class]] && ![ivarType hasPrefix:@"NS"]) {
+            //当这个成员变量的类型为字典类型, 且不是系统类时, 才需要进行字典转模型的操作.
+
+            //获取ivarType的类型
+            Class ivarClass = NSClassFromString(ivarType);
+
+
+
+            value = [ivarClass modelWithDictionary:value];
+        }
+
 
         //如果有值, 调用setValue:(nullable id)value forKey:(NSString *)key为模型赋值.
         if (value) {

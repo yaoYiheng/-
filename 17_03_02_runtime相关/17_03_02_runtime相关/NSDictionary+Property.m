@@ -24,7 +24,7 @@
         if ([obj isKindOfClass:[NSString class]]) {
             [string appendFormat:@"\n@property (nonatomic, strong) NSString *%@;\n",key];
         }
-        else if ([key isKindOfClass:NSClassFromString(@"__NSCFBoolean")])
+        else if ([obj isKindOfClass:NSClassFromString(@"__NSCFBoolean")])
         {
             [string appendFormat:@"\n@property (nonatomic, assign) BOOL %@;\n", key];
 
