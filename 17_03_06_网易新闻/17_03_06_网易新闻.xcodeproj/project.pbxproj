@@ -13,6 +13,12 @@
 		A55019B51E6D6D700096EEA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55019B31E6D6D700096EEA4 /* Main.storyboard */; };
 		A55019B71E6D6D700096EEA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55019B61E6D6D700096EEA4 /* Assets.xcassets */; };
 		A55019BA1E6D6D700096EEA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55019B81E6D6D700096EEA4 /* LaunchScreen.storyboard */; };
+		A55019C71E6DF8A60096EEA4 /* TopLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019C61E6DF8A60096EEA4 /* TopLineViewController.m */; };
+		A55019CA1E6DF8BB0096EEA4 /* HotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019C91E6DF8BB0096EEA4 /* HotViewController.m */; };
+		A55019CD1E6DF8C70096EEA4 /* SocietyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019CC1E6DF8C70096EEA4 /* SocietyViewController.m */; };
+		A55019D01E6DF8D00096EEA4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019CF1E6DF8D00096EEA4 /* VideoViewController.m */; };
+		A55019D31E6DF8DC0096EEA4 /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019D21E6DF8DC0096EEA4 /* ReaderViewController.m */; };
+		A55019D61E6DF8E90096EEA4 /* ScienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019D51E6DF8E90096EEA4 /* ScienceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,18 @@
 		A55019B61E6D6D700096EEA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A55019B91E6D6D700096EEA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A55019BB1E6D6D700096EEA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55019C51E6DF8A60096EEA4 /* TopLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLineViewController.h; sourceTree = "<group>"; };
+		A55019C61E6DF8A60096EEA4 /* TopLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLineViewController.m; sourceTree = "<group>"; };
+		A55019C81E6DF8BB0096EEA4 /* HotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotViewController.h; sourceTree = "<group>"; };
+		A55019C91E6DF8BB0096EEA4 /* HotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotViewController.m; sourceTree = "<group>"; };
+		A55019CB1E6DF8C70096EEA4 /* SocietyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocietyViewController.h; sourceTree = "<group>"; };
+		A55019CC1E6DF8C70096EEA4 /* SocietyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocietyViewController.m; sourceTree = "<group>"; };
+		A55019CE1E6DF8D00096EEA4 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		A55019CF1E6DF8D00096EEA4 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		A55019D11E6DF8DC0096EEA4 /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderViewController.h; sourceTree = "<group>"; };
+		A55019D21E6DF8DC0096EEA4 /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
+		A55019D41E6DF8E90096EEA4 /* ScienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScienceViewController.h; sourceTree = "<group>"; };
+		A55019D51E6DF8E90096EEA4 /* ScienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScienceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,7 @@
 			children = (
 				A55019AD1E6D6D700096EEA4 /* AppDelegate.h */,
 				A55019AE1E6D6D700096EEA4 /* AppDelegate.m */,
+				A55019C41E6DF8970096EEA4 /* 子控制器 */,
 				A55019B01E6D6D700096EEA4 /* ViewController.h */,
 				A55019B11E6D6D700096EEA4 /* ViewController.m */,
 				A55019B31E6D6D700096EEA4 /* Main.storyboard */,
@@ -77,6 +96,25 @@
 				A55019AB1E6D6D700096EEA4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A55019C41E6DF8970096EEA4 /* 子控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				A55019C51E6DF8A60096EEA4 /* TopLineViewController.h */,
+				A55019C61E6DF8A60096EEA4 /* TopLineViewController.m */,
+				A55019C81E6DF8BB0096EEA4 /* HotViewController.h */,
+				A55019C91E6DF8BB0096EEA4 /* HotViewController.m */,
+				A55019CB1E6DF8C70096EEA4 /* SocietyViewController.h */,
+				A55019CC1E6DF8C70096EEA4 /* SocietyViewController.m */,
+				A55019CE1E6DF8D00096EEA4 /* VideoViewController.h */,
+				A55019CF1E6DF8D00096EEA4 /* VideoViewController.m */,
+				A55019D11E6DF8DC0096EEA4 /* ReaderViewController.h */,
+				A55019D21E6DF8DC0096EEA4 /* ReaderViewController.m */,
+				A55019D41E6DF8E90096EEA4 /* ScienceViewController.h */,
+				A55019D51E6DF8E90096EEA4 /* ScienceViewController.m */,
+			);
+			path = "子控制器";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55019C71E6DF8A60096EEA4 /* TopLineViewController.m in Sources */,
 				A55019B21E6D6D700096EEA4 /* ViewController.m in Sources */,
+				A55019CA1E6DF8BB0096EEA4 /* HotViewController.m in Sources */,
+				A55019D31E6DF8DC0096EEA4 /* ReaderViewController.m in Sources */,
+				A55019D61E6DF8E90096EEA4 /* ScienceViewController.m in Sources */,
+				A55019CD1E6DF8C70096EEA4 /* SocietyViewController.m in Sources */,
+				A55019D01E6DF8D00096EEA4 /* VideoViewController.m in Sources */,
 				A55019AF1E6D6D700096EEA4 /* AppDelegate.m in Sources */,
 				A55019AC1E6D6D700096EEA4 /* main.m in Sources */,
 			);
