@@ -13,6 +13,15 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
+
+
+/**
+ 占位视图
+    UITabBarController有个专门存放子控制器view,
+ 占位视图思想:
+    1.不用去考虑子控制器的view尺寸
+    2.屏幕适配也不用管理
+ */
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
@@ -29,6 +38,9 @@
 
 }
 
+/**
+ 添加所有子控制器
+ */
 - (void)configureChildrenViewController{
 
     BlueViewController *blueVC = [BlueViewController new];
@@ -45,6 +57,9 @@
 
 }
 
+/**
+ 设置对应按钮内容, 按钮内容有子控制器决定
+ */
 - (void)setTitile{
     NSInteger count = self.buttonView.subviews.count;
     for (int i = 0; i < count; i++) {
@@ -58,9 +73,11 @@
 
     //从contentView中移除子控制器的view
     /*
-     makeObjectsPerformSelector: 调用该方法会变量数组中的每一个元素, 并执行所给出的方法
+     从contentView中遍历所有元素, 然后移除
      */
+    //makeObjectsPerformSelector调用该方法,会遍历数组中每一个元素, 并对每一个元素都执行提供的方法
     [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
 
     //添加对应的控制器的view到contentView中
     UIViewController *vc = self.childViewControllers[sender.tag];
