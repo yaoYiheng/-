@@ -120,12 +120,41 @@
 
 }
 #pragma mark -----选中按钮-----
+
+/**
+ 该方法设置按钮的选中状态, 以及居中显示
+ */
 - (void)selectButton:(UIButton *)button{
+
     [self.selectedButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
 
     self.selectedButton = button;
 
+    //设置标题居中显示
+    [self setupButtonInCenter:button];
+
+}
+#pragma mark -----设置标题居中显示-----
+- (void)setupButtonInCenter:(UIButton *)button{
+
+    //计算使被点击按钮居中显示的偏移量
+    //偏移量 = 被点击的按钮的x - 屏幕宽度的一半
+    CGFloat offsetX = button.center.x - ScreenW / 2;
+
+    //最大允许偏移量 = 总宽度 - 屏幕宽度.
+    CGFloat maxOffsetX = self.titleScrollView.contentSize.width - ScreenW;
+    NSLog(@"%f", offsetX);
+
+    //不需要头两个标题也居中显示, 也不需要最后两个标题居中显示
+    if (offsetX < 0) {
+        offsetX = 0;
+    }
+    if (offsetX > maxOffsetX) {
+        offsetX = maxOffsetX;
+    }
+
+    [self.titleScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
 #pragma mark -----添加子控制器-----
 
