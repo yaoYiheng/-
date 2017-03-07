@@ -17,13 +17,15 @@
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface ViewController ()
+@interface ViewController ()<UIScrollViewDelegate>
 /** <#comments#>*/
 @property (nonatomic, weak)  UIScrollView *titleScrollView;
 
 @property (nonatomic, weak)  UIScrollView *contentScrollView;
 /** 记录选中的按钮*/
 @property (nonatomic, weak) UIButton *selectedButton;
+/** 按钮数组*/
+@property (nonatomic, strong) NSMutableArray *buttonArray;
 @end
 
 @implementation ViewController
@@ -45,11 +47,44 @@
     //添加按钮
     [self configureAllTitleButton];
 
+//    NSLog(@"%@", self.titleScrollView.subviews);
 
     // iOS7以后,导航控制器中scollView顶部会添加64的额外滚动区域
     self.automaticallyAdjustsScrollViewInsets = NO;
     //监听按钮点击
 
+
+}
+- (NSMutableArray *)buttonArray{
+    if (_buttonArray == nil) {
+        _buttonArray = [NSMutableArray array];
+    }
+    return _buttonArray;
+}
+#pragma mark -----UIScrollViewDelegate-----
+
+/**
+ 当结束滚动时调用
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    /*
+     思路: 根据当前的偏移量, 可以计算出对应的index, 也可以通过该index访问
+     按钮数组中的对应的元素.
+     */
+    //计算当前下标
+    NSInteger index = scrollView.contentOffset.x / ScreenW;
+
+    //通过数组拿到对应按钮
+    UIButton *titleButton = self.buttonArray[index];
+
+    //当滚动结束时, 需要完成的操作.
+
+    //1. 设置文字跟随滚动而变化
+    [self selectButton:titleButton];
+
+    //2. 添加对应子控制器view
+    [self configureChildViewControllerWithIndex:index];
 
 }
 #pragma mark -----按钮点击事件-----
@@ -73,6 +108,11 @@
 - (void)configureChildViewControllerWithIndex:(NSInteger)index{
 
     UIViewController *vc = self.childViewControllers[index];
+
+    //在这里进行判断, 如果该view已经被加载, 就不需要再次进行添加
+//    if(vc.viewIfLoaded) return; 该API适用与9.0以后的系统.
+    if(vc.view.superview) return;
+
     CGFloat viewX = index * ScreenW;
     vc.view.frame = CGRectMake(viewX, 0, ScreenW, ScreenH);
 
@@ -150,6 +190,8 @@
         //添加到scrollView
         [self.titleScrollView addSubview:titleButton];
 
+        //保存每一个按钮到数组
+        [self.buttonArray addObject:titleButton];
         //默认选中第一个按钮
         if (i == 0) {
             [self selectButton:titleButton];
@@ -161,7 +203,7 @@
 
     //设置内容滚动的范围
     self.contentScrollView.contentSize = CGSizeMake(count * ScreenW, 0);
-    self.contentScrollView.pagingEnabled = YES;
+
 
 
 }
@@ -183,11 +225,19 @@
     //根据NavigationBar来决定y
     CGFloat scrollViewY = CGRectGetMaxY(self.titleScrollView.frame);
     contentScrollView.frame = CGRectMake(0, scrollViewY, self.view.bounds.size.width, self.view.bounds.size.height - scrollViewY);
-    contentScrollView.backgroundColor = [UIColor orangeColor];
+    contentScrollView.backgroundColor = [UIColor blackColor ];
 
     [self.view addSubview:contentScrollView];
     _contentScrollView = contentScrollView;
 
+    //为contentScrollView设置相关属性
+
+    //增加分页, 取消弹簧以及指示栏
+    self.contentScrollView.pagingEnabled = YES;
+    self.contentScrollView.bounces = NO;
+    self.contentScrollView.showsHorizontalScrollIndicator = NO;
+
+    self.contentScrollView.delegate = self;
 }
 
 @end
