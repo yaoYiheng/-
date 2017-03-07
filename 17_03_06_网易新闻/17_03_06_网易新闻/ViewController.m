@@ -14,11 +14,16 @@
 #import "ReaderViewController.h"
 #import "ScienceViewController.h"
 
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
 @interface ViewController ()
 /** <#comments#>*/
 @property (nonatomic, weak)  UIScrollView *titleScrollView;
 
 @property (nonatomic, weak)  UIScrollView *contentScrollView;
+/** 记录选中的按钮*/
+@property (nonatomic, weak) UIButton *selectedButton;
 @end
 
 @implementation ViewController
@@ -41,6 +46,45 @@
     [self configureAllTitleButton];
 
 
+    // iOS7以后,导航控制器中scollView顶部会添加64的额外滚动区域
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    //监听按钮点击
+
+
+}
+#pragma mark -----按钮点击事件-----
+- (void)buttonOnClick:(UIButton *)button{
+    /*
+     需求:1. 点击时, 被点击的按钮文字变颜色, 点击别的时, 取消变色
+         2. 添加对应的子控制器的view
+         3. 移动到对应的显示区域
+     */
+    [self selectButton:button];
+
+    NSInteger index = button.tag;
+
+    [self configureChildViewControllerWithIndex:index];
+
+    self.contentScrollView.contentOffset = CGPointMake(index * ScreenW, 0);
+
+
+}
+#pragma mark -----通过绑定的tag添加对应的子控制器view-----
+- (void)configureChildViewControllerWithIndex:(NSInteger)index{
+
+    UIViewController *vc = self.childViewControllers[index];
+    CGFloat viewX = index * ScreenW;
+    vc.view.frame = CGRectMake(viewX, 0, ScreenW, ScreenH);
+
+    [self.contentScrollView addSubview:vc.view];
+
+}
+#pragma mark -----选中按钮-----
+- (void)selectButton:(UIButton *)button{
+    [self.selectedButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+
+    self.selectedButton = button;
 
 }
 #pragma mark -----添加子控制器-----
@@ -97,12 +141,28 @@
         //设置标题
         [titleButton setTitle:vc.title forState:UIControlStateNormal];
         [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+        //为按钮绑定tag
+        titleButton.tag = i;
+
+        //为按钮添加点击事件
+        [titleButton addTarget:self action:@selector(buttonOnClick:) forControlEvents:UIControlEventTouchUpInside];
         //添加到scrollView
         [self.titleScrollView addSubview:titleButton];
+
+        //默认选中第一个按钮
+        if (i == 0) {
+            [self selectButton:titleButton];
+        }
     }
 
     self.titleScrollView.contentSize = CGSizeMake(count * titleW, 0);
     self.titleScrollView.showsHorizontalScrollIndicator = NO;
+
+    //设置内容滚动的范围
+    self.contentScrollView.contentSize = CGSizeMake(count * ScreenW, 0);
+    self.contentScrollView.pagingEnabled = YES;
+
 
 }
 - (void)configureTitleScrollView{
