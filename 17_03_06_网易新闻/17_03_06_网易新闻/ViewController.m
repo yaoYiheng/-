@@ -87,6 +87,50 @@
     [self configureChildViewControllerWithIndex:index];
 
 }
+
+/**
+ 在滚动屏幕时, 对即将要显示以及本次选中的按钮做缩放效果
+ */
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    //为了实现这个效果, 需要确定:
+
+    //1. 如何获得缩放的按钮
+    //2. 如何计算缩放比例
+    //通过当前偏移量与屏幕宽的比获得当前页数, 在通过当前页数从数组中获取对应的按钮
+
+    NSInteger leftIndex = scrollView.contentOffset.x / ScreenW;
+    NSInteger rightIndex = leftIndex + 1;
+
+    NSInteger count = self.buttonArray.count;
+
+    //通过index获得按钮
+    UIButton *leftButton = self.buttonArray[leftIndex];
+    UIButton *rightButton;
+
+    //考虑下标越界的问题
+    if (rightIndex < count) {
+        rightButton = self.buttonArray[rightIndex];
+    }
+
+    //当前显示的按钮, 与即将要显示的按钮的比例是成反比的.
+    CGFloat rightScale = scrollView.contentOffset.x / ScreenW - leftIndex;
+
+    CGFloat leftScale = 1 - rightScale;
+
+    //根据比例设置按钮的缩放
+    //
+    leftButton.transform = CGAffineTransformMakeScale(leftScale * 0.5 + 1, leftScale * 0.5 + 1);
+    rightButton.transform = CGAffineTransformMakeScale(rightScale * 0.5 + 1, rightScale * 0.5 + 1);
+
+    //根据比例设置标题颜色
+    UIColor *leftColor = [UIColor colorWithDisplayP3Red:leftScale green:0 blue:0 alpha:1];
+
+    UIColor *rightColor = [UIColor colorWithDisplayP3Red:rightScale green:0 blue:0 alpha:1];
+
+    [leftButton setTitleColor:leftColor forState:UIControlStateNormal];
+    [rightButton setTitleColor:rightColor forState:UIControlStateNormal];
+}
 #pragma mark -----按钮点击事件-----
 - (void)buttonOnClick:(UIButton *)button{
     /*
@@ -126,9 +170,13 @@
  */
 - (void)selectButton:(UIButton *)button{
 
-    [self.selectedButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
 
+    self.selectedButton.transform = CGAffineTransformIdentity;
+
+    [self.selectedButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+
+    button.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.selectedButton = button;
 
     //设置标题居中显示
@@ -144,7 +192,6 @@
 
     //最大允许偏移量 = 总宽度 - 屏幕宽度.
     CGFloat maxOffsetX = self.titleScrollView.contentSize.width - ScreenW;
-    NSLog(@"%f", offsetX);
 
     //不需要头两个标题也居中显示, 也不需要最后两个标题居中显示
     if (offsetX < 0) {
@@ -209,7 +256,7 @@
         UIViewController *vc = self.childViewControllers[i];
         //设置标题
         [titleButton setTitle:vc.title forState:UIControlStateNormal];
-        [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
         //为按钮绑定tag
         titleButton.tag = i;
