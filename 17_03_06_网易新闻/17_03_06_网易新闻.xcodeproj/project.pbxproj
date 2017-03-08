@@ -19,6 +19,7 @@
 		A55019D01E6DF8D00096EEA4 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019CF1E6DF8D00096EEA4 /* VideoViewController.m */; };
 		A55019D31E6DF8DC0096EEA4 /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019D21E6DF8DC0096EEA4 /* ReaderViewController.m */; };
 		A55019D61E6DF8E90096EEA4 /* ScienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019D51E6DF8E90096EEA4 /* ScienceViewController.m */; };
+		A55019D91E701B8E0096EEA4 /* WYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55019D81E701B8E0096EEA4 /* WYViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		A55019D21E6DF8DC0096EEA4 /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
 		A55019D41E6DF8E90096EEA4 /* ScienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScienceViewController.h; sourceTree = "<group>"; };
 		A55019D51E6DF8E90096EEA4 /* ScienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScienceViewController.m; sourceTree = "<group>"; };
+		A55019D71E701B8E0096EEA4 /* WYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYViewController.h; sourceTree = "<group>"; };
+		A55019D81E701B8E0096EEA4 /* WYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				A55019C41E6DF8970096EEA4 /* 子控制器 */,
 				A55019B01E6D6D700096EEA4 /* ViewController.h */,
 				A55019B11E6D6D700096EEA4 /* ViewController.m */,
+				A55019D71E701B8E0096EEA4 /* WYViewController.h */,
+				A55019D81E701B8E0096EEA4 /* WYViewController.m */,
 				A55019B31E6D6D700096EEA4 /* Main.storyboard */,
 				A55019B61E6D6D700096EEA4 /* Assets.xcassets */,
 				A55019B81E6D6D700096EEA4 /* LaunchScreen.storyboard */,
@@ -192,6 +197,7 @@
 				A55019B21E6D6D700096EEA4 /* ViewController.m in Sources */,
 				A55019CA1E6DF8BB0096EEA4 /* HotViewController.m in Sources */,
 				A55019D31E6DF8DC0096EEA4 /* ReaderViewController.m in Sources */,
+				A55019D91E701B8E0096EEA4 /* WYViewController.m in Sources */,
 				A55019D61E6DF8E90096EEA4 /* ScienceViewController.m in Sources */,
 				A55019CD1E6DF8C70096EEA4 /* SocietyViewController.m in Sources */,
 				A55019D01E6DF8D00096EEA4 /* VideoViewController.m in Sources */,

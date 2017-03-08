@@ -7,12 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TopLineViewController.h"
-#import "HotViewController.h"
-#import "VideoViewController.h"
-#import "SocietyViewController.h"
-#import "ReaderViewController.h"
-#import "ScienceViewController.h"
+
 
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -26,9 +21,25 @@
 @property (nonatomic, weak) UIButton *selectedButton;
 /** 按钮数组*/
 @property (nonatomic, strong) NSMutableArray *buttonArray;
+
+/** 记录是否已添加过标题按钮*/
+@property (nonatomic, assign) BOOL initialized;
 @end
 
 @implementation ViewController
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    //在即将显示view时, 添加按钮
+    //但是该方法会调用多次, 所以添加一个属性来记录
+    if (self.initialized == NO) {
+        [self configureAllTitleButton];
+        self.initialized = YES;
+    }
+
+
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,10 +53,9 @@
     self.navigationItem.title = @"网易新闻";
 
     //添加标题按钮, 分析:有多少个子控制器, 就对应有多少个按钮, 先添加子控制器
-    [self configureChildrenViewController];
 
-    //添加按钮
-    [self configureAllTitleButton];
+
+
 
 //    NSLog(@"%@", self.titleScrollView.subviews);
 
@@ -205,38 +215,7 @@
 }
 #pragma mark -----添加子控制器-----
 
--(void)configureChildrenViewController{
-    //头条
-    TopLineViewController *top = [TopLineViewController new];
-    top.title = @"头条";
-    [self addChildViewController:top];
 
-    //热点
-    HotViewController *hot = [HotViewController new];
-    hot.title = @"热点";
-    [self addChildViewController:hot];
-
-    //视频
-    VideoViewController *video = [VideoViewController new];
-    video.title = @"视频";
-    [self addChildViewController:video];
-
-    //社会
-    SocietyViewController *soci = [SocietyViewController new];
-    soci.title = @"社会";
-    [self addChildViewController:soci];
-
-    //订阅
-    ReaderViewController *reader = [ReaderViewController new];
-    reader.title = @"订阅";
-    [self addChildViewController:reader];
-
-    //科技
-    ScienceViewController *sci = [ScienceViewController new];
-    sci.title = @"科技";
-    [self addChildViewController:sci];
-
-}
 #pragma mark -----添加子控制器按钮-----
 - (void)configureAllTitleButton{
 
