@@ -8,6 +8,17 @@
 
 #import "ViewController.h"
 
+@class ModalViewController;
+@protocol ModalViewControllerDelegate <NSObject>
+
+@optional
+- (void)modalViewController:(ModalViewController *)modalViewController sendingValue:(NSString *)value;
+
+@end
 @interface ModalViewController : ViewController
+
+/** 代理属性*/
+@property (nonatomic, weak)  id<ModalViewControllerDelegate> delegate;
+
 
 @end

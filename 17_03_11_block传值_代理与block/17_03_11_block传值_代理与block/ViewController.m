@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
+#import "ModalViewController.h"
+@interface ViewController ()<ModalViewControllerDelegate>
 
 @end
 
@@ -21,8 +21,16 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-}
 
+    //点击控制器后跳转到Modal控制器
+    ModalViewController *modalVC = [[ModalViewController alloc] init];
+    modalVC.view.backgroundColor = [UIColor orangeColor];
+    modalVC.delegate = self;
+
+    [self presentViewController:modalVC animated:YES completion:nil];
+}
+- (void)modalViewController:(ModalViewController *)modalViewController sendingValue:(NSString *)value{
+    NSLog(@"%@", value);
+}
 
 @end
