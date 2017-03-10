@@ -25,12 +25,17 @@
     //点击控制器后跳转到Modal控制器
     ModalViewController *modalVC = [[ModalViewController alloc] init];
     modalVC.view.backgroundColor = [UIColor orangeColor];
-    modalVC.delegate = self;
+//    modalVC.delegate = self;
+
+    //对myBlock进行定义
+    modalVC.myBlock = ^(NSString *value){
+        NSLog(@"%@", value);
+    };
 
     [self presentViewController:modalVC animated:YES completion:nil];
 }
-- (void)modalViewController:(ModalViewController *)modalViewController sendingValue:(NSString *)value{
-    NSLog(@"%@", value);
-}
+//- (void)modalViewController:(ModalViewController *)modalViewController sendingValue:(NSString *)value{
+//    NSLog(@"%@", value);
+//}
 
 @end

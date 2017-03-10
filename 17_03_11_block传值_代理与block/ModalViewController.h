@@ -20,5 +20,7 @@
 /** 代理属性*/
 @property (nonatomic, weak)  id<ModalViewControllerDelegate> delegate;
 
+/** <#comments#>*/
+@property (nonatomic, strong) void(^myBlock)(NSString * value);
 
 @end
