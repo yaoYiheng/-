@@ -11,6 +11,10 @@
 @interface CellItem : NSObject
 /** <#comments#>*/
 @property (nonatomic, strong) NSString *mission;
+
+/** 该block用来保存每个cell的会做的任务*/
+@property (nonatomic, strong) void(^missionBlock)();
+
 + (instancetype)itemWithString:(NSString *)mission;
 
 @end

@@ -32,15 +32,29 @@ typedef NSString *(^ReturnString)(NSString * , NSString *);
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //在创建并保存模型到数组的同时, 定义每个cell需要执行的代码块.
     CellItem *item1 = [CellItem itemWithString:@"打电话"];
+    item1.missionBlock = ^{
+        NSLog(@"执行打电话的代码块");
+    };
     CellItem *item2 = [CellItem itemWithString:@"发短信"];
+    item2.missionBlock = ^{
+        NSLog(@"执行发短信的代码块");
+    };
     CellItem *item3 = [CellItem itemWithString:@"发邮件"];
-
+    item3.missionBlock = nil;
     self.items = @[item1, item2, item3];
 
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CellItem *item = self.items[indexPath.row];
 
-    
-    
+    //注意: 在调用block前, 需要进行判断, 有值才执行, 否则EXC_BAD_ACCECSS
+//    item.missionBlock();
+    if (item.missionBlock) {
+        item.missionBlock();
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
