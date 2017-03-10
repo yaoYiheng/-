@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CellItem.h"
 
 
 /**
@@ -21,6 +22,9 @@ typedef NSString *(^ReturnString)(NSString * , NSString *);
 /** 自定义block*/
 @property (nonatomic, strong) ReturnString returnBlock;
 
+/** items数组*/
+@property (nonatomic, strong) NSArray *items;
+
 @end
 
 @implementation ViewController
@@ -28,6 +32,39 @@ typedef NSString *(^ReturnString)(NSString * , NSString *);
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    CellItem *item1 = [CellItem itemWithString:@"打电话"];
+    CellItem *item2 = [CellItem itemWithString:@"发短信"];
+    CellItem *item3 = [CellItem itemWithString:@"发邮件"];
+
+    self.items = @[item1, item2, item3];
+
+
+    
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    static NSString *ID = @"cell";
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+
+    CellItem *item = self.items[indexPath.row];
+    cell.textLabel.text = item.mission;
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return _items.count;
+}
+
+
+
+- (void)block1{
     //block的声明与定义: 返回值类型(^block变量名)(参数1, 参数2,...)
     NSString *(^returnString)(NSString * , NSString *) = ^(NSString *str1, NSString *str2){
         NSMutableString *newStr = [NSMutableString string];
@@ -56,17 +93,11 @@ typedef NSString *(^ReturnString)(NSString * , NSString *);
     //        <#statements#>
     //    };
 
-
 }
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
     NSLog(@"%@", self.returnBlock(@"zhangmm", @"chibaba"));
 
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
