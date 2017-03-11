@@ -18,9 +18,9 @@
 @interface ModalViewController : ViewController
 
 /** 代理属性*/
-@property (nonatomic, weak)  id<ModalViewControllerDelegate> delegate;
+//@property (nonatomic, weak)  id<ModalViewControllerDelegate> delegate;
 
-/** <#comments#>*/
-@property (nonatomic, strong) void(^myBlock)(NSString * value);
+///** <#comments#>*/
+//@property (nonatomic, strong) void(^myBlock)(NSString * value);
 
 @end

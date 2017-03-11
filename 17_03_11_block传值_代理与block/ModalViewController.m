@@ -27,9 +27,9 @@
 //    [self dismissViewControllerAnimated:YES completion:nil];
 
     //调用myBlock, 根据需要传入所需参数, 传递给别的类.
-    if (self.myBlock) {
-        self.myBlock(@"传入哈哈哈");
-    }
+//    if (self.myBlock) {
+//        self.myBlock(@"传入哈哈哈");
+//    }
 }
 
 @end
