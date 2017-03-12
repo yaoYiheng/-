@@ -13,6 +13,7 @@
 		A59A42081E753EE300AE5819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59A42061E753EE300AE5819 /* Main.storyboard */; };
 		A59A420A1E753EE300AE5819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59A42091E753EE300AE5819 /* Assets.xcassets */; };
 		A59A420D1E753EE300AE5819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59A420B1E753EE300AE5819 /* LaunchScreen.storyboard */; };
+		A59A42161E75406C00AE5819 /* CaculatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A59A42151E75406C00AE5819 /* CaculatorManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A59A42091E753EE300AE5819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A59A420C1E753EE300AE5819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59A420E1E753EE300AE5819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59A42141E75406C00AE5819 /* CaculatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorManager.h; sourceTree = "<group>"; };
+		A59A42151E75406C00AE5819 /* CaculatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				A59A42011E753EE300AE5819 /* AppDelegate.m */,
 				A59A42031E753EE300AE5819 /* ViewController.h */,
 				A59A42041E753EE300AE5819 /* ViewController.m */,
+				A59A42141E75406C00AE5819 /* CaculatorManager.h */,
+				A59A42151E75406C00AE5819 /* CaculatorManager.m */,
 				A59A42061E753EE300AE5819 /* Main.storyboard */,
 				A59A42091E753EE300AE5819 /* Assets.xcassets */,
 				A59A420B1E753EE300AE5819 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				A59A42051E753EE300AE5819 /* ViewController.m in Sources */,
 				A59A42021E753EE300AE5819 /* AppDelegate.m in Sources */,
+				A59A42161E75406C00AE5819 /* CaculatorManager.m in Sources */,
 				A59A41FF1E753EE300AE5819 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
