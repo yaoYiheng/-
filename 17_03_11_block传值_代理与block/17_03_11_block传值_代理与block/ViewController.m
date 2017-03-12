@@ -42,6 +42,12 @@
      ARC:管理block
      只要block引用外部局部变量,block放在堆里面
      block使用strong.最好不要使用copy
+ 
+ 
+
+      如果是局部变量,Block是值传递
+
+      如果是静态变量,全局变量,__block修饰的变量,block都是指针传递
  */
 
 - (void)MRCandARC{
