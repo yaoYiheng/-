@@ -23,6 +23,15 @@
  */
 
 @property (nonatomic, strong) CaculatorManager *mgr;
+
+/** <#comments#>*/
+@property (nonatomic, strong) NSArray *oldStrings;
+
+/** <#comments#>*/
+@property (nonatomic, strong) void(^devowelizer)(id, NSUInteger, BOOL *);
+
+/** <#comments#>*/
+@property (nonatomic, strong) NSMutableArray *neStrings;
 @end
 
 @implementation ViewController
@@ -30,6 +39,35 @@
 - (void)viewDidLoad{
 
     [super viewDidLoad];
+
+    self.oldStrings = @[@"Sauerkraut", @"Raygun", @"Big Nerd Ranch", @"Mississippi"];
+
+    NSMutableArray *newStrings = [NSMutableArray array];
+    self.neStrings = newStrings;
+
+    NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
+    //声明block变量
+//    void(^devowelizer)(id, NSUInteger, BOOL *);
+
+    self.devowelizer = ^(id string, NSUInteger i, BOOL *stop){
+
+        NSMutableString *newString = [NSMutableString stringWithString:string];
+
+        for (NSString *s in vowels) {
+            NSRange fullRange = NSMakeRange(0, [newString length]);
+            [newString replaceOccurrencesOfString:s
+                                       withString:@""
+                                          options:NSCaseInsensitiveSearch
+                                            range:fullRange];
+        }
+
+
+        [newStrings addObject:newString];
+    };
+
+}
+
+- (void)blockTest{
     CaculatorManager *mgr = [CaculatorManager new];
     [mgr returnAString:^NSString *(NSString *str1, NSString *str2) {
         str1 = @"张mm";
@@ -39,22 +77,22 @@
     }];
     self.mgr = mgr;
 
-
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+- (void)blockTest1{
     CaculatorManager *mgr = [CaculatorManager new];
 
 
 
     /*
      在这里相当于调用 caculate 该方法, 并把{}内的代码, 作为参数传递给caculatorBlock
-//     */
-//    [mgr caculate:^NSInteger(NSInteger result) {
-//        result += 12;
-//        result *= 2;
-//
-//        return result;
-//    }];
+     //     */
+    //    [mgr caculate:^NSInteger(NSInteger result) {
+    //        result += 12;
+    //        result *= 2;
+    //
+    //        return result;
+    //    }];
 
     [mgr caculate:^NSInteger(NSInteger result) {
         result +=100;
@@ -64,7 +102,31 @@
     NSLog(@"%ld", mgr.result);
 
     NSLog(@"%@",self.mgr.returnedString);
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
+
+    [self.oldStrings enumerateObjectsUsingBlock:self.devowelizer];
+
+
+    /*
+     NSMutableString *newString = [NSMutableString stringWithString:string];
+
+     for (NSString *s in vowels) {
+     NSRange fullRange = NSMakeRange(0, [newString length]);
+     [newString replaceOccurrencesOfString:s
+     withString:@""
+     options:NSCaseInsensitiveSearch
+     range:fullRange];
+     }
+     [newStrings addObject:newString];
+
+     */
+    [self.oldStrings enumerateObjectsUsingBlock:^(id string, NSUInteger i, BOOL *stop) {
+//        NSLog(@"----%@ --- %ld", obj, idx);
+    }];
+
+    NSLog(@"%@", self.neStrings);
 }
 
 @end
