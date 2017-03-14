@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PhotoCollectionViewCell.h"
 
 @interface ViewController ()<UICollectionViewDataSource>
 #define ScreenW [UIScreen mainScreen].bounds.size.width
@@ -23,9 +24,12 @@ static NSString * const ID = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
 
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
+    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+//    cell.backgroundColor = [UIColor orangeColor];
 
+    NSString *imageName = [NSString stringWithFormat:@"%ld", indexPath.row + 1];
+    UIImage *image = [UIImage imageNamed:imageName];
+    cell.image = image;
     return cell;
 
 }
@@ -34,21 +38,23 @@ static NSString * const ID = @"cell";
 
 
     UICollectionViewFlowLayout *viewLayout = [[UICollectionViewFlowLayout alloc] init];
-    viewLayout.itemSize = CGSizeMake(160, 160);
+    viewLayout.itemSize = CGSizeMake(180, 180);
     viewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     CGFloat margin = (ScreenW - 150) / 2;
     viewLayout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
     viewLayout.minimumLineSpacing = 70;
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, ScreenW, 200) collectionViewLayout:viewLayout];
 
-    collectionView.backgroundColor = [UIColor grayColor];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, ScreenW, 250) collectionViewLayout:viewLayout];
+
+//    collectionView.backgroundColor = [UIColor grayColor];
 
     collectionView.dataSource = self;
     [self.view addSubview:collectionView];
     collectionView.showsHorizontalScrollIndicator = NO;
 
 
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ID];
+    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PhotoCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
 }
 
 

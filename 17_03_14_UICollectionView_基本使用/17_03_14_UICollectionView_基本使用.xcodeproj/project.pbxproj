@@ -13,6 +13,8 @@
 		A59A422E1E772EEE00AE5819 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59A422C1E772EEE00AE5819 /* Main.storyboard */; };
 		A59A42301E772EEE00AE5819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59A422F1E772EEE00AE5819 /* Assets.xcassets */; };
 		A59A42331E772EEE00AE5819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59A42311E772EEE00AE5819 /* LaunchScreen.storyboard */; };
+		A59A423D1E7735AE00AE5819 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */; };
+		A59A423E1E7735AE00AE5819 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		A59A422F1E772EEE00AE5819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A59A42321E772EEE00AE5819 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59A42341E772EEE00AE5819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59A423A1E7735AE00AE5819 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,9 @@
 				A59A42271E772EEE00AE5819 /* AppDelegate.m */,
 				A59A42291E772EEE00AE5819 /* ViewController.h */,
 				A59A422A1E772EEE00AE5819 /* ViewController.m */,
+				A59A423A1E7735AE00AE5819 /* PhotoCollectionViewCell.h */,
+				A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */,
+				A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */,
 				A59A422C1E772EEE00AE5819 /* Main.storyboard */,
 				A59A422F1E772EEE00AE5819 /* Assets.xcassets */,
 				A59A42311E772EEE00AE5819 /* LaunchScreen.storyboard */,
@@ -138,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59A42331E772EEE00AE5819 /* LaunchScreen.storyboard in Resources */,
+				A59A423E1E7735AE00AE5819 /* PhotoCollectionViewCell.xib in Resources */,
 				A59A42301E772EEE00AE5819 /* Assets.xcassets in Resources */,
 				A59A422E1E772EEE00AE5819 /* Main.storyboard in Resources */,
 			);
@@ -151,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59A422B1E772EEE00AE5819 /* ViewController.m in Sources */,
+				A59A423D1E7735AE00AE5819 /* PhotoCollectionViewCell.m in Sources */,
 				A59A42281E772EEE00AE5819 /* AppDelegate.m in Sources */,
 				A59A42251E772EEE00AE5819 /* main.m in Sources */,
 			);
