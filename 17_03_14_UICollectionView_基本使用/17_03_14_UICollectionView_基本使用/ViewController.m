@@ -37,21 +37,46 @@ static NSString * const ID = @"cell";
     [super viewDidLoad];
 
 
-    UICollectionViewFlowLayout *viewLayout = [[UICollectionViewFlowLayout alloc] init];
-    viewLayout.itemSize = CGSizeMake(180, 180);
-    viewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    CGFloat margin = (ScreenW - 150) / 2;
-    viewLayout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
-    viewLayout.minimumLineSpacing = 70;
+//    UICollectionViewFlowLayout *viewLayout = [[UICollectionViewFlowLayout alloc] init];
+//    viewLayout.itemSize = CGSizeMake(180, 180);
+//    viewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    CGFloat margin = (ScreenW - 150) / 2;
+//    viewLayout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
+//    viewLayout.minimumLineSpacing = 70;
 
-    
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, ScreenW, 250) collectionViewLayout:viewLayout];
 
-//    collectionView.backgroundColor = [UIColor grayColor];
+    UICollectionViewFlowLayout *viewLayout = ({
+        UICollectionViewFlowLayout *viewLayout = [[UICollectionViewFlowLayout alloc] init];
+        viewLayout.itemSize = CGSizeMake(180, 180);
+        viewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        CGFloat margin = (ScreenW - 150) / 2;
+        viewLayout.sectionInset = UIEdgeInsetsMake(0, margin, 0, margin);
+        viewLayout.minimumLineSpacing = 70;
 
-    collectionView.dataSource = self;
-    [self.view addSubview:collectionView];
-    collectionView.showsHorizontalScrollIndicator = NO;
+        viewLayout;
+
+    });
+
+//    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, ScreenW, 250) collectionViewLayout:viewLayout];
+//
+////    collectionView.backgroundColor = [UIColor grayColor];
+//
+//    collectionView.dataSource = self;
+//    [self.view addSubview:collectionView];
+//    collectionView.showsHorizontalScrollIndicator = NO;
+
+    UICollectionView *collectionView = ({
+      UICollectionView *collectionView =   [[UICollectionView alloc] initWithFrame:CGRectMake(0, 200, ScreenW, 250) collectionViewLayout:viewLayout];
+
+        //    collectionView.backgroundColor = [UIColor grayColor];
+
+        collectionView.dataSource = self;
+        [self.view addSubview:collectionView];
+        collectionView.showsHorizontalScrollIndicator = NO;
+
+        collectionView;
+    });
+
 
 
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([PhotoCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:ID];
