@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PhotoCollectionViewCell.h"
+#import "FlowLayout.h"
 
 @interface ViewController ()<UICollectionViewDataSource>
 #define ScreenW [UIScreen mainScreen].bounds.size.width
@@ -24,6 +25,9 @@ static NSString * const ID = @"cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
 
+    /*
+        自定义cell, 加入图片.
+     */
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor orangeColor];
 
@@ -45,8 +49,12 @@ static NSString * const ID = @"cell";
 //    viewLayout.minimumLineSpacing = 70;
 
 
-    UICollectionViewFlowLayout *viewLayout = ({
-        UICollectionViewFlowLayout *viewLayout = [[UICollectionViewFlowLayout alloc] init];
+    /*
+        通过自定义流水布局, 实现cell的缩放.
+     */
+
+    FlowLayout *viewLayout = ({
+        FlowLayout *viewLayout = [[FlowLayout alloc] init];
         viewLayout.itemSize = CGSizeMake(180, 180);
         viewLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         CGFloat margin = (ScreenW - 150) / 2;

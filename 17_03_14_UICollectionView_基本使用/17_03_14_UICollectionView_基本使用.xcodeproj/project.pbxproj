@@ -15,6 +15,7 @@
 		A59A42331E772EEE00AE5819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59A42311E772EEE00AE5819 /* LaunchScreen.storyboard */; };
 		A59A423D1E7735AE00AE5819 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */; };
 		A59A423E1E7735AE00AE5819 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */; };
+		A59A42411E7940D000AE5819 /* FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A59A42401E7940D000AE5819 /* FlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		A59A423A1E7735AE00AE5819 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		A59A423F1E7940D000AE5819 /* FlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
+		A59A42401E7940D000AE5819 /* FlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				A59A42271E772EEE00AE5819 /* AppDelegate.m */,
 				A59A42291E772EEE00AE5819 /* ViewController.h */,
 				A59A422A1E772EEE00AE5819 /* ViewController.m */,
+				A59A423F1E7940D000AE5819 /* FlowLayout.h */,
+				A59A42401E7940D000AE5819 /* FlowLayout.m */,
 				A59A423A1E7735AE00AE5819 /* PhotoCollectionViewCell.h */,
 				A59A423B1E7735AE00AE5819 /* PhotoCollectionViewCell.m */,
 				A59A423C1E7735AE00AE5819 /* PhotoCollectionViewCell.xib */,
@@ -161,6 +166,7 @@
 			files = (
 				A59A422B1E772EEE00AE5819 /* ViewController.m in Sources */,
 				A59A423D1E7735AE00AE5819 /* PhotoCollectionViewCell.m in Sources */,
+				A59A42411E7940D000AE5819 /* FlowLayout.m in Sources */,
 				A59A42281E772EEE00AE5819 /* AppDelegate.m in Sources */,
 				A59A42251E772EEE00AE5819 /* main.m in Sources */,
 			);
