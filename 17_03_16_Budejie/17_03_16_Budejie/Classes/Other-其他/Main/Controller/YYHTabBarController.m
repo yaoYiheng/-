@@ -22,6 +22,25 @@
 
 @implementation YYHTabBarController
 
+/*
+ 完成基本框架搭建, 但出现以下问题:
+ 1.AppDelegate.m中的代码太过臃肿, 原因在与将UITabBarController的代码写到该文件下不利于维护, 不符合封装思想.
+ 解决: 自定义UITabBarController.
+
+ 2. 图片被渲染
+
+ 解决: 1.在Assets.xcassets 中全选所有图片文件, 更改Render as为 Original Image 或者
+      2.为UIImage类添加分类, 返回一张不带渲染的图片
+
+ 3. 字体颜色与大小需要修改 
+ 解决:拿到对应子类的tabBarItem, 调用
+ - (void)setTitleTextAttributes:(nullable NSDictionary<NSString *,id> *)attributes forState:(UIControlState)state 对字体颜色进行修改
+ 注意: 设置字体尺寸:只有设置正常状态下,才会有效果
+
+
+ 4. Publish的图片无法显示.
+
+ */
 #pragma mark -----控制器view生命周期方法-----
 - (void)viewDidLoad {
 
@@ -34,6 +53,24 @@
     [self configureAllBarItems];
     
     
+}
+
++ (void)load{
+
+    UITabBarItem *barItem = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
+
+    // 设置按钮选中标题的颜色:富文本:描述一个文字颜色,字体,阴影,空心,图文混排
+    // 创建一个描述文本属性的字典
+    NSMutableDictionary *attriDict = [NSMutableDictionary dictionary];
+    attriDict[NSForegroundColorAttributeName] = [UIColor blackColor];
+    [barItem setTitleTextAttributes:attriDict forState:UIControlStateSelected];
+
+
+    // 设置字体尺寸:只有设置正常状态下,才会有效果
+    NSMutableDictionary *attrNomal = [NSMutableDictionary dictionary];
+    attrNomal[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    [barItem setTitleTextAttributes:attrNomal forState:UIControlStateNormal];
+
 }
 
 #pragma mark -----配置所有子控制器-----
