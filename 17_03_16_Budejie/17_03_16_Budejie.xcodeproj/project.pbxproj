@@ -17,6 +17,7 @@
 		A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D581E7AA429005DC731 /* YYHFriendViewController.m */; };
 		A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D5B1E7AA43D005DC731 /* YYHMeTableViewController.m */; };
 		A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D5E1E7AA456005DC731 /* YYHPublishViewController.m */; };
+		A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		A5367D5B1E7AA43D005DC731 /* YYHMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHMeTableViewController.m; sourceTree = "<group>"; };
 		A5367D5D1E7AA456005DC731 /* YYHPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHPublishViewController.h; sourceTree = "<group>"; };
 		A5367D5E1E7AA456005DC731 /* YYHPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHPublishViewController.m; sourceTree = "<group>"; };
+		A5367D671E7AAB4C005DC731 /* YYHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabBarController.h; sourceTree = "<group>"; };
+		A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 		A5367D341E7AA055005DC731 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A5367D601E7AAAAF005DC731 /* Main */,
 				A5367D351E7AA055005DC731 /* Essence-精华 */,
 				A5367D391E7AA055005DC731 /* FriendTrends-关注 */,
 				A5367D3D1E7AA055005DC731 /* Me-我 */,
@@ -275,6 +279,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A5367D601E7AAAAF005DC731 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A5367D611E7AAAAF005DC731 /* Controller */,
+				A5367D621E7AAAAF005DC731 /* Model */,
+				A5367D631E7AAAAF005DC731 /* View */,
+			);
+			name = Main;
+			path = "Other-其他/Main";
+			sourceTree = "<group>";
+		};
+		A5367D611E7AAAAF005DC731 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A5367D671E7AAB4C005DC731 /* YYHTabBarController.h */,
+				A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A5367D621E7AAAAF005DC731 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5367D631E7AAAAF005DC731 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,6 +387,7 @@
 			files = (
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
+				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,
 				A5367D4D1E7AA055005DC731 /* AppDelegate.m in Sources */,
