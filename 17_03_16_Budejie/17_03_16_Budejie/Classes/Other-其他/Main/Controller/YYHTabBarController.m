@@ -14,11 +14,27 @@
 #import "YYHPublishViewController.h"
 #import "YYHMeTableViewController.h"
 
+//导入分类头文件, 返回没有渲染的图片
+#import "UIImage+WithoutRendering.h"
 @interface YYHTabBarController ()
 
 @end
 
 @implementation YYHTabBarController
+
+#pragma mark -----控制器view生命周期方法-----
+- (void)viewDidLoad {
+
+    [super viewDidLoad];
+
+    [self configureAllChildViewController];
+
+
+    //设置各个barItem的图标与文字
+    [self configureAllBarItems];
+    
+    
+}
 
 #pragma mark -----配置所有子控制器-----
 - (void)configureAllChildViewController{
@@ -54,45 +70,34 @@
     UINavigationController *essNav = self.childViewControllers[0];
     essNav.tabBarItem.title = @"精华";
     essNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    essNav.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
+    essNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_essence_click_icon"];
 
     // 新帖
     UINavigationController *newNav = self.childViewControllers[1];
     newNav.tabBarItem.title = @"新帖";
     newNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
-    newNav.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_new_click_icon"];
+    newNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_new_click_icon"];
 
     // 发布
     UINavigationController *publicVC = self.childViewControllers[2];
     publicVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
-    publicVC.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_publish_click_icon"];
+    publicVC.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_publish_click_icon"];
 
     // 关注
     UINavigationController *friendNav = self.childViewControllers[3];
     friendNav.tabBarItem.title = @"关注";
     friendNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    friendNav.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
+    friendNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_friendTrends_click_icon"];
 
     // 4.我
     UINavigationController *meNav = self.childViewControllers[4];
     meNav.tabBarItem.title = @"我";
     meNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    meNav.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
+    meNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_me_click_icon"];
     
     
     
 
 }
-- (void)viewDidLoad {
 
-    [super viewDidLoad];
-
-    [self configureAllChildViewController];
-
-
-    //设置各个barItem的图标与文字
-    [self configureAllBarItems];
-
-
-}
 @end

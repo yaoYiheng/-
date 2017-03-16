@@ -18,6 +18,7 @@
 		A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D5B1E7AA43D005DC731 /* YYHMeTableViewController.m */; };
 		A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D5E1E7AA456005DC731 /* YYHPublishViewController.m */; };
 		A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */; };
+		A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		A5367D5E1E7AA456005DC731 /* YYHPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHPublishViewController.m; sourceTree = "<group>"; };
 		A5367D671E7AAB4C005DC731 /* YYHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabBarController.h; sourceTree = "<group>"; };
 		A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBarController.m; sourceTree = "<group>"; };
+		A5367D6B1E7B2351005DC731 /* UIImage+WithoutRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithoutRendering.h"; sourceTree = "<group>"; };
+		A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +285,7 @@
 		A5367D601E7AAAAF005DC731 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A5367D6A1E7B2351005DC731 /* Categories */,
 				A5367D611E7AAAAF005DC731 /* Controller */,
 				A5367D621E7AAAAF005DC731 /* Model */,
 				A5367D631E7AAAAF005DC731 /* View */,
@@ -311,6 +315,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A5367D6A1E7B2351005DC731 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A5367D6B1E7B2351005DC731 /* UIImage+WithoutRendering.h */,
+				A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
+				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
