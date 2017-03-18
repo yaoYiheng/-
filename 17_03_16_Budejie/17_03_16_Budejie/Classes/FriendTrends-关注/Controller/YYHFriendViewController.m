@@ -17,8 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] hightligtedImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] Target:self action:@selector(test)];
+
+    self.navigationItem.title = @"我的关注";
 }
 
+- (void)test{
+    NSLog(@"关注");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -21,6 +21,7 @@
 		A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */; };
 		A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */; };
 		A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */; };
+		A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYHFrame.m"; sourceTree = "<group>"; };
 		A5367D791E7D34A3005DC731 /* YYHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabBar.h; sourceTree = "<group>"; };
 		A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBar.m; sourceTree = "<group>"; };
+		A5367D7C1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+YYHBarButton.h"; path = "17_03_16_Budejie/Classes/Other-其他/Categories/UIBarButtonItem+YYHBarButton.h"; sourceTree = SOURCE_ROOT; };
+		A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+YYHBarButton.m"; path = "17_03_16_Budejie/Classes/Other-其他/Categories/UIBarButtonItem+YYHBarButton.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +337,8 @@
 				A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */,
 				A5367D701E7D2CD2005DC731 /* UIView+YYHFrame.h */,
 				A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */,
+				A5367D7C1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.h */,
+				A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */,
 			);
 			name = Categories;
 			path = Main/Categories;
@@ -416,6 +421,7 @@
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
+				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,

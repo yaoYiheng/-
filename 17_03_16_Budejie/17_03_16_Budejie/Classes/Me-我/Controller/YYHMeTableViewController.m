@@ -16,14 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UIBarButtonItem *nightButton = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"mine-moon-icon"] selectedImage:[UIImage imageNamed:@"mine-moon-icon-click"] Target:self action:@selector(nightModel:)];
+
+    UIBarButtonItem *settingButton = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"mine-setting-icon"] hightligtedImage:[UIImage imageNamed:@"mine-setting-icon-click"] Target:self action:@selector(setting)];
+    self.navigationItem.rightBarButtonItems = @[settingButton, nightButton];
+
+    self.navigationItem.title = @"我的";
 }
 
+- (void)nightModel:(UIButton *)button{
+
+    button.selected =!button.isSelected;
+}
+- (void)setting{
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

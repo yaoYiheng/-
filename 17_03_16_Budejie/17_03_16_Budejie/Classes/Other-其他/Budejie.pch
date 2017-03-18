@@ -25,3 +25,19 @@
 #import "UIImage+WithoutRendering.h"
 //快速访问x, y, width, height.
 #import "UIView+YYHFrame.h"
+//快速创建UIBarButtonItem
+#import "UIBarButtonItem+YYHBarButton.h"
+
+#ifdef DEBUG
+
+#define YYHLog(...) NSLog(__VA__ARGS__)
+
+#else
+
+#define YYHLog(...)
+
+#endif
+
+
+
+
