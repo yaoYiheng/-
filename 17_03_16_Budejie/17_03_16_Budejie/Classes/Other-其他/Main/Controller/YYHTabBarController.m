@@ -55,7 +55,6 @@
 #pragma mark -----控制器view生命周期方法-----
 
 + (void)load{
-
     UITabBarItem *barItem = [UITabBarItem appearanceWhenContainedInInstancesOfClasses:@[self]];
 
     // 设置按钮选中标题的颜色:富文本:描述一个文字颜色,字体,阴影,空心,图文混排
@@ -76,13 +75,13 @@
     [super viewDidLoad];
 
     [self configureAllChildViewController];
-
+    
 
     //设置各个barItem的图标与文字
     [self configureAllBarItems];
 
-    
 
+    
     
 }
 

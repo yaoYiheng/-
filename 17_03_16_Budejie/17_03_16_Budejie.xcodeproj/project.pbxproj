@@ -44,6 +44,7 @@
 		A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBarController.m; sourceTree = "<group>"; };
 		A5367D6B1E7B2351005DC731 /* UIImage+WithoutRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithoutRendering.h"; sourceTree = "<group>"; };
 		A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithoutRendering.m"; sourceTree = "<group>"; };
+		A5367D6F1E7D2A35005DC731 /* Budejie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Budejie.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +247,7 @@
 				A5367D461E7AA055005DC731 /* AppDelegate.h */,
 				A5367D471E7AA055005DC731 /* AppDelegate.m */,
 				A5367D481E7AA055005DC731 /* main.m */,
+				A5367D6F1E7D2A35005DC731 /* Budejie.pch */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -526,6 +528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "17_03_16_Budejie/Classes/Other-其他/Budejie.pch";
 				INFOPLIST_FILE = 17_03_16_Budejie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-03-16-Budejie";
@@ -538,6 +542,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "17_03_16_Budejie/Classes/Other-其他/Budejie.pch";
 				INFOPLIST_FILE = 17_03_16_Budejie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-03-16-Budejie";
