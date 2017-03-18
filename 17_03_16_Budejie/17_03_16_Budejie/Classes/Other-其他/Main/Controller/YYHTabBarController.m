@@ -14,8 +14,8 @@
 #import "YYHPublishViewController.h"
 #import "YYHMeTableViewController.h"
 
-//导入分类头文件, 返回没有渲染的图片
-#import "UIImage+WithoutRendering.h"
+#import "YYHTabBar.h"
+
 @interface YYHTabBarController ()
 
 @end
@@ -47,7 +47,8 @@
     最终解决方案: 
             自定义tabBarItem, 调整添加在tabBarViewController里的子控件对应的tabBarButton的位置, 为发布按钮留出中间的位置, 将发布按钮添加到自定义的tabBarItem上.
             
-            问题:tabBarViewController里的子控件对应的tabBarButton什么时候添加到tabBarItem上?
+            问题:tabBarViewController里的子控件对应的tabBarButton(UITabBarItem)什么时候添加到tabBar上?
+            答: 当viewWillAppear:(BOOL)animated调用时, 会添加tabBarButton(UITabBarItem)
 
 
 
@@ -81,16 +82,33 @@
     [self configureAllBarItems];
 
 
-    
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    //替换系统的tabBarItem
+    [self configureCustomedTabBarItem];
 
 
 }
 
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//
+//
+//    NSLog(@"%@", self.tabBar.items);
+//
+//}
+
+#pragma mark -----添加自定义的tabBarItem-----
+- (void)configureCustomedTabBarItem{
+
+    //tabBar就是底部装载按钮的那个横条, tabBar中显示的按钮就是UITabBarItem
+    YYHTabBar *tabBar = [[YYHTabBar alloc] init];
+    /*
+        使用KVC替换掉系统的tabBar, 为自定义的YYHTabBar
+     无法通过set方法进行修改, 因为该属性为readonly, 所以使用KVC对其进行修改.
+     */
+//    self.tabBar = tabBar;
+    [self setValue:tabBar forKey:@"tabBar"];
+
+}
 #pragma mark -----配置所有子控制器-----
 - (void)configureAllChildViewController{
 
@@ -103,10 +121,10 @@
     UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:newVC];
     [self addChildViewController:newNav];
     //发布 ->不需要加入导航控制器
-    YYHPublishViewController *publicVC = [[YYHPublishViewController alloc] init];
+//    YYHPublishViewController *publicVC = [[YYHPublishViewController alloc] init];
 //    publicVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
 
-    [self addChildViewController:publicVC];
+//    [self addChildViewController:publicVC];
     //关注
     YYHFriendViewController *friendVC = [[YYHFriendViewController alloc] init];
     UINavigationController *friendNav = [[UINavigationController alloc] initWithRootViewController:friendVC];
@@ -135,18 +153,18 @@
     newNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_new_click_icon"];
 
     // 发布
-    UINavigationController *publicVC = self.childViewControllers[2];
-    publicVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
-    publicVC.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_publish_click_icon"];
+//    UINavigationController *publicVC = self.childViewControllers[2];
+//    publicVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_publish_icon"];
+//    publicVC.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_publish_click_icon"];
 
     // 关注
-    UINavigationController *friendNav = self.childViewControllers[3];
+    UINavigationController *friendNav = self.childViewControllers[2];
     friendNav.tabBarItem.title = @"关注";
     friendNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
     friendNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_friendTrends_click_icon"];
 
     // 4.我
-    UINavigationController *meNav = self.childViewControllers[4];
+    UINavigationController *meNav = self.childViewControllers[3];
     meNav.tabBarItem.title = @"我";
     meNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
     meNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_me_click_icon"];

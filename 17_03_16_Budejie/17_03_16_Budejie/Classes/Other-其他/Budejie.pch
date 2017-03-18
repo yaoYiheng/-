@@ -21,5 +21,7 @@
  */
 #define ABC @"asd"
 
-
+//导入分类头文件, 返回没有渲染的图片
+#import "UIImage+WithoutRendering.h"
+//快速访问x, y, width, height.
 #import "UIView+YYHFrame.h"

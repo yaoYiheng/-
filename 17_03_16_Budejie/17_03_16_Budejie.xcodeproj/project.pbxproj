@@ -20,6 +20,7 @@
 		A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */; };
 		A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */; };
 		A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */; };
+		A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		A5367D6F1E7D2A35005DC731 /* Budejie.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Budejie.pch; sourceTree = "<group>"; };
 		A5367D701E7D2CD2005DC731 /* UIView+YYHFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYHFrame.h"; sourceTree = "<group>"; };
 		A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYHFrame.m"; sourceTree = "<group>"; };
+		A5367D791E7D34A3005DC731 /* YYHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTabBar.h; sourceTree = "<group>"; };
+		A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +321,8 @@
 		A5367D631E7AAAAF005DC731 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A5367D791E7D34A3005DC731 /* YYHTabBar.h */,
+				A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
+				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
