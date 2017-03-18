@@ -242,6 +242,7 @@
 		A5367D451E7AA055005DC731 /* Other-其他 */ = {
 			isa = PBXGroup;
 			children = (
+				A5367D6A1E7B2351005DC731 /* Categories */,
 				A5367D461E7AA055005DC731 /* AppDelegate.h */,
 				A5367D471E7AA055005DC731 /* AppDelegate.m */,
 				A5367D481E7AA055005DC731 /* main.m */,
@@ -285,7 +286,6 @@
 		A5367D601E7AAAAF005DC731 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A5367D6A1E7B2351005DC731 /* Categories */,
 				A5367D611E7AAAAF005DC731 /* Controller */,
 				A5367D621E7AAAAF005DC731 /* Model */,
 				A5367D631E7AAAAF005DC731 /* View */,
@@ -323,7 +323,8 @@
 				A5367D6B1E7B2351005DC731 /* UIImage+WithoutRendering.h */,
 				A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */,
 			);
-			path = Categories;
+			name = Categories;
+			path = Main/Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

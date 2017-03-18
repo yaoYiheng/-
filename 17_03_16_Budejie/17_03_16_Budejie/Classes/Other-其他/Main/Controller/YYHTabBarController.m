@@ -38,22 +38,21 @@
  注意: 设置字体尺寸:只有设置正常状态下,才会有效果
 
 
- 4. Publish的图片无法显示.
+ 4. Publish的图片无法显示, 且位置偏上.
+    解决:
+        方案一: 传入一张通过调整没进过渲染的图片, 且通过修改tabBarItem的imageInsets内边距调整,但是并没有达到源程序的效果.所以不能通过该方法.
+ 
+    分析: 源程序点击发布按钮后, 以modal效果弹出自控制的view, 当modal效果取消后, 按钮会成为普通状态, 说明源程序发布按钮并不是系统的tabBarButton(不带有高亮状态),  tabBarButton对应不同的子控制器, 既然发布按钮不是tabBarButton, 发布模块也就没有必要成为tabBarViewController的子控制器.
+
+    最终解决方案: 
+            自定义tabBarItem, 调整添加在tabBarViewController里的子控件对应的tabBarButton的位置, 为发布按钮留出中间的位置, 将发布按钮添加到自定义的tabBarItem上.
+            
+            问题:tabBarViewController里的子控件对应的tabBarButton什么时候添加到tabBarItem上?
+
+
 
  */
 #pragma mark -----控制器view生命周期方法-----
-- (void)viewDidLoad {
-
-    [super viewDidLoad];
-
-    [self configureAllChildViewController];
-
-
-    //设置各个barItem的图标与文字
-    [self configureAllBarItems];
-    
-    
-}
 
 + (void)load{
 
@@ -70,6 +69,26 @@
     NSMutableDictionary *attrNomal = [NSMutableDictionary dictionary];
     attrNomal[NSFontAttributeName] = [UIFont systemFontOfSize:14];
     [barItem setTitleTextAttributes:attrNomal forState:UIControlStateNormal];
+    
+}
+- (void)viewDidLoad {
+
+    [super viewDidLoad];
+
+    [self configureAllChildViewController];
+
+
+    //设置各个barItem的图标与文字
+    [self configureAllBarItems];
+
+    
+
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
 
 }
 
@@ -86,6 +105,7 @@
     [self addChildViewController:newNav];
     //发布 ->不需要加入导航控制器
     YYHPublishViewController *publicVC = [[YYHPublishViewController alloc] init];
+//    publicVC.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
 
     [self addChildViewController:publicVC];
     //关注
