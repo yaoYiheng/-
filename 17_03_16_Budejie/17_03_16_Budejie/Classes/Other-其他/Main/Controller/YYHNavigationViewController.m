@@ -29,7 +29,27 @@
 //    self.interactivePopGestureRecognizer.delegate = nil;
 
     //设置该手势代理为当前控制器, 监听手势
-    self.interactivePopGestureRecognizer.delegate = self;
+    //当为子控制器view添加滑动手势时, 不能设置该手势代理为当前控制器, 否则报错.
+//    self.interactivePopGestureRecognizer.delegate = self;
+
+    //为非根控制器添加全屏滑动手势
+
+    //创建滑动手势
+    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+
+    //添加手势到view
+    [self.view addGestureRecognizer:panGes];
+
+    //并不是所有界面都需要用到该手势, 设置手势代理监听
+    panGes.delegate = self;
+
+
+    //禁止之前的代理
+    self.interactivePopGestureRecognizer.enabled = NO;
+//    NSLog(@"%@", panGes);
+
+
+
 }
 
 #pragma mark -----UIGestureRecognizerDelegate方法-----
