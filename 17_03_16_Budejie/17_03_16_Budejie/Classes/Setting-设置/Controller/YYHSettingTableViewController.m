@@ -16,14 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    self.title = @"设置";
+
+//    UIButton *barButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [barButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
+//    [barButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+//    [barButton setTitle:@"返回" forState:UIControlStateNormal];
+//    [barButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [barButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+//    barButton.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 20);
+//    [barButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//    [barButton sizeToFit];
+//
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:barButton];
+
+    //在子控制中设置对应子控制器的左边返回按钮(leftBarButtonItem)
+    //分析: 参考源程序, 很多界面都有用到返回按钮, 可以考虑将该按钮进行统一设置.-->到自定义的导航控制器中进行设置.
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem backBarButtonWithImage:[UIImage imageNamed:@"navigationButtonReturn"]  hightligtedImage:[UIImage imageNamed:@"navigationButtonReturnClick"] Target:self action:@selector(back) title:@"返回"];
 }
 
+/**
+ 点击调回到上一级界面.
+ */
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

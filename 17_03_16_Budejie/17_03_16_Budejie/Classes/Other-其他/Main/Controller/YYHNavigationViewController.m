@@ -25,6 +25,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+
+
+}
+
+/**
+ 点击调回到上一级界面.
+ */
+- (void)back{
+    [self popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +41,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/**
+ 什么时候调用:当其他子控制器的压入到NavigationViewController时调用
+ 作用: 将子控制器压栈, 并显示自控制的view到界面.
+ */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+
+    /*
+      // An array of children view controllers. This array does not include any presented view controllers.
+     NavigationViewController的childViewControllers属性, 为子控制器的数组, 并不包括以显示的视图控制器, 所以当NavigationViewController中的子控制器大于0时, 才需要显示返回按钮.
+     */
+    if (self.childViewControllers.count > 0) {
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backBarButtonWithImage:[UIImage imageNamed:@"navigationButtonReturn"]  hightligtedImage:[UIImage imageNamed:@"navigationButtonReturnClick"] Target:self action:@selector(back) title:@"返回"];
+    }
 
     [super pushViewController:viewController animated:animated];
 }

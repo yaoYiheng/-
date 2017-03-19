@@ -18,4 +18,5 @@
 
 +(instancetype)barButtonWithImage:(UIImage *)image hightligtedImage:(UIImage *) highlightedImage Target:(id)target action:(SEL)action;
 
++(instancetype)backBarButtonWithImage:(UIImage *)image hightligtedImage:(UIImage *) highlightedImage Target:(id)target action:(SEL)action title:(NSString *)title;
 @end
