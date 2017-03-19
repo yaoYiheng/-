@@ -1,46 +1,29 @@
 //
-//  YYHMeTableViewController.m
+//  YYHSettingTableViewController.m
 //  17_03_16_Budejie
 //
-//  Created by 姚懿恒 on 2017/3/16.
+//  Created by 姚懿恒 on 2017/3/19.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
 
-#import "YYHMeTableViewController.h"
 #import "YYHSettingTableViewController.h"
 
-@interface YYHMeTableViewController ()
+@interface YYHSettingTableViewController ()
 
 @end
 
-@implementation YYHMeTableViewController
+@implementation YYHSettingTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    UIBarButtonItem *nightButton = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"mine-moon-icon"] selectedImage:[UIImage imageNamed:@"mine-moon-icon-click"] Target:self action:@selector(nightModel:)];
-
-    UIBarButtonItem *settingButton = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"mine-setting-icon"] hightligtedImage:[UIImage imageNamed:@"mine-setting-icon-click"] Target:self action:@selector(setting)];
-    self.navigationItem.rightBarButtonItems = @[settingButton, nightButton];
-
-    self.navigationItem.title = @"我的";
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)nightModel:(UIButton *)button{
-
-    button.selected =!button.isSelected;
-}
-
-/**
- 点击后跳转到setting的控制器
- */
-- (void)setting{
-
-    YYHSettingTableViewController *settingVC = [[YYHSettingTableViewController alloc] init];
-    //只有在跳转之前设置该属性, 才能在跳转后实现隐藏底部tabBar的效果.
-    settingVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:settingVC animated:YES];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

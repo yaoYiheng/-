@@ -13,7 +13,7 @@
 #import "YYHNewViewController.h"
 #import "YYHPublishViewController.h"
 #import "YYHMeTableViewController.h"
-
+#import "YYHNavigationViewController.h"
 #import "YYHTabBar.h"
 
 @interface YYHTabBarController ()
@@ -114,11 +114,11 @@
 
     //精华
     YYHEssenceViewController *essVC = [[YYHEssenceViewController alloc] init];
-    UINavigationController *essNav = [[UINavigationController alloc] initWithRootViewController:essVC];
+    YYHNavigationViewController *essNav = [[YYHNavigationViewController alloc] initWithRootViewController:essVC];
     [self addChildViewController:essNav];
     //新帖
     YYHNewViewController *newVC = [[YYHNewViewController alloc] init];
-    UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:newVC];
+    YYHNavigationViewController *newNav = [[YYHNavigationViewController alloc] initWithRootViewController:newVC];
     [self addChildViewController:newNav];
     //发布 ->不需要加入导航控制器
 //    YYHPublishViewController *publicVC = [[YYHPublishViewController alloc] init];
@@ -127,11 +127,11 @@
 //    [self addChildViewController:publicVC];
     //关注
     YYHFriendViewController *friendVC = [[YYHFriendViewController alloc] init];
-    UINavigationController *friendNav = [[UINavigationController alloc] initWithRootViewController:friendVC];
+    YYHNavigationViewController *friendNav = [[YYHNavigationViewController alloc] initWithRootViewController:friendVC];
     [self addChildViewController:friendNav];
     //我
     YYHMeTableViewController *meVC = [[YYHMeTableViewController alloc] init];
-    UINavigationController *meNav = [[UINavigationController alloc] initWithRootViewController:meVC];
+    YYHNavigationViewController *meNav = [[YYHNavigationViewController alloc] initWithRootViewController:meVC];
     [self addChildViewController:meNav];
 
     
@@ -141,13 +141,13 @@
 #pragma mark -----设置所有按钮的图片与标题-----
 - (void)configureAllBarItems{
 
-    UINavigationController *essNav = self.childViewControllers[0];
+    YYHNavigationViewController *essNav = self.childViewControllers[0];
     essNav.tabBarItem.title = @"精华";
     essNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
     essNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_essence_click_icon"];
 
     // 新帖
-    UINavigationController *newNav = self.childViewControllers[1];
+    YYHNavigationViewController *newNav = self.childViewControllers[1];
     newNav.tabBarItem.title = @"新帖";
     newNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
     newNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_new_click_icon"];
@@ -158,13 +158,13 @@
 //    publicVC.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_publish_click_icon"];
 
     // 关注
-    UINavigationController *friendNav = self.childViewControllers[2];
+    YYHNavigationViewController *friendNav = self.childViewControllers[2];
     friendNav.tabBarItem.title = @"关注";
     friendNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
     friendNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_friendTrends_click_icon"];
 
     // 4.我
-    UINavigationController *meNav = self.childViewControllers[3];
+    YYHNavigationViewController *meNav = self.childViewControllers[3];
     meNav.tabBarItem.title = @"我";
     meNav.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
     meNav.tabBarItem.selectedImage = [UIImage imageWithoutRendering:@"tabBar_me_click_icon"];

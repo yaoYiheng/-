@@ -22,6 +22,8 @@
 		A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */; };
 		A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */; };
 		A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */; };
+		A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D831E7E892B005DC731 /* YYHNavigationViewController.m */; };
+		A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D8A1E7E9073005DC731 /* YYHSettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,10 @@
 		A5367D7A1E7D34A3005DC731 /* YYHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTabBar.m; sourceTree = "<group>"; };
 		A5367D7C1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+YYHBarButton.h"; path = "17_03_16_Budejie/Classes/Other-其他/Categories/UIBarButtonItem+YYHBarButton.h"; sourceTree = SOURCE_ROOT; };
 		A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+YYHBarButton.m"; path = "17_03_16_Budejie/Classes/Other-其他/Categories/UIBarButtonItem+YYHBarButton.m"; sourceTree = SOURCE_ROOT; };
+		A5367D821E7E892B005DC731 /* YYHNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHNavigationViewController.h; sourceTree = "<group>"; };
+		A5367D831E7E892B005DC731 /* YYHNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHNavigationViewController.m; sourceTree = "<group>"; };
+		A5367D891E7E9073005DC731 /* YYHSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSettingTableViewController.h; sourceTree = "<group>"; };
+		A5367D8A1E7E9073005DC731 /* YYHSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHSettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		A5367D341E7AA055005DC731 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A5367D851E7E9047005DC731 /* Setting-设置 */,
 				A5367D601E7AAAAF005DC731 /* Main */,
 				A5367D351E7AA055005DC731 /* Essence-精华 */,
 				A5367D391E7AA055005DC731 /* FriendTrends-关注 */,
@@ -310,6 +317,8 @@
 			children = (
 				A5367D671E7AAB4C005DC731 /* YYHTabBarController.h */,
 				A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */,
+				A5367D821E7E892B005DC731 /* YYHNavigationViewController.h */,
+				A5367D831E7E892B005DC731 /* YYHNavigationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -342,6 +351,39 @@
 			);
 			name = Categories;
 			path = Main/Categories;
+			sourceTree = "<group>";
+		};
+		A5367D851E7E9047005DC731 /* Setting-设置 */ = {
+			isa = PBXGroup;
+			children = (
+				A5367D861E7E9047005DC731 /* Controller */,
+				A5367D871E7E9047005DC731 /* Model */,
+				A5367D881E7E9047005DC731 /* View */,
+			);
+			path = "Setting-设置";
+			sourceTree = "<group>";
+		};
+		A5367D861E7E9047005DC731 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A5367D891E7E9073005DC731 /* YYHSettingTableViewController.h */,
+				A5367D8A1E7E9073005DC731 /* YYHSettingTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A5367D871E7E9047005DC731 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5367D881E7E9047005DC731 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,11 +463,13 @@
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
+				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,
 				A5367D4D1E7AA055005DC731 /* AppDelegate.m in Sources */,
+				A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */,
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,
 				A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */,
 			);
