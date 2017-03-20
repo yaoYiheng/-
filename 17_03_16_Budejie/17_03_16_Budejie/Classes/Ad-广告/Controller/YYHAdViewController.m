@@ -11,6 +11,7 @@
 @interface YYHAdViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 @property (weak, nonatomic) IBOutlet UIView *placeHolderView;
+@property (weak, nonatomic) IBOutlet UIButton *skipButton;
 
 @end
 
@@ -18,22 +19,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    //不同的屏幕加载不同尺寸的图片
+    /*
+     // 6p:LaunchImage-800-Portrait-736h@3x.png
+     // 6:LaunchImage-800-667h@2x.png
+     // 5:LaunchImage-568h@2x.png
+     // 4s:LaunchImage@2x.png
+     */
+    //加载图片.
+    [self configureLaunchImage];
+
+}
+- (void)configureLaunchImage{
+
+
+    UIImage *launchImage = nil;
+    if (iphone6P)
+    {
+        launchImage  = [UIImage imageNamed:@"LaunchImage-800-Portrait-736h@3x"];
+    }
+    else if (iphone6)
+    {
+        launchImage = [UIImage imageNamed:@"LaunchImage-800-667h@2x"];
+    }
+    else if (iphone5)
+    {
+        launchImage = [UIImage imageNamed:@"LaunchImage-700-568h@2x"];
+    }
+    else if (iphone4)
+    {
+        launchImage = [UIImage imageNamed:@"LaunchImage@2x"];
+    }
+
+    self.adImageView.image = launchImage;
+    [self.skipButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -25,7 +25,6 @@
 		A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D831E7E892B005DC731 /* YYHNavigationViewController.m */; };
 		A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D8A1E7E9073005DC731 /* YYHSettingTableViewController.m */; };
 		A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5367D911E7F2A91005DC731 /* YYHAdViewController.m */; };
-		A5367D961E7F2BF8005DC731 /* YYHAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5367D951E7F2BF8005DC731 /* YYHAdViewController.xib */; };
 		A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D981E7FC40F005DC731 /* LaunchImage-568h@2x.png */; };
 		A5367DA01E7FC40F005DC731 /* LaunchImage-700-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D991E7FC40F005DC731 /* LaunchImage-700-568h@2x.png */; };
 		A5367DA11E7FC40F005DC731 /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9A1E7FC40F005DC731 /* LaunchImage-700@2x.png */; };
@@ -33,6 +32,7 @@
 		A5367DA31E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9C1E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png */; };
 		A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9D1E7FC40F005DC731 /* LaunchImage.png */; };
 		A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */; };
+		A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +71,6 @@
 		A5367D8A1E7E9073005DC731 /* YYHSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHSettingTableViewController.m; sourceTree = "<group>"; };
 		A5367D901E7F2A91005DC731 /* YYHAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHAdViewController.h; sourceTree = "<group>"; };
 		A5367D911E7F2A91005DC731 /* YYHAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHAdViewController.m; sourceTree = "<group>"; };
-		A5367D951E7F2BF8005DC731 /* YYHAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHAdViewController.xib; sourceTree = "<group>"; };
 		A5367D981E7FC40F005DC731 /* LaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		A5367D991E7FC40F005DC731 /* LaunchImage-700-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700-568h@2x.png"; sourceTree = "<group>"; };
 		A5367D9A1E7FC40F005DC731 /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-700@2x.png"; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		A5367D9C1E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
 		A5367D9D1E7FC40F005DC731 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
+		A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHAdViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,7 +422,7 @@
 			children = (
 				A5367D901E7F2A91005DC731 /* YYHAdViewController.h */,
 				A5367D911E7F2A91005DC731 /* YYHAdViewController.m */,
-				A5367D951E7F2BF8005DC731 /* YYHAdViewController.xib */,
+				A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -514,6 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */,
 				A5367D2D1E7AA005005DC731 /* LaunchScreen.storyboard in Resources */,
 				A5367DA31E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				A5367D2A1E7AA005005DC731 /* Assets.xcassets in Resources */,
@@ -522,7 +523,6 @@
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
 				A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */,
-				A5367D961E7F2BF8005DC731 /* YYHAdViewController.xib in Resources */,
 				A5367DA11E7FC40F005DC731 /* LaunchImage-700@2x.png in Resources */,
 				A5367D281E7AA005005DC731 /* Main.storyboard in Resources */,
 			);
