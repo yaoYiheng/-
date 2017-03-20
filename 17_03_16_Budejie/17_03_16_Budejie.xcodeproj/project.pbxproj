@@ -33,6 +33,7 @@
 		A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9D1E7FC40F005DC731 /* LaunchImage.png */; };
 		A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */; };
 		A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */; };
+		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		A5367D9D1E7FC40F005DC731 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHAdViewController.xib; sourceTree = "<group>"; };
+		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
+		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -437,6 +440,8 @@
 		A5367D8E1E7F29EE005DC731 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A57155A71E7FEEFC007777E6 /* YYHADItem.h */,
+				A57155A81E7FEEFC007777E6 /* YYHADItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
+				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
@@ -789,6 +795,7 @@
 				A5367D331E7AA005005DC731 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,6 +9,7 @@
 
 #import "YYHAdViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "YYHADItem.h"
 
 @interface YYHAdViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
@@ -37,8 +38,8 @@
     分析: AFN默认采用JSON的解析方案, 告诉AFN能够接受text/html类型的数据
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"]; ->
             
-                    请求数据---->解析数据
-    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->
+                    请求数据---->解析数据---->
+    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型
  */
     //加载广告数据.
     [self configureAdData];
@@ -102,8 +103,16 @@
      error:错误信息
      响应头:task.response
      */
-    [manager GET:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
+    [manager GET:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+        //解析响应体->从响应体中获取所需要的数据
+        NSDictionary *adDict = responseObject[@"ad"];
+
+        //将该字典文件转换成plist文件保存到项目目录中.
+//        [adDict writeToFile:@"/Users/Morris/Documents/iOS/练习代码/17_03_16_Budejie/ad.plist" atomically:YES];
+
+        //字典转模型->需要用到MJ框架->到CocoaPods中添加
+
+        NSLog(@"%@", adDict);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
