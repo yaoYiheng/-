@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "YYHADItem.h"
 #import <MJExtension/MJExtension.h>
+#import <UIImageView+WebCache.h>
 
 @interface YYHAdViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
@@ -122,7 +123,7 @@
          */
         NSDictionary *adDict = [responseObject[@"ad"] lastObject];
 
-        NSLog(@"%@", adDict);
+//        NSLog(@"%@", adDict);
         //将该字典文件转换成plist文件保存到项目目录中.
 //        [adDict writeToFile:@"/Users/Morris/Documents/iOS/练习代码/17_03_16_Budejie/ad.plist" atomically:YES];
 
@@ -130,12 +131,22 @@
         YYHADItem *adItem = [YYHADItem mj_objectWithKeyValues:adDict];
 
         //成功获取adItem后, 需要展示adItem中的广告页面.
-        NSURL *adURL = [NSURL URLWithString:adItem.ori_curl];
+        NSURL *adURL = [NSURL URLWithString:adItem.w_picurl];
 
         //需要请求网络图片设置到realImageView->使用SDWebkuangija->CocoaPods加载
+#warning 出现的问题
+        /*
+
+         <Error>: CGBitmapContextCreateImage: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+         */
+        //根据图片的宽度决定图片的宽度
+        CGFloat imageViewH = YYhScreenW / adItem.w * adItem.h;
+        self.realImageView.frame = CGRectMake(0, 0, YYhScreenW, imageViewH);
+
+        [self.realImageView sd_setImageWithURL:adURL];
 
 
-        NSLog(@"%@", adItem);
+//        NSLog(@"%@", adItem);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
