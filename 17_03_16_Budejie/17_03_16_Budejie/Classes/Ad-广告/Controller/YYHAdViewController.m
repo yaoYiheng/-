@@ -20,6 +20,9 @@
 /** <#comments#>*/
 @property (nonatomic, weak) UIImageView *realImageView;
 
+/** <#comments#>*/
+@property (nonatomic, strong) YYHADItem *adItem;
+
 @end
 
 @implementation YYHAdViewController
@@ -29,10 +32,26 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         [self.placeHolderView addSubview:imageView];
         _realImageView = imageView;
+        UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAD)];
+        [imageView addGestureRecognizer:tapGest];
+        //默认情况下UIImageView不会相应点击
+        imageView.userInteractionEnabled = YES;
     }
     return _realImageView;
 }
 
+/**
+ 点击广告后跳转
+ */
+- (void)tapAD{
+    NSURL *adURL = [NSURL URLWithString:self.adItem.ori_curl];
+
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app canOpenURL:adURL]) {
+        [app openURL:adURL];
+    }
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -52,7 +71,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"]; ->
             
                     请求数据---->解析数据---->
-    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型->根据需求设计模型->使用MJ框架将字典转为模型->加载模型中的图片->向占位view中添加->为占位view添加一个UIImageView以显示图片->该控件只需要加载一次, 使用懒加载->
+    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型->根据需求设计模型->使用MJ框架将字典转为模型->加载模型中的图片->向占位view中添加->为占位view添加一个UIImageView以显示图片->该控件只需要加载一次, 使用懒加载->使用SDWeb加载广告图片->点击广告时跳转->为UIImageView添加点按手势以及点按后会调用的方法-> 使用UIApplication, 进行跳转
  */
     //加载广告数据.
     [self configureAdData];
@@ -128,10 +147,10 @@
 //        [adDict writeToFile:@"/Users/Morris/Documents/iOS/练习代码/17_03_16_Budejie/ad.plist" atomically:YES];
 
         //字典转模型->需要用到MJ框架->到CocoaPods中添加
-        YYHADItem *adItem = [YYHADItem mj_objectWithKeyValues:adDict];
+        self.adItem = [YYHADItem mj_objectWithKeyValues:adDict];
 
         //成功获取adItem后, 需要展示adItem中的广告页面.
-        NSURL *adURL = [NSURL URLWithString:adItem.w_picurl];
+        NSURL *adURL = [NSURL URLWithString:self.adItem.w_picurl];
 
         //需要请求网络图片设置到realImageView->使用SDWebkuangija->CocoaPods加载
 #warning 出现的问题
@@ -140,7 +159,7 @@
          <Error>: CGBitmapContextCreateImage: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
          */
         //根据图片的宽度决定图片的宽度
-        CGFloat imageViewH = YYhScreenW / adItem.w * adItem.h;
+        CGFloat imageViewH = YYhScreenW / self.adItem.w * self.adItem.h;
         self.realImageView.frame = CGRectMake(0, 0, YYhScreenW, imageViewH);
 
         [self.realImageView sd_setImageWithURL:adURL];
