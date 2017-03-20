@@ -20,6 +20,19 @@
 //导入自定义的UITabBarController
 #import "YYHTabBarController.h"
 
+/*
+    为应用添加广告页面.
+    分析如何实现:
+        广告页面也有自己的业务逻辑, 需要单独新建一个类去进行管理, ->创建一个广告文件夹.
+
+    当程序启动后, 首先加载广告页面, 欺骗用户需要加载一定时间, 而在这段时间内展示广告.
+
+        参考源程序, 是一张启动图片, 加上倒计时按钮, 再加上广告, 其他界面一定, 但广告页面不一定, 
+        可以使用xib描述该页面, 而为广告页面设置一个空白的占位符.->搭建广告类
+
+ */
+#import "YYHAdViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -43,7 +56,10 @@
     //创建根控制器
 //    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
 
-    YYHTabBarController *tabBarVC = [[YYHTabBarController alloc] init];
+//    YYHTabBarController *tabBarVC = [[YYHTabBarController alloc] init];
+
+    //首先显示广告页面
+    YYHAdViewController *adVC = [[YYHAdViewController alloc] init];
 
     //创建各个导航控制器与相关内容的控制器
 //    //精华
@@ -97,7 +113,8 @@
 
 
     //设置为窗口跟控制器
-    self.window.rootViewController = tabBarVC;
+//    self.window.rootViewController = tabBarVC;
+    self.window.rootViewController = adVC;
 
     /*
         完成基本框架搭建, 但出现以下问题:
