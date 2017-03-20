@@ -10,15 +10,27 @@
 #import "YYHAdViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "YYHADItem.h"
+#import <MJExtension/MJExtension.h>
 
 @interface YYHAdViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 @property (weak, nonatomic) IBOutlet UIView *placeHolderView;
 @property (weak, nonatomic) IBOutlet UIButton *skipButton;
+/** <#comments#>*/
+@property (nonatomic, weak) UIImageView *realImageView;
 
 @end
 
 @implementation YYHAdViewController
+#pragma mark -----懒加载realImageView-----
+- (UIImageView *)realImageView{
+    if (!_realImageView) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [self.placeHolderView addSubview:imageView];
+        _realImageView = imageView;
+    }
+    return _realImageView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +51,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"]; ->
             
                     请求数据---->解析数据---->
-    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型
+    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型->根据需求设计模型->使用MJ框架将字典转为模型->加载模型中的图片->向占位view中添加->为占位view添加一个UIImageView以显示图片->该控件只需要加载一次, 使用懒加载->
  */
     //加载广告数据.
     [self configureAdData];
@@ -105,14 +117,25 @@
      */
     [manager GET:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
         //解析响应体->从响应体中获取所需要的数据
-        NSDictionary *adDict = responseObject[@"ad"];
+        /*
+            [responseObject[@"ad"] 该key对应的value是一个数组, 且数组中只有一个元素, 取出该元素, 才是所需要的字典
+         */
+        NSDictionary *adDict = [responseObject[@"ad"] lastObject];
 
+        NSLog(@"%@", adDict);
         //将该字典文件转换成plist文件保存到项目目录中.
 //        [adDict writeToFile:@"/Users/Morris/Documents/iOS/练习代码/17_03_16_Budejie/ad.plist" atomically:YES];
 
         //字典转模型->需要用到MJ框架->到CocoaPods中添加
+        YYHADItem *adItem = [YYHADItem mj_objectWithKeyValues:adDict];
 
-        NSLog(@"%@", adDict);
+        //成功获取adItem后, 需要展示adItem中的广告页面.
+        NSURL *adURL = [NSURL URLWithString:adItem.ori_curl];
+
+        //需要请求网络图片设置到realImageView->使用SDWebkuangija->CocoaPods加载
+
+
+        NSLog(@"%@", adItem);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
