@@ -7,6 +7,7 @@
 //
 
 #import "YYHNewViewController.h"
+#import "YYHSubscribeController.h"
 
 @interface YYHNewViewController ()
 
@@ -17,13 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"MainTagSubIcon"] hightligtedImage:[UIImage imageNamed:@"MainTagSubIconClick"] Target:self action:@selector(test)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"MainTagSubIcon"] hightligtedImage:[UIImage imageNamed:@"MainTagSubIconClick"] Target:self action:@selector(tagClick)];
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+
 }
 
-- (void)test{
-    NSLog(@"新帖");
+
+/**
+点击时, 跳转到订阅页面
+ */
+- (void)tagClick{
+    YYHSubscribeController *subVC = [[YYHSubscribeController alloc] init];
+    [self.navigationController pushViewController:subVC animated:YES];
+
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

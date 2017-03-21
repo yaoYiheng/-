@@ -99,6 +99,9 @@
 
      */
     if (self.childViewControllers.count > 0) {
+        //当非根控制器push新的控制器时, 需要隐藏底部的tabBar
+        viewController.hidesBottomBarWhenPushed = YES;
+        
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backBarButtonWithImage:[UIImage imageNamed:@"navigationButtonReturn"]  hightligtedImage:[UIImage imageNamed:@"navigationButtonReturnClick"] Target:self action:@selector(back) title:@"返回"];
 
 //        NSLog(@"%@", self.interactivePopGestureRecognizer);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>image_list</key>
+		<string>http://img.spriteapp.cn/ugc/2016/08/03/165356_26221.png</string>
+		<key>is_default</key>
+		<integer>1</integer>
+		<key>is_sub</key>
+		<integer>0</integer>
+		<key>sub_number</key>
+		<string>1</string>
+		<key>theme_id</key>
+		<string>23961</string>
+		<key>theme_name</key>
+		<string>弹幕炸了</string>
+	</dict>
+</array>
+</plist>
