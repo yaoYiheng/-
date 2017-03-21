@@ -12,6 +12,7 @@
 #import "YYHADItem.h"
 #import <MJExtension/MJExtension.h>
 #import <UIImageView+WebCache.h>
+#import "YYHTabBarController.h"
 
 @interface YYHAdViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
@@ -22,6 +23,8 @@
 
 /** <#comments#>*/
 @property (nonatomic, strong) YYHADItem *adItem;
+/** 定时器对象*/
+@property (nonatomic, weak) NSTimer *timer;
 
 @end
 
@@ -71,11 +74,46 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"]; ->
             
                     请求数据---->解析数据---->
-    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型->根据需求设计模型->使用MJ框架将字典转为模型->加载模型中的图片->向占位view中添加->为占位view添加一个UIImageView以显示图片->该控件只需要加载一次, 使用懒加载->使用SDWeb加载广告图片->点击广告时跳转->为UIImageView添加点按手势以及点按后会调用的方法-> 使用UIApplication, 进行跳转
+    已成功接收到来自服务器的数据->将从服务器请求到的数据转换为plist文件->从面向字典开发转化成面向模型开发->设计广告模型->根据需求设计模型->使用MJ框架将字典转为模型->加载模型中的图片->向占位view中添加->为占位view添加一个UIImageView以显示图片->该控件只需要加载一次, 使用懒加载->使用SDWeb加载广告图片->点击广告时跳转->为UIImageView添加点按手势以及点按后会调用的方法-> 使用UIApplication, 进行跳转->为广告添加计时器, 只能显示一定的时间, 时间过后, 直接跳转到主页面, 同时实现点击跳过, 直接进入主页面功能->同时需要销毁定时器.
  */
     //加载广告数据.
     [self configureAdData];
 
+    //添加定时器
+    [self addTimer];
+
+}
+
+/**
+ 添加计时器
+ */
+-(void)addTimer{
+    //1. 创建timer
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+}
+
+/**
+ 倒数进入主页面, 同时修改倒计时显示.
+ */
+- (void)countDown{
+    static int second = 3;
+
+    //倒数到0时. 跳转到tabBarVC
+    if (second == 0) {
+        [self skipClick];
+    }
+    second--;
+    [self.skipButton setTitle:[NSString stringWithFormat:@"跳过 (%d)", second] forState:UIControlStateNormal];
+}
+
+/**
+ 进入主页面, 销毁控制器
+ */
+- (IBAction)skipClick {
+    YYHTabBarController *tabBarVC = [[YYHTabBarController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
+
+    [self.timer invalidate];
 }
 
 /**
@@ -153,11 +191,7 @@
         NSURL *adURL = [NSURL URLWithString:self.adItem.w_picurl];
 
         //需要请求网络图片设置到realImageView->使用SDWebkuangija->CocoaPods加载
-#warning 出现的问题
-        /*
 
-         <Error>: CGBitmapContextCreateImage: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
-         */
         //根据图片的宽度决定图片的宽度
         CGFloat imageViewH = YYhScreenW / self.adItem.w * self.adItem.h;
         self.realImageView.frame = CGRectMake(0, 0, YYhScreenW, imageViewH);
