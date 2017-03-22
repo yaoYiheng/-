@@ -36,6 +36,8 @@
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
+		A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B71E82537F007777E6 /* YYHTagCellTableViewCell.m */; };
+		A57155BA1E82537F007777E6 /* YYHTagCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155B81E82537F007777E6 /* YYHTagCellTableViewCell.xib */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,9 @@
 		A57155AE1E813B91007777E6 /* YYHSubscribeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHSubscribeController.m; sourceTree = "<group>"; };
 		A57155B01E8140C1007777E6 /* YYHTagItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYHTagItem.h; path = "../Other-其他/Main/Model/YYHTagItem.h"; sourceTree = "<group>"; };
 		A57155B11E8140C1007777E6 /* YYHTagItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYHTagItem.m; path = "../Other-其他/Main/Model/YYHTagItem.m"; sourceTree = "<group>"; };
+		A57155B61E82537F007777E6 /* YYHTagCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTagCellTableViewCell.h; sourceTree = "<group>"; };
+		A57155B71E82537F007777E6 /* YYHTagCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTagCellTableViewCell.m; sourceTree = "<group>"; };
+		A57155B81E82537F007777E6 /* YYHTagCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTagCellTableViewCell.xib; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,6 +298,9 @@
 		A5367D441E7AA055005DC731 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A57155B61E82537F007777E6 /* YYHTagCellTableViewCell.h */,
+				A57155B71E82537F007777E6 /* YYHTagCellTableViewCell.m */,
+				A57155B81E82537F007777E6 /* YYHTagCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +569,7 @@
 				A5367DA31E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				A5367D2A1E7AA005005DC731 /* Assets.xcassets in Resources */,
 				A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */,
+				A57155BA1E82537F007777E6 /* YYHTagCellTableViewCell.xib in Resources */,
 				A5367DA01E7FC40F005DC731 /* LaunchImage-700-568h@2x.png in Resources */,
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
@@ -630,6 +639,7 @@
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */,
+				A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */,
 				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,

@@ -5,7 +5,7 @@
 //  Created by 姚懿恒 on 2017/3/21.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 /*
-    发送网络请求订阅栏数据 ->查看接口文档 ->URL:http://api.budejie.com/api/api_open.php ->发送GET请求 ->必选参数 a:tags_list  c:subscribe -> 创建模型 ->
+    发送网络请求订阅栏数据 ->查看接口文档 ->URL:http://api.budejie.com/api/api_open.php ->发送GET请求 ->必选参数 a:tags_list  c:subscribe -> 创建模型 ->自定义cell展示数据
  
  */
 
@@ -13,7 +13,9 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import "YYHTagItem.h"
+#import "YYHTagCellTableViewCell.h"
 
+static NSString * const ID = @"cell";
 @interface YYHSubscribeController ()
 /** 模型数组*/
 @property (nonatomic, strong) NSArray *itemsArray;
@@ -29,6 +31,9 @@
 
     //发送网络请求加载数据
     [self getData];
+
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTagCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
 }
 - (void)getData{
     //1. 创建会话管理者
@@ -69,18 +74,22 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
+
+    YYHTagCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+//    }
     YYHTagItem *item = self.itemsArray[indexPath.row];
-    cell.textLabel.text = item.theme_name;
+    cell.tagItem = item;
     
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
