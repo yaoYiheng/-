@@ -20,11 +20,25 @@
 
 @implementation YYHTagCellTableViewCell
 
+
+/**
+3.  重写该方法, 使每一个cell的高度都-10;
+ 来到该方法时:所有将要显示的cell的位置及尺寸已计算完毕, 可以在该方法中修改每个cell的高度,
+ 就能形成填充屏幕宽度的分割线.
+ */
+- (void)setFrame:(CGRect)frame{
+    frame.size.height -= 10;
+    [super setFrame:frame];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     //设置头像为圆形
     self.iconImageView.layer.cornerRadius = 30;
     self.iconImageView.layer.masksToBounds = YES;
+
+    //设置分割线
+//    self.layoutMargins = UIEdgeInsetsZero;
 }
 
 - (void)setTagItem:(YYHTagItem *)tagItem{

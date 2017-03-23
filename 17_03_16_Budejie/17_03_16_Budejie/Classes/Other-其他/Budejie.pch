@@ -19,7 +19,7 @@
     注意: 一般Pch文件名与项目名称一致.
  
  */
-#define ABC @"asd"/
+#define YYHColor(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
 /***********屏幕适配*************/
 #define YYhScreenW [UIScreen mainScreen].bounds.size.width
 #define YYHScreenH [UIScreen mainScreen].bounds.size.height

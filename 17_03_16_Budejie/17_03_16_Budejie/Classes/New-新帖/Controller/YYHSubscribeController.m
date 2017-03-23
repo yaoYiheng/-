@@ -34,6 +34,15 @@ static NSString * const ID = @"cell";
 
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTagCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+
+    // 设置分割线占据屏幕宽度方法一清空tableView分割线内边距 清空cell的约束边缘
+//    self.tableView.separatorInset = UIEdgeInsetsZero;
+
+    //方法二:1.清空当前分割线的样式
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    //2. 设置当前tableView的背景颜色
+    self.tableView.backgroundColor = YYHColor(220, 220, 221);
 }
 - (void)getData{
     //1. 创建会话管理者
@@ -49,7 +58,7 @@ static NSString * const ID = @"cell";
 
         //
         self.itemsArray = [YYHTagItem mj_objectArrayWithKeyValuesArray:array];
-        NSLog(@"%@", self.itemsArray);
+//        NSLog(@"%@", self.itemsArray);
 
         //刷新数据
         [self.tableView reloadData];
