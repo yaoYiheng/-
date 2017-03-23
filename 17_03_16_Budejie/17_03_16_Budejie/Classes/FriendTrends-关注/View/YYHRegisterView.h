@@ -1,5 +1,5 @@
 //
-//  YYHInputView.h
+//  YYHRegisterView.h
 //  17_03_16_Budejie
 //
 //  Created by 姚懿恒 on 2017/3/23.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YYHInputView : UIView
+@interface YYHRegisterView : UIView
 
-+ (instancetype)middleView;
++ (instancetype)registerView;
++ (instancetype)logInView;
 @end

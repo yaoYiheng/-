@@ -5,12 +5,14 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YYHLogNRegisterViewController">
             <connections>
                 <outlet property="bottomPlaceHolderView" destination="LTH-BH-RNk" id="dry-o6-6ye"/>
+                <outlet property="leading" destination="GIp-ZN-I4x" id="6PH-KN-6nv"/>
                 <outlet property="middlePlaceHolderView" destination="FgL-j1-5sk" id="nob-xu-fyr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,6 +34,9 @@
                                 <constraint firstAttribute="width" constant="32" id="2Jf-U0-tf4"/>
                             </constraints>
                             <state key="normal" image="login_close_icon"/>
+                            <connections>
+                                <action selector="dismiss" destination="-1" eventType="touchUpInside" id="GuR-Ai-eO4"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kin-Y1-lah">
                             <rect key="frame" x="285" y="0.0" width="70" height="35"/>
@@ -60,10 +65,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgL-j1-5sk" userLabel="Middle">
-                    <rect key="frame" x="0.0" y="155" width="375" height="250"/>
+                    <rect key="frame" x="0.0" y="155" width="750" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="250" id="wti-yG-Yi0"/>
+                        <constraint firstAttribute="height" constant="300" id="fFu-dT-6ms"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-BH-RNk" userLabel="Bottom">
@@ -74,18 +79,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="tJd-no-ATZ" secondAttribute="trailing" id="2rB-iE-R88"/>
+                <constraint firstItem="LTH-BH-RNk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="505" id="3ey-v0-lUm"/>
                 <constraint firstItem="tJd-no-ATZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="B3G-pR-pua"/>
-                <constraint firstItem="LTH-BH-RNk" firstAttribute="top" secondItem="FgL-j1-5sk" secondAttribute="bottom" constant="100" id="BoX-ej-gIQ"/>
-                <constraint firstItem="FgL-j1-5sk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PCj-1J-K2v"/>
+                <constraint firstItem="FgL-j1-5sk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" multiplier="2" id="GIp-ZN-I4x"/>
+                <constraint firstItem="FgL-j1-5sk" firstAttribute="width" secondItem="mhU-Bx-GKH" secondAttribute="width" multiplier="2" id="QdC-Lz-lRF"/>
+                <constraint firstItem="FgL-j1-5sk" firstAttribute="top" secondItem="tJd-no-ATZ" secondAttribute="bottom" constant="100" id="Tph-xF-7QT"/>
                 <constraint firstAttribute="trailing" secondItem="mhU-Bx-GKH" secondAttribute="trailing" id="aea-4s-mr5"/>
                 <constraint firstItem="tJd-no-ATZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cDk-ft-LzH"/>
                 <constraint firstItem="mhU-Bx-GKH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="es9-27-XNy"/>
                 <constraint firstAttribute="bottom" secondItem="LTH-BH-RNk" secondAttribute="bottom" constant="20" id="hGa-Vi-rnI"/>
                 <constraint firstItem="LTH-BH-RNk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ixY-EA-Ngg"/>
                 <constraint firstAttribute="trailing" secondItem="LTH-BH-RNk" secondAttribute="trailing" id="j63-PP-5PT"/>
-                <constraint firstItem="FgL-j1-5sk" firstAttribute="top" secondItem="tJd-no-ATZ" secondAttribute="bottom" constant="100" id="jXJ-I3-WsY"/>
                 <constraint firstAttribute="bottom" secondItem="mhU-Bx-GKH" secondAttribute="bottom" id="mhI-9A-pnf"/>
-                <constraint firstAttribute="trailing" secondItem="FgL-j1-5sk" secondAttribute="trailing" id="pNV-Zb-d4t"/>
                 <constraint firstItem="mhU-Bx-GKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sTW-SB-FaT"/>
             </constraints>
             <point key="canvasLocation" x="54.5" y="107.5"/>

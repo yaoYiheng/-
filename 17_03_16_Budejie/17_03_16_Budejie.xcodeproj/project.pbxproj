@@ -41,8 +41,8 @@
 		A57155BC1E83A5A6007777E6 /* YYHFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155BB1E83A5A6007777E6 /* YYHFriendViewController.xib */; };
 		A57155C01E83B76F007777E6 /* YYHLogNRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155BE1E83B76F007777E6 /* YYHLogNRegisterViewController.m */; };
 		A57155C11E83B76F007777E6 /* YYHLogNRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155BF1E83B76F007777E6 /* YYHLogNRegisterViewController.xib */; };
-		A57155C41E83BDC6007777E6 /* YYHInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155C31E83BDC6007777E6 /* YYHInputView.m */; };
-		A57155C61E83BDCE007777E6 /* YYHInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155C51E83BDCE007777E6 /* YYHInputView.xib */; };
+		A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155CB1E83CBD7007777E6 /* YYHRegisterView.m */; };
+		A57155CE1E83CBDE007777E6 /* YYHRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155CD1E83CBDE007777E6 /* YYHRegisterView.xib */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -105,9 +105,9 @@
 		A57155BD1E83B76F007777E6 /* YYHLogNRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHLogNRegisterViewController.h; sourceTree = "<group>"; };
 		A57155BE1E83B76F007777E6 /* YYHLogNRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHLogNRegisterViewController.m; sourceTree = "<group>"; };
 		A57155BF1E83B76F007777E6 /* YYHLogNRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHLogNRegisterViewController.xib; sourceTree = "<group>"; };
-		A57155C21E83BDC6007777E6 /* YYHInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHInputView.h; sourceTree = "<group>"; };
-		A57155C31E83BDC6007777E6 /* YYHInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHInputView.m; sourceTree = "<group>"; };
-		A57155C51E83BDCE007777E6 /* YYHInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHInputView.xib; sourceTree = "<group>"; };
+		A57155CA1E83CBD7007777E6 /* YYHRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHRegisterView.h; sourceTree = "<group>"; };
+		A57155CB1E83CBD7007777E6 /* YYHRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHRegisterView.m; sourceTree = "<group>"; };
+		A57155CD1E83CBDE007777E6 /* YYHRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHRegisterView.xib; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,9 +244,9 @@
 		A5367D3C1E7AA055005DC731 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A57155C21E83BDC6007777E6 /* YYHInputView.h */,
-				A57155C31E83BDC6007777E6 /* YYHInputView.m */,
-				A57155C51E83BDCE007777E6 /* YYHInputView.xib */,
+				A57155CA1E83CBD7007777E6 /* YYHRegisterView.h */,
+				A57155CB1E83CBD7007777E6 /* YYHRegisterView.m */,
+				A57155CD1E83CBDE007777E6 /* YYHRegisterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,7 +585,7 @@
 			files = (
 				A57155C11E83B76F007777E6 /* YYHLogNRegisterViewController.xib in Resources */,
 				A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */,
-				A57155C61E83BDCE007777E6 /* YYHInputView.xib in Resources */,
+				A57155CE1E83CBDE007777E6 /* YYHRegisterView.xib in Resources */,
 				A5367D2D1E7AA005005DC731 /* LaunchScreen.storyboard in Resources */,
 				A5367DA31E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				A5367D2A1E7AA005005DC731 /* Assets.xcassets in Resources */,
@@ -665,13 +665,13 @@
 				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
+				A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */,
 				A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */,
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,
 				A5367D4D1E7AA055005DC731 /* AppDelegate.m in Sources */,
-				A57155C41E83BDC6007777E6 /* YYHInputView.m in Sources */,
 				A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */,
 				A57155C01E83B76F007777E6 /* YYHLogNRegisterViewController.m in Sources */,
 				A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */,
