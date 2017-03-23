@@ -14,11 +14,14 @@
 #import <MJExtension/MJExtension.h>
 #import "YYHTagItem.h"
 #import "YYHTagCellTableViewCell.h"
+#import <SVProgressHUD.h>
 
 static NSString * const ID = @"cell";
 @interface YYHSubscribeController ()
 /** 模型数组*/
 @property (nonatomic, strong) NSArray *itemsArray;
+/** */
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
 
 @end
 
@@ -43,10 +46,30 @@ static NSString * const ID = @"cell";
 
     //2. 设置当前tableView的背景颜色
     self.tableView.backgroundColor = YYHColor(220, 220, 221);
+
+    //添加请求指示器->
+    [SVProgressHUD showWithStatus:@"正在加载中.."];
+}
+
+/**
+ 当view即将消失时调用.
+ 在该方法中销毁请求指示器, 以及终止未完成的网络请求任务
+
+
+ */
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+
+    [SVProgressHUD dismiss];
+
+    //向网络会话管理者中的任务数组中的每一个元素都执行cancel方法.
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
 }
 - (void)getData{
     //1. 创建会话管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+    _manager = manager;
     //拼接参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"tags_list";
@@ -54,6 +77,7 @@ static NSString * const ID = @"cell";
     //2. 发送get请求
             //    http://api.budejie.com/api/api_open.php
     [manager GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+        [SVProgressHUD dismiss];
         NSArray *array = responseObject[@"rec_tags"];
 
         //
@@ -65,6 +89,7 @@ static NSString * const ID = @"cell";
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
+        [SVProgressHUD dismiss];
     }];
 }
 

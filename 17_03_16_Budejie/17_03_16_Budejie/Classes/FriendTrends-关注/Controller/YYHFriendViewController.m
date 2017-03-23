@@ -7,6 +7,7 @@
 //
 
 #import "YYHFriendViewController.h"
+#import "YYHLogNRegisterViewController.h"
 
 @interface YYHFriendViewController ()
 
@@ -21,6 +22,17 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] hightligtedImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] Target:self action:@selector(test)];
 
     self.navigationItem.title = @"我的关注";
+}
+
+/**
+ 点击按钮时, 以modal效果弹出注册登录界面
+ */
+- (IBAction)loginButtonClick {
+    YYHLogNRegisterViewController *logVC = [[YYHLogNRegisterViewController alloc] init];
+
+    [self presentViewController:logVC animated:YES completion:nil];
+    
+
 }
 
 - (void)test{
