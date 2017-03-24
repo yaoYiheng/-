@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZFS-T9-Mfw" customClass="YYHFastLoginView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快速登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmn-r6-0ai">
+                    <rect key="frame" x="158" y="10" width="59" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="cCn-h2-49c"/>
+                        <constraint firstAttribute="width" constant="59" id="h2O-Nf-vWr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_left_line" translatesAutoresizingMaskIntoConstraints="NO" id="bPR-ZW-AUa">
+                    <rect key="frame" x="10" y="10" width="138" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="aFQ-Xk-BHQ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_right_line" translatesAutoresizingMaskIntoConstraints="NO" id="Uro-ns-OyW">
+                    <rect key="frame" x="227" y="10" width="138" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="LHw-wY-sRA"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-Sx-D3h">
+                    <rect key="frame" x="0.0" y="30" width="375" height="115"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-1Q-MUl" customClass="YYHFastButton">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="115"/>
+                            <state key="normal" title="QQ登录" image="login_QQ_icon"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zl-QZ-Djc" customClass="YYHFastButton">
+                            <rect key="frame" x="125" y="0.0" width="125" height="115"/>
+                            <state key="normal" title="微博登录" image="login_sina_icon"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lf-OX-Qmt" customClass="YYHFastButton">
+                            <rect key="frame" x="250" y="0.0" width="125" height="115"/>
+                            <state key="normal" title="腾讯登录" image="login_tecent_icon"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Uro-ns-OyW" firstAttribute="top" secondItem="ZFS-T9-Mfw" secondAttribute="top" constant="10" id="07G-cp-uUf"/>
+                <constraint firstAttribute="bottom" secondItem="B0J-Sx-D3h" secondAttribute="bottom" id="21F-b2-dKw"/>
+                <constraint firstAttribute="trailing" secondItem="Uro-ns-OyW" secondAttribute="trailing" constant="10" id="5M8-jn-gZP"/>
+                <constraint firstAttribute="trailing" secondItem="B0J-Sx-D3h" secondAttribute="trailing" id="7ds-Yb-c3w"/>
+                <constraint firstAttribute="bottom" secondItem="B0J-Sx-D3h" secondAttribute="bottom" id="Oei-sa-mVz"/>
+                <constraint firstItem="qmn-r6-0ai" firstAttribute="top" secondItem="ZFS-T9-Mfw" secondAttribute="top" constant="10" id="Rv1-3d-eCD"/>
+                <constraint firstItem="bPR-ZW-AUa" firstAttribute="leading" secondItem="ZFS-T9-Mfw" secondAttribute="leading" constant="10" id="U95-zh-4a3"/>
+                <constraint firstItem="B0J-Sx-D3h" firstAttribute="top" secondItem="bPR-ZW-AUa" secondAttribute="bottom" id="YrL-kf-8QS"/>
+                <constraint firstItem="qmn-r6-0ai" firstAttribute="leading" secondItem="bPR-ZW-AUa" secondAttribute="trailing" constant="10" id="ZAB-Jq-20V"/>
+                <constraint firstItem="B0J-Sx-D3h" firstAttribute="leading" secondItem="ZFS-T9-Mfw" secondAttribute="leading" id="arE-WN-cQx"/>
+                <constraint firstItem="qmn-r6-0ai" firstAttribute="centerX" secondItem="ZFS-T9-Mfw" secondAttribute="centerX" id="nea-Tm-W0K"/>
+                <constraint firstItem="Uro-ns-OyW" firstAttribute="leading" secondItem="qmn-r6-0ai" secondAttribute="trailing" constant="10" id="t3F-dG-EbW"/>
+                <constraint firstAttribute="trailing" secondItem="B0J-Sx-D3h" secondAttribute="trailing" id="tt3-QO-hs5"/>
+                <constraint firstItem="bPR-ZW-AUa" firstAttribute="top" secondItem="ZFS-T9-Mfw" secondAttribute="top" constant="10" id="ux0-dw-laK"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="6" y="176"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_QQ_icon" width="70" height="70"/>
+        <image name="login_register_left_line" width="1" height="1"/>
+        <image name="login_register_right_line" width="1" height="1"/>
+        <image name="login_sina_icon" width="70" height="70"/>
+        <image name="login_tecent_icon" width="70" height="70"/>
+    </resources>
+</document>

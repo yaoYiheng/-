@@ -49,5 +49,23 @@
     self.frame = rect;
 }
 
+- (void)setYyh_centerX:(CGFloat)yyh_centerX{
+    CGPoint center = self.center;
+    center.x = yyh_centerX;
+    self.center = center;
+
+}
+- (void)setYyh_centerY:(CGFloat)yyh_centerY{
+    CGPoint center = self.center;
+    center.y = yyh_centerY;
+    self.center = center;
+}
+- (CGFloat)yyh_centerX{
+    return self.center.x;
+
+}
+- (CGFloat)yyh_centerY{
+    return self.center.y;
+}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "YYHLogNRegisterViewController.h"
 #import "YYHRegisterView.h"
+#import "YYHFastLoginView.h"
 
 @interface YYHLogNRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIView *middlePlaceHolderView;
@@ -46,6 +47,8 @@
 
     [self.middlePlaceHolderView addSubview:registerView];
 
+    YYHFastLoginView *fastView = [YYHFastLoginView fastLoginView];
+    [self.bottomPlaceHolderView addSubview:fastView];
 
 }
 
@@ -64,6 +67,9 @@
     loginView.frame = CGRectMake(0, 0, self.middlePlaceHolderView.yyh_width * 0.5, self.middlePlaceHolderView.yyh_height);
     YYHRegisterView *registerView = self.middlePlaceHolderView.subviews[1];
     registerView.frame = CGRectMake(self.middlePlaceHolderView.yyh_width * 0.5, 0, self.middlePlaceHolderView.yyh_width * 0.5, self.middlePlaceHolderView.yyh_height);
+
+    YYHFastLoginView *fastView = self.bottomPlaceHolderView.subviews[0];
+    fastView.frame = CGRectMake(0, 0, self.bottomPlaceHolderView.yyh_width, self.bottomPlaceHolderView.yyh_height);
 }
 /*
 #pragma mark - Navigation

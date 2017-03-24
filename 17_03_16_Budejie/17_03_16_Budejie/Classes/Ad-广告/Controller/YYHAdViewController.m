@@ -25,6 +25,8 @@
 @property (nonatomic, strong) YYHADItem *adItem;
 /** 定时器对象*/
 @property (nonatomic, weak) NSTimer *timer;
+/** <#comments#>*/
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
 
 @end
 
@@ -115,6 +117,12 @@
 
     [self.timer invalidate];
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+
+}
 
 /**
  根据屏幕适配图片
@@ -154,7 +162,7 @@
 
     //创建AFN会话管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
+    _manager = manager;
 
     //告诉AFN能够接受text/html类型的数据
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
