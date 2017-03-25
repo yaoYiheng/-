@@ -48,6 +48,7 @@
 		A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D51E850C66007777E6 /* YYHFastButton.m */; };
 		A57155D91E865C13007777E6 /* YYHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D81E865C13007777E6 /* YYHTextField.m */; };
 		A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */; };
+		A57155DE1E870349007777E6 /* YYHMeTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		A57155D81E865C13007777E6 /* YYHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTextField.m; sourceTree = "<group>"; };
 		A57155DA1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YYHPlaceHolderColor.h"; sourceTree = "<group>"; };
 		A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YYHPlaceHolderColor.m"; sourceTree = "<group>"; };
+		A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YYHMeTableViewController.storyboard; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +289,7 @@
 			children = (
 				A5367D5A1E7AA43D005DC731 /* YYHMeTableViewController.h */,
 				A5367D5B1E7AA43D005DC731 /* YYHMeTableViewController.m */,
+				A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				A57155D31E850356007777E6 /* YYHFastLoginView.xib in Resources */,
 				A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */,
 				A57155CE1E83CBDE007777E6 /* YYHRegisterView.xib in Resources */,
+				A57155DE1E870349007777E6 /* YYHMeTableViewController.storyboard in Resources */,
 				A5367D2D1E7AA005005DC731 /* LaunchScreen.storyboard in Resources */,
 				A5367DA31E7FC40F005DC731 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				A5367D2A1E7AA005005DC731 /* Assets.xcassets in Resources */,

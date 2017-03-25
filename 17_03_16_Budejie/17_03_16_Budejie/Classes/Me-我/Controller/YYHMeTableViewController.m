@@ -4,7 +4,10 @@
 //
 //  Created by 姚懿恒 on 2017/3/16.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
-//
+/*
+    搭建 我的 界面
+ 由静态cell + UICollectionView组成 -> 通过storyboard取描述该页面
+ */
 
 #import "YYHMeTableViewController.h"
 #import "YYHSettingTableViewController.h"
@@ -48,15 +51,7 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
