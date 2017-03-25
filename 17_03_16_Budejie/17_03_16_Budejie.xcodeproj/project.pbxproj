@@ -47,6 +47,7 @@
 		A57155D31E850356007777E6 /* YYHFastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155D21E850356007777E6 /* YYHFastLoginView.xib */; };
 		A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D51E850C66007777E6 /* YYHFastButton.m */; };
 		A57155D91E865C13007777E6 /* YYHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D81E865C13007777E6 /* YYHTextField.m */; };
+		A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,8 @@
 		A57155D51E850C66007777E6 /* YYHFastButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHFastButton.m; sourceTree = "<group>"; };
 		A57155D71E865C13007777E6 /* YYHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTextField.h; sourceTree = "<group>"; };
 		A57155D81E865C13007777E6 /* YYHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTextField.m; sourceTree = "<group>"; };
+		A57155DA1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YYHPlaceHolderColor.h"; sourceTree = "<group>"; };
+		A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YYHPlaceHolderColor.m"; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -434,6 +437,8 @@
 				A5367D711E7D2CD2005DC731 /* UIView+YYHFrame.m */,
 				A5367D7C1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.h */,
 				A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */,
+				A57155DA1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.h */,
+				A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */,
 			);
 			name = Categories;
 			path = Main/Categories;
@@ -679,6 +684,7 @@
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
+				A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */,
 				A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */,
 				A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */,
 				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
