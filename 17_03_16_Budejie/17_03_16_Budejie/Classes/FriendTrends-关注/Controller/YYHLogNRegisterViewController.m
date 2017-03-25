@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leading;
 
 
+
 @end
 
 @implementation YYHLogNRegisterViewController
@@ -71,14 +72,9 @@
     YYHFastLoginView *fastView = self.bottomPlaceHolderView.subviews[0];
     fastView.frame = CGRectMake(0, 0, self.bottomPlaceHolderView.yyh_width, self.bottomPlaceHolderView.yyh_height);
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //点击屏幕退出键盘.
+    [self.view endEditing:YES];
 }
-*/
 
 @end

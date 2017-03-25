@@ -46,6 +46,7 @@
 		A57155D11E850350007777E6 /* YYHFastLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D01E850350007777E6 /* YYHFastLoginView.m */; };
 		A57155D31E850356007777E6 /* YYHFastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155D21E850356007777E6 /* YYHFastLoginView.xib */; };
 		A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D51E850C66007777E6 /* YYHFastButton.m */; };
+		A57155D91E865C13007777E6 /* YYHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D81E865C13007777E6 /* YYHTextField.m */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,8 @@
 		A57155D21E850356007777E6 /* YYHFastLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHFastLoginView.xib; sourceTree = "<group>"; };
 		A57155D41E850C66007777E6 /* YYHFastButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHFastButton.h; sourceTree = "<group>"; };
 		A57155D51E850C66007777E6 /* YYHFastButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHFastButton.m; sourceTree = "<group>"; };
+		A57155D71E865C13007777E6 /* YYHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTextField.h; sourceTree = "<group>"; };
+		A57155D81E865C13007777E6 /* YYHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTextField.m; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +263,8 @@
 				A57155D41E850C66007777E6 /* YYHFastButton.h */,
 				A57155D51E850C66007777E6 /* YYHFastButton.m */,
 				A57155D21E850356007777E6 /* YYHFastLoginView.xib */,
+				A57155D71E865C13007777E6 /* YYHTextField.h */,
+				A57155D81E865C13007777E6 /* YYHTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				A5367D4D1E7AA055005DC731 /* AppDelegate.m in Sources */,
 				A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */,
 				A57155C01E83B76F007777E6 /* YYHLogNRegisterViewController.m in Sources */,
+				A57155D91E865C13007777E6 /* YYHTextField.m in Sources */,
 				A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */,
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,
 				A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */,
