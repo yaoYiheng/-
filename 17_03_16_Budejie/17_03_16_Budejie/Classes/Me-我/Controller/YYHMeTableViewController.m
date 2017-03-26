@@ -15,6 +15,7 @@
 #import "YYHCellItem.h"
 #import <MJExtension/MJExtension.h>
 #import "YYHCollectionViewCell.h"
+#import <SafariServices/SafariServices.h>
 
 static NSString * const reusrID = @"cell";
 static CGFloat const margin = 1;
@@ -30,7 +31,9 @@ static int const column = 4;
 @end
 
 @implementation YYHMeTableViewController
+
 #pragma mark -----懒加载-----
+
 - (NSMutableArray *)itemsArray{
     if (!_itemsArray) {
         _itemsArray = [NSMutableArray array];
@@ -92,7 +95,7 @@ static int const column = 4;
 }
 - (void)addPlaceHolder{
     //计算需要添加的个数
-    
+
     NSInteger extra = self.itemsArray.count % column;
 
 
@@ -124,7 +127,42 @@ static int const column = 4;
     self.tableView.tableFooterView = collectionView;
 }
 
+#pragma mark -----UICollectionViewDelegate-----
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    // 跳转界面 push 展示网页
+    /*
+     1.Safari openURL :自带很多功能(进度条,刷新,前进,倒退等等功能),必须要跳出当前应用
+     2.UIWebView (没有功能) ,在当前应用打开网页,并且有safari,自己实现,UIWebView不能实现进度条
+     3.SFSafariViewController:专门用来展示网页 需求:即想要在当前应用展示网页,又想要safari功能 iOS9才能使用
+     3.1 导入#import <SafariServices/SafariServices.h>
+
+     4.WKWebView:iOS8 (UIWebView升级版本,添加功能 1.监听进度 2.缓存)
+     4.1 导入#import <WebKit/WebKit.h>
+
+     */
+#warning 明天做WKWebView 
+    YYHCellItem *item = self.itemsArray[indexPath.row];
+    if ([item.url containsString:@"http"]) {
+        SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString: item.url]];
+
+//        [self.navigationController pushViewController:safariVC animated:YES];
+        [self presentViewController:safariVC animated:YES completion:nil];
+    }
+
+}
+
+#pragma mark - SFSafariViewControllerDelegate
+
+/**
+ 代理方法, 实现该方法,点击Done时, 调回之前页面
+ */
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark -----UICollectionViewDataSource-----
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.itemsArray.count;
 }
