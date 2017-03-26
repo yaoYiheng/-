@@ -130,7 +130,10 @@
     YYHNavigationViewController *friendNav = [[YYHNavigationViewController alloc] initWithRootViewController:friendVC];
     [self addChildViewController:friendNav];
     //我
-    YYHMeTableViewController *meVC = [[YYHMeTableViewController alloc] init];
+    //我控制器view从storyboard中加载,
+    UIStoryboard *strbo = [UIStoryboard storyboardWithName:NSStringFromClass([YYHMeTableViewController class]) bundle:nil];
+
+    YYHMeTableViewController *meVC = [strbo instantiateInitialViewController];
     YYHNavigationViewController *meNav = [[YYHNavigationViewController alloc] initWithRootViewController:meVC];
     [self addChildViewController:meNav];
 

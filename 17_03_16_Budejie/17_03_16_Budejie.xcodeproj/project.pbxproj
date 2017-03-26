@@ -49,6 +49,9 @@
 		A57155D91E865C13007777E6 /* YYHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155D81E865C13007777E6 /* YYHTextField.m */; };
 		A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */; };
 		A57155DE1E870349007777E6 /* YYHMeTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */; };
+		A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E01E870A69007777E6 /* YYHCollectionViewCell.m */; };
+		A57155E31E870A69007777E6 /* YYHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155E11E870A69007777E6 /* YYHCollectionViewCell.xib */; };
+		A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E51E87A383007777E6 /* YYHCellItem.m */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +127,11 @@
 		A57155DA1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YYHPlaceHolderColor.h"; sourceTree = "<group>"; };
 		A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YYHPlaceHolderColor.m"; sourceTree = "<group>"; };
 		A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YYHMeTableViewController.storyboard; sourceTree = "<group>"; };
+		A57155DF1E870A69007777E6 /* YYHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHCollectionViewCell.h; sourceTree = "<group>"; };
+		A57155E01E870A69007777E6 /* YYHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHCollectionViewCell.m; sourceTree = "<group>"; };
+		A57155E11E870A69007777E6 /* YYHCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHCollectionViewCell.xib; sourceTree = "<group>"; };
+		A57155E41E87A383007777E6 /* YYHCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHCellItem.h; sourceTree = "<group>"; };
+		A57155E51E87A383007777E6 /* YYHCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHCellItem.m; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,6 +305,8 @@
 		A5367D3F1E7AA055005DC731 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A57155E41E87A383007777E6 /* YYHCellItem.h */,
+				A57155E51E87A383007777E6 /* YYHCellItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +314,9 @@
 		A5367D401E7AA055005DC731 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A57155DF1E870A69007777E6 /* YYHCollectionViewCell.h */,
+				A57155E01E870A69007777E6 /* YYHCollectionViewCell.m */,
+				A57155E11E870A69007777E6 /* YYHCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -620,6 +633,7 @@
 				A57155BC1E83A5A6007777E6 /* YYHFriendViewController.xib in Resources */,
 				A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */,
 				A57155BA1E82537F007777E6 /* YYHTagCellTableViewCell.xib in Resources */,
+				A57155E31E870A69007777E6 /* YYHCollectionViewCell.xib in Resources */,
 				A5367DA01E7FC40F005DC731 /* LaunchImage-700-568h@2x.png in Resources */,
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
@@ -695,6 +709,8 @@
 				A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
+				A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */,
+				A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */,
 				A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */,
 				A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */,
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
