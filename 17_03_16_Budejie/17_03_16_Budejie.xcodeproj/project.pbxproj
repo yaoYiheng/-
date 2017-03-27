@@ -52,6 +52,8 @@
 		A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E01E870A69007777E6 /* YYHCollectionViewCell.m */; };
 		A57155E31E870A69007777E6 /* YYHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155E11E870A69007777E6 /* YYHCollectionViewCell.xib */; };
 		A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E51E87A383007777E6 /* YYHCellItem.m */; };
+		A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E81E890BAB007777E6 /* YYHWebViewController.m */; };
+		A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155E91E890BAB007777E6 /* YYHWebViewController.xib */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,9 @@
 		A57155E11E870A69007777E6 /* YYHCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHCollectionViewCell.xib; sourceTree = "<group>"; };
 		A57155E41E87A383007777E6 /* YYHCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHCellItem.h; sourceTree = "<group>"; };
 		A57155E51E87A383007777E6 /* YYHCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHCellItem.m; sourceTree = "<group>"; };
+		A57155E71E890BAB007777E6 /* YYHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHWebViewController.h; sourceTree = "<group>"; };
+		A57155E81E890BAB007777E6 /* YYHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHWebViewController.m; sourceTree = "<group>"; };
+		A57155E91E890BAB007777E6 /* YYHWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHWebViewController.xib; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,6 +303,9 @@
 				A5367D5A1E7AA43D005DC731 /* YYHMeTableViewController.h */,
 				A5367D5B1E7AA43D005DC731 /* YYHMeTableViewController.m */,
 				A57155DD1E870349007777E6 /* YYHMeTableViewController.storyboard */,
+				A57155E71E890BAB007777E6 /* YYHWebViewController.h */,
+				A57155E81E890BAB007777E6 /* YYHWebViewController.m */,
+				A57155E91E890BAB007777E6 /* YYHWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -638,6 +646,7 @@
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
 				A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */,
+				A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */,
 				A5367DA11E7FC40F005DC731 /* LaunchImage-700@2x.png in Resources */,
 				A5367D281E7AA005005DC731 /* Main.storyboard in Resources */,
 			);
@@ -698,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */,
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,

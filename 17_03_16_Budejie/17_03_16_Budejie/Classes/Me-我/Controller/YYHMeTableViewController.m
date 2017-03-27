@@ -16,6 +16,7 @@
 #import <MJExtension/MJExtension.h>
 #import "YYHCollectionViewCell.h"
 #import <SafariServices/SafariServices.h>
+#import "YYHWebViewController.h"
 
 static NSString * const reusrID = @"cell";
 static CGFloat const margin = 1;
@@ -61,6 +62,10 @@ static int const column = 4;
 
     //请求数据
     [self loadData];
+
+
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSLog(@"%@", path);
 }
 -(void)loadData{
     //创建会话管理者
@@ -141,14 +146,21 @@ static int const column = 4;
      4.1 导入#import <WebKit/WebKit.h>
 
      */
-#warning 明天做WKWebView 
-    YYHCellItem *item = self.itemsArray[indexPath.row];
-    if ([item.url containsString:@"http"]) {
-        SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString: item.url]];
 
-//        [self.navigationController pushViewController:safariVC animated:YES];
-        [self presentViewController:safariVC animated:YES completion:nil];
-    }
+
+    YYHCellItem *item = self.itemsArray[indexPath.row];
+
+    YYHWebViewController *webVC = [[YYHWebViewController alloc] init];
+    webVC.url = [NSURL URLWithString:item.url];
+
+    [self.navigationController pushViewController:webVC animated:YES];
+
+//    if ([item.url containsString:@"http"]) {
+//        SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString: item.url]];
+//
+////        [self.navigationController pushViewController:safariVC animated:YES];
+//        [self presentViewController:safariVC animated:YES completion:nil];
+//    }
 
 }
 
@@ -157,10 +169,10 @@ static int const column = 4;
 /**
  代理方法, 实现该方法,点击Done时, 调回之前页面
  */
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 #pragma mark -----UICollectionViewDataSource-----
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
