@@ -7,6 +7,7 @@
 //
 
 #import "YYHSettingTableViewController.h"
+static NSString  *const ID = @"cell";
 
 @interface YYHSettingTableViewController ()
 
@@ -34,8 +35,17 @@
     //在子控制中设置对应子控制器的左边返回按钮(leftBarButtonItem)
     //分析: 参考源程序, 很多界面都有用到返回按钮, 可以考虑将该按钮进行统一设置.-->到自定义的导航控制器中进行设置.
 //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem backBarButtonWithImage:[UIImage imageNamed:@"navigationButtonReturn"]  hightligtedImage:[UIImage imageNamed:@"navigationButtonReturnClick"] Target:self action:@selector(back) title:@"返回"];
+
+
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionP
+{
+    return 10;
+}
 /**
  点击调回到上一级界面.
  */
@@ -49,17 +59,101 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+    return 4;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
 
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    if (indexPath.section == 0&&indexPath.row == 0) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self getCacheSize]];
+    }
+
     return cell;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //点击清除缓存
+    [self clearCache];
+    //清除完成后需要刷新, 获取最新数据
+    [self.tableView reloadData];
+}
+- (void)clearCache{
+    //1. 找到存放缓存的文件夹
+    NSString *cacheFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    //2. 使用文件管理者
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    //拿到缓存文件夹下, 所有子文件的路径
+    NSArray *subPathArray = [fileManger subpathsAtPath:cacheFilePath];
+
+    for (NSString *filePath in subPathArray) {
+        //拼接路径
+        NSString *fileFullPath = [cacheFilePath stringByAppendingPathComponent:filePath];
+
+        [fileManger removeItemAtPath:fileFullPath error:nil];
+
+    }
+    [self.tableView reloadData];
+
+}
+
+/**
+ 计算缓存文件大小
+
+ */
+- (NSString *)getCacheSize{
+
+    //1. 找到存放缓存的文件夹
+    NSString *cacheFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    //2. 使用文件管理者
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    //拿到缓存文件夹下, 所有子文件的路径
+    NSArray *subPathArray = [fileManger subpathsAtPath:cacheFilePath];
+
+    float totalSize = 0;
+
+    NSString *totalSizeStr = @"清除缓存";
+    for (NSString *filePath in subPathArray) {
+            //拼接路径
+        NSString *fileFullPath = [cacheFilePath stringByAppendingPathComponent:filePath];
+
+        //通过文件管理者拿到对应文件的属性
+        NSDictionary *fileDict = [[NSFileManager defaultManager] attributesOfItemAtPath:fileFullPath error:nil];
+        //通过@"NSFileSize"拿到每一个文件的大小.
+        totalSize =totalSize + [fileDict[@"NSFileSize"] floatValue];
+
+    }
+    if (totalSize > 1000 * 1000) {
+        totalSizeStr = [NSString stringWithFormat:@"%@(%.2fMB)",totalSizeStr, totalSize / 1000.0 / 1000.0];
+    }
+    else if (totalSize > 1000)
+    {
+        totalSizeStr = [NSString stringWithFormat:@"%@(%.2fMB)",totalSizeStr, totalSize / 1000.0 ];
+    }
+    else if (totalSize > 0)
+    {
+        totalSizeStr = [NSString stringWithFormat:@"%@(%.2fMB)",totalSizeStr, totalSize];
+    }
+
+    return totalSizeStr;
+
+
+
+    //3. 得到缓存文件的大小
+    //4. 遍历计算大小
+    //5. 返回计算值
+}
 
 /*
 // Override to support conditional editing of the table view.
