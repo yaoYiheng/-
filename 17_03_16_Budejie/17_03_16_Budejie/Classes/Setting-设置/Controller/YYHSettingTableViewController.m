@@ -7,6 +7,10 @@
 //
 
 #import "YYHSettingTableViewController.h"
+#import "YYHFileTools.h"
+
+#define cacheFilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+
 static NSString  *const ID = @"cell";
 
 @interface YYHSettingTableViewController ()
@@ -41,11 +45,6 @@ static NSString  *const ID = @"cell";
 
 }
 
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionP
-{
-    return 10;
-}
 /**
  点击调回到上一级界面.
  */
@@ -59,14 +58,9 @@ static NSString  *const ID = @"cell";
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 4;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,9 +68,7 @@ static NSString  *const ID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
 
 
-    if (indexPath.section == 0&&indexPath.row == 0) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [self getCacheSize]];
-    }
+    cell.textLabel.text = [self getCacheSize];
 
     return cell;
 }
@@ -85,55 +77,42 @@ static NSString  *const ID = @"cell";
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //点击清除缓存
-    [self clearCache];
+//    [self clearCache];
+    [YYHFileTools removeItemAtDirectoryPath:cacheFilePath];
     //清除完成后需要刷新, 获取最新数据
     [self.tableView reloadData];
 }
-- (void)clearCache{
-    //1. 找到存放缓存的文件夹
-    NSString *cacheFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    //2. 使用文件管理者
-    NSFileManager *fileManger = [NSFileManager defaultManager];
-    //拿到缓存文件夹下, 所有子文件的路径
-    NSArray *subPathArray = [fileManger subpathsAtPath:cacheFilePath];
 
-    for (NSString *filePath in subPathArray) {
-        //拼接路径
-        NSString *fileFullPath = [cacheFilePath stringByAppendingPathComponent:filePath];
-
-        [fileManger removeItemAtPath:fileFullPath error:nil];
-
-    }
-    [self.tableView reloadData];
-
-}
 
 /**
- 计算缓存文件大小
+获取文件大小的字符串
 
  */
 - (NSString *)getCacheSize{
 
     //1. 找到存放缓存的文件夹
-    NSString *cacheFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    //2. 使用文件管理者
-    NSFileManager *fileManger = [NSFileManager defaultManager];
-    //拿到缓存文件夹下, 所有子文件的路径
-    NSArray *subPathArray = [fileManger subpathsAtPath:cacheFilePath];
-
-    float totalSize = 0;
-
+//    NSString *cacheFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    //2. 使用文件管理者
+//    NSFileManager *fileManger = [NSFileManager defaultManager];
+//    //拿到缓存文件夹下, 所有子文件的路径
+//    NSArray *subPathArray = [fileManger subpathsAtPath:cacheFilePath];
+//
+//    float totalSize = 0;
+//
+//    NSString *totalSizeStr = @"清除缓存";
+//    for (NSString *filePath in subPathArray) {
+//            //拼接路径
+//        NSString *fileFullPath = [cacheFilePath stringByAppendingPathComponent:filePath];
+//
+//        //通过文件管理者拿到对应文件的属性
+//        NSDictionary *fileDict = [[NSFileManager defaultManager] attributesOfItemAtPath:fileFullPath error:nil];
+//        //通过@"NSFileSize"拿到每一个文件的大小.
+//        totalSize =totalSize + [fileDict[@"NSFileSize"] floatValue];
+//
+//    }
+    NSInteger totalSize = [YYHFileTools filePathForDirectory:cacheFilePath];
+    
     NSString *totalSizeStr = @"清除缓存";
-    for (NSString *filePath in subPathArray) {
-            //拼接路径
-        NSString *fileFullPath = [cacheFilePath stringByAppendingPathComponent:filePath];
-
-        //通过文件管理者拿到对应文件的属性
-        NSDictionary *fileDict = [[NSFileManager defaultManager] attributesOfItemAtPath:fileFullPath error:nil];
-        //通过@"NSFileSize"拿到每一个文件的大小.
-        totalSize =totalSize + [fileDict[@"NSFileSize"] floatValue];
-
-    }
     if (totalSize > 1000 * 1000) {
         totalSizeStr = [NSString stringWithFormat:@"%@(%.2fMB)",totalSizeStr, totalSize / 1000.0 / 1000.0];
     }
@@ -143,7 +122,7 @@ static NSString  *const ID = @"cell";
     }
     else if (totalSize > 0)
     {
-        totalSizeStr = [NSString stringWithFormat:@"%@(%.2fMB)",totalSizeStr, totalSize];
+        totalSizeStr = [NSString stringWithFormat:@"%@(%.2ldMB)",totalSizeStr, (long)totalSize];
     }
 
     return totalSizeStr;
