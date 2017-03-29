@@ -10,9 +10,9 @@
  获取给定文件路径下所有文件大小
 
  @param DirectoryPath 文件夹路径
- @return 文件总大小
+
  */
-+ (NSInteger)filePathForDirectory:(NSString *)DirectoryPath;
++ (void)fileSizeForDirectory:(NSString *)DirectoryPath completion:(void(^)(NSInteger totalSize))completion;
 
 
 /**

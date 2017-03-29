@@ -8,13 +8,15 @@
 
 #import "YYHSettingTableViewController.h"
 #import "YYHFileTools.h"
-
+#import <SVProgressHUD.h>
 #define cacheFilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 
 static NSString  *const ID = @"cell";
 
 @interface YYHSettingTableViewController ()
 
+/** <#comments#>*/
+@property (nonatomic, assign) NSInteger totalSize;
 @end
 
 @implementation YYHSettingTableViewController
@@ -42,6 +44,15 @@ static NSString  *const ID = @"cell";
 
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
+
+    [SVProgressHUD showWithStatus:@"正在计算缓存..."];
+    [YYHFileTools fileSizeForDirectory:@"/Users/Morris/Documents/iOS/视频" completion:^(NSInteger totalSize) {
+        self.totalSize = totalSize;
+        [self.tableView reloadData];
+        [SVProgressHUD dismiss];
+
+
+    }];
 
 }
 
@@ -78,7 +89,7 @@ static NSString  *const ID = @"cell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //点击清除缓存
 //    [self clearCache];
-    [YYHFileTools removeItemAtDirectoryPath:cacheFilePath];
+//    [YYHFileTools removeItemAtDirectoryPath:cacheFilePath];
     //清除完成后需要刷新, 获取最新数据
     [self.tableView reloadData];
 }
@@ -110,7 +121,7 @@ static NSString  *const ID = @"cell";
 //        totalSize =totalSize + [fileDict[@"NSFileSize"] floatValue];
 //
 //    }
-    NSInteger totalSize = [YYHFileTools filePathForDirectory:cacheFilePath];
+    NSInteger totalSize = self.totalSize;
     
     NSString *totalSizeStr = @"清除缓存";
     if (totalSize > 1000 * 1000) {
