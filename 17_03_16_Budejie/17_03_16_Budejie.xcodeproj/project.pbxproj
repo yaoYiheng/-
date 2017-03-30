@@ -55,6 +55,7 @@
 		A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155E81E890BAB007777E6 /* YYHWebViewController.m */; };
 		A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155E91E890BAB007777E6 /* YYHWebViewController.xib */; };
 		A57155F01E8B937B007777E6 /* YYHFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155EF1E8B937B007777E6 /* YYHFileTools.m */; };
+		A57155F61E8D0B59007777E6 /* YYHTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155F51E8D0B59007777E6 /* YYHTitleButton.m */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		A57155E91E890BAB007777E6 /* YYHWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHWebViewController.xib; sourceTree = "<group>"; };
 		A57155EE1E8B937B007777E6 /* YYHFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHFileTools.h; sourceTree = "<group>"; };
 		A57155EF1E8B937B007777E6 /* YYHFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHFileTools.m; sourceTree = "<group>"; };
+		A57155F41E8D0B59007777E6 /* YYHTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTitleButton.h; sourceTree = "<group>"; };
+		A57155F51E8D0B59007777E6 /* YYHTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTitleButton.m; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,6 +243,8 @@
 		A5367D381E7AA055005DC731 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A57155F41E8D0B59007777E6 /* YYHTitleButton.h */,
+				A57155F51E8D0B59007777E6 /* YYHTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -757,6 +762,7 @@
 				A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */,
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,
 				A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */,
+				A57155F61E8D0B59007777E6 /* YYHTitleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

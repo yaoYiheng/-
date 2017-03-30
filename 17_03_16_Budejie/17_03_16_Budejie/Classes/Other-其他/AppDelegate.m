@@ -56,10 +56,10 @@
     //创建根控制器
 //    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
 
-//    YYHTabBarController *tabBarVC = [[YYHTabBarController alloc] init];
+    YYHTabBarController *tabBarVC = [[YYHTabBarController alloc] init];
 
     //首先显示广告页面
-    YYHAdViewController *adVC = [[YYHAdViewController alloc] init];
+//    YYHAdViewController *adVC = [[YYHAdViewController alloc] init];
 
     //创建各个导航控制器与相关内容的控制器
 //    //精华
@@ -113,8 +113,8 @@
 
 
     //设置为窗口跟控制器
-//    self.window.rootViewController = tabBarVC;
-    self.window.rootViewController = adVC;
+    self.window.rootViewController = tabBarVC;
+//    self.window.rootViewController = adVC;
 
     /*
         完成基本框架搭建, 但出现以下问题:

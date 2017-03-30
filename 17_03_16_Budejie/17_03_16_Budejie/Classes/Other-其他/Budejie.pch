@@ -13,13 +13,14 @@
     1. 存放公用的宏
     2. 存放公用头文件
     3. 自定义Log
- 
+ arc4random_uniform(255.0), arc4random_uniform(255.0), arc4random_uniform(255.0)
  使用步骤:
     在bulid setting中搜索 prefix 更改No为Yes, 将创建好的Pch文件路径赋值.
     注意: 一般Pch文件名与项目名称一致.
  
  */
 #define YYHColor(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
+#define YYHRandomColor [UIColor colorWithRed: arc4random_uniform(255.0) / 255.0 green: arc4random_uniform(255.0) / 255.0 blue: arc4random_uniform(255.0) / 255.0 alpha:1]
 /***********屏幕适配*************/
 #define YYhScreenW [UIScreen mainScreen].bounds.size.width
 #define YYHScreenH [UIScreen mainScreen].bounds.size.height
@@ -35,9 +36,12 @@
 //快速创建UIBarButtonItem
 #import "UIBarButtonItem+YYHBarButton.h"
 
+
+#define YYHFunc YYHLog(@"%s",__func__);
+
 #ifdef DEBUG
 
-#define YYHLog(...) NSLog(__VA__ARGS__)
+#define YYHLog(...) NSLog(__VA_ARGS__)
 
 #else
 
@@ -46,5 +50,16 @@
 #endif
 
 
+//#define XMGFunc XMGLog(@"%s",__func__);
+//
+//#ifdef DEBUG // 调试
+//
+//#define XMGLog(...) NSLog(__VA_ARGS__)
+//
+//#else // 发布
+//
+//#define XMGLog(...)
+//
+//#endif
 
 
