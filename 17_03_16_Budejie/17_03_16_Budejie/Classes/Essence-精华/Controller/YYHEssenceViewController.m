@@ -31,6 +31,10 @@
     
     既想要实现穿透可视, 有想要tableView的可视内容不被导航条与tabBar挡住, 
  需要同时设置self.automaticallyAdjustsScrollViewInsets = NO, 以及为tableView的顶部与底部设置内边距(contentInset)
+ 
+    接下来要做的事:
+        1. 点击对应按钮跳转到对应的控制器的view -> 点击按钮, 通过绑定的tag设置scrollView的偏移量 ✅
+        2. 滑动实现标题按钮的联动 ->监听scrollView的滑动, 实现代理方法, 在代理方法中调用点击按钮的方法即可实现.✅
 
  */
 #import "YYHEssenceViewController.h"
@@ -43,7 +47,7 @@
 
 
 
-@interface YYHEssenceViewController ()
+@interface YYHEssenceViewController () <UIScrollViewDelegate>
 /** 标题栏view*/
 @property (nonatomic, weak) UIView *titleView;
 /** 选中的按钮*/
@@ -76,6 +80,39 @@
 
     //当把scrollView添加到带有导航控制器的view当中时, 会自动偏移
     self.automaticallyAdjustsScrollViewInsets = NO;
+
+}
+#pragma mark -----UIScrollViewDelegate-----
+
+/**
+ 当停止减速, 即完全静止时调用
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    //通过偏移量拿到index, 可以通过该index获取到对应的按钮
+    NSInteger index = scrollView.contentOffset.x / YYhScreenW;
+
+    //方法一: 通过该index在titleView的数组中获取
+    YYHTitleButton *button = self.titleView.subviews[index];
+
+    //方法而: 通过该index, 调用viewWithTag:获取
+    /*
+     报错:-[UIView setSelected:]: unrecognized selector sent to instance 0x7fca6bc0b390.
+     原因是向UIView发送了setSelected消息,但UIView中并没有该方法.
+     
+     分析报错原因:
+     viewWithTag:该方法的实现是采用递归遍历, 先查询自己的tag, 再去查询自己子view的tag, 默认控件的tag为0, 而第一个按钮的tag值也为0,
+     所有通过该方法传递出来的UIView并不是按钮, 而是titleView本身(UIView), 当该view作为参数传递给另一个需要接受按钮的方法中, 设置按钮
+     相关方法时, 就会报找不到方法的错误.
+     
+     5   17_03_16_Budejie                    0x000000010491c0b6 -[YYHEssenceViewController titleButtonClick:] + 150
+     6   17_03_16_Budejie                    0x000000010491ad2b -[YYHEssenceViewController scrollViewDidEndDecelerating:] + 331
+     */
+
+//    YYHTitleButton *button = [self.titleView viewWithTag:index];
+
+    //调用点击按钮方法
+    [self titleButtonClick:button];
 
 }
 #pragma mark -----初始化子控件-----
@@ -118,6 +155,7 @@
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
 
 
 
@@ -189,6 +227,8 @@
 
         [titleButton setTitle:titleArray[i] forState:UIControlStateNormal];
 
+        //为按钮绑定tag
+        titleButton.tag = i;
 
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -196,7 +236,7 @@
     }
 
 }
-
+#pragma mark -----点击标题按钮-----
 - (void)titleButtonClick: (YYHTitleButton *)titleButton{
     YYHFunc
     self.selectedButton.selected = NO;
@@ -209,6 +249,13 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.underLine.yyh_width = titleButton.titleLabel.yyh_width;
         self.underLine.yyh_centerX = titleButton.yyh_centerX;
+
+        //点击标题后, 跳转到对应的控制器的view, 通过改变scrollView的的contentOffset
+        NSUInteger index = titleButton.tag;
+
+        self.scrollView.contentOffset = CGPointMake(index * YYhScreenW, self.scrollView.contentOffset.y);
+
+
     }];
 
 }
