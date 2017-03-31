@@ -36,6 +36,11 @@
 //快速创建UIBarButtonItem
 #import "UIBarButtonItem+YYHBarButton.h"
 
+//共同的tableViewController
+#import "YYHBasicTableViewController.h"
+
+//Const 常量头文件
+#import "YYHConst.h"
 
 #define YYHFunc YYHLog(@"%s",__func__);
 

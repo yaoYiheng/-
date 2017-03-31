@@ -33,6 +33,13 @@
 		A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9D1E7FC40F005DC731 /* LaunchImage.png */; };
 		A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */; };
 		A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */; };
+		A562FDE11E8E32EE00B3AF6D /* YYHAllTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE01E8E32EE00B3AF6D /* YYHAllTableViewController.m */; };
+		A562FDE41E8E332400B3AF6D /* YYHVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE31E8E332400B3AF6D /* YYHVideoTableViewController.m */; };
+		A562FDE71E8E333300B3AF6D /* YYHSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE61E8E333300B3AF6D /* YYHSoundTableViewController.m */; };
+		A562FDEA1E8E334200B3AF6D /* YYHPictureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE91E8E334200B3AF6D /* YYHPictureTableViewController.m */; };
+		A562FDED1E8E334C00B3AF6D /* YYHWordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */; };
+		A562FDF01E8E339D00B3AF6D /* YYHBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */; };
+		A562FDF31E8E417100B3AF6D /* YYHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDF21E8E417000B3AF6D /* YYHConst.m */; };
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
@@ -105,6 +112,20 @@
 		A5367D9D1E7FC40F005DC731 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHAdViewController.xib; sourceTree = "<group>"; };
+		A562FDDF1E8E32EE00B3AF6D /* YYHAllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHAllTableViewController.h; sourceTree = "<group>"; };
+		A562FDE01E8E32EE00B3AF6D /* YYHAllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHAllTableViewController.m; sourceTree = "<group>"; };
+		A562FDE21E8E332400B3AF6D /* YYHVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHVideoTableViewController.h; sourceTree = "<group>"; };
+		A562FDE31E8E332400B3AF6D /* YYHVideoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHVideoTableViewController.m; sourceTree = "<group>"; };
+		A562FDE51E8E333300B3AF6D /* YYHSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSoundTableViewController.h; sourceTree = "<group>"; };
+		A562FDE61E8E333300B3AF6D /* YYHSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHSoundTableViewController.m; sourceTree = "<group>"; };
+		A562FDE81E8E334200B3AF6D /* YYHPictureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHPictureTableViewController.h; sourceTree = "<group>"; };
+		A562FDE91E8E334200B3AF6D /* YYHPictureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHPictureTableViewController.m; sourceTree = "<group>"; };
+		A562FDEB1E8E334C00B3AF6D /* YYHWordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHWordTableViewController.h; sourceTree = "<group>"; };
+		A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHWordTableViewController.m; sourceTree = "<group>"; };
+		A562FDEE1E8E339D00B3AF6D /* YYHBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHBasicTableViewController.h; sourceTree = "<group>"; };
+		A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHBasicTableViewController.m; sourceTree = "<group>"; };
+		A562FDF11E8E417000B3AF6D /* YYHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHConst.h; sourceTree = "<group>"; };
+		A562FDF21E8E417000B3AF6D /* YYHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHConst.m; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
 		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		A57155AD1E813B91007777E6 /* YYHSubscribeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSubscribeController.h; sourceTree = "<group>"; };
@@ -229,6 +250,16 @@
 			children = (
 				A5367D511E7AA3DD005DC731 /* YYHEssenceViewController.h */,
 				A5367D521E7AA3DD005DC731 /* YYHEssenceViewController.m */,
+				A562FDDF1E8E32EE00B3AF6D /* YYHAllTableViewController.h */,
+				A562FDE01E8E32EE00B3AF6D /* YYHAllTableViewController.m */,
+				A562FDE21E8E332400B3AF6D /* YYHVideoTableViewController.h */,
+				A562FDE31E8E332400B3AF6D /* YYHVideoTableViewController.m */,
+				A562FDE51E8E333300B3AF6D /* YYHSoundTableViewController.h */,
+				A562FDE61E8E333300B3AF6D /* YYHSoundTableViewController.m */,
+				A562FDE81E8E334200B3AF6D /* YYHPictureTableViewController.h */,
+				A562FDE91E8E334200B3AF6D /* YYHPictureTableViewController.m */,
+				A562FDEB1E8E334C00B3AF6D /* YYHWordTableViewController.h */,
+				A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +417,8 @@
 				A5367D471E7AA055005DC731 /* AppDelegate.m */,
 				A5367D481E7AA055005DC731 /* main.m */,
 				A5367D6F1E7D2A35005DC731 /* Budejie.pch */,
+				A562FDF11E8E417000B3AF6D /* YYHConst.h */,
+				A562FDF21E8E417000B3AF6D /* YYHConst.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -441,6 +474,8 @@
 				A5367D681E7AAB4C005DC731 /* YYHTabBarController.m */,
 				A5367D821E7E892B005DC731 /* YYHNavigationViewController.h */,
 				A5367D831E7E892B005DC731 /* YYHNavigationViewController.m */,
+				A562FDEE1E8E339D00B3AF6D /* YYHBasicTableViewController.h */,
+				A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -736,28 +771,35 @@
 				A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */,
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
+				A562FDF01E8E339D00B3AF6D /* YYHBasicTableViewController.m in Sources */,
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */,
 				A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */,
+				A562FDEA1E8E334200B3AF6D /* YYHPictureTableViewController.m in Sources */,
 				A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */,
 				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
 				A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */,
+				A562FDE11E8E32EE00B3AF6D /* YYHAllTableViewController.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
 				A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */,
 				A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */,
 				A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */,
+				A562FDE41E8E332400B3AF6D /* YYHVideoTableViewController.m in Sources */,
 				A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */,
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A57155D11E850350007777E6 /* YYHFastLoginView.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
+				A562FDED1E8E334C00B3AF6D /* YYHWordTableViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,
 				A5367D4D1E7AA055005DC731 /* AppDelegate.m in Sources */,
+				A562FDE71E8E333300B3AF6D /* YYHSoundTableViewController.m in Sources */,
 				A57155F01E8B937B007777E6 /* YYHFileTools.m in Sources */,
 				A5367D841E7E892B005DC731 /* YYHNavigationViewController.m in Sources */,
 				A57155C01E83B76F007777E6 /* YYHLogNRegisterViewController.m in Sources */,
+				A562FDF31E8E417100B3AF6D /* YYHConst.m in Sources */,
 				A57155D91E865C13007777E6 /* YYHTextField.m in Sources */,
 				A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */,
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,

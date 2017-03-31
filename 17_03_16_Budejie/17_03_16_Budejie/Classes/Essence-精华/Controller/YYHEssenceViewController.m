@@ -26,21 +26,32 @@
  */
 
 /*
-    设置导航条上的按钮.
-        问题: 设置完成后, 点击按钮周围区域, 也会显示高亮状态.
-        分析: 是否是因为图片过大? 不是.
-        解决: 将按钮添加到UIView中, 在将UIView作为自定义View添加到leftBarButtonItem中
+    如果想要实现可以透过导航条与tabBar看到tableView上显示的内容的话, 需要设置scrollView的全屏显示, 但是在导航控制器的view下会自动偏移
+ 需要设置self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    既想要实现穿透可视, 有想要tableView的可视内容不被导航条与tabBar挡住, 
+ 需要同时设置self.automaticallyAdjustsScrollViewInsets = NO, 以及为tableView的顶部与底部设置内边距(contentInset)
+
  */
 #import "YYHEssenceViewController.h"
 #import "YYHTitleButton.h"
+#import "YYHAllTableViewController.h"
+#import "YYHVideoTableViewController.h"
+#import "YYHSoundTableViewController.h"
+#import "YYHPictureTableViewController.h"
+#import "YYHWordTableViewController.h"
+
+
 
 @interface YYHEssenceViewController ()
-/** <#comments#>*/
+/** 标题栏view*/
 @property (nonatomic, weak) UIView *titleView;
-/** <#comments#>*/
+/** 选中的按钮*/
 @property (nonatomic, weak) UIButton *selectedButton;
-/** <#comments#>*/
+/** 下划线*/
 @property (nonatomic, weak) UIView *underLine;
+/** 装载所有子控制器view的scrollView*/
+@property (nonatomic, weak) UIScrollView *scrollView;
 
 @end
 
@@ -53,6 +64,9 @@
     //设置导航栏按钮
     [self configureBarButtonItem];
 
+    //为当前(精华)控制器添加子控制器
+    [self configureChildrenViewControllers];
+
     //添加scrollView
 
     [self configureScrollView];
@@ -60,8 +74,40 @@
     //添加标题栏
     [self configureTitleView];
 
+    //当把scrollView添加到带有导航控制器的view当中时, 会自动偏移
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
 }
 #pragma mark -----初始化子控件-----
+
+/**
+ 为当前控制器添加所有子控制器
+ */
+- (void)configureChildrenViewControllers{
+
+    [self addChildViewController:[[YYHAllTableViewController alloc] init]];
+    [self addChildViewController:[[YYHVideoTableViewController alloc] init]];
+    [self addChildViewController:[[YYHSoundTableViewController alloc] init]];
+    [self addChildViewController:[[YYHPictureTableViewController alloc] init]];
+    [self addChildViewController:[[YYHWordTableViewController alloc] init]];
+
+}
+
+/**
+ 为scrollView添加子控制器的view
+ */
+- (void)configureChildrenViews{
+    NSInteger count = self.childViewControllers.count;
+    self.scrollView.contentSize = CGSizeMake(count * YYhScreenW, 0);
+    //添加子控制器view到scrollView
+    for (int i = 0; i < count; i++) {
+        UIView *childView = self.childViewControllers[i].view;
+        childView.frame = CGRectMake(i * YYhScreenW, 0, YYhScreenW, YYHScreenH);
+
+        [self.scrollView addSubview:childView];
+    }
+
+}
 /**
  设置ScrollView
  */
@@ -69,6 +115,16 @@
     //添加scrollView
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.backgroundColor = [UIColor cyanColor];
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.pagingEnabled = YES;
+
+
+
+    self.scrollView = scrollView;
+
+    //添加所有子控制器的view到scrollView
+    [self configureChildrenViews];
 
     [self.view addSubview:scrollView];
 
@@ -82,7 +138,7 @@
     UIView *titleView = [[UIView alloc] init];
     self.titleView = titleView;
     CGFloat titleViewW = self.view.yyh_width;
-    CGFloat titleViewH = 40;
+    CGFloat titleViewH = YYHTitleViewHeight;
     //设置titleView尺寸
     titleView.frame = CGRectMake(0, 64, titleViewW, titleViewH);
     titleView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
