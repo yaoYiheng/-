@@ -35,6 +35,10 @@
     接下来要做的事:
         1. 点击对应按钮跳转到对应的控制器的view -> 点击按钮, 通过绑定的tag设置scrollView的偏移量 ✅
         2. 滑动实现标题按钮的联动 ->监听scrollView的滑动, 实现代理方法, 在代理方法中调用点击按钮的方法即可实现.✅
+    
+    存在的问题:
+        当添加子控制器view到scrollView时, 会将所有view创建并加载, 这样性能不好, 应该做到用到时才加载, 
+        可以将加载的代码放到scrollView滚动完毕时调用.
 
  */
 #import "YYHEssenceViewController.h"
@@ -81,6 +85,8 @@
     //当把scrollView添加到带有导航控制器的view当中时, 会自动偏移
     self.automaticallyAdjustsScrollViewInsets = NO;
 
+    //精华控制器view加载完毕时, 加载allViewController的view
+    [self addChildViewIntoScrollView:0];
 }
 #pragma mark -----UIScrollViewDelegate-----
 
@@ -137,12 +143,12 @@
     NSInteger count = self.childViewControllers.count;
     self.scrollView.contentSize = CGSizeMake(count * YYhScreenW, 0);
     //添加子控制器view到scrollView
-    for (int i = 0; i < count; i++) {
-        UIView *childView = self.childViewControllers[i].view;
-        childView.frame = CGRectMake(i * YYhScreenW, 0, YYhScreenW, YYHScreenH);
-
-        [self.scrollView addSubview:childView];
-    }
+//    for (int i = 0; i < count; i++) {
+//        UIView *childView = self.childViewControllers[i].view;
+//        childView.frame = CGRectMake(i * YYhScreenW, 0, YYhScreenW, YYHScreenH);
+//
+//        [self.scrollView addSubview:childView];
+//    }
 
 }
 /**
@@ -245,19 +251,36 @@
 
     self.underLine.backgroundColor = [titleButton currentTitleColor];
 
+    //点击标题后, 跳转到对应的控制器的view, 通过改变scrollView的的contentOffset
+    NSUInteger index = titleButton.tag;
+
     //点击按钮时, 移动下划线的位置
     [UIView animateWithDuration:0.2 animations:^{
         self.underLine.yyh_width = titleButton.titleLabel.yyh_width;
         self.underLine.yyh_centerX = titleButton.yyh_centerX;
 
-        //点击标题后, 跳转到对应的控制器的view, 通过改变scrollView的的contentOffset
-        NSUInteger index = titleButton.tag;
 
         self.scrollView.contentOffset = CGPointMake(index * YYhScreenW, self.scrollView.contentOffset.y);
 
 
+    } completion:^(BOOL finished) {
+        [self addChildViewIntoScrollView:index];
     }];
 
+}
+
+/**
+ 添加第index处的按钮到scrollView
+ */
+- (void)addChildViewIntoScrollView: (NSInteger) index{
+    UIView *childView = self.childViewControllers[index].view;
+
+    if(childView.superview) return;
+
+//    childView.frame = CGRectMake(index * YYhScreenW, 0, YYhScreenW, YYHScreenH);
+    childView.frame = self.scrollView.bounds;
+
+    [self.scrollView addSubview:childView];
 }
 - (void)configureBarButtonItem{
     self.view.backgroundColor = [UIColor magentaColor];
