@@ -4,7 +4,26 @@
 //
 //  Created by 姚懿恒 on 2017/3/16.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
-//
+/*
+    UITableView重要属性分析:
+
+ 什么是内容？内容包括什么？
+ 1.cell
+ 2.tableHeaderView\tableFooterView
+ 3.sectionHeader\sectionFooter
+
+ contentSize.height : 所有内容的总高度 = cell高度 + tableHeaderView\tableFooterView高度 + sectionHeader\sectionFooter高度
+
+ contentInset : 在内容周围额外增加的间距（内边距），始终粘着内容
+
+ contentOffset : 内容距离frame矩形框，偏移了多少
+        contentOffset.y = tableView.y与tableView的所有内容的总高度的差值.
+
+ frame : 是以父控件内容的左上角为坐标原点{0, 0}
+
+ bounds : 是以自己内容的左上角为坐标原点{0, 0}
+
+ */
 
 /*
     设置导航条上的按钮.
