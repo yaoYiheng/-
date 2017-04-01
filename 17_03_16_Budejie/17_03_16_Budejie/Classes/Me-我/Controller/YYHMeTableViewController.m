@@ -64,8 +64,8 @@ static int const column = 4;
     [self loadData];
 
 
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSLog(@"%@", path);
+//    NSArray *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//    NSLog(@"%@", path);
 }
 -(void)loadData{
     //创建会话管理者

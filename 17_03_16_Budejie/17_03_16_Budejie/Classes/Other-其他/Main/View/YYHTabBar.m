@@ -11,6 +11,8 @@
 @interface YYHTabBar ()
 /** <#comments#>*/
 @property (nonatomic, weak) UIButton *publishButton;
+/** <#comments#>*/
+@property (nonatomic, weak) UIControl *selectedTabBarButton;
 
 @end
 
@@ -42,10 +44,17 @@
     CGFloat barButtonW = self.yyh_width / self.subviews.count + 1;
 
     int index = 0;
-    for (UIView *tabBarButton in self.subviews)
+    for (UIControl *tabBarButton in self.subviews)
     {
         if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
             tabBarButton.frame = CGRectMake(index * barButtonW, 0, barButtonW, self.yyh_height);
+            
+            if (index == 0 && self.selectedTabBarButton == nil) {
+                self.selectedTabBarButton = tabBarButton;
+            }
+//            NSLog(@"%@", tabBarButton.superclass);
+            //为tabBarButton添加点击事件,
+            [tabBarButton addTarget:self action:@selector(barButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 
             if (index == 1) {
                 index = 2;
@@ -59,5 +68,23 @@
     self.publishButton.center = CGPointMake(self.yyh_width / 2, self.yyh_height / 2);
 
 //    NSLog(@"%@", self.subviews);
+}
+
+
+/**
+ 当第二次点击时,才会调用该方法.
+ 
+ 实现: 保存第一次点击的按钮, 只有两次一样时, 才调用
+
+ @param tabBarButton <#tabBarButton description#>
+ */
+- (void)barButtonClick:(UIControl *)tabBarButton{
+
+    if (self.selectedTabBarButton == tabBarButton) {
+        YYHFunc
+    }
+    self.selectedTabBarButton = tabBarButton;
+
+
 }
 @end

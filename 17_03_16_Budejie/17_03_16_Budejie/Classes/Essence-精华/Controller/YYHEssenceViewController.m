@@ -277,8 +277,8 @@
 
     if(childView.superview) return;
 
-//    childView.frame = CGRectMake(index * YYhScreenW, 0, YYhScreenW, YYHScreenH);
-    childView.frame = self.scrollView.bounds;
+    childView.frame = CGRectMake(index * YYhScreenW, 0, YYhScreenW, YYHScreenH);
+//    childView.frame = self.scrollView.bounds;
 
     [self.scrollView addSubview:childView];
 }
