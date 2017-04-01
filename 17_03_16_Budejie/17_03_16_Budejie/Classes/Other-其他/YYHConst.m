@@ -11,3 +11,6 @@ CGFloat const YYHNaviBarMaxY = 64;
 CGFloat const YYHTitleViewHeight = 40;
 
 CGFloat const YYHTabBarHeight = 49;
+
+//重复点击通知
+NSString * const YYHTabBarButtonDoubleClickNotification = @" YYHTabBarButtonDoubleClickNotification";

@@ -18,5 +18,9 @@
     [super viewDidLoad];
     
 }
+- (void)tabBarButtonDoubleClick{
+    [super tabBarButtonDoubleClick];
+    YYHFunc;
+}
 @end
 

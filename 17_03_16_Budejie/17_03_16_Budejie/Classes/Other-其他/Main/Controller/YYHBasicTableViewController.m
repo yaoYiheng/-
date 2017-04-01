@@ -20,8 +20,25 @@
     self.view.backgroundColor = YYHRandomColor;
     self.tableView.contentInset = UIEdgeInsetsMake(YYHTitleViewHeight + YYHNaviBarMaxY, 0, YYHTabBarHeight, 0);
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDoubleClick) name:YYHTabBarButtonDoubleClickNotification object:nil];
+
 }
 
+-(void)dealloc{
+    //从通知中心中移除观察者
+    YYHFunc
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)tabBarButtonDoubleClick{
+
+    if (self.view.window == nil) return;
+
+    if (self.tableView.scrollsToTop == NO) return;
+
+    NSLog(@"%@刷新数据%s", self.class, __func__);
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

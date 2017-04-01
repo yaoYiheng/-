@@ -66,7 +66,25 @@ static int const column = 4;
 
 //    NSArray *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 //    NSLog(@"%@", path);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDoubleClick) name:YYHTabBarButtonDoubleClickNotification object:nil];
+
 }
+
+-(void)dealloc{
+    //从通知中心中移除观察者
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)tabBarButtonDoubleClick{
+
+    if (self.view.window == nil) return;
+
+    if (self.tableView.scrollsToTop == NO) return;
+
+    NSLog(@"%@", self.class);
+    
+}
+
 -(void)loadData{
     //创建会话管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

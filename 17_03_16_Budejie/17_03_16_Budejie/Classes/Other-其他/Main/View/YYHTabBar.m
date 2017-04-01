@@ -81,7 +81,19 @@
 - (void)barButtonClick:(UIControl *)tabBarButton{
 
     if (self.selectedTabBarButton == tabBarButton) {
-        YYHFunc
+//        YYHFunc
+
+        //点tabBarButton被重复点击时, 向通知中心发送消息
+        /*
+            发送的消息的名称参考Apple的写法
+            UIKeyboardDidShowNotification
+
+         YYHTabBarButtonDoubleClickNotification
+         可以将其作为常量写入到Const文件中
+         */
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTabBarButtonDoubleClickNotification object:nil];
+
     }
     self.selectedTabBarButton = tabBarButton;
 
