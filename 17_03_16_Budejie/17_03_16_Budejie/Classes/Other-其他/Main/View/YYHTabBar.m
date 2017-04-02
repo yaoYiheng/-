@@ -92,7 +92,7 @@
          可以将其作为常量写入到Const文件中
          */
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTabBarButtonDoubleClickNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTabBarButtonDidDoubleClickNotification object:nil];
 
     }
     self.selectedTabBarButton = tabBarButton;

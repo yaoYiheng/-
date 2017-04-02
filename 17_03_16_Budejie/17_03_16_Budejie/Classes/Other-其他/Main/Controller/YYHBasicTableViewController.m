@@ -20,7 +20,9 @@
     self.view.backgroundColor = YYHRandomColor;
     self.tableView.contentInset = UIEdgeInsetsMake(YYHTitleViewHeight + YYHNaviBarMaxY, 0, YYHTabBarHeight, 0);
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDoubleClick) name:YYHTabBarButtonDoubleClickNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDoubleClick) name:YYHTabBarButtonDidDoubleClickNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:YYHTitleButtonDidDoubleClickNotification object:nil];
 
 }
 
@@ -38,6 +40,13 @@
 
     NSLog(@"%@刷新数据%s", self.class, __func__);
 
+}
+/**
+ *  监听titleButton重复点击
+ */
+- (void)titleButtonDidRepeatClick
+{
+    [self tabBarButtonDoubleClick];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

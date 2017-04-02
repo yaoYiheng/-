@@ -244,7 +244,13 @@
 }
 #pragma mark -----点击标题按钮-----
 - (void)titleButtonClick: (YYHTitleButton *)titleButton{
-    YYHFunc
+
+
+    if (self.selectedButton == titleButton) {
+        YYHFunc
+        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTitleButtonDidDoubleClickNotification object:nil];
+    }
+
     self.selectedButton.selected = NO;
     titleButton.selected = YES;
     self.selectedButton = titleButton;
@@ -342,5 +348,4 @@
 - (void)game{
     NSLog(@"游戏");
 }
-
 @end
