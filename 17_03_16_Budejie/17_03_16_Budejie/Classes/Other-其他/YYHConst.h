@@ -13,6 +13,10 @@ UIKIT_EXTERN CGFloat const YYHTitleViewHeight;
 
 UIKIT_EXTERN CGFloat const YYHTabBarHeight;
 
+UIKIT_EXTERN CGFloat const YYHFooterViewHeight;
+
+UIKIT_EXTERN CGFloat const YYHHeaderViewHeight;
+
 //重复点击TabBarButton的通知
 UIKIT_EXTERN NSString * const YYHTabBarButtonDidDoubleClickNotification;
 

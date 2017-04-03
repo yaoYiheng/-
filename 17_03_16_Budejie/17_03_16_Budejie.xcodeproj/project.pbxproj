@@ -123,7 +123,7 @@
 		A562FDEB1E8E334C00B3AF6D /* YYHWordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHWordTableViewController.h; sourceTree = "<group>"; };
 		A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHWordTableViewController.m; sourceTree = "<group>"; };
 		A562FDEE1E8E339D00B3AF6D /* YYHBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHBasicTableViewController.h; sourceTree = "<group>"; };
-		A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHBasicTableViewController.m; sourceTree = "<group>"; };
+		A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YYHBasicTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A562FDF11E8E417000B3AF6D /* YYHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHConst.h; sourceTree = "<group>"; };
 		A562FDF21E8E417000B3AF6D /* YYHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHConst.m; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
