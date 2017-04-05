@@ -9,6 +9,7 @@
  */
 
 #import "YYHBasicTableViewController.h"
+#import <AFNetworking.h>
 
 @interface YYHBasicTableViewController ()
 /** 刷新label*/
@@ -45,11 +46,13 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:YYHTitleButtonDidDoubleClickNotification object:nil];
 
-    //添加footerView
-    [self configureFooterView];
-    self.dataCount = 5;
 
     [self configureHeaderView];
+    //添加footerView
+    [self configureFooterView];
+//    self.dataCount = 5;
+
+
 }
 
 -(void)dealloc{
@@ -90,6 +93,7 @@
     self.headerRefreshLabel = label;
     [self.tableView addSubview:headerView];
     self.headerView = headerView;
+    [self headerStartRefresh];
 }
 #pragma mark - ----上拉, 下拉-----
 
@@ -154,23 +158,28 @@
 /**
  下拉获取新数据
  */
+//- (void)getNewData{
+//    //模拟2秒后服务器返回数据
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.dataCount = 20;
+//        [self.tableView reloadData];
+//
+//        //当返回数据后, 更改相关状态
+//
+//        [self headerFinishRefresh];
+//    });
+//
+//}
 - (void)getNewData{
-    //模拟2秒后服务器返回数据
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:0.4 animations:^{
 
-            self.dataCount = 15;
-            [self.tableView reloadData];
+    self.dataCount = 20;
+    [self.tableView reloadData];
 
-            //当返回数据后, 更改相关状态
+    //当返回数据后, 更改相关状态
 
-            [self headerFinishRefresh];
-            
-        }];
-    });
+    [self headerFinishRefresh];
 
 }
-
 /**
  上拉获取更多数据
  */
