@@ -15,6 +15,11 @@ CGFloat const YYHTabBarHeight = 49;
 CGFloat const YYHFooterViewHeight = 44;
 
 CGFloat const YYHHeaderViewHeight = 60;
+
+NSString * const YYHCommonURL = @"http://api.budejie.com/api/api_open.php";
+
+
+
 //重复点击通知
 NSString * const YYHTabBarButtonDidDoubleClickNotification = @" YYHTabBarButtonDidDoubleClickNotification";
 

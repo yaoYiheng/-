@@ -40,6 +40,8 @@
 		A562FDED1E8E334C00B3AF6D /* YYHWordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */; };
 		A562FDF01E8E339D00B3AF6D /* YYHBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */; };
 		A562FDF31E8E417100B3AF6D /* YYHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDF21E8E417000B3AF6D /* YYHConst.m */; };
+		A562FDF91E94EB9600B3AF6D /* NSDictionary+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDF81E94EB9600B3AF6D /* NSDictionary+Property.m */; };
+		A562FDFC1E94EDB700B3AF6D /* YYHTopicsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */; };
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
@@ -126,6 +128,10 @@
 		A562FDEF1E8E339D00B3AF6D /* YYHBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YYHBasicTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A562FDF11E8E417000B3AF6D /* YYHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHConst.h; sourceTree = "<group>"; };
 		A562FDF21E8E417000B3AF6D /* YYHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHConst.m; sourceTree = "<group>"; };
+		A562FDF71E94EB9600B3AF6D /* NSDictionary+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Property.h"; sourceTree = "<group>"; };
+		A562FDF81E94EB9600B3AF6D /* NSDictionary+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Property.m"; sourceTree = "<group>"; };
+		A562FDFA1E94EDB700B3AF6D /* YYHTopicsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicsItem.h; sourceTree = "<group>"; };
+		A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicsItem.m; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
 		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		A57155AD1E813B91007777E6 /* YYHSubscribeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSubscribeController.h; sourceTree = "<group>"; };
@@ -267,6 +273,8 @@
 		A5367D371E7AA055005DC731 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A562FDFA1E94EDB700B3AF6D /* YYHTopicsItem.h */,
+				A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,6 +507,8 @@
 		A5367D6A1E7B2351005DC731 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A562FDF71E94EB9600B3AF6D /* NSDictionary+Property.h */,
+				A562FDF81E94EB9600B3AF6D /* NSDictionary+Property.m */,
 				A5367D6B1E7B2351005DC731 /* UIImage+WithoutRendering.h */,
 				A5367D6C1E7B2351005DC731 /* UIImage+WithoutRendering.m */,
 				A5367D701E7D2CD2005DC731 /* UIView+YYHFrame.h */,
@@ -775,6 +785,7 @@
 				A5367D6D1E7B2351005DC731 /* UIImage+WithoutRendering.m in Sources */,
 				A5367D561E7AA407005DC731 /* YYHNewViewController.m in Sources */,
 				A57155DC1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m in Sources */,
+				A562FDF91E94EB9600B3AF6D /* NSDictionary+Property.m in Sources */,
 				A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */,
 				A562FDEA1E8E334200B3AF6D /* YYHPictureTableViewController.m in Sources */,
 				A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */,
@@ -785,6 +796,7 @@
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
 				A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */,
 				A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */,
+				A562FDFC1E94EDB700B3AF6D /* YYHTopicsItem.m in Sources */,
 				A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */,
 				A562FDE41E8E332400B3AF6D /* YYHVideoTableViewController.m in Sources */,
 				A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */,

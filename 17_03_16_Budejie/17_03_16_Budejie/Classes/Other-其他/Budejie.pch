@@ -21,6 +21,10 @@
  */
 #define YYHColor(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
 #define YYHRandomColor [UIColor colorWithRed: arc4random_uniform(255.0) / 255.0 green: arc4random_uniform(255.0) / 255.0 blue: arc4random_uniform(255.0) / 255.0 alpha:1]
+
+//传入文件名, 迅速在桌面将从服务器返回的字典数据写成plist文件
+#define YYHAFNWriteToPlist(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/Morris/Desktop/%@.plist",@#fileName] atomically:YES];
+
 /***********屏幕适配*************/
 #define YYhScreenW [UIScreen mainScreen].bounds.size.width
 #define YYHScreenH [UIScreen mainScreen].bounds.size.height
