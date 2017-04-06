@@ -6,6 +6,35 @@
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 /*
     为tableView添加footerView, 提示用户上拉加载更多数据.
+ 
+    待解决问题:
+    1. 当上拉加载更多时候, 获取到的数据不会缺少.
+        
+        解决方案: 在获取更多数据时, 在向服务器发送的参数中加入一个标识记录最后一条最新数据的值,下次返回时从这里开始.
+
+        记录下在写代码时出现的bug:
+        maxtime返回的是一串数字(其实是字符串), 当时就想着是用 assign去修饰 一个NSInter类型的属性,
+        后来发现其实可以就直接使用字符串,不需要进行多次转换, 就直接将该属性的类型改成了NSString, 并没有修改为strong或是copy,在获取最新数据中将其赋值, 而在获取更多数据时, 报了坏内存访问错误.
+        后来将其策略修改为strong, 该问题解决.
+
+    2. 无意中滑动时也会刷新
+            
+        分析, 是因为在滑动过程中会调用方法, 该方法中又会调用精华控制器的scrollViewDidEndDecelerating方法, 而在该方法中又会调用titleButtonClick:方法,
+        之前通过titleButtonClick:来实现按钮的被动点击效果, 但同时又会使其发送消息到通知中心.
+ 
+        解决方案: 将更改scrollView与按钮联动的方法单独抽取出来, 与发送通知互不干扰.
+
+
+    3. 如果网络不佳的情况下, 可能会出现上拉下拉同时刷新的情况.
+        
+        分析: 如果允许其同时加载最新与更多数据, 由于不确定那个数据会先返回, 可能会造成数据丢失的问题
+        
+        解决方案1: 控制刷新, 只允许同一时间一个控件刷新.在开始刷新headerView和footerView时各家一句判断.
+        
+        解决方案2: 控制请求的发送, 当在发送请求最新数据时, 就取消发送更多的网络请求 and vice versa.
+ 
+
+
  */
 
 #import "YYHBasicTableViewController.h"
@@ -34,9 +63,22 @@
 @property (nonatomic, weak) UIView *headerView;
 /** 帖子数组*/
 @property (nonatomic, strong) NSMutableArray *topcisArray;
+
+/** 当前最后一条帖子数据的描述信息，专门用来加载下一页数据*/
+@property (nonatomic, strong) NSString *maxTime;
+
+/** <#comments#>*/
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation YYHBasicTableViewController
+#pragma mark - -------lazying loading--------------
+- (AFHTTPSessionManager *)manager{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 #pragma mark - ----view周期方法-----
 - (void)viewDidLoad {
@@ -51,6 +93,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDoubleClick) name:YYHTabBarButtonDidDoubleClickNotification object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:YYHTitleButtonDidDoubleClickNotification object:nil];
+
+//    self.topcisArray = [NSMutableArray array];
+//    for (NSInteger i = 0; i <4 ; i++) {
+//        YYHTopicsItem *item = [[YYHTopicsItem alloc] init];
+//
+//        [self.topcisArray addObject:item];
+//    }
 
 
     [self configureHeaderView];
@@ -99,7 +148,7 @@
     self.headerRefreshLabel = label;
     [self.tableView addSubview:headerView];
     self.headerView = headerView;
-    [self headerStartRefresh];
+//    [self headerStartRefresh];
 }
 #pragma mark - ----上拉, 下拉-----
 
@@ -128,6 +177,7 @@
 - (void)draggingDown{
 
     if(self.headerRefreshing) return;
+
     //当下拉偏移量
     CGFloat headerOffsetY = -(self.tableView.contentInset.top + YYHHeaderViewHeight);
 
@@ -198,8 +248,10 @@
 
  */
 - (void)getNewData{
-    //1创建会话管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+    //在向服务器请求任务之前先取消之前的任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+
 
     //2.拼接参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -209,18 +261,25 @@
 
     //3.发现发送所有请求的url都是一样的, 所以将其抽成宏
 
-    [manager GET:YYHCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+    [self.manager GET:YYHCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         //为了方便查看, 将该字典写成plist文件.
         //        [NSString stringWithFormat:@"/Users/xiaomage/Desktop/%@.plist", @#filename];
 //#define YYHAFNWriteToPlist(fileName) [NSString stringWithFormat:@"/Users/Morris/Desktop/%@.plist",fileName];
 //        [responseObject writeToFile:@"/Users/Morris/Desktop/topics.plist" atomically:YES];
 
+
+
+        //使用一个属性来记录下最新返回数据的 maxtime
+        self.maxTime = responseObject[@"info"][@"maxtime"];
 //        YYHAFNWriteToPlist(@"new_topics")
 
         //已经能够成功获取服务器返回数据 -> 将字典数组转化成模型数组 -> 创建模型 ->MJ框架
 
         //所需要的字典数组存放在responseObject[@"list"]中
         self.topcisArray = [YYHTopicsItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+
+
+
 
         //拿到数据后需要刷新
         [self.tableView reloadData];
@@ -260,16 +319,24 @@
 //
 //}
 - (void)getMoreData{
+    //在向服务器请求任务之前先取消之前的任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
 
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
     parameters[@"type"] = @"1";
 
+    parameters[@"maxtime"] = self.maxTime;
 
-    [manager GET:YYHCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+
+    [self.manager GET:YYHCommonURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+
+        //获取返回更多数据的maxtime
+        self.maxTime = responseObject[@"info"][@"maxtime"];
 
         //将更多数据拼到已有的数据之后
         //从返回的数据中拿到字典数组
@@ -305,6 +372,7 @@
 
     //如果正在刷新就返回
     if(self.headerRefreshing) return;
+    if(self.footerRefreshing) return;
 
     self.headerRefreshLabel.text = @"正在刷新..";
 
@@ -340,6 +408,7 @@
 - (void)footerStartRefresh{
     //如果已经在刷新了就返回
     if(self.footerRefreshing) return;
+    if(self.headerRefreshing) return;
 
 
 
@@ -399,7 +468,7 @@
     YYHTopicsItem *topic = self.topcisArray[indexPath.row];
 
     cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
+    cell.detailTextLabel.text = topic.passtime;
 
 
     return cell;

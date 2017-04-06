@@ -118,7 +118,7 @@
 //    YYHTitleButton *button = [self.titleView viewWithTag:index];
 
     //调用点击按钮方法
-    [self titleButtonClick:button];
+    [self titleStatusChangeOnButton:button];
 
 }
 #pragma mark -----初始化子控件-----
@@ -243,13 +243,7 @@
 
 }
 #pragma mark -----点击标题按钮-----
-- (void)titleButtonClick: (YYHTitleButton *)titleButton{
-
-
-    if (self.selectedButton == titleButton) {
-        YYHFunc
-        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTitleButtonDidDoubleClickNotification object:nil];
-    }
+- (void)titleStatusChangeOnButton:(YYHTitleButton *)titleButton{
 
     self.selectedButton.selected = NO;
     titleButton.selected = YES;
@@ -289,6 +283,18 @@
         }
     }];
 
+
+
+}
+- (void)titleButtonClick: (YYHTitleButton *)titleButton{
+
+
+    if (self.selectedButton == titleButton) {
+        YYHFunc
+        [[NSNotificationCenter defaultCenter] postNotificationName:YYHTitleButtonDidDoubleClickNotification object:nil];
+    }
+
+    [self titleStatusChangeOnButton:titleButton];
 }
 
 /**
