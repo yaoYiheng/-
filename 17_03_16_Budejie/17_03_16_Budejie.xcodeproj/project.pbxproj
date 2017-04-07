@@ -42,6 +42,8 @@
 		A562FDF31E8E417100B3AF6D /* YYHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDF21E8E417000B3AF6D /* YYHConst.m */; };
 		A562FDF91E94EB9600B3AF6D /* NSDictionary+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDF81E94EB9600B3AF6D /* NSDictionary+Property.m */; };
 		A562FDFC1E94EDB700B3AF6D /* YYHTopicsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */; };
+		A562FE001E97A51000B3AF6D /* YYHTopicCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */; };
+		A562FE011E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */; };
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
@@ -132,6 +134,9 @@
 		A562FDF81E94EB9600B3AF6D /* NSDictionary+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Property.m"; sourceTree = "<group>"; };
 		A562FDFA1E94EDB700B3AF6D /* YYHTopicsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicsItem.h; sourceTree = "<group>"; };
 		A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicsItem.m; sourceTree = "<group>"; };
+		A562FDFD1E97A51000B3AF6D /* YYHTopicCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicCellTableViewCell.h; sourceTree = "<group>"; };
+		A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicCellTableViewCell.m; sourceTree = "<group>"; };
+		A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicCellTableViewCell.xib; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
 		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		A57155AD1E813B91007777E6 /* YYHSubscribeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSubscribeController.h; sourceTree = "<group>"; };
@@ -284,6 +289,9 @@
 			children = (
 				A57155F41E8D0B59007777E6 /* YYHTitleButton.h */,
 				A57155F51E8D0B59007777E6 /* YYHTitleButton.m */,
+				A562FDFD1E97A51000B3AF6D /* YYHTopicCellTableViewCell.h */,
+				A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */,
+				A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -715,6 +723,7 @@
 				A57155E31E870A69007777E6 /* YYHCollectionViewCell.xib in Resources */,
 				A5367DA01E7FC40F005DC731 /* LaunchImage-700-568h@2x.png in Resources */,
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
+				A562FE011E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib in Resources */,
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
 				A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */,
 				A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */,
@@ -796,6 +805,7 @@
 				A5367D8B1E7E9073005DC731 /* YYHSettingTableViewController.m in Sources */,
 				A57155E61E87A383007777E6 /* YYHCellItem.m in Sources */,
 				A57155E21E870A69007777E6 /* YYHCollectionViewCell.m in Sources */,
+				A562FE001E97A51000B3AF6D /* YYHTopicCellTableViewCell.m in Sources */,
 				A562FDFC1E94EDB700B3AF6D /* YYHTopicsItem.m in Sources */,
 				A57155CC1E83CBD7007777E6 /* YYHRegisterView.m in Sources */,
 				A562FDE41E8E332400B3AF6D /* YYHVideoTableViewController.m in Sources */,
