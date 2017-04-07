@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YYHTopicsItem;
 
 @interface YYHTopicCellTableViewCell : UITableViewCell
 
+/** <#comments#>*/
+@property (nonatomic, strong) YYHTopicsItem *topic;
 @end

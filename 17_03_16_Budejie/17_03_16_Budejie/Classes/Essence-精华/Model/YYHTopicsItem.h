@@ -94,7 +94,31 @@
 
 #import <Foundation/Foundation.h>
 
+
+//typedef enum{
+//
+//    YYHTopicTypeAll = 1,
+//    YYHTopicTypeVideo = 41,
+//    YYHTopicTypeVoice = 31,
+//    YYHTopicTypePicture = 10,
+//    YYHTopicTypeWord = 29,
+//
+//
+//} YYHTopicType;
+
+typedef NS_ENUM(NSInteger,YYHTopicType ) {
+    
+    YYHTopicTypeAll = 1,
+    YYHTopicTypeVideo = 41,
+    YYHTopicTypeVoice = 31,
+    YYHTopicTypePicture = 10,
+    YYHTopicTypeWord = 29,
+
+};
+
 @interface YYHTopicsItem : NSObject
+
+
 
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
@@ -113,5 +137,9 @@
 @property (nonatomic, assign) NSInteger repost;
 /** 评论数量 */
 @property (nonatomic, assign) NSInteger comment;
+
+/** 帖子类型*/
+@property (nonatomic, assign) YYHTopicType type;
+
 
 @end

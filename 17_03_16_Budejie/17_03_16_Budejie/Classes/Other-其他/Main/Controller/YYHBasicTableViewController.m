@@ -43,6 +43,7 @@
 #import <MJExtension.h>
 #import "YYHTopicsItem.h"
 #import <SVProgressHUD.h>
+#import "YYHTopicCellTableViewCell.h"
 
 @interface YYHBasicTableViewController ()
 /** 刷新label*/
@@ -71,6 +72,8 @@
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
+static NSString *ID = @"YYHTopicCell";
+
 @implementation YYHBasicTableViewController
 #pragma mark - -------lazying loading--------------
 - (AFHTTPSessionManager *)manager{
@@ -84,7 +87,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = YYHRandomColor;
+    self.view.backgroundColor = YYHColor(200, 200, 200);
     self.tableView.contentInset = UIEdgeInsetsMake(YYHTitleViewHeight + YYHNaviBarMaxY, 0, YYHTabBarHeight, 0);
     //修改指示器的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
@@ -106,6 +109,15 @@
     //添加footerView
     [self configureFooterView];
 //    self.dataCount = 5;
+
+    //设置每行的高度
+    self.tableView.rowHeight = 200;
+
+    //注册cell
+//    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+
+    //设置cell的分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 
 }
@@ -148,7 +160,7 @@
     self.headerRefreshLabel = label;
     [self.tableView addSubview:headerView];
     self.headerView = headerView;
-//    [self headerStartRefresh];
+    [self headerStartRefresh];
 }
 #pragma mark - ----上拉, 下拉-----
 
@@ -459,16 +471,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-    }
+
+    YYHTopicCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+
+    //如果没有注册cell的情况下, 需要在Nib中绑定重用标识, 这样写法, 与注册cell都可.
+//    if (!cell) {
+//        cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([YYHTopicCellTableViewCell  class]) owner:nil options:nil].firstObject;
+//    }
     YYHTopicsItem *topic = self.topcisArray[indexPath.row];
 
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.passtime;
+    cell.topic = topic;
 
 
     return cell;
