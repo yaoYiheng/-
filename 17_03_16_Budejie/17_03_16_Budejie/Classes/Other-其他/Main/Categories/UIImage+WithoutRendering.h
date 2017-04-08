@@ -13,4 +13,9 @@
 + (UIImage *)imageWithoutRendering:(NSString *)imageName;
 
 + (UIImage *)imageWithStretched:(NSString *)imageName;
+
+//返回一张经过裁剪的圆形图片
+- (instancetype)yyh_circleImage;
+
++ (instancetype)yyh_circleImageNamed:(NSString *)name;
 @end

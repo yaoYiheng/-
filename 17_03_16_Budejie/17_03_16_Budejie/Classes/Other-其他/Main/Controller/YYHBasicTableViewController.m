@@ -114,7 +114,7 @@ static NSString *ID = @"YYHTopicCell";
     self.tableView.rowHeight = 200;
 
     //注册cell
-//    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
 
     //设置cell的分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

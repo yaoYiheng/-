@@ -16,6 +16,8 @@ CGFloat const YYHFooterViewHeight = 44;
 
 CGFloat const YYHHeaderViewHeight = 60;
 
+CGFloat const YYHMargin = 10;
+
 NSString * const YYHCommonURL = @"http://api.budejie.com/api/api_open.php";
 
 
