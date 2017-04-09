@@ -67,7 +67,7 @@
 /** footerView*/
 @property (nonatomic, weak) UIView *headerView;
 /** 帖子数组*/
-@property (nonatomic, strong) NSMutableArray *topcisArray;
+@property (nonatomic, strong) NSMutableArray<YYHTopicsItem *> *topcisArray;
 
 /** 当前最后一条帖子数据的描述信息，专门用来加载下一页数据*/
 @property (nonatomic, strong) NSString *maxTime;
@@ -116,6 +116,8 @@ static NSString *ID = @"YYHTopicCell";
 
     //设置每行的高度
 //    self.tableView.rowHeight = 200;
+    //设置每行的估算高度
+    self.tableView.estimatedRowHeight = 200;
 
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
@@ -233,25 +235,26 @@ static NSString *ID = @"YYHTopicCell";
 
 }
 #pragma mark - -------tableView代理方法--------------
+
+/**
+ 返回一个估算的高度
+ 使用该方法,就不需要再下面的方法中一开始计算一遍所有cell的高度, 可以在一定程度上提高新能, 但是由于是估算的高度不一定准确, 会造成竖直指示器不准确, 卡顿等现象.
+ */
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 300;
+//}
+
+/**
+ 返回每一行的准确高度
+ 该方法会在一开始就计算所有cell的高度, 因为需要在一开始就知道contentSize, 并且当每行cell将要出现在屏幕上时, 也会调用该方法.
+
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat cellHeight;
-    //根据模型的数据计算每行的高度
-    YYHTopicsItem *item = self.topcisArray[indexPath.row];
+//    YYHTopicsItem *item = self.topcisArray[indexPath.row];
 
-
-    // 文字的Y值
-    cellHeight += 55;
-
-    // 文字的高度
-    CGSize textMaxSize = CGSizeMake(YYhScreenW - 2 * YYHMargin, MAXFLOAT);
-    cellHeight += [item.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + YYHMargin;
-
-
-
-    // 工具条
-    cellHeight += 35 + YYHMargin * 2;
-
-    return cellHeight;
+    YYHFunc
+    //如果想通过.语法访问数组中的元素, 需要在声明数组时, 限定该数组元素的类型为YYHTopicsItem *
+    return self.topcisArray[indexPath.row].cellHeight;
 }
 #pragma mark - -------获取数据--------------
 

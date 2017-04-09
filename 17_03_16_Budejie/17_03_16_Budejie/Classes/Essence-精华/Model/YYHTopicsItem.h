@@ -141,5 +141,8 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 /** 帖子类型*/
 @property (nonatomic, assign) YYHTopicType type;
 
+/** cell的高度*/
+@property (nonatomic, assign) CGFloat cellHeight;
+
 
 @end
