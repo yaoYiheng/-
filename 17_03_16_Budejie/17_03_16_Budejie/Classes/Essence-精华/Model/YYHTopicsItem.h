@@ -144,5 +144,7 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 /** cell的高度*/
 @property (nonatomic, assign) CGFloat cellHeight;
 
+/** 最热评论*/
+@property (nonatomic, strong) NSArray *top_cmt;
 
 @end

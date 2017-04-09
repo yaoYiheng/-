@@ -23,6 +23,22 @@
     CGSize textMaxSize = CGSizeMake(YYhScreenW - 2 * YYHMargin, MAXFLOAT);
     _cellHeight += [self.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + YYHMargin;
 
+    //最热评论高度
+    if (self.top_cmt.count) {
+        //标题高度
+        _cellHeight += 21;
+
+        //内容高度
+        NSDictionary *topComment = self.top_cmt.firstObject;
+        NSString *content = topComment[@"content"];
+        //判断如果内容为0, 则语音信息
+        if(content.length == 0){
+            content = @"[语音评论]";
+        }
+        NSString *userName = topComment[@"user"][@"username"];
+        NSString *contentText = [NSString stringWithFormat:@"%@ : %@", userName, content];
+        _cellHeight += [contentText boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + YYHMargin;
+    }
 
     // 工具条
     _cellHeight += 35 + YYHMargin * 2;

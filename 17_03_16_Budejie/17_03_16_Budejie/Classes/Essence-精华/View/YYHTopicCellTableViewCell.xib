@@ -156,11 +156,38 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NK-JL-Mcz">
+                        <rect key="frame" x="10" y="100" width="300" height="54"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCY-P9-nmN">
+                                <rect key="frame" x="0.0" y="0.0" width="62" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论内容最热评论内容最热评论内容最热评论内容最热评论内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tga-UL-8TB" userLabel="最热评论 - 内容">
+                                <rect key="frame" x="0.0" y="18" width="300" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tga-UL-8TB" firstAttribute="top" secondItem="xCY-P9-nmN" secondAttribute="bottom" id="FWa-I3-POA"/>
+                            <constraint firstItem="tga-UL-8TB" firstAttribute="leading" secondItem="8NK-JL-Mcz" secondAttribute="leading" id="Sui-WD-jAp"/>
+                            <constraint firstAttribute="bottom" secondItem="tga-UL-8TB" secondAttribute="bottom" id="e7q-G1-Rbx"/>
+                            <constraint firstAttribute="trailing" secondItem="tga-UL-8TB" secondAttribute="trailing" id="eel-N0-Ux8"/>
+                            <constraint firstItem="xCY-P9-nmN" firstAttribute="leading" secondItem="8NK-JL-Mcz" secondAttribute="leading" id="fe9-oY-Ccz"/>
+                            <constraint firstItem="xCY-P9-nmN" firstAttribute="top" secondItem="8NK-JL-Mcz" secondAttribute="top" id="uda-LU-vpH"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="VM9-CB-x7u" secondAttribute="bottom" id="64f-Oo-XqA"/>
                     <constraint firstItem="VM9-CB-x7u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8tQ-1Y-6fZ"/>
                     <constraint firstItem="6vL-d7-Od0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BPF-rs-tLN"/>
+                    <constraint firstItem="8NK-JL-Mcz" firstAttribute="trailing" secondItem="90f-Q5-bek" secondAttribute="trailing" id="Cgu-74-ib3"/>
                     <constraint firstItem="SrV-NE-Yw7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="GiO-rV-4gV"/>
                     <constraint firstItem="h6A-WZ-9Q6" firstAttribute="leading" secondItem="SrV-NE-Yw7" secondAttribute="trailing" constant="10" id="Ifb-yD-cYz"/>
                     <constraint firstItem="bco-cx-uGJ" firstAttribute="bottom" secondItem="SrV-NE-Yw7" secondAttribute="bottom" id="Ipn-iI-Ngq"/>
@@ -169,8 +196,10 @@
                     <constraint firstItem="SrV-NE-Yw7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="TYf-cX-eml"/>
                     <constraint firstItem="VM9-CB-x7u" firstAttribute="top" secondItem="tNz-Lt-OAG" secondAttribute="bottom" id="Zo1-To-oxu"/>
                     <constraint firstAttribute="trailing" secondItem="6vL-d7-Od0" secondAttribute="trailing" constant="10" id="cNl-Zl-FDI"/>
+                    <constraint firstItem="8NK-JL-Mcz" firstAttribute="leading" secondItem="90f-Q5-bek" secondAttribute="leading" id="ewa-61-MQN"/>
                     <constraint firstItem="90f-Q5-bek" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="exD-O5-8eB"/>
                     <constraint firstItem="90f-Q5-bek" firstAttribute="top" secondItem="SrV-NE-Yw7" secondAttribute="bottom" constant="10" id="fyw-99-UdE"/>
+                    <constraint firstItem="Hh0-IO-WMf" firstAttribute="top" secondItem="8NK-JL-Mcz" secondAttribute="bottom" constant="10" id="rcx-Zm-led"/>
                     <constraint firstItem="tNz-Lt-OAG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tcn-XX-qtY"/>
                     <constraint firstAttribute="trailing" secondItem="tNz-Lt-OAG" secondAttribute="trailing" id="y6p-Yx-bXI"/>
                     <constraint firstItem="bco-cx-uGJ" firstAttribute="leading" secondItem="SrV-NE-Yw7" secondAttribute="trailing" constant="10" id="ydl-w7-Hdr"/>
@@ -186,6 +215,8 @@
                 <outlet property="profileImageView" destination="SrV-NE-Yw7" id="US8-Tk-wb2"/>
                 <outlet property="shareButton" destination="t88-Se-XMl" id="h3e-jp-DoY"/>
                 <outlet property="text_label" destination="90f-Q5-bek" id="UuW-Gi-4tl"/>
+                <outlet property="topCommentLabel" destination="tga-UL-8TB" id="eKS-Mi-msS"/>
+                <outlet property="topCommentView" destination="8NK-JL-Mcz" id="tDj-ss-THi"/>
             </connections>
         </tableViewCell>
     </objects>

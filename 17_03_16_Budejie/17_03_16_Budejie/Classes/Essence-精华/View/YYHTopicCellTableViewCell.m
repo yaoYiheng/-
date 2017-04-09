@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+@property (weak, nonatomic) IBOutlet UIView *topCommentView;
+@property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
 @end
 
@@ -77,6 +79,22 @@
     [self setupTitle:self.shareButton count:topic.repost title:@"分享"];
     [self setupTitle:self.commentButton count:topic.comment title:@"评论"];
 
+    //设置最热评论内容
+    if (topic.top_cmt.count) {//如果数组中有值
+        self.topCommentView.hidden = NO;
+
+        NSDictionary *topComment = topic.top_cmt.firstObject;
+        NSString *content = topComment[@"content"];
+        //判断如果内容为0, 则语音信息
+        if(content.length == 0){
+            content = @"[语音评论]";
+        }
+        NSString *userName = topComment[@"user"][@"username"];
+        self.topCommentLabel.text = [NSString stringWithFormat:@"%@ : %@", userName, content];
+    }
+    else{
+        self.topCommentView.hidden = YES;
+    }
 }
 
 - (void)setupTitle:(UIButton *)button count:(NSInteger)count title:(NSString *)title{
