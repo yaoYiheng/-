@@ -34,6 +34,10 @@
         解决方案2: 控制请求的发送, 当在发送请求最新数据时, 就取消发送更多的网络请求 and vice versa.
  
 
+    4. 根据不同的内容计算并返回每一行cell 的高度
+ 
+        解决方案:1. 通过代理方法的
+
 
  */
 
@@ -111,7 +115,7 @@ static NSString *ID = @"YYHTopicCell";
 //    self.dataCount = 5;
 
     //设置每行的高度
-    self.tableView.rowHeight = 200;
+//    self.tableView.rowHeight = 200;
 
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
@@ -227,6 +231,27 @@ static NSString *ID = @"YYHTopicCell";
         [self headerStartRefresh];
     }
 
+}
+#pragma mark - -------tableView代理方法--------------
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat cellHeight;
+    //根据模型的数据计算每行的高度
+    YYHTopicsItem *item = self.topcisArray[indexPath.row];
+
+
+    // 文字的Y值
+    cellHeight += 55;
+
+    // 文字的高度
+    CGSize textMaxSize = CGSizeMake(YYhScreenW - 2 * YYHMargin, MAXFLOAT);
+    cellHeight += [item.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + YYHMargin;
+
+
+
+    // 工具条
+    cellHeight += 35 + YYHMargin * 2;
+
+    return cellHeight;
 }
 #pragma mark - -------获取数据--------------
 
