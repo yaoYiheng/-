@@ -9,6 +9,9 @@
 #import "YYHTopicCellTableViewCell.h"
 #import "YYHTopicsItem.h"
 #import <UIImageView+WebCache.h>
+#import "YYHTopicVoiceView.h"
+#import "YYHTopicVideoView.h"
+#import "YYHTopicPictutrView.h"
 
 
 @interface YYHTopicCellTableViewCell()
@@ -26,11 +29,45 @@
 @property (weak, nonatomic) IBOutlet UIView *topCommentView;
 @property (weak, nonatomic) IBOutlet UILabel *topCommentLabel;
 
+
+//中间的view
+/** voiceView*/
+@property (nonatomic, weak) YYHTopicVoiceView *voiceView;
+/** videoView*/
+@property (nonatomic, weak) YYHTopicVideoView *videoView;
+/** 图片*/
+@property (nonatomic, weak) YYHTopicPictutrView *pictureView;
+
 @end
 
 
 @implementation YYHTopicCellTableViewCell
+#pragma mark - -------懒加载--------------
+- (YYHTopicVoiceView *)voiceView{
+    if (!_voiceView) {
+        YYHTopicVoiceView *view = [YYHTopicVoiceView yyhTopicVoiceFromNib];
+        _voiceView = view;
+        [self.contentView addSubview:_voiceView];
+    }
+    return _voiceView;
+}
 
+- (YYHTopicVideoView *)videoView{
+    if (!_videoView) {
+        YYHTopicVideoView *view = [YYHTopicVideoView yyhTopicVideoViewFromNib];
+        _videoView = view;
+        [self.contentView addSubview:_videoView];
+    }
+    return _videoView;
+}
+- (YYHTopicPictutrView *)pictureView{
+    if (!_pictureView) {
+        YYHTopicPictutrView *view = [YYHTopicPictutrView yyhTopicPictutrViewFromNib];
+        _pictureView = view;
+        [self.contentView addSubview:_pictureView];
+    }
+    return _pictureView;
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
 
@@ -95,6 +132,39 @@
     else{
         self.topCommentView.hidden = YES;
     }
+
+    //根据不同类型, 加载相应的控件
+    if (topic.type == YYHTopicTypeVideo) {
+
+        //防止循环利用时, 出现的错乱
+        self.videoView.hidden = NO;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+
+    }
+    else if (topic.type == YYHTopicTypeVoice){
+        //防止循环利用时, 出现的错乱
+        self.videoView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = NO;
+        //添加声音控件模型
+        self.voiceView.topic = topic;
+    }
+    else if (topic.type == YYHTopicTypePicture){
+        //防止循环利用时, 出现的错乱
+        self.videoView.hidden = YES;
+        self.pictureView.hidden = NO;
+        self.voiceView.hidden = YES;
+        //添加图片控件
+    }
+    else if (topic.type == YYHTopicTypeWord){
+
+        //防止循环利用时, 出现的错乱
+        self.videoView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+    }
+
 }
 
 - (void)setupTitle:(UIButton *)button count:(NSInteger)count title:(NSString *)title{
@@ -116,5 +186,20 @@
 //    frame.size.width -= 2 * YYHMargin;
     frame.size.height -= YYHMargin;
     [super setFrame:frame];
+}
+- (void)layoutSubviews{
+    [super layoutSubviews];
+
+    //
+    if (self.topic.type == YYHTopicTypeVoice) {
+        self.voiceView.frame = self.topic.middleFrame;
+
+    }
+    else if (self.topic.type == YYHTopicTypePicture){
+        self.pictureView.frame = self.topic.middleFrame;
+    }
+    else if (self.topic.type == YYHTopicTypeVideo){
+        self.videoView.frame = self.topic.middleFrame;
+    }
 }
 @end

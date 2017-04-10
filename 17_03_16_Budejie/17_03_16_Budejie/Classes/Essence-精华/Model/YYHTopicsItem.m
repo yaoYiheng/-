@@ -23,6 +23,19 @@
     CGSize textMaxSize = CGSizeMake(YYhScreenW - 2 * YYHMargin, MAXFLOAT);
     _cellHeight += [self.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height + YYHMargin;
 
+    _cellHeight += YYHMargin;
+    //计算对应控件的高度, 只有当类型不为段子时, 才需要计算中间控件的高度
+    if (self.type != YYHTopicTypeWord) {
+        //计算控件高度
+        CGFloat middleW = textMaxSize.width;
+        CGFloat middleX = YYHMargin;
+        CGFloat middleY = _cellHeight;
+        CGFloat middleH = middleW * self.height / self.width;
+
+        self.middleFrame = CGRectMake(middleX, middleY, middleW, middleH);
+        _cellHeight += YYHMargin + middleH;
+    }
+
     //最热评论高度
     if (self.top_cmt.count) {
         //标题高度
@@ -41,7 +54,7 @@
     }
 
     // 工具条
-    _cellHeight += 35 + YYHMargin * 2;
+    _cellHeight += 35 + YYHMargin;
 
     return _cellHeight;
 }

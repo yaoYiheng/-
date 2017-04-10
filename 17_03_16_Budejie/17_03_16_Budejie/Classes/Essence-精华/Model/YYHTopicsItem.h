@@ -147,4 +147,26 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 /** 最热评论*/
 @property (nonatomic, strong) NSArray *top_cmt;
 
+/** 播放数*/
+@property (nonatomic, assign) NSInteger playcount;
+/** 时长*/
+@property (nonatomic, assign) NSInteger voicetime;
+/** 视频时长 */
+@property (nonatomic, assign) NSInteger videotime;
+
+/** 小图*/
+@property (nonatomic, strong) NSString *image0;
+/** 中图*/
+@property (nonatomic, strong) NSString *image2;
+/** 大图*/
+@property (nonatomic, strong) NSString *image1;
+
+
+/** 宽度(像素) */
+@property (nonatomic, assign) NSInteger width;
+/** 高度(像素) */
+@property (nonatomic, assign) NSInteger height;
+
+/** <#comments#>*/
+@property (nonatomic, assign) CGRect middleFrame;
 @end

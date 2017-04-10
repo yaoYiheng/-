@@ -44,6 +44,12 @@
 		A562FDFC1E94EDB700B3AF6D /* YYHTopicsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDFB1E94EDB700B3AF6D /* YYHTopicsItem.m */; };
 		A562FE001E97A51000B3AF6D /* YYHTopicCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */; };
 		A562FE011E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */; };
+		A562FE091E9BA65200B3AF6D /* YYHTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FE081E9BA65200B3AF6D /* YYHTopicVoiceView.m */; };
+		A562FE0B1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FE0A1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib */; };
+		A562FE0E1E9C296E00B3AF6D /* YYHTopicPictutrView.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FE0D1E9C296E00B3AF6D /* YYHTopicPictutrView.m */; };
+		A562FE101E9C297E00B3AF6D /* YYHTopicPictutrView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FE0F1E9C297E00B3AF6D /* YYHTopicPictutrView.xib */; };
+		A562FE131E9C29D500B3AF6D /* YYHTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FE121E9C29D500B3AF6D /* YYHTopicVideoView.m */; };
+		A562FE151E9C29E900B3AF6D /* YYHTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FE141E9C29E900B3AF6D /* YYHTopicVideoView.xib */; };
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
@@ -137,6 +143,15 @@
 		A562FDFD1E97A51000B3AF6D /* YYHTopicCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicCellTableViewCell.h; sourceTree = "<group>"; };
 		A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicCellTableViewCell.m; sourceTree = "<group>"; };
 		A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicCellTableViewCell.xib; sourceTree = "<group>"; };
+		A562FE071E9BA65200B3AF6D /* YYHTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicVoiceView.h; sourceTree = "<group>"; };
+		A562FE081E9BA65200B3AF6D /* YYHTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicVoiceView.m; sourceTree = "<group>"; };
+		A562FE0A1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicVoiceView.xib; sourceTree = "<group>"; };
+		A562FE0C1E9C296D00B3AF6D /* YYHTopicPictutrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicPictutrView.h; sourceTree = "<group>"; };
+		A562FE0D1E9C296E00B3AF6D /* YYHTopicPictutrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicPictutrView.m; sourceTree = "<group>"; };
+		A562FE0F1E9C297E00B3AF6D /* YYHTopicPictutrView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicPictutrView.xib; sourceTree = "<group>"; };
+		A562FE111E9C29D500B3AF6D /* YYHTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicVideoView.h; sourceTree = "<group>"; };
+		A562FE121E9C29D500B3AF6D /* YYHTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicVideoView.m; sourceTree = "<group>"; };
+		A562FE141E9C29E900B3AF6D /* YYHTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicVideoView.xib; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
 		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		A57155AD1E813B91007777E6 /* YYHSubscribeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSubscribeController.h; sourceTree = "<group>"; };
@@ -292,6 +307,15 @@
 				A562FDFD1E97A51000B3AF6D /* YYHTopicCellTableViewCell.h */,
 				A562FDFE1E97A51000B3AF6D /* YYHTopicCellTableViewCell.m */,
 				A562FDFF1E97A51000B3AF6D /* YYHTopicCellTableViewCell.xib */,
+				A562FE071E9BA65200B3AF6D /* YYHTopicVoiceView.h */,
+				A562FE081E9BA65200B3AF6D /* YYHTopicVoiceView.m */,
+				A562FE0A1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib */,
+				A562FE0C1E9C296D00B3AF6D /* YYHTopicPictutrView.h */,
+				A562FE0D1E9C296E00B3AF6D /* YYHTopicPictutrView.m */,
+				A562FE0F1E9C297E00B3AF6D /* YYHTopicPictutrView.xib */,
+				A562FE111E9C29D500B3AF6D /* YYHTopicVideoView.h */,
+				A562FE121E9C29D500B3AF6D /* YYHTopicVideoView.m */,
+				A562FE141E9C29E900B3AF6D /* YYHTopicVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -712,6 +736,7 @@
 				A57155C11E83B76F007777E6 /* YYHLogNRegisterViewController.xib in Resources */,
 				A57155D31E850356007777E6 /* YYHFastLoginView.xib in Resources */,
 				A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */,
+				A562FE151E9C29E900B3AF6D /* YYHTopicVideoView.xib in Resources */,
 				A57155CE1E83CBDE007777E6 /* YYHRegisterView.xib in Resources */,
 				A57155DE1E870349007777E6 /* YYHMeTableViewController.storyboard in Resources */,
 				A5367D2D1E7AA005005DC731 /* LaunchScreen.storyboard in Resources */,
@@ -729,6 +754,8 @@
 				A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */,
 				A5367DA11E7FC40F005DC731 /* LaunchImage-700@2x.png in Resources */,
 				A5367D281E7AA005005DC731 /* Main.storyboard in Resources */,
+				A562FE0B1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib in Resources */,
+				A562FE101E9C297E00B3AF6D /* YYHTopicPictutrView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +814,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A562FE131E9C29D500B3AF6D /* YYHTopicVideoView.m in Sources */,
 				A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */,
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
@@ -813,6 +841,7 @@
 				A5367D7E1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m in Sources */,
 				A5367D691E7AAB4C005DC731 /* YYHTabBarController.m in Sources */,
 				A57155D11E850350007777E6 /* YYHFastLoginView.m in Sources */,
+				A562FE091E9BA65200B3AF6D /* YYHTopicVoiceView.m in Sources */,
 				A5367D531E7AA3DD005DC731 /* YYHEssenceViewController.m in Sources */,
 				A562FDED1E8E334C00B3AF6D /* YYHWordTableViewController.m in Sources */,
 				A5367D4E1E7AA055005DC731 /* main.m in Sources */,
@@ -827,6 +856,7 @@
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,
 				A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */,
 				A57155F61E8D0B59007777E6 /* YYHTitleButton.m in Sources */,
+				A562FE0E1E9C296E00B3AF6D /* YYHTopicPictutrView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

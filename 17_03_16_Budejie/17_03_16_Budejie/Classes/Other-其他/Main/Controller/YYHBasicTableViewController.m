@@ -252,7 +252,7 @@ static NSString *ID = @"YYHTopicCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    YYHTopicsItem *item = self.topcisArray[indexPath.row];
 
-    YYHFunc
+//    YYHFunc
     //如果想通过.语法访问数组中的元素, 需要在声明数组时, 限定该数组元素的类型为YYHTopicsItem *
     return self.topcisArray[indexPath.row].cellHeight;
 }
@@ -297,7 +297,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @"1";
 
     //3.发现发送所有请求的url都是一样的, 所以将其抽成宏
 
@@ -311,7 +311,7 @@ static NSString *ID = @"YYHTopicCell";
 
         //使用一个属性来记录下最新返回数据的 maxtime
         self.maxTime = responseObject[@"info"][@"maxtime"];
-//        YYHAFNWriteToPlist(@"new_topics")
+        YYHAFNWriteToPlist(new_topics_voice)
 
         //已经能够成功获取服务器返回数据 -> 将字典数组转化成模型数组 -> 创建模型 ->MJ框架
 
@@ -368,7 +368,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @"1";
 
     parameters[@"maxtime"] = self.maxTime;
 
