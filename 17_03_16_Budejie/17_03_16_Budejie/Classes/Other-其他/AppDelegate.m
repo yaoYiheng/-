@@ -19,6 +19,7 @@
 
 //导入自定义的UITabBarController
 #import "YYHTabBarController.h"
+#import <AFNetworking.h>
 
 /*
     为应用添加广告页面.
@@ -133,6 +134,10 @@
 
     //3. 使窗口可见
     [self.window makeKeyAndVisible];
+
+    //监听网络状态, 只需设置一次即可
+    [[AFNetworkReachabilityManager manager] startMonitoring];
+
 
     return YES;
 }
