@@ -10,12 +10,14 @@
 #import <UIImageView+WebCache.h>
 #import "YYHTopicsItem.h"
 #import <AFNetworking.h>
+#import "UIImageView+YYHDownImage.h"
 
 @interface YYHTopicVoiceView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *playcountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voicetimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *placeHolderView;
 
 @end
 
@@ -42,53 +44,16 @@
 
 
 
-    //AFNetworkReachabilityManager, 网络连接状态管理者
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];
-    //设置图片
-    //如果已下载了大图就直接赋值
-    UIImage *placeHolder = nil;
+    //将根据网络状态加载原图或是缩略图的方法添加到分类当中, 并在设置完图片后, 根据图片的有无设置placeHolderView的隐藏或是显示.
 
-    UIImage *originalImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image1];
-
-    if (originalImage) {
-        self.imageView.image = originalImage;
-    }
-    else{
-        //如果没有下载过原图, 需要根据用户当前的网络状况, 决定下什么图
-        if (manager.isReachableViaWiFi) {//wifi情况
-            //下载大图
-            [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeHolder];
+    self.placeHolderView.hidden = NO;
+    [self.imageView yyh_setOriginalImageWithURL:topic.image1 thumbmailImageWithURL:topic.image0 placeHolderImage:nil completed:^(UIImage *image) {
+        if (!image) {
+            return;
         }
-        else if (manager.isReachableViaWWAN){//是自己带的网络
-            //从配置项中获取用户设置
-#warning downloadOriginImageWhen3GOr4G配置项的值需要从沙盒里面获取
-            //用户同意哪怕是在3g4g的网络情况下也下载大图
-            BOOL downloadOriginImageWhen3GOr4G;
-            if(downloadOriginImageWhen3GOr4G){
-                //下载大图
-                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:placeHolder];
-            }
-            else{
-                //下载小图
-                [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.image0] placeholderImage:placeHolder];
-            }
-
-        }else{
-            //没有可用网络
-            //获取缩略图
-            UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:topic.image0];
-            if(thumbnailImage){
-                //显示缩略图
-                self.imageView.image = thumbnailImage;
-            }
-            else{
-//                显示占位图
-                self.imageView.image = placeHolder;
-
-            }
-
-        }
-    }
-
+        self.placeHolderView.hidden = YES;
+    }];
+    
+    
 }
 @end

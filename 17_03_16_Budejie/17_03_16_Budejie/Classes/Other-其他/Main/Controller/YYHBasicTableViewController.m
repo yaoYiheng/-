@@ -297,7 +297,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
+    parameters[@"type"] = @"31";
 
     //3.发现发送所有请求的url都是一样的, 所以将其抽成宏
 
@@ -368,7 +368,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"1";
+    parameters[@"type"] = @"31";
 
     parameters[@"maxtime"] = self.maxTime;
 

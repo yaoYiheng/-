@@ -50,6 +50,7 @@
 		A562FE101E9C297E00B3AF6D /* YYHTopicPictutrView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FE0F1E9C297E00B3AF6D /* YYHTopicPictutrView.xib */; };
 		A562FE131E9C29D500B3AF6D /* YYHTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FE121E9C29D500B3AF6D /* YYHTopicVideoView.m */; };
 		A562FE151E9C29E900B3AF6D /* YYHTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A562FE141E9C29E900B3AF6D /* YYHTopicVideoView.xib */; };
+		A562FE181E9E407300B3AF6D /* UIImageView+YYHDownImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FE171E9E407300B3AF6D /* UIImageView+YYHDownImage.m */; };
 		A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155A81E7FEEFC007777E6 /* YYHADItem.m */; };
 		A57155AF1E813B91007777E6 /* YYHSubscribeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155AE1E813B91007777E6 /* YYHSubscribeController.m */; };
 		A57155B21E8140C1007777E6 /* YYHTagItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155B11E8140C1007777E6 /* YYHTagItem.m */; };
@@ -152,6 +153,8 @@
 		A562FE111E9C29D500B3AF6D /* YYHTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTopicVideoView.h; sourceTree = "<group>"; };
 		A562FE121E9C29D500B3AF6D /* YYHTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTopicVideoView.m; sourceTree = "<group>"; };
 		A562FE141E9C29E900B3AF6D /* YYHTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHTopicVideoView.xib; sourceTree = "<group>"; };
+		A562FE161E9E407300B3AF6D /* UIImageView+YYHDownImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YYHDownImage.h"; sourceTree = "<group>"; };
+		A562FE171E9E407300B3AF6D /* UIImageView+YYHDownImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YYHDownImage.m"; sourceTree = "<group>"; };
 		A57155A71E7FEEFC007777E6 /* YYHADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHADItem.h; sourceTree = "<group>"; };
 		A57155A81E7FEEFC007777E6 /* YYHADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHADItem.m; sourceTree = "<group>"; };
 		A57155AD1E813B91007777E6 /* YYHSubscribeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHSubscribeController.h; sourceTree = "<group>"; };
@@ -549,6 +552,8 @@
 				A5367D7D1E7D44BD005DC731 /* UIBarButtonItem+YYHBarButton.m */,
 				A57155DA1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.h */,
 				A57155DB1E8670A1007777E6 /* UITextField+YYHPlaceHolderColor.m */,
+				A562FE161E9E407300B3AF6D /* UIImageView+YYHDownImage.h */,
+				A562FE171E9E407300B3AF6D /* UIImageView+YYHDownImage.m */,
 			);
 			name = Categories;
 			path = Main/Categories;
@@ -815,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A562FE131E9C29D500B3AF6D /* YYHTopicVideoView.m in Sources */,
+				A562FE181E9E407300B3AF6D /* UIImageView+YYHDownImage.m in Sources */,
 				A57155EA1E890BAB007777E6 /* YYHWebViewController.m in Sources */,
 				A5367D5F1E7AA456005DC731 /* YYHPublishViewController.m in Sources */,
 				A5367D7B1E7D34A3005DC731 /* YYHTabBar.m in Sources */,
