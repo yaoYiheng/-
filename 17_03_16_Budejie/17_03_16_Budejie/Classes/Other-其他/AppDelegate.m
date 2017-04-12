@@ -136,8 +136,9 @@
     [self.window makeKeyAndVisible];
 
     //监听网络状态, 只需设置一次即可
-    [[AFNetworkReachabilityManager manager] startMonitoring];
 
+    // 4.开始监控网络状况
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 
     return YES;
 }

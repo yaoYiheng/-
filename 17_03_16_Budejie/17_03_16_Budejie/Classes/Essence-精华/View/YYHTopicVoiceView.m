@@ -9,14 +9,19 @@
 #import "YYHTopicVoiceView.h"
 #import <UIImageView+WebCache.h>
 #import "YYHTopicsItem.h"
+
 #import <AFNetworking.h>
 #import "UIImageView+YYHDownImage.h"
+
+#import <AFNetworking.h>
+
 
 @interface YYHTopicVoiceView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *playcountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *voicetimeLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *placeHolderView;
 
 @end
@@ -29,7 +34,6 @@
 
 - (void)setTopic:(YYHTopicsItem *)topic{
     _topic = topic;
-    //设置播放次数
     if (topic.playcount > 10000) {
         self.playcountLabel.text = [NSString stringWithFormat:@"%.2f万播放",topic.playcount / 10000.0];
 
@@ -37,9 +41,9 @@
         self.playcountLabel.text = [NSString stringWithFormat:@"%ld播放",topic.playcount ];
     }
 
-    ///设置播放时长
     // %02d : 占据2位，多余的空位用0填补
     self.voicetimeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld", topic.voicetime / 60, topic.voicetime % 60];
+
 
 
 
@@ -54,6 +58,6 @@
         self.placeHolderView.hidden = YES;
     }];
     
-    
+
 }
 @end

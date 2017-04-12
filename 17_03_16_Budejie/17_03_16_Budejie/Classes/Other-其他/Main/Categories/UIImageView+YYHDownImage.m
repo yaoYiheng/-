@@ -23,6 +23,8 @@
 
     if (originalImage) {
         self.image = originalImage;
+
+        completed(originalImage);
     }
     else{
         //如果没有下载过原图, 需要根据用户当前的网络状况, 决定下什么图
@@ -61,4 +63,6 @@
         }
     }
 }
+
+
 @end
