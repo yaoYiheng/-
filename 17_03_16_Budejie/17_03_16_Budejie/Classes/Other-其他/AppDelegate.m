@@ -137,8 +137,9 @@
 
     //监听网络状态, 只需设置一次即可
 
-    // 4.开始监控网络状况
+//    // 4.开始监控网络状况
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    NSLog(@"%ld",[[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus]);
 
     return YES;
 }

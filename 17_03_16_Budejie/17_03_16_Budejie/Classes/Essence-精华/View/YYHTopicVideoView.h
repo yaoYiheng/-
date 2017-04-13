@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YYHTopicsItem;
 
 @interface YYHTopicVideoView : UIView
 
+/** 模型*/
+@property (nonatomic, strong) YYHTopicsItem *topic;
 + (instancetype)yyhTopicVideoViewFromNib;
 
 @end

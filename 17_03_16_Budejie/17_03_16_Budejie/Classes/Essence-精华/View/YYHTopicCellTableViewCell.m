@@ -141,6 +141,8 @@
         self.pictureView.hidden = YES;
         self.voiceView.hidden = YES;
 
+        self.videoView.topic = topic;
+
     }
     else if (topic.type == YYHTopicTypeVoice){
         //防止循环利用时, 出现的错乱

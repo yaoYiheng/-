@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIImageView+WebCache.h>
 
+/*
+ void(^)(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
+ */
 @interface UIImageView (YYHDownImage)
 
-- (void)yyh_setOriginalImageWithURL:(NSString *)originalURL thumbmailImageWithURL: (NSString *)thumbmailURL placeHolderImage: (UIImage *)placeHolder completed:(void(^)(UIImage *image))completed;
+- (void)yyh_setOriginalImageWithURL:(NSString *)originalURL thumbmailImageWithURL: (NSString *)thumbmailURL placeHolderImage: (UIImage *)placeHolder completed:(SDExternalCompletionBlock)completedBlock;
 
 
 @end

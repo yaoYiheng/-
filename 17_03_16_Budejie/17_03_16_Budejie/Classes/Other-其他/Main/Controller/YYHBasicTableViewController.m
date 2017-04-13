@@ -90,7 +90,8 @@ static NSString *ID = @"YYHTopicCell";
 #pragma mark - ----view周期方法-----
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     self.view.backgroundColor = YYHColor(200, 200, 200);
     self.tableView.contentInset = UIEdgeInsetsMake(YYHTitleViewHeight + YYHNaviBarMaxY, 0, YYHTabBarHeight, 0);
     //修改指示器的内边距
@@ -126,6 +127,8 @@ static NSString *ID = @"YYHTopicCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    NSLog(@"%ld", mgr.networkReachabilityStatus);
 }
 
 -(void)dealloc{
@@ -257,11 +260,14 @@ static NSString *ID = @"YYHTopicCell";
     return self.topcisArray[indexPath.row].cellHeight;
 }
 #pragma mark - -------获取数据--------------
+- (YYHTopicType)type{
+    return YYHTopicTypeVideo;
+}
 
 /**
  下拉获取新数据
  */
-//- (void)getNewData{
+//- (void)getNewData{;
 //    //模拟2秒后服务器返回数据
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        self.dataCount = 20;
@@ -297,7 +303,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @(self.type);
 
     //3.发现发送所有请求的url都是一样的, 所以将其抽成宏
 
@@ -368,7 +374,7 @@ static NSString *ID = @"YYHTopicCell";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] =@(self.type);
 
     parameters[@"maxtime"] = self.maxTime;
 

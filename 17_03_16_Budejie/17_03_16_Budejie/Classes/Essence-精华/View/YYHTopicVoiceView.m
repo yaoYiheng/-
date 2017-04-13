@@ -51,13 +51,12 @@
     //将根据网络状态加载原图或是缩略图的方法添加到分类当中, 并在设置完图片后, 根据图片的有无设置placeHolderView的隐藏或是显示.
 
     self.placeHolderView.hidden = NO;
-    [self.imageView yyh_setOriginalImageWithURL:topic.image1 thumbmailImageWithURL:topic.image0 placeHolderImage:nil completed:^(UIImage *image) {
-        if (!image) {
-            return;
-        }
+
+    [self.imageView yyh_setOriginalImageWithURL:topic.image1 thumbmailImageWithURL:topic.image0 placeHolderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if(!image) return;
+
         self.placeHolderView.hidden = YES;
     }];
-    
 
 }
 @end
