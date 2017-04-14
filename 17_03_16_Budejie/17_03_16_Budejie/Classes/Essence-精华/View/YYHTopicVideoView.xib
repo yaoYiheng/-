@@ -63,7 +63,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageView" destination="8zK-D7-30P" id="jd6-Nb-4vE"/>
-                <outlet property="placeHolderView" destination="amE-s8-7ys" id="UAp-hg-x3A"/>
                 <outlet property="playcountLabel" destination="59Z-0Q-WHA" id="OFz-PR-Huf"/>
                 <outlet property="videotimeLabel" destination="f2R-jo-q1f" id="w66-lx-FSc"/>
             </connections>

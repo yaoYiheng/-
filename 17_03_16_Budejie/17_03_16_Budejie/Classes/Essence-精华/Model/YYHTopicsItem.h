@@ -161,7 +161,8 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 /** 大图*/
 @property (nonatomic, strong) NSString *image1;
 
-
+/** 是否gif*/
+@property (nonatomic, assign) BOOL is_gif;
 /** 宽度(像素) */
 @property (nonatomic, assign) NSInteger width;
 /** 高度(像素) */
@@ -169,4 +170,6 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 
 /** <#comments#>*/
 @property (nonatomic, assign) CGRect middleFrame;
+/** 是否大图*/
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicure;
 @end

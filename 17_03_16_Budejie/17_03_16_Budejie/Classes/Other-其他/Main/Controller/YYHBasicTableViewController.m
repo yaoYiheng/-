@@ -118,7 +118,7 @@ static NSString *ID = @"YYHTopicCell";
     //设置每行的高度
 //    self.tableView.rowHeight = 200;
     //设置每行的估算高度
-    self.tableView.estimatedRowHeight = 200;
+//    self.tableView.estimatedRowHeight = 200;
 
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([YYHTopicCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:ID];
@@ -127,8 +127,6 @@ static NSString *ID = @"YYHTopicCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 
-    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
-    NSLog(@"%ld", mgr.networkReachabilityStatus);
 }
 
 -(void)dealloc{
@@ -261,7 +259,7 @@ static NSString *ID = @"YYHTopicCell";
 }
 #pragma mark - -------获取数据--------------
 - (YYHTopicType)type{
-    return YYHTopicTypeVideo;
+    return YYHTopicTypePicture;
 }
 
 /**

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class YYHTopicsItem;
 @interface YYHTopicPictutrView : UIView
+/** 模型数据*/
+@property (nonatomic, strong) YYHTopicsItem *topic;
 
 + (instancetype)yyhTopicPictutrViewFromNib;
 @end

@@ -158,6 +158,7 @@
         self.pictureView.hidden = NO;
         self.voiceView.hidden = YES;
         //添加图片控件
+        self.pictureView.topic = topic;
     }
     else if (topic.type == YYHTopicTypeWord){
 

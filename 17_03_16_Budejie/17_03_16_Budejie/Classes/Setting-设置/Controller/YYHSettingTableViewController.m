@@ -46,7 +46,7 @@ static NSString  *const ID = @"cell";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
 
     [SVProgressHUD showWithStatus:@"正在计算缓存..."];
-    [YYHFileTools fileSizeForDirectory:@"/Users/Morris/Documents/iOS/视频" completion:^(NSInteger totalSize) {
+    [YYHFileTools fileSizeForDirectory:cacheFilePath completion:^(NSInteger totalSize) {
         self.totalSize = totalSize;
         [self.tableView reloadData];
         [SVProgressHUD dismiss];

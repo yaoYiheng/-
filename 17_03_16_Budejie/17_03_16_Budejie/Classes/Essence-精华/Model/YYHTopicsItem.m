@@ -31,6 +31,11 @@
         CGFloat middleX = YYHMargin;
         CGFloat middleY = _cellHeight;
         CGFloat middleH = middleW * self.height / self.width;
+        if (middleH > YYHScreenH) {
+            middleH = 200;
+            self.bigPicure = YES;
+        }
+
 
         self.middleFrame = CGRectMake(middleX, middleY, middleW, middleH);
         _cellHeight += YYHMargin + middleH;
