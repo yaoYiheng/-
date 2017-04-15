@@ -48,6 +48,7 @@
 #import "YYHTopicsItem.h"
 #import <SVProgressHUD.h>
 #import "YYHTopicCellTableViewCell.h"
+#import <SDImageCache.h>
 
 @interface YYHBasicTableViewController ()
 /** 刷新label*/
@@ -221,6 +222,12 @@ static NSString *ID = @"YYHTopicCell";
 }
 
 /**
+ 停止滑动时调用, 清除缓存
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [[SDImageCache sharedImageCache] clearMemory];
+}
+/**
  手指离开屏幕时调用
 
  */
@@ -315,7 +322,7 @@ static NSString *ID = @"YYHTopicCell";
 
         //使用一个属性来记录下最新返回数据的 maxtime
         self.maxTime = responseObject[@"info"][@"maxtime"];
-        YYHAFNWriteToPlist(new_topics_voice)
+//        YYHAFNWriteToPlist(new_topics_voice)
 
         //已经能够成功获取服务器返回数据 -> 将字典数组转化成模型数组 -> 创建模型 ->MJ框架
 
