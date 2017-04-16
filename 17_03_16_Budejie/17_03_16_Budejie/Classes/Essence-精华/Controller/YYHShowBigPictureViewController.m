@@ -9,6 +9,8 @@
 #import "YYHShowBigPictureViewController.h"
 #import "YYHTopicsItem.h"
 #import <UIImageView+WebCache.h>
+#import <Photos/Photos.h>
+#import <SVProgressHUD.h>
 @interface YYHShowBigPictureViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 /** <#comments#>*/
@@ -94,6 +96,64 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)savePicture:(UIButton *)sender {
+
+    //使用Photos框架进行相片/相册的增删改查
+
+    NSError *error = nil;
+    //1. 将图片保存到Camera Roll
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
+    } error:&error];
+
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
+    }
+    else{
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+    }
+
+    //2. 创建自定义相册到 [照片] 应用
+
+
+    /*
+    Foundation和Core Foundation的数据类型可以互相转换，比如NSString *和CFStringRef
+    NSString *string = (__bridge NSString *)kCFBundleNameKey;
+    CFStringRef string = (__bridge CFStringRef)@"test";
+     */
+    //获取应用名
+    NSString *appTitle = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleNameKey];
+
+    /*
+    获得相机胶卷相册
+    [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil]
+     */
+    
+    //获取自定义相册的集合
+    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    PHAssetCollection *assetColllect = nil;
+    //判断是否已创建过同名的文件夹
+    for (assetColllect in result) {
+        if ([assetColllect.localizedTitle isEqualToString:appTitle]) {
+            break;
+        }
+    }
+    if (!assetColllect) {
+        //创建一个与应用名想匹配的相册, 该方法的调用只能在performChangesAndWait 或
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:appTitle];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+//    
+//            if (error) {
+//                [SVProgressHUD showErrorWithStatus:@"创建失败!"];
+//            }
+//            else{
+//                [SVProgressHUD showSuccessWithStatus:@"创建成功"];
+//            }
+        }];
+    }
+
+
+    //3. 在自定义相册中同样显示保存的图片
 
 
 }
