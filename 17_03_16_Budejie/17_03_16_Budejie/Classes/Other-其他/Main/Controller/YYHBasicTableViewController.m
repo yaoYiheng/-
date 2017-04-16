@@ -219,13 +219,13 @@ static NSString *ID = @"YYHTopicCell";
     [self draggingUp];
 
 
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 /**
  停止滑动时调用, 清除缓存
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [[SDImageCache sharedImageCache] clearMemory];
 }
 /**
  手指离开屏幕时调用
@@ -266,7 +266,7 @@ static NSString *ID = @"YYHTopicCell";
 }
 #pragma mark - -------获取数据--------------
 - (YYHTopicType)type{
-    return YYHTopicTypePicture;
+    return YYHTopicTypeVoice;
 }
 
 /**

@@ -33,6 +33,8 @@
 		A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9D1E7FC40F005DC731 /* LaunchImage.png */; };
 		A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */; };
 		A5367DA71E7FCA77005DC731 /* YYHAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */; };
+		A550BC6F1EA32FB4008165C6 /* YYHShowBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A550BC6E1EA32FB4008165C6 /* YYHShowBigPictureViewController.m */; };
+		A550BC711EA33074008165C6 /* YYHShowBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A550BC701EA33074008165C6 /* YYHShowBigPictureViewController.xib */; };
 		A562FDE11E8E32EE00B3AF6D /* YYHAllTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE01E8E32EE00B3AF6D /* YYHAllTableViewController.m */; };
 		A562FDE41E8E332400B3AF6D /* YYHVideoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE31E8E332400B3AF6D /* YYHVideoTableViewController.m */; };
 		A562FDE71E8E333300B3AF6D /* YYHSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A562FDE61E8E333300B3AF6D /* YYHSoundTableViewController.m */; };
@@ -123,6 +125,9 @@
 		A5367D9D1E7FC40F005DC731 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		A5367D9E1E7FC40F005DC731 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		A5367DA61E7FCA77005DC731 /* YYHAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHAdViewController.xib; sourceTree = "<group>"; };
+		A550BC6D1EA32FB4008165C6 /* YYHShowBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHShowBigPictureViewController.h; sourceTree = "<group>"; };
+		A550BC6E1EA32FB4008165C6 /* YYHShowBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHShowBigPictureViewController.m; sourceTree = "<group>"; };
+		A550BC701EA33074008165C6 /* YYHShowBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHShowBigPictureViewController.xib; sourceTree = "<group>"; };
 		A562FDDF1E8E32EE00B3AF6D /* YYHAllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHAllTableViewController.h; sourceTree = "<group>"; };
 		A562FDE01E8E32EE00B3AF6D /* YYHAllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHAllTableViewController.m; sourceTree = "<group>"; };
 		A562FDE21E8E332400B3AF6D /* YYHVideoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHVideoTableViewController.h; sourceTree = "<group>"; };
@@ -289,6 +294,9 @@
 				A562FDE91E8E334200B3AF6D /* YYHPictureTableViewController.m */,
 				A562FDEB1E8E334C00B3AF6D /* YYHWordTableViewController.h */,
 				A562FDEC1E8E334C00B3AF6D /* YYHWordTableViewController.m */,
+				A550BC6D1EA32FB4008165C6 /* YYHShowBigPictureViewController.h */,
+				A550BC6E1EA32FB4008165C6 /* YYHShowBigPictureViewController.m */,
+				A550BC701EA33074008165C6 /* YYHShowBigPictureViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -750,6 +758,7 @@
 				A57155BC1E83A5A6007777E6 /* YYHFriendViewController.xib in Resources */,
 				A5367DA51E7FC40F005DC731 /* LaunchImage@2x.png in Resources */,
 				A57155BA1E82537F007777E6 /* YYHTagCellTableViewCell.xib in Resources */,
+				A550BC711EA33074008165C6 /* YYHShowBigPictureViewController.xib in Resources */,
 				A57155E31E870A69007777E6 /* YYHCollectionViewCell.xib in Resources */,
 				A5367DA01E7FC40F005DC731 /* LaunchImage-700-568h@2x.png in Resources */,
 				A5367DA21E7FC40F005DC731 /* LaunchImage-800-667h@2x.png in Resources */,
@@ -858,6 +867,7 @@
 				A57155C01E83B76F007777E6 /* YYHLogNRegisterViewController.m in Sources */,
 				A562FDF31E8E417100B3AF6D /* YYHConst.m in Sources */,
 				A57155D91E865C13007777E6 /* YYHTextField.m in Sources */,
+				A550BC6F1EA32FB4008165C6 /* YYHShowBigPictureViewController.m in Sources */,
 				A5367D931E7F2A91005DC731 /* YYHAdViewController.m in Sources */,
 				A5367D5C1E7AA43D005DC731 /* YYHMeTableViewController.m in Sources */,
 				A5367D591E7AA429005DC731 /* YYHFriendViewController.m in Sources */,

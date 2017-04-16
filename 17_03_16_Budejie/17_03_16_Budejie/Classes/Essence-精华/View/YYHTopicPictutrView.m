@@ -10,6 +10,7 @@
 #import "YYHTopicsItem.h"
 #import <UIImageView+WebCache.h>
 #import "UIImageView+YYHDownImage.h"
+#import "YYHShowBigPictureViewController.h"
 
 @interface YYHTopicPictutrView ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -27,11 +28,32 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.autoresizingMask = UIViewAutoresizingNone;
+
+    //设置点击查看大图的title跟image的间距
+    self.showBigPictureButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
+    self.showBigPictureButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+
+    self.imageView.userInteractionEnabled = YES;
+    self.showBigPictureButton.userInteractionEnabled = NO;
+    //为imageView添加手势
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBigPicture)];
+    [self.imageView addGestureRecognizer:tapGes];
+}
+
+/**
+ 点击查看大图, 以modal形式
+ */
+- (void)showBigPicture{
+
+    YYHShowBigPictureViewController *showBigVC = [[YYHShowBigPictureViewController alloc] init];
+
+    showBigVC.topic = self.topic;
+    [self.window.rootViewController presentViewController:showBigVC animated:YES completion:nil];
+
 }
 - (void)setTopic:(YYHTopicsItem *)topic{
     _topic = topic;
 
-    NSLog(@"%@---%d", topic.text, topic.isBigPicture);
 
     self.placeHolderView.hidden = NO;
 

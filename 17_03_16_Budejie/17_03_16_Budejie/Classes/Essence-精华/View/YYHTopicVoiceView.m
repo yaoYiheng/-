@@ -14,6 +14,7 @@
 #import "UIImageView+YYHDownImage.h"
 
 #import <AFNetworking.h>
+#import "YYHShowBigPictureViewController.h"
 
 
 @interface YYHTopicVoiceView ()
@@ -30,6 +31,28 @@
 
 + (instancetype)yyhTopicVoiceFromNib{
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+}
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.autoresizingMask = UIViewAutoresizingNone;
+
+    self.imageView.userInteractionEnabled = YES;
+
+    //为imageView添加手势
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBigPicture)];
+    [self.imageView addGestureRecognizer:tapGes];
+}
+
+/**
+ 点击查看大图, 以modal形式
+ */
+- (void)showBigPicture{
+
+    YYHShowBigPictureViewController *showBigVC = [[YYHShowBigPictureViewController alloc] init];
+
+    showBigVC.topic = self.topic;
+    [self.window.rootViewController presentViewController:showBigVC animated:YES completion:nil];
+    
 }
 
 - (void)setTopic:(YYHTopicsItem *)topic{
