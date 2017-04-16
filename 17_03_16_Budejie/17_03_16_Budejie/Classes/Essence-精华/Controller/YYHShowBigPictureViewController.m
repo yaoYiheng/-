@@ -94,8 +94,34 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)savePicture:(UIButton *)sender {
+
+
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+
 }
 
+/**
+ 调用C函数保存一张图片
+ */
+- (void)savePictureViaC{
+    /**
+     调用该函数, 将一张相片保存到系统相册
+
+     @param image 待保存的图片
+     @param completionTarget 目标. 一般为self
+     @param completionSelector 调用的方法, 需要参照- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo 格式
+     @param contextInfo 相关信息 可为nil
+     @return void
+     */
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    /*
+     iOS10之后访问相册, 需要在info.plist文件中添加一个NSPhotoLibraryUsageDescription的key, 否则
+     程序直接crash.
+     This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app's Info.plist must contain an NSPhotoLibraryUsageDescription key with a string value explaining to the user how the app uses this data.
+
+     */
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
 }
