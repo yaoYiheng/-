@@ -18,6 +18,9 @@
 /** <#comments#>*/
 @property (nonatomic, weak) UIImageView *imageView;
 
+- (PHAssetCollection *)createdAssetCollection;
+- (PHFetchResult <PHAsset *> *)createdAsset;
+
 @end
 
 @implementation YYHShowBigPictureViewController
@@ -100,61 +103,99 @@
     //使用Photos框架进行相片/相册的增删改查
 
     NSError *error = nil;
-    //1. 将图片保存到Camera Roll
-    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-        [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image];
-    } error:&error];
 
-    if (error) {
-        [SVProgressHUD showErrorWithStatus:@"保存失败!"];
-    }
-    else{
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+    //1. 将图片保存到Camera Roll -> 获取图片
+    PHFetchResult *result = self.createdAsset;
+    if (result == nil) {
+        [SVProgressHUD showErrorWithStatus:@"保存图片失败"];
     }
 
-    //2. 创建自定义相册到 [照片] 应用
 
 
-    /*
-    Foundation和Core Foundation的数据类型可以互相转换，比如NSString *和CFStringRef
-    NSString *string = (__bridge NSString *)kCFBundleNameKey;
-    CFStringRef string = (__bridge CFStringRef)@"test";
-     */
-    //获取应用名
-    NSString *appTitle = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleNameKey];
+    //2. [创建自定义相册到 [照片] 应用]  -> 获取自定义相册.
 
-    /*
-    获得相机胶卷相册
-    [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil]
-     */
-    
-    //获取自定义相册的集合
-    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    PHAssetCollection *assetColllect = nil;
-    //判断是否已创建过同名的文件夹
-    for (assetColllect in result) {
-        if ([assetColllect.localizedTitle isEqualToString:appTitle]) {
-            break;
-        }
-    }
-    if (!assetColllect) {
-        //创建一个与应用名想匹配的相册, 该方法的调用只能在performChangesAndWait 或
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:appTitle];
-        } completionHandler:^(BOOL success, NSError * _Nullable error) {
-//    
-//            if (error) {
-//                [SVProgressHUD showErrorWithStatus:@"创建失败!"];
-//            }
-//            else{
-//                [SVProgressHUD showSuccessWithStatus:@"创建成功"];
-//            }
-        }];
+    PHAssetCollection *createdAssetCollection = [self createdAssetCollection];
+    if(createdAssetCollection == nil){
+        [SVProgressHUD showErrorWithStatus:@"获取相册失败"];
     }
 
 
     //3. 在自定义相册中同样显示保存的图片
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        //将图片插入到自定义相册的第一个位置
+        PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
 
+        [request insertAssets:result atIndexes:[NSIndexSet indexSetWithIndex:0]];
+    } error:&error];
+
+    if(error){
+        [SVProgressHUD showErrorWithStatus:@"保存图片失败"];
+    }
+    else{
+        [SVProgressHUD showSuccessWithStatus:@"保存图片成功"];
+    }
+
+}
+
+- (PHFetchResult <PHAsset *> *)createdAsset{
+
+    NSError *error = nil;
+
+    __block NSString *assetID = nil;
+    //1. 将图片保存到Camera Roll
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        assetID = [PHAssetChangeRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
+    } error:&error];
+
+    if (error) return nil;
+
+    PHFetchResult *reslut = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetID] options:nil];
+
+    return reslut;
+
+
+}
+/**
+ 获得自定义相册
+ */
+- (PHAssetCollection *)createdAssetCollection{
+    //2. 创建自定义相册到 [照片] 应用
+
+
+    //获取应用名
+    NSString *appTitle = [NSBundle mainBundle].infoDictionary[(__bridge NSString *)kCFBundleNameKey];
+
+
+    //获取自定义相册的集合
+    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+
+    PHAssetCollection *createdAssetColllection = nil;
+
+    //判断是否已创建过同名的文件夹
+    for (createdAssetColllection in result) {
+        if ([createdAssetColllection.localizedTitle isEqualToString:appTitle]) {
+
+            return createdAssetColllection;
+        }
+    }
+
+    NSError *error = nil;
+    //如果没有创建过该应用对应的相册, 就创建一个与应用名相对应的相册
+    __block NSString *assetCollectID = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+
+        //通过id创建相册
+        assetCollectID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:appTitle].placeholderForCreatedAssetCollection.localIdentifier;
+
+
+    } error:&error];
+
+    if (error) return nil;
+
+    //通过id获取并返回相册
+    createdAssetColllection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectID] options:nil].firstObject;
+
+    return createdAssetColllection;
 
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
