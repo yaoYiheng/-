@@ -100,6 +100,43 @@
 }
 - (IBAction)savePicture:(UIButton *)sender {
 
+    //根据相册的授权状态, 决定是否保存相片到相册
+    /*
+     PHAuthorizationStatusNotDetermined = 0, // User has not yet made a choice with regards to this application
+     PHAuthorizationStatusRestricted,        // This application is not authorized to access photo data.
+     // The user cannot change this application’s status, possibly due to active restrictions
+     //   such as parental controls being in place.
+     PHAuthorizationStatusDenied,            // User has explicitly denied this application access to photos data.
+     PHAuthorizationStatusAuthorized         // User has authorized this application to access photos data.
+     */
+
+    //1. 获取当前相册的授权状态
+    PHAuthorizationStatus previousStatus = [PHPhotoLibrary authorizationStatus];
+
+    //只有当第一次访问相册时, 其状态才会为0, 这时会弹出是否允许访问
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        //如果之前设置过拒绝并且想再次访问相册时.
+        if (status == PHAuthorizationStatusDenied && previousStatus != PHAuthorizationStatusNotDetermined) {
+         UIAlertController *alerVC = [UIAlertController alertControllerWithTitle:@"请更改访问相册权限" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+            [alerVC addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSLog(@"去系统更改");
+            }]];
+
+            [self presentViewController:alerVC animated:YES completion:nil];
+        }
+        else if (status == PHAuthorizationStatusAuthorized){//授权
+            [self savePictureToAlbum];
+        }
+        else if (status == PHAuthorizationStatusRestricted){
+            
+        }
+    }];
+
+
+
+}
+- (void)savePictureToAlbum{
     //使用Photos框架进行相片/相册的增删改查
 
     NSError *error = nil;
