@@ -1,0 +1,5 @@
+platform :ios, '8.0'
+
+target '17_04_19_多图的选择' do
+pod 'CTAssetsPickerController',  '~> 3.3.0'
+end
