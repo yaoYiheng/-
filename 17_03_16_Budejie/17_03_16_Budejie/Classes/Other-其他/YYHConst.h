@@ -5,6 +5,8 @@
 //  Created by 姚懿恒 on 2017/3/31.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
+
+@end
 #import <UIKit/UIKit.h>
 
 UIKIT_EXTERN CGFloat const YYHNaviBarMaxY;

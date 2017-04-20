@@ -6,8 +6,11 @@
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YYHTopicsItem.h"
+
 
 @interface YYHBasicTableViewController : UITableViewController
 
-@end
+/** 数据类型*/
+@property (nonatomic, assign) YYHTopicType type;
+

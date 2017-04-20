@@ -265,9 +265,9 @@ static NSString *ID = @"YYHTopicCell";
     return self.topcisArray[indexPath.row].cellHeight;
 }
 #pragma mark - -------获取数据--------------
-- (YYHTopicType)type{
-    return YYHTopicTypeVoice;
-}
+//- (YYHTopicType)type{
+//    return self.type;
+//}
 
 /**
  下拉获取新数据
