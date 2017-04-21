@@ -128,31 +128,31 @@
  */
 - (void)configureChildrenViewControllers{
 
-//    [self addChildViewController:[[YYHAllTableViewController alloc] init]];
-//    [self addChildViewController:[[YYHVideoTableViewController alloc] init]];
-//    [self addChildViewController:[[YYHSoundTableViewController alloc] init]];
-//    [self addChildViewController:[[YYHPictureTableViewController alloc] init]];
-//    [self addChildViewController:[[YYHWordTableViewController alloc] init]];
+    [self addChildViewController:[[YYHAllTableViewController alloc] init]];
+    [self addChildViewController:[[YYHVideoTableViewController alloc] init]];
+    [self addChildViewController:[[YYHSoundTableViewController alloc] init]];
+    [self addChildViewController:[[YYHPictureTableViewController alloc] init]];
+    [self addChildViewController:[[YYHWordTableViewController alloc] init]];
 
-    YYHAllTableViewController *allVC = [[YYHAllTableViewController alloc] init];
-    allVC.type = YYHTopicTypeAll;
-    [self addChildViewController:allVC];
-
-    YYHVideoTableViewController *videoVC = [[YYHVideoTableViewController alloc] init];
-    videoVC.type = YYHTopicTypeVideo;
-    [self addChildViewController:videoVC];
-
-    YYHSoundTableViewController *soundVC = [[YYHSoundTableViewController alloc] init];
-    soundVC.type = YYHTopicTypeVoice;
-    [self addChildViewController:soundVC];
-
-    YYHPictureTableViewController *pictureVC = [[YYHPictureTableViewController alloc] init];
-    pictureVC.type = YYHTopicTypePicture;
-    [self addChildViewController:pictureVC];
-
-    YYHWordTableViewController *wordVC = [[YYHWordTableViewController alloc] init];
-    wordVC.type = YYHTopicTypeWord;
-    [self addChildViewController:wordVC];
+//    YYHAllTableViewController *allVC = [[YYHAllTableViewController alloc] init];
+//    allVC.type = YYHTopicTypeAll;
+//    [self addChildViewController:allVC];
+//
+//    YYHVideoTableViewController *videoVC = [[YYHVideoTableViewController alloc] init];
+//    videoVC.type = YYHTopicTypeVideo;
+//    [self addChildViewController:videoVC];
+//
+//    YYHSoundTableViewController *soundVC = [[YYHSoundTableViewController alloc] init];
+//    soundVC.type = YYHTopicTypeVoice;
+//    [self addChildViewController:soundVC];
+//
+//    YYHPictureTableViewController *pictureVC = [[YYHPictureTableViewController alloc] init];
+//    pictureVC.type = YYHTopicTypePicture;
+//    [self addChildViewController:pictureVC];
+//
+//    YYHWordTableViewController *wordVC = [[YYHWordTableViewController alloc] init];
+//    wordVC.type = YYHTopicTypeWord;
+//    [self addChildViewController:wordVC];
 
 }
 

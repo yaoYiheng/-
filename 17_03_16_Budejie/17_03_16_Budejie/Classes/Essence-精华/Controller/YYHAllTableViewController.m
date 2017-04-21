@@ -19,4 +19,7 @@
     
 }
 
+- (YYHTopicType)type{
+    return YYHTopicTypeAll;
+}
 @end

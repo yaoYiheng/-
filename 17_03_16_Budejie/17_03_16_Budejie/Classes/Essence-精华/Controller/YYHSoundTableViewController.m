@@ -18,4 +18,7 @@
     [super viewDidLoad];
     
 }
+- (YYHTopicType)type{
+    return YYHTopicTypeVoice;
+}
 @end

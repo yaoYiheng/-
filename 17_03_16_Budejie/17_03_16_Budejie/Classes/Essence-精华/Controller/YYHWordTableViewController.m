@@ -18,6 +18,8 @@
     [super viewDidLoad];
     
 }
-
+- (YYHTopicType)type{
+    return YYHTopicTypeWord;
+}
 @end
 

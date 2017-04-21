@@ -17,4 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-}@end
+}
+- (YYHTopicType)type{
+    return YYHTopicTypeVideo;
+}
+@end
