@@ -23,9 +23,21 @@
     UIImage *originalImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:originalURL];
 
     if (originalImage) {
-        self.image = originalImage;
 
-        completedBlock(originalImage, nil, 0, [NSURL URLWithString:originalURL]);
+        /*如果使用sd, 最好不要直接设置图片, 而是通过sd框架提供的方法进行设置, 不然会出现图片错乱显示的问题, 原因是因为cell循环利用的
+         关系, 当cell循环到下一个item对象时, 会显示对应cell的图片, 但是之前cell的图片请求依然存在, 当图片下载完之后, 又会重新设置到
+         当前显示的cell上, 出现bug.
+         
+         sd在
+         */
+
+//        self.image = originalImage;
+//
+//        completedBlock(originalImage, nil, 0, [NSURL URLWithString:originalURL]);
+        /*
+            利用该方法为imageView设置图片还有一个好处就是会将当前imageView的请求取消, 在进行接下来的操作.
+         */
+        [self sd_setImageWithURL:[NSURL URLWithString:originalURL] placeholderImage:placeHolder completed:completedBlock];
     }
     else{
         //如果没有下载过原图, 需要根据用户当前的网络状况, 决定下什么图
@@ -53,12 +65,15 @@
             UIImage *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:thumbmailURL];
             if(thumbnailImage){
                 //显示缩略图
-                self.image = thumbnailImage;
+//                self.image = thumbnailImage;
+                [self sd_setImageWithURL:[NSURL URLWithString:thumbmailURL] placeholderImage:placeHolder completed:completedBlock];
+
             }
             else{
-                //                显示占位图
-                self.image = placeHolder;
-                
+                //显示占位图, 断网且没有缩略图的情况下, 不再发送请求并设置占位图.
+                [self sd_setImageWithURL:nil placeholderImage:placeHolder completed:completedBlock];
+//                self.image = placeHolder;
+
             }
             
         }

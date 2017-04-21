@@ -219,7 +219,7 @@ static NSString *ID = @"YYHTopicCell";
     [self draggingUp];
 
 
-    [[SDImageCache sharedImageCache] clearMemory];
+//    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 /**
