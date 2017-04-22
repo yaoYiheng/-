@@ -14,7 +14,7 @@
 #import "UIImageView+YYHDownImage.h"
 
 #import <AFNetworking.h>
-
+#import "YYHShowVideoViewController.h"
 
 @interface YYHTopicVideoView ()
 
@@ -27,6 +27,27 @@
 @end
 
 @implementation YYHTopicVideoView
+- (void)awakeFromNib{
+    [super awakeFromNib];
+
+    self.autoresizingMask = NO;
+
+    //为占位图片添加点击手势
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showVideo)];
+
+    [self.imageView addGestureRecognizer:tapGes];
+
+    //允许imageView接收用户点击
+    self.imageView.userInteractionEnabled = YES;
+
+}
+- (void)showVideo{
+    YYHFunc
+    YYHShowVideoViewController *videoVC = [[YYHShowVideoViewController alloc] init];
+
+    videoVC.topic = self.topic;
+    [self.window.rootViewController presentViewController:videoVC animated:YES completion:nil];
+}
 
 + (instancetype)yyhTopicVideoViewFromNib{
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;

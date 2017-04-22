@@ -160,6 +160,8 @@ typedef NS_ENUM(NSInteger,YYHTopicType ) {
 @property (nonatomic, strong) NSString *image2;
 /** 大图*/
 @property (nonatomic, strong) NSString *image1;
+/** 视频*/
+@property (nonatomic, strong) NSString *videouri;
 
 /** 是否gif*/
 @property (nonatomic, assign) BOOL is_gif;

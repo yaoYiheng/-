@@ -76,6 +76,8 @@
 		A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A57155E91E890BAB007777E6 /* YYHWebViewController.xib */; };
 		A57155F01E8B937B007777E6 /* YYHFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155EF1E8B937B007777E6 /* YYHFileTools.m */; };
 		A57155F61E8D0B59007777E6 /* YYHTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A57155F51E8D0B59007777E6 /* YYHTitleButton.m */; };
+		A5818FC01EAB4019001640BC /* YYHShowVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5818FBF1EAB4019001640BC /* YYHShowVideoViewController.m */; };
+		A5818FC21EAB45B4001640BC /* YYHShowVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5818FC11EAB45B4001640BC /* YYHShowVideoViewController.xib */; };
 		EE2373FA3AAD958212BBE16C /* libPods-17_03_16_Budejie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 200A53EF94387F14359C3388 /* libPods-17_03_16_Budejie.a */; };
 /* End PBXBuildFile section */
 
@@ -198,6 +200,9 @@
 		A57155EF1E8B937B007777E6 /* YYHFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHFileTools.m; sourceTree = "<group>"; };
 		A57155F41E8D0B59007777E6 /* YYHTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHTitleButton.h; sourceTree = "<group>"; };
 		A57155F51E8D0B59007777E6 /* YYHTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHTitleButton.m; sourceTree = "<group>"; };
+		A5818FBE1EAB4019001640BC /* YYHShowVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHShowVideoViewController.h; sourceTree = "<group>"; };
+		A5818FBF1EAB4019001640BC /* YYHShowVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHShowVideoViewController.m; sourceTree = "<group>"; };
+		A5818FC11EAB45B4001640BC /* YYHShowVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHShowVideoViewController.xib; sourceTree = "<group>"; };
 		F163615A6F24117DBDB43D62 /* Pods-17_03_16_Budejie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-17_03_16_Budejie.release.xcconfig"; path = "Pods/Target Support Files/Pods-17_03_16_Budejie/Pods-17_03_16_Budejie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,6 +302,9 @@
 				A550BC6D1EA32FB4008165C6 /* YYHShowBigPictureViewController.h */,
 				A550BC6E1EA32FB4008165C6 /* YYHShowBigPictureViewController.m */,
 				A550BC701EA33074008165C6 /* YYHShowBigPictureViewController.xib */,
+				A5818FBE1EAB4019001640BC /* YYHShowVideoViewController.h */,
+				A5818FBF1EAB4019001640BC /* YYHShowVideoViewController.m */,
+				A5818FC11EAB45B4001640BC /* YYHShowVideoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -766,6 +774,7 @@
 				A5367D9F1E7FC40F005DC731 /* LaunchImage-568h@2x.png in Resources */,
 				A5367DA41E7FC40F005DC731 /* LaunchImage.png in Resources */,
 				A57155EB1E890BAB007777E6 /* YYHWebViewController.xib in Resources */,
+				A5818FC21EAB45B4001640BC /* YYHShowVideoViewController.xib in Resources */,
 				A5367DA11E7FC40F005DC731 /* LaunchImage-700@2x.png in Resources */,
 				A5367D281E7AA005005DC731 /* Main.storyboard in Resources */,
 				A562FE0B1E9BA65A00B3AF6D /* YYHTopicVoiceView.xib in Resources */,
@@ -842,6 +851,7 @@
 				A562FDEA1E8E334200B3AF6D /* YYHPictureTableViewController.m in Sources */,
 				A57155B91E82537F007777E6 /* YYHTagCellTableViewCell.m in Sources */,
 				A57155A91E7FEEFC007777E6 /* YYHADItem.m in Sources */,
+				A5818FC01EAB4019001640BC /* YYHShowVideoViewController.m in Sources */,
 				A57155D61E850C66007777E6 /* YYHFastButton.m in Sources */,
 				A562FDE11E8E32EE00B3AF6D /* YYHAllTableViewController.m in Sources */,
 				A5367D721E7D2CD2005DC731 /* UIView+YYHFrame.m in Sources */,
