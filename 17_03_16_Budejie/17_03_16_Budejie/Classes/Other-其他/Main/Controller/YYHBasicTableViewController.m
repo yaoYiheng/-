@@ -49,6 +49,7 @@
 #import <SVProgressHUD.h>
 #import "YYHTopicCellTableViewCell.h"
 #import <SDImageCache.h>
+#import <MJRefresh.h>
 
 @interface YYHBasicTableViewController ()
 /** 刷新label*/
@@ -138,88 +139,105 @@ static NSString *ID = @"YYHTopicCell";
 
 #pragma mark - ----初始化控件-----
 - (void)configureFooterView{
-    UIView *footerView = [[UIView alloc] init];
+//    UIView *footerView = [[UIView alloc] init];
+//
+//    footerView.frame = CGRectMake(0, 0, YYhScreenW, 44);
+//    footerView.backgroundColor = YYHRandomColor;
+//    UILabel *label = [[UILabel alloc] init];
+//    label.frame = footerView.bounds;
+//    label.textColor = YYHRandomColor;
+//    label.text = @"上拉加载更多...";
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [footerView addSubview:label];
+//    
+//    self.footerRefreshLabel = label;
+//    self.tableView.tableFooterView = footerView;
+//    self.footerView = footerView;
 
-    footerView.frame = CGRectMake(0, 0, YYhScreenW, 44);
-    footerView.backgroundColor = YYHRandomColor;
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = footerView.bounds;
-    label.textColor = YYHRandomColor;
-    label.text = @"上拉加载更多...";
-    label.textAlignment = NSTextAlignmentCenter;
-    [footerView addSubview:label];
-    
-    self.footerRefreshLabel = label;
-    self.tableView.tableFooterView = footerView;
-    self.footerView = footerView;
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreData)];
 }
 - (void)configureHeaderView{
-    UIView *headerView = [[UIView alloc] init];
+//    UIView *headerView = [[UIView alloc] init];
+//
+//    headerView.frame = CGRectMake(0, -YYHHeaderViewHeight, YYhScreenW, YYHHeaderViewHeight);
+//    headerView.backgroundColor = YYHRandomColor;
+//    UILabel *label = [[UILabel alloc] init];
+//    label.frame = headerView.bounds;
+//    label.textColor = YYHRandomColor;
+//    label.text = @"下拉加载更多...";
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [headerView addSubview:label];
+//
+//    self.headerRefreshLabel = label;
+//    [self.tableView addSubview:headerView];
+//    self.headerView = headerView;
+//    [self headerStartRefresh];
 
-    headerView.frame = CGRectMake(0, -YYHHeaderViewHeight, YYhScreenW, YYHHeaderViewHeight);
-    headerView.backgroundColor = YYHRandomColor;
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = headerView.bounds;
-    label.textColor = YYHRandomColor;
-    label.text = @"下拉加载更多...";
-    label.textAlignment = NSTextAlignmentCenter;
-    [headerView addSubview:label];
+    /*
+        如果想要对默认显示的文字或状态进行修改, 可以先获得子类对象, 对其对象进行修改后, 
+     在重新给父类赋值.
+     */
+    MJRefreshNormalHeader *normalHeader = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getNewData)];
+    //是否自动更改状态label的透明度
+    normalHeader.automaticallyChangeAlpha = YES;
+    //根据不同状态设置不同内容
+    [normalHeader setTitle:@"正在在在刷新" forState:MJRefreshStateRefreshing];
+    //刷新
+    [normalHeader beginRefreshing];
+    //多态?
+    self.tableView.mj_header = normalHeader;
 
-    self.headerRefreshLabel = label;
-    [self.tableView addSubview:headerView];
-    self.headerView = headerView;
-    [self headerStartRefresh];
 }
 #pragma mark - ----上拉, 下拉-----
 
 /**
  上拉刷新
  */
-- (void)draggingUp{
-
-    //view刚加载时,tableView.contentSize为0.不需要刷新.
-    if (self.tableView.contentSize.height == 0) return;
-
-    //计算footerView完全出现时的偏移量
-    CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight;
-
-    //当数据量比较少时,如果footerView也能够被看到的情况, 一般会下拉刷新最新数据, 这里上拉加载更多也会相应下拉动作, 所以这里需要加一个判断, 只有上拉时, 才需要刷新
-    if (self.tableView.contentOffset.y >= offsetY && self.tableView.contentOffset.y > -(self.tableView.contentInset.top)) {
-
-        [self footerStartRefresh];
-    }
-
-}
+//- (void)draggingUp{
+//
+//    //view刚加载时,tableView.contentSize为0.不需要刷新.
+//    if (self.tableView.contentSize.height == 0) return;
+//
+//    //计算footerView完全出现时的偏移量
+//    CGFloat offsetY = self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight;
+//
+//    //当数据量比较少时,如果footerView也能够被看到的情况, 一般会下拉刷新最新数据, 这里上拉加载更多也会相应下拉动作, 所以这里需要加一个判断, 只有上拉时, 才需要刷新
+//    if (self.tableView.contentOffset.y >= offsetY && self.tableView.contentOffset.y > -(self.tableView.contentInset.top)) {
+//
+//        [self footerStartRefresh];
+//    }
+//
+//}
 
 /**
  下拉刷新
  */
-- (void)draggingDown{
-
-    if(self.headerRefreshing) return;
-
-    //当下拉偏移量
-    CGFloat headerOffsetY = -(self.tableView.contentInset.top + YYHHeaderViewHeight);
-
-    if (self.tableView.contentOffset.y <= headerOffsetY) {
-        self.headerRefreshLabel.text = @"松开立即刷新...";
-    }
-    else{
-        self.headerRefreshLabel.text = @"下拉加载更多...";
-
-    }
-
-}
+//- (void)draggingDown{
+//
+//    if(self.headerRefreshing) return;
+//
+//    //当下拉偏移量
+//    CGFloat headerOffsetY = -(self.tableView.contentInset.top + YYHHeaderViewHeight);
+//
+//    if (self.tableView.contentOffset.y <= headerOffsetY) {
+//        self.headerRefreshLabel.text = @"松开立即刷新...";
+//    }
+//    else{
+//        self.headerRefreshLabel.text = @"下拉加载更多...";
+//
+//    }
+//
+//}
 #pragma mark - ----监听scrollView的滚动-----
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //处理下拉刷新业务
-    [self draggingDown];
+//    [self draggingDown];
+//
+//    //处理上拉刷新业务
+//    [self draggingUp];
 
-    //处理上拉刷新业务
-    [self draggingUp];
 
-
-//    [[SDImageCache sharedImageCache] clearMemory];
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 /**
@@ -231,17 +249,17 @@ static NSString *ID = @"YYHTopicCell";
  手指离开屏幕时调用
 
  */
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    //当下拉偏移量
-    CGFloat headerOffsetY = -(self.tableView.contentInset.top + YYHHeaderViewHeight);
-
-    //当headerRefreshLabel完全显示时, 表示需要刷新数据
-    if (self.tableView.contentOffset.y <= headerOffsetY) {
-
-        [self headerStartRefresh];
-    }
-
-}
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+//    //当下拉偏移量
+//    CGFloat headerOffsetY = -(self.tableView.contentInset.top + YYHHeaderViewHeight);
+//
+//    //当headerRefreshLabel完全显示时, 表示需要刷新数据
+//    if (self.tableView.contentOffset.y <= headerOffsetY) {
+//
+//        [self headerStartRefresh];
+//    }
+//
+//}
 #pragma mark - -------tableView代理方法--------------
 
 /**
@@ -335,13 +353,15 @@ static NSString *ID = @"YYHTopicCell";
         //拿到数据后需要刷新
         [self.tableView reloadData];
 
-        [self headerFinishRefresh];
+//        [self headerFinishRefresh];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
         //弹出提示框
         [SVProgressHUD showErrorWithStatus:@"网络不给力, 请稍后再试!"];
         //无论返回失败或是成功, 都需要结束刷新.
-        [self headerFinishRefresh];
+//        [self headerFinishRefresh];
+        [self.tableView.mj_header endRefreshing];
     }];
 
 //    self.dataCount = 20;
@@ -405,13 +425,17 @@ static NSString *ID = @"YYHTopicCell";
 
 
         //结束footer的刷新
-        [self footerFinishRefresh];
+//        [self footerFinishRefresh];
+
+        [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
         NSLog(@"%@", error);
         [SVProgressHUD showErrorWithStatus:@"网络不给力, 请稍后再试!"];
         //结束footer的刷新
-        [self footerFinishRefresh];
+//        [self footerFinishRefresh];
+
+        [self.tableView.mj_footer endRefreshing];
 
 
     }];
@@ -419,69 +443,69 @@ static NSString *ID = @"YYHTopicCell";
     
 }
 #pragma mark - header开始刷新, 结束刷新
-- (void)headerStartRefresh{
-
-    //如果正在刷新就返回
-    if(self.headerRefreshing) return;
-    if(self.footerRefreshing) return;
-
-    self.headerRefreshLabel.text = @"正在刷新..";
-
-    //使用一个属性来记录当前的刷新状态, 如果已经是刷新状态, 就不需要将下拉刷新时的标题改为...
-    self.headerRefreshing = YES;
-    //修改tableView内边距, 使headerRefreshLabel停留值数据返回
-    [UIView animateWithDuration:0.4 animations:^{
-
-        UIEdgeInsets topInsets = self.tableView.contentInset;
-        topInsets.top += YYHHeaderViewHeight;
-        self.tableView.contentInset = topInsets;
-
-        //当下拉刷新时,特别是通过点击tabBarButton或titleButton时的刷新, 需要修改tableView的内容偏移量为能够使headerRefreshLabel显示的值, 
-        self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, -(self.tableView.contentInset.top));
-
-    }];
-
-    //获取最新数据
-    [self getNewData];
-
-
-
-}
-- (void)headerFinishRefresh{
-    //
-    self.headerRefreshing = NO;
-    UIEdgeInsets topInsets = self.tableView.contentInset;
-    topInsets.top -= YYHHeaderViewHeight;
-    self.tableView.contentInset = topInsets;
-
-}
-#pragma mark - footer开始刷新, 结束刷新
-- (void)footerStartRefresh{
-    //如果已经在刷新了就返回
-    if(self.footerRefreshing) return;
-    if(self.headerRefreshing) return;
-
-
-
-
-    NSLog(@"刷新数据");
-    self.footerRefreshing = YES;
-    //更改Label文字
-    self.footerRefreshLabel.text = @"正在加载更多...";
-
-    [self getMoreData];
-
-}
-- (void)footerFinishRefresh{
-    //            [view stopAnimating];
-    self.footerRefreshing = NO;
-    self.footerRefreshLabel.text = @"上拉加载更多";
-//    self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight);
-//    [UIView animateWithDuration:0.6 animations:^{
-//        self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight);
+//- (void)headerStartRefresh{
+//
+//    //如果正在刷新就返回
+//    if(self.headerRefreshing) return;
+//    if(self.footerRefreshing) return;
+//
+//    self.headerRefreshLabel.text = @"正在刷新..";
+//
+//    //使用一个属性来记录当前的刷新状态, 如果已经是刷新状态, 就不需要将下拉刷新时的标题改为...
+//    self.headerRefreshing = YES;
+//    //修改tableView内边距, 使headerRefreshLabel停留值数据返回
+//    [UIView animateWithDuration:0.4 animations:^{
+//
+//        UIEdgeInsets topInsets = self.tableView.contentInset;
+//        topInsets.top += YYHHeaderViewHeight;
+//        self.tableView.contentInset = topInsets;
+//
+//        //当下拉刷新时,特别是通过点击tabBarButton或titleButton时的刷新, 需要修改tableView的内容偏移量为能够使headerRefreshLabel显示的值, 
+//        self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, -(self.tableView.contentInset.top));
+//
 //    }];
-
-}
+//
+//    //获取最新数据
+//    [self getNewData];
+//
+//
+//
+//}
+//- (void)headerFinishRefresh{
+//    //
+//    self.headerRefreshing = NO;
+//    UIEdgeInsets topInsets = self.tableView.contentInset;
+//    topInsets.top -= YYHHeaderViewHeight;
+//    self.tableView.contentInset = topInsets;
+//
+//}
+#pragma mark - footer开始刷新, 结束刷新
+//- (void)footerStartRefresh{
+//    //如果已经在刷新了就返回
+//    if(self.footerRefreshing) return;
+//    if(self.headerRefreshing) return;
+//
+//
+//
+//
+//    NSLog(@"刷新数据");
+//    self.footerRefreshing = YES;
+//    //更改Label文字
+//    self.footerRefreshLabel.text = @"正在加载更多...";
+//
+//    [self getMoreData];
+//
+//}
+//- (void)footerFinishRefresh{
+//    //            [view stopAnimating];
+//    self.footerRefreshing = NO;
+//    self.footerRefreshLabel.text = @"上拉加载更多";
+////    self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight);
+////    [UIView animateWithDuration:0.6 animations:^{
+////        self.tableView.contentOffset = CGPointMake(self.tableView.contentOffset.x, self.tableView.contentSize.height + self.tableView.contentInset.bottom - self.tableView.yyh_height - YYHFooterViewHeight);
+////    }];
+//
+//}
 #pragma mark - ----监听按钮点击-----
 - (void)tabBarButtonDoubleClick{
 
@@ -489,8 +513,9 @@ static NSString *ID = @"YYHTopicCell";
 
     if (self.tableView.scrollsToTop == NO) return;
 
-    [self headerStartRefresh];
-    NSLog(@"%@刷新数据%s", self.class, __func__);
+//    [self headerStartRefresh];
+    [self.tableView.mj_header beginRefreshing];
+
 
 }
 /**
@@ -504,7 +529,9 @@ static NSString *ID = @"YYHTopicCell";
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.footerView.hidden = self.topcisArray.count == 0;
+//    self.footerView.hidden = self.topcisArray.count == 0;
+    // 根据数据量显示或者隐藏footer
+    self.tableView.mj_footer.hidden = (self.topcisArray.count == 0);
     return self.topcisArray.count;
 }
 
