@@ -13,6 +13,8 @@
 		A5818FDA1EAF4E4D001640BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5818FD81EAF4E4D001640BC /* Main.storyboard */; };
 		A5818FDC1EAF4E4D001640BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5818FDB1EAF4E4D001640BC /* Assets.xcassets */; };
 		A5818FDF1EAF4E4D001640BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5818FDD1EAF4E4D001640BC /* LaunchScreen.storyboard */; };
+		A5818FE91EAF5398001640BC /* YYHReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5818FE71EAF5398001640BC /* YYHReuseCollectionViewCell.m */; };
+		A5818FEA1EAF5398001640BC /* YYHReuseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5818FE81EAF5398001640BC /* YYHReuseCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		A5818FDB1EAF4E4D001640BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5818FDE1EAF4E4D001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5818FE01EAF4E4D001640BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5818FE61EAF5398001640BC /* YYHReuseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHReuseCollectionViewCell.h; sourceTree = "<group>"; };
+		A5818FE71EAF5398001640BC /* YYHReuseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHReuseCollectionViewCell.m; sourceTree = "<group>"; };
+		A5818FE81EAF5398001640BC /* YYHReuseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YYHReuseCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,9 @@
 				A5818FD31EAF4E4D001640BC /* AppDelegate.m */,
 				A5818FD51EAF4E4D001640BC /* ViewController.h */,
 				A5818FD61EAF4E4D001640BC /* ViewController.m */,
+				A5818FE61EAF5398001640BC /* YYHReuseCollectionViewCell.h */,
+				A5818FE71EAF5398001640BC /* YYHReuseCollectionViewCell.m */,
+				A5818FE81EAF5398001640BC /* YYHReuseCollectionViewCell.xib */,
 				A5818FD81EAF4E4D001640BC /* Main.storyboard */,
 				A5818FDB1EAF4E4D001640BC /* Assets.xcassets */,
 				A5818FDD1EAF4E4D001640BC /* LaunchScreen.storyboard */,
@@ -137,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5818FEA1EAF5398001640BC /* YYHReuseCollectionViewCell.xib in Resources */,
 				A5818FDF1EAF4E4D001640BC /* LaunchScreen.storyboard in Resources */,
 				A5818FDC1EAF4E4D001640BC /* Assets.xcassets in Resources */,
 				A5818FDA1EAF4E4D001640BC /* Main.storyboard in Resources */,
@@ -150,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5818FE91EAF5398001640BC /* YYHReuseCollectionViewCell.m in Sources */,
 				A5818FD71EAF4E4D001640BC /* ViewController.m in Sources */,
 				A5818FD41EAF4E4D001640BC /* AppDelegate.m in Sources */,
 				A5818FD11EAF4E4D001640BC /* main.m in Sources */,
@@ -307,6 +317,7 @@
 				A5818FE51EAF4E4D001640BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
