@@ -48,7 +48,7 @@
  */
 - (UIColor *)placeHolderColor{
 
-    return objc_getAssociatedObject(self, "placeholderLabel");
+    return objc_getAssociatedObject(self, "placeHolderColor");
 }
 
 //提供一个方法(yyh_setPlaceHolder:)用于交换系统的setPlaceHolder:, 该方法需要实现setPlaceHolder: 与setPlaceHolderColor

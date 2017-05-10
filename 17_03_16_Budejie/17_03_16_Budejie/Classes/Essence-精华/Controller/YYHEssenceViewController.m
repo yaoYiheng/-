@@ -188,7 +188,7 @@
     self.scrollView = scrollView;
 
     //添加所有子控制器的view到scrollView
-    [self configureChildrenViews];
+//    [self configureChildrenViews];
 
     [self.view addSubview:scrollView];
 

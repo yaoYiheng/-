@@ -8,8 +8,10 @@
 
 #import "YYHFriendViewController.h"
 #import "YYHLogNRegisterViewController.h"
+#import "UITextField+YYHPlaceHolderColor.h"
 
 @interface YYHFriendViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -18,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.textField.placeHolderColor = [UIColor cyanColor];
+    self.textField.placeholder = @"请输入???>>><<";
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] hightligtedImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] Target:self action:@selector(test)];
 
