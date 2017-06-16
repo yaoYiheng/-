@@ -67,7 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self test1];
+    [self test4];
     self.webView.delegate = self;
 }
 
@@ -106,7 +106,7 @@
  */
 -(void)test4
 {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"text.html" withExtension:nil];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"免责声明.htm" withExtension:nil];
 
     //加载网页
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];

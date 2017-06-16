@@ -48,15 +48,15 @@
     video.title = @"视频";
     [self addChildViewController:video];
 
-//    //社会
-//    SocietyViewController *soci = [SocietyViewController new];
-//    soci.title = @"社会";
-//    [self addChildViewController:soci];
-//
-//    //订阅
-//    ReaderViewController *reader = [ReaderViewController new];
-//    reader.title = @"订阅";
-//    [self addChildViewController:reader];
+    //社会
+    SocietyViewController *soci = [SocietyViewController new];
+    soci.title = @"社会";
+    [self addChildViewController:soci];
+
+    //订阅
+    ReaderViewController *reader = [ReaderViewController new];
+    reader.title = @"订阅";
+    [self addChildViewController:reader];
 
     //科技
     ScienceViewController *sci = [ScienceViewController new];

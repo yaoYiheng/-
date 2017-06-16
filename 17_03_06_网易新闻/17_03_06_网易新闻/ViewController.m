@@ -267,7 +267,7 @@
     UIScrollView *titleScrollView = [[UIScrollView alloc] init];
     //根据NavigationBar来决定y
     CGFloat scrollViewY = self.navigationController.navigationBar? 64 :20;
-    titleScrollView.frame = CGRectMake(0, scrollViewY, self.view.bounds.size.width, 44);
+    titleScrollView.frame = CGRectMake(0, 500, self.view.bounds.size.width, 44);
     titleScrollView.backgroundColor = [UIColor grayColor];
 
     [self.view addSubview:titleScrollView];

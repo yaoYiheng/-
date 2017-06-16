@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A52FF43E1EE4148300CBFD17 /* 免责声明.htm in Resources */ = {isa = PBXBuildFile; fileRef = A52FF43D1EE4148300CBFD17 /* 免责声明.htm */; };
 		A5DE89E11E618A8800340FCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE89E01E618A8800340FCF /* main.m */; };
 		A5DE89E41E618A8800340FCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE89E31E618A8800340FCF /* AppDelegate.m */; };
 		A5DE89E71E618A8800340FCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DE89E61E618A8800340FCF /* ViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A52FF43D1EE4148300CBFD17 /* 免责声明.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "免责声明.htm"; sourceTree = "<group>"; };
 		A5DE89DC1E618A8800340FCF /* 17_02_25_UIWebView基本使用.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "17_02_25_UIWebView基本使用.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DE89E01E618A8800340FCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5DE89E21E618A8800340FCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				A5DE89E21E618A8800340FCF /* AppDelegate.h */,
 				A5DE89E31E618A8800340FCF /* AppDelegate.m */,
 				A5DE89E51E618A8800340FCF /* ViewController.h */,
+				A52FF43D1EE4148300CBFD17 /* 免责声明.htm */,
 				A5DE89E61E618A8800340FCF /* ViewController.m */,
 				A5DE89E81E618A8800340FCF /* Main.storyboard */,
 				A5DE89EB1E618A8800340FCF /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				A5DE89EF1E618A8800340FCF /* LaunchScreen.storyboard in Resources */,
 				A5DE89F71E61944A00340FCF /* text.html in Resources */,
+				A52FF43E1EE4148300CBFD17 /* 免责声明.htm in Resources */,
 				A5DE89EC1E618A8800340FCF /* Assets.xcassets in Resources */,
 				A5DE89EA1E618A8800340FCF /* Main.storyboard in Resources */,
 			);
@@ -311,6 +315,7 @@
 				A5DE89F51E618A8800340FCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
